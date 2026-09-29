@@ -269,6 +269,58 @@ def _mutate_rc11_invalid_app_schema(app_dir: Path) -> None:
     )
 
 
+# ---------------------------------------------------------------------------
+# Shared-code bundle / voice-output mutants (4)
+# ---------------------------------------------------------------------------
+
+
+def _mutate_bundle_persona_drift(app_dir: Path) -> None:
+    """F9: Hand-edit one agent's bundled <persona> copy (re-bolding the driver names, as happened before R5)."""
+    target = app_dir / "agents" / "race_info_agent" / "instruction.txt"
+    _replace_once(
+        target,
+        "George Russell in car 63 and Kimi Antonelli in car 12",
+        "**George Russell** `#63` and **Kimi Antonelli** `#12`",
+    )
+
+
+def _mutate_bundle_openf1_helper_drift(app_dir: Path) -> None:
+    """F9: Change the bundled OpenF1 HTTP helper in only one of the two tools (timeout 2s -> 30s)."""
+    target = app_dir / "tools" / "get_driver_standings" / "python_function" / "python_code.py"
+    _replace_once(
+        target,
+        "    with urllib.request.urlopen(req, timeout=2) as resp:\n",
+        "    with urllib.request.urlopen(req, timeout=30) as resp:\n",
+    )
+
+
+def _mutate_voice_guidelines_dropped(app_dir: Path) -> None:
+    """F10 / RC-06: Delete the shared voice <guidelines> block from global_instruction.txt."""
+    target = app_dir / "global_instruction.txt"
+    text = target.read_text(encoding="utf-8")
+    start, end = text.find("<guidelines>"), text.find("</guidelines>")
+    if start < 0 or end < start:
+        raise ValueError(f"Expected <guidelines> block in {target}")
+    target.write_text(text[:start] + text[end + len("</guidelines>") :], encoding="utf-8")
+
+
+def _mutate_voice_sanitizer_noop(app_dir: Path) -> None:
+    """F10 / RC-07: Short-circuit merch_support_agent's voice_sanitizer after_model_callback."""
+    target = (
+        app_dir
+        / "agents"
+        / "merch_support_agent"
+        / "after_model_callbacks"
+        / "voice_sanitizer"
+        / "python_code.py"
+    )
+    _replace_once(
+        target,
+        ") -> Optional[LlmResponse]:\n    try:\n",
+        ") -> Optional[LlmResponse]:\n    return None\n    try:\n",
+    )
+
+
 MUTANT_SPECS: tuple[MutantSpec, ...] = (
     # Tools (5)
     MutantSpec(
@@ -386,6 +438,43 @@ MUTANT_SPECS: tuple[MutantSpec, ...] = (
         layers_to_run=("lint", "config"),
         description="Add unknownInvalidSchemaField and broken rootAgent to app.json and reference nonexistent_ghost_tool in totto_root_agent instruction.",
         mutate=_mutate_rc11_invalid_app_schema,
+    ),
+    # Shared-code bundle / voice output (4)
+    MutantSpec(
+        mutant_id="mutant_bundle_persona_drift",
+        category="config",
+        taxonomy_ids=("F9",),
+        target_files=("agents/race_info_agent/instruction.txt",),
+        layers_to_run=("config",),
+        description="Hand-edit race_info_agent's bundled <persona> copy (bold driver names + #63/#12) so it drifts from lib/shared_prompts/persona.txt.",
+        mutate=_mutate_bundle_persona_drift,
+    ),
+    MutantSpec(
+        mutant_id="mutant_bundle_openf1_helper_drift",
+        category="tools",
+        taxonomy_ids=("F9", "TB-1"),
+        target_files=("tools/get_driver_standings/python_function/python_code.py",),
+        layers_to_run=("config", "tools"),
+        description="Change the bundled OpenF1 HTTP helper timeout (2s -> 30s) in get_driver_standings only, so the copy drifts from lib/shared_python/openf1_http.py.",
+        mutate=_mutate_bundle_openf1_helper_drift,
+    ),
+    MutantSpec(
+        mutant_id="mutant_voice_guidelines_dropped",
+        category="config",
+        taxonomy_ids=("F10", "RC-06", "RC-07", "NEW-2"),
+        target_files=("global_instruction.txt",),
+        layers_to_run=("config",),
+        description="Delete the shared voice <guidelines> block (plain text, no raw URLs, 2-3 sentence budget, spoken numbers) from global_instruction.txt.",
+        mutate=_mutate_voice_guidelines_dropped,
+    ),
+    MutantSpec(
+        mutant_id="mutant_voice_sanitizer_noop",
+        category="callbacks",
+        taxonomy_ids=("F10", "RC-06", "RC-07"),
+        target_files=("agents/merch_support_agent/after_model_callbacks/voice_sanitizer/python_code.py",),
+        layers_to_run=("callbacks", "config"),
+        description="Make merch_support_agent's voice_sanitizer after_model_callback return None before cleaning, so markdown/emoji/https:// reach TTS.",
+        mutate=_mutate_voice_sanitizer_noop,
     ),
 )
 

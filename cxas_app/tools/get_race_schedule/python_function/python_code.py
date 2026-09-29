@@ -11,8 +11,6 @@ import urllib.request
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError, available_timezones
 
 
-OPENF1_BASE_URL = "https://api.openf1.org/v1"
-
 PRIMARY_IANA_PREFIXES = (
     "Africa/",
     "America/",
@@ -784,6 +782,15 @@ def get_race_schedule(
     }
 
 
+# >>> BEGIN SHARED openf1_http: generated from lib/shared_python/openf1_http.py by scripts/bundle_shared_imports.py. Edit the lib/ file, not this copy. <<<
+# Shared OpenF1 HTTP helpers used by the get_race_schedule and get_driver_standings tools.
+# CXAS runs each tool as one self-contained file, so scripts/bundle_shared_imports.py copies
+# this fragment verbatim between the "SHARED openf1_http" markers of both tools.
+# The host file must import: json, sys, urllib.request and typing.Any.
+
+OPENF1_BASE_URL = "https://api.openf1.org/v1"
+
+
 def _get_cache() -> dict[str, Any]:
     cache = getattr(sys, "_totto_openf1_cache", None)
     if not isinstance(cache, dict):
@@ -809,6 +816,7 @@ def _fetch_openf1_json(endpoint: str) -> list[dict[str, Any]]:
         cache[cache_key] = parsed
         return parsed
     return []
+# >>> END SHARED openf1_http <<<
 
 
 def _build_fallback_calendar() -> tuple[list[dict[str, Any]], dict[int, list[dict[str, Any]]]]:

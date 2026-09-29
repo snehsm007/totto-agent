@@ -14,5 +14,11 @@
       "pythonCode": "agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
       "description": "Persists resolved user_timezone and user_location into session state after get_race_schedule."
     }
+  ],
+  "afterModelCallbacks": [
+    {
+      "pythonCode": "agents/race_info_agent/after_model_callbacks/voice_sanitizer/python_code.py",
+      "description": "Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, see lib/shared_python/voice_sanitizer.py)."
+    }
   ]
 }

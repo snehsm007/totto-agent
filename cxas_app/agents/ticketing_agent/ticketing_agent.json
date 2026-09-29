@@ -7,5 +7,11 @@
     "get_official_links",
     "get_race_schedule",
     "end_session"
+  ],
+  "afterModelCallbacks": [
+    {
+      "pythonCode": "agents/ticketing_agent/after_model_callbacks/voice_sanitizer/python_code.py",
+      "description": "Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, see lib/shared_python/voice_sanitizer.py)."
+    }
   ]
 }

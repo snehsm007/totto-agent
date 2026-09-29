@@ -14,5 +14,11 @@
       "pythonCode": "agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
       "description": "Persists looked-up order_id and is_mock_mode flag into session state after lookup_mock_merch_order."
     }
+  ],
+  "afterModelCallbacks": [
+    {
+      "pythonCode": "agents/merch_support_agent/after_model_callbacks/voice_sanitizer/python_code.py",
+      "description": "Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, see lib/shared_python/voice_sanitizer.py)."
+    }
   ]
 }

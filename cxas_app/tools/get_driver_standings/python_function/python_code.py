@@ -7,8 +7,6 @@ import urllib.error
 import urllib.request
 
 
-OPENF1_BASE_URL = "https://api.openf1.org/v1"
-
 CATEGORY_ALIASES: dict[str, str] = {
     "all": "all",
     "both": "all",
@@ -320,20 +318,21 @@ def get_driver_standings(
     }
 
 
+# >>> BEGIN SHARED openf1_http: generated from lib/shared_python/openf1_http.py by scripts/bundle_shared_imports.py. Edit the lib/ file, not this copy. <<<
+# Shared OpenF1 HTTP helpers used by the get_race_schedule and get_driver_standings tools.
+# CXAS runs each tool as one self-contained file, so scripts/bundle_shared_imports.py copies
+# this fragment verbatim between the "SHARED openf1_http" markers of both tools.
+# The host file must import: json, sys, urllib.request and typing.Any.
+
+OPENF1_BASE_URL = "https://api.openf1.org/v1"
+
+
 def _get_cache() -> dict[str, Any]:
     cache = getattr(sys, "_totto_openf1_cache", None)
     if not isinstance(cache, dict):
         cache = {}
         setattr(sys, "_totto_openf1_cache", cache)
     return cache
-
-
-def _clean_points(val: Any) -> int | float:
-    try:
-        flt = float(val)
-        return int(flt) if flt.is_integer() else flt
-    except (TypeError, ValueError):
-        return 0
 
 
 def _fetch_openf1_json(endpoint: str) -> list[dict[str, Any]]:
@@ -353,6 +352,15 @@ def _fetch_openf1_json(endpoint: str) -> list[dict[str, Any]]:
         cache[cache_key] = parsed
         return parsed
     return []
+# >>> END SHARED openf1_http <<<
+
+
+def _clean_points(val: Any) -> int | float:
+    try:
+        flt = float(val)
+        return int(flt) if flt.is_integer() else flt
+    except (TypeError, ValueError):
+        return 0
 
 
 def _format_driver_full_name(raw_driver: dict[str, Any], driver_num: int) -> tuple[str, str]:

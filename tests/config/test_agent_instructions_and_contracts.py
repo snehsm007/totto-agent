@@ -135,6 +135,54 @@ def test_global_instruction_forbids_emojis_and_markdown_for_tts(agent_dir: Path)
     )
 
 
+@pytest.mark.finding("RC-06", "RC-07", "NEW-2")
+def test_global_voice_guidelines_cover_urls_length_and_spoken_numbers(agent_dir: Path) -> None:
+    """The shared <guidelines> voice block tells every agent how a reply must sound when spoken."""
+    global_inst = (agent_dir / "global_instruction.txt").read_text(encoding="utf-8")
+    match = re.search(r"<guidelines>(.*?)</guidelines>", global_inst, re.DOTALL)
+    assert match, "global_instruction.txt has no <guidelines> voice block"
+    block = match.group(1).lower()
+    assert "voice guidelines" in block and "text-to-speech" in block
+    # Plain text: no markdown, lists or emoji.
+    assert re.search(r"never use markdown[^.\n]*bullet points[^.\n]*emojis", block)
+    # URLs: no http/www prefix or markdown links, name the site and give only the short address.
+    assert re.search(r"never write a web address with its http or www prefix", block)
+    assert "never use markdown links" in block
+    for short in ("shop.mercedesamgf1.com", "tickets.formula1.com", "mercedesamgf1.com"):
+        assert f" {short}" in block, f"voice guidelines lack the short address example {short}"
+    # Spoken length budget.
+    assert "2 or 3 short sentences" in block and "300 characters" in block
+    # Numbers and dates spoken naturally, no symbols read aloud.
+    assert "p4" in block and "hash sign" in block and "exact times returned by the tool" in block
+
+
+# Markdown or symbols inside a prompt prime the model to answer the same way (RC-06/RC-07):
+# the same patterns totto_suite's tts_unfriendly grader flags in agent replies.
+_PROMPT_TTS_PATTERNS = {
+    "bold": re.compile(r"\*\*[^*\n]+\*\*|__[^_\n]+__"),
+    "inline_code": re.compile(r"`[^`\n]+`"),
+    "heading": re.compile(r"(?m)^\s{0,3}#{1,6}\s+\S"),
+    "bullet": re.compile(r"(?m)^\s*[*\-\u2022]\s+\S"),
+    "raw_url": re.compile(r"https?://\S+"),
+    "hash_number": re.compile(r"#\d+"),
+}
+
+
+@pytest.mark.finding("RC-06", "RC-07", "NEW-2")
+def test_instruction_files_are_plain_prose_without_markdown_or_raw_urls(agent_dir: Path) -> None:
+    paths = [agent_dir / "global_instruction.txt"] + [
+        agent_dir / "agents" / a / "instruction.txt" for a in EXPECTED_AGENTS
+    ]
+    problems = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8")
+        for kind, rx in _PROMPT_TTS_PATTERNS.items():
+            m = rx.search(text)
+            if m:
+                problems.append(f"{path.relative_to(agent_dir)}: {kind} {m.group(0)[:40]!r}")
+    assert not problems, "instruction files contain TTS-unfriendly formatting: " + "; ".join(problems)
+
+
 @pytest.mark.finding("NEW-3")
 def test_global_or_root_instruction_enforces_pci_credit_card_refusal(agent_dir: Path) -> None:
     """Root/global instructions must enforce PCI credit-card refusal so card numbers are never echoed."""
@@ -168,10 +216,17 @@ def test_all_agents_cover_no_live_human_escalation_policy(agent_dir: Path) -> No
     )
 
 
-def test_callbacks_synced_with_shared_imports() -> None:
-    """Verify agent callbacks are in sync withshared/ via bundle_shared_imports.py --check."""
+@pytest.mark.finding("TR-02", "TR-05")
+def test_shared_regions_in_sync_with_lib(agent_dir: Path) -> None:
+    """Every bundled copy (persona, OpenF1 helpers, voice sanitizer) in the app under test matches lib/."""
     proc = subprocess.run(
-        [sys.executable, str(REPO_ROOT / "scripts" / "bundle_shared_imports.py"), "--check"],
+        [
+            sys.executable,
+            str(REPO_ROOT / "scripts" / "bundle_shared_imports.py"),
+            "--check",
+            "--app-dir",
+            str(agent_dir),
+        ],
         cwd=str(REPO_ROOT),
         capture_output=True,
         text=True,
