@@ -1,0 +1,277 @@
+{
+  "name": "probe_handoff_memory_tokyo",
+  "run": 2,
+  "session_id": "b0db568f-422a-4a03-8ede-796e401c8e01",
+  "conversation_name": "conversations/b0db568f-422a-4a03-8ede-796e401c8e01",
+  "passed": true,
+  "duration_s": 12.67,
+  "quota_wait_s": 30.0,
+  "turn_count": 5,
+  "turns": [
+    {
+      "user": "<welcome>",
+      "agent": [
+        "Hello! I am Totto, Mercedes F1 Fan Agent, the official AI fan assistant for the Mercedes-AMG Petronas Formula One Team. It is great to have you here in the garage, so how can I help you cheer on George Russell and Kimi Antonelli today?"
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 1.51,
+      "session_ended": false
+    },
+    {
+      "user": "Hi Totto! Quick heads-up, I'm watching from Tokyo.",
+      "agent": [
+        "It is wonderful to have a fan joining us all the way from Tokyo! I have noted your location, and I am ready to help you keep up with George Russell and Kimi Antonelli from Japan. What is on your mind regarding the Silver Arrows today?"
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 1.44,
+      "session_ended": false
+    },
+    {
+      "user": "When is the next race?",
+      "agent": [
+        "The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit from October 2nd to October 4th. For you in Tokyo, qualifying is on Saturday at 5 PM and the race starts on Sunday at 4 PM. Would you like the practice session times or the weather outlook for the weekend?"
+      ],
+      "tools": [
+        {
+          "name": "get_race_schedule",
+          "args": {
+            "user_timezone": "Asia/Tokyo",
+            "race_query": "next"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "get_race_schedule",
+          "response": {
+            "needs_timezone_clarification": false,
+            "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+            "circuit": "Sepang International Circuit",
+            "meeting_key": 1308.0,
+            "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+            "user_timezone_resolved": "Asia/Tokyo",
+            "mercedes_highlights": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+            "circuit_name": "Sepang International Circuit",
+            "_fake": true,
+            "round": 16.0,
+            "race_name": "Bahrain Grand Prix",
+            "season": 2026.0,
+            "typical_weather": {
+              "condition": "Typical seasonal conditions for this circuit (fixture, not a forecast)",
+              "source": "typical_circuit_climate_profile"
+            },
+            "is_completed": false,
+            "meeting_state": "upcoming",
+            "sessions": [
+              {
+                "utc_time": "2026-10-02 04:30 UTC",
+                "timezone_label": "JST (Tokyo)",
+                "session": "Practice 1",
+                "day": "Friday",
+                "time_utc": "04:30 UTC",
+                "local_time": "13:30 JST (Tokyo)",
+                "local_day": "Friday",
+                "date_utc": "2026-10-02"
+              },
+              {
+                "utc_time": "2026-10-03 08:00 UTC",
+                "timezone_label": "JST (Tokyo)",
+                "session": "Qualifying",
+                "day": "Saturday",
+                "time_utc": "08:00 UTC",
+                "local_time": "17:00 JST (Tokyo)",
+                "local_day": "Saturday",
+                "date_utc": "2026-10-03"
+              },
+              {
+                "utc_time": "2026-10-04 07:00 UTC",
+                "timezone_label": "JST (Tokyo)",
+                "session": "Race",
+                "day": "Sunday",
+                "time_utc": "07:00 UTC",
+                "local_time": "16:00 JST (Tokyo)",
+                "local_day": "Sunday",
+                "date_utc": "2026-10-04"
+              }
+            ],
+            "fake_source": "FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)",
+            "location": "Kuala Lumpur, Bahrain",
+            "timezone_requested": "Asia/Tokyo",
+            "data_source": "OpenF1 API (2026 Season Snapshot)",
+            "status": "success",
+            "dates": "October 2 - October 4, 2026",
+            "timezone_resolved": "Asia/Tokyo"
+          }
+        }
+      ],
+      "transfer": "race_info_agent",
+      "latency_s": 3.44,
+      "session_ended": false
+    },
+    {
+      "user": "Actually, can you check my merch order 1002?",
+      "agent": [
+        "In our simulated demo system, order 1002 for your Mercedes-AMG Petronas F1 Team Gear is currently in transit with DHL Express. Your tracking number is DHL-MB-984210. This item is eligible for a return or exchange within 30 days at the official store, shop.mercedesamgf1.com."
+      ],
+      "tools": [
+        {
+          "name": "lookup_mock_merch_order",
+          "args": {
+            "order_id": "1002"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "lookup_mock_merch_order",
+          "response": {
+            "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only.",
+            "is_mock": true,
+            "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+            "found": true,
+            "order": {
+              "order_id": "1002",
+              "is_mock": true,
+              "tracking_number": "DHL-MB-984210",
+              "item": "Mercedes-AMG Petronas F1 Team Gear",
+              "carrier": "DHL Express",
+              "status": "In Transit",
+              "return_eligible": true,
+              "is_mock_data": true
+            },
+            "order_id": "1002",
+            "fake_source": "FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)",
+            "status": "success",
+            "_fake": true,
+            "is_mock_data": true
+          }
+        }
+      ],
+      "transfer": "merch_support_agent",
+      "latency_s": 3.9,
+      "session_ended": false
+    },
+    {
+      "user": "Great. And what time does qualifying start for me?",
+      "agent": [
+        "For the Bahrain Grand Prix, qualifying starts for you in Tokyo on Saturday the 3rd of October at 5 PM JST. The race will follow on Sunday at 4 PM JST. Would you like the practice session times or the weather outlook for the weekend?"
+      ],
+      "tools": [
+        {
+          "name": "get_race_schedule",
+          "args": {
+            "user_timezone": "Asia/Tokyo",
+            "race_query": "next"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "get_race_schedule",
+          "response": {
+            "needs_timezone_clarification": false,
+            "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+            "circuit": "Sepang International Circuit",
+            "meeting_key": 1308.0,
+            "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+            "user_timezone_resolved": "Asia/Tokyo",
+            "mercedes_highlights": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+            "circuit_name": "Sepang International Circuit",
+            "_fake": true,
+            "round": 16.0,
+            "race_name": "Bahrain Grand Prix",
+            "season": 2026.0,
+            "typical_weather": {
+              "condition": "Typical seasonal conditions for this circuit (fixture, not a forecast)",
+              "source": "typical_circuit_climate_profile"
+            },
+            "is_completed": false,
+            "meeting_state": "upcoming",
+            "sessions": [
+              {
+                "utc_time": "2026-10-02 04:30 UTC",
+                "timezone_label": "JST (Tokyo)",
+                "session": "Practice 1",
+                "day": "Friday",
+                "time_utc": "04:30 UTC",
+                "local_time": "13:30 JST (Tokyo)",
+                "local_day": "Friday",
+                "date_utc": "2026-10-02"
+              },
+              {
+                "utc_time": "2026-10-03 08:00 UTC",
+                "timezone_label": "JST (Tokyo)",
+                "session": "Qualifying",
+                "day": "Saturday",
+                "time_utc": "08:00 UTC",
+                "local_time": "17:00 JST (Tokyo)",
+                "local_day": "Saturday",
+                "date_utc": "2026-10-03"
+              },
+              {
+                "utc_time": "2026-10-04 07:00 UTC",
+                "timezone_label": "JST (Tokyo)",
+                "session": "Race",
+                "day": "Sunday",
+                "time_utc": "07:00 UTC",
+                "local_time": "16:00 JST (Tokyo)",
+                "local_day": "Sunday",
+                "date_utc": "2026-10-04"
+              }
+            ],
+            "fake_source": "FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)",
+            "location": "Kuala Lumpur, Bahrain",
+            "timezone_requested": "Asia/Tokyo",
+            "data_source": "OpenF1 API (2026 Season Snapshot)",
+            "status": "success",
+            "dates": "October 2 - October 4, 2026",
+            "timezone_resolved": "Asia/Tokyo"
+          }
+        }
+      ],
+      "transfer": null,
+      "latency_s": 2.38,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: <event>welcome</event>",
+    "Agent Text: Hello! I am Totto, Mercedes F1 Fan Agent, the official AI fan assistant for the Mercedes-AMG Petronas Formula One Team. It is great to have you here in the garage, so how can I help you cheer on George Russell and Kimi Antonelli today?\nUser Query: <event>session start</event>",
+    "User: Hi Totto! Quick heads-up, I'm watching from Tokyo.",
+    "Agent Text: It is wonderful to have a fan joining us all the way from Tokyo! I have noted your location, and I am ready to help you keep up with George Russell and Kimi Antonelli from Japan. What is on your mind regarding the Silver Arrows today?\nUser Query: Hi Totto! Quick heads-up, I'm watching from Tokyo.",
+    "User: When is the next race?",
+    "Agent Text: The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit from October 2nd to October 4th. For you in Tokyo, qualifying is on Saturday at 5 PM and the race starts on Sunday at 4 PM. Would you like the practice session times or the weather outlook for the weekend?\nUser Query: When is the next race?\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'user_timezone': 'Asia/Tokyo', 'race_query': 'next'}\nTool Response: get_race_schedule with result {'needs_timezone_clarification': False, 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'circuit': 'Sepang International Circuit', 'meeting_key': 1308.0, 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'user_timezone_resolved': 'Asia/Tokyo', 'mercedes_highlights': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).\", 'circuit_name': 'Sepang International Circuit', '_fake': True, 'round': 16.0, 'race_name': 'Bahrain Grand Prix', 'season': 2026.0, 'typical_weather': {'condition': 'Typical seasonal conditions for this circuit (fixture, not a forecast)', 'source': 'typical_circuit_climate_profile'}, 'is_completed': False, 'meeting_state': 'upcoming', 'sessions': [{'utc_time': '2026-10-02 04:30 UTC', 'timezone_label': 'JST (Tokyo)', 'session': 'Practice 1', 'day': 'Friday', 'time_utc': '04:30 UTC', 'local_time': '13:30 JST (Tokyo)', 'local_day': 'Friday', 'date_utc': '2026-10-02'}, {'utc_time': '2026-10-03 08:00 UTC', 'timezone_label': 'JST (Tokyo)', 'session': 'Qualifying', 'day': 'Saturday', 'time_utc': '08:00 UTC', 'local_time': '17:00 JST (Tokyo)', 'local_day': 'Saturday', 'date_utc': '2026-10-03'}, {'utc_time': '2026-10-04 07:00 UTC', 'timezone_label': 'JST (Tokyo)', 'session': 'Race', 'day': 'Sunday', 'time_utc': '07:00 UTC', 'local_time': '16:00 JST (Tokyo)', 'local_day': 'Sunday', 'date_utc': '2026-10-04'}], 'fake_source': 'FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)', 'location': 'Kuala Lumpur, Bahrain', 'timezone_requested': 'Asia/Tokyo', 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'status': 'success', 'dates': 'October 2 - October 4, 2026', 'timezone_resolved': 'Asia/Tokyo'}",
+    "User: Actually, can you check my merch order 1002?",
+    "Agent Text: In our simulated demo system, order 1002 for your Mercedes-AMG Petronas F1 Team Gear is currently in transit with DHL Express. Your tracking number is DHL-MB-984210. This item is eligible for a return or exchange within 30 days at the official store, shop.mercedesamgf1.com.\nUser Query: Actually, can you check my merch order 1002?\nAgent Transfer: Transferred to totto_root_agent\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1002'}\nTool Response: lookup_mock_merch_order with result {'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only.', 'is_mock': True, 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'found': True, 'order': {'order_id': '1002', 'is_mock': True, 'tracking_number': 'DHL-MB-984210', 'item': 'Mercedes-AMG Petronas F1 Team Gear', 'carrier': 'DHL Express', 'status': 'In Transit', 'return_eligible': True, 'is_mock_data': True}, 'order_id': '1002', 'fake_source': 'FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)', 'status': 'success', '_fake': True, 'is_mock_data': True}",
+    "User: Great. And what time does qualifying start for me?",
+    "Agent Text: For the Bahrain Grand Prix, qualifying starts for you in Tokyo on Saturday the 3rd of October at 5 PM JST. The race will follow on Sunday at 4 PM JST. Would you like the practice session times or the weather outlook for the weekend?\nUser Query: Great. And what time does qualifying start for me?\nTool Call: get_race_schedule with args {'user_timezone': 'Asia/Tokyo', 'race_query': 'next'}\nTool Response: get_race_schedule with result {'needs_timezone_clarification': False, 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'circuit': 'Sepang International Circuit', 'meeting_key': 1308.0, 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'user_timezone_resolved': 'Asia/Tokyo', 'mercedes_highlights': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).\", 'circuit_name': 'Sepang International Circuit', '_fake': True, 'round': 16.0, 'race_name': 'Bahrain Grand Prix', 'season': 2026.0, 'typical_weather': {'condition': 'Typical seasonal conditions for this circuit (fixture, not a forecast)', 'source': 'typical_circuit_climate_profile'}, 'is_completed': False, 'meeting_state': 'upcoming', 'sessions': [{'utc_time': '2026-10-02 04:30 UTC', 'timezone_label': 'JST (Tokyo)', 'session': 'Practice 1', 'day': 'Friday', 'time_utc': '04:30 UTC', 'local_time': '13:30 JST (Tokyo)', 'local_day': 'Friday', 'date_utc': '2026-10-02'}, {'utc_time': '2026-10-03 08:00 UTC', 'timezone_label': 'JST (Tokyo)', 'session': 'Qualifying', 'day': 'Saturday', 'time_utc': '08:00 UTC', 'local_time': '17:00 JST (Tokyo)', 'local_day': 'Saturday', 'date_utc': '2026-10-03'}, {'utc_time': '2026-10-04 07:00 UTC', 'timezone_label': 'JST (Tokyo)', 'session': 'Race', 'day': 'Sunday', 'time_utc': '07:00 UTC', 'local_time': '16:00 JST (Tokyo)', 'local_day': 'Sunday', 'date_utc': '2026-10-04'}], 'fake_source': 'FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)', 'location': 'Kuala Lumpur, Bahrain', 'timezone_requested': 'Asia/Tokyo', 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'status': 'success', 'dates': 'October 2 - October 4, 2026', 'timezone_resolved': 'Asia/Tokyo'}"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "When the user asked when the next race is, the agent answered with the race details in that same turn, instead of only saying it would check or connect them and waiting for the user to speak again.",
+      "status": "Met",
+      "justification": "The agent provided the Bahrain Grand Prix name and dates immediately in its response following the user's query about the next race."
+    },
+    {
+      "expectation": "The agent gave session times converted to Tokyo / Japan time (JST) at some point, without asking the user for their location again, since the user already said they watch from Tokyo.",
+      "status": "Met",
+      "justification": "The agent correctly provided session times in JST (e.g., qualifying at 5 PM, race at 4 PM) based on the user's previously stated location of Tokyo, without asking again."
+    },
+    {
+      "expectation": "The agent reported the status of order 1002 and made clear that the order lookup is a mock / simulated demo.",
+      "status": "Met",
+      "justification": "The agent provided the correct order status ('In transit') and explicitly prefaced the response by stating, 'In our simulated demo system...'"
+    },
+    {
+      "expectation": "In the final turn, the agent gave the qualifying time in Tokyo / Japan time (JST) without asking again where the user is, remembering the Tokyo detail from the start of the conversation.",
+      "status": "Met",
+      "justification": "In the final turn, the agent correctly identified the qualifying time for the user in Tokyo (5 PM JST) without asking the user for their location again."
+    }
+  ],
+  "modality": "text",
+  "tool_mode": "fake"
+}

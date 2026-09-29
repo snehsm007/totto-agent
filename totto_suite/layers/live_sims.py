@@ -17,6 +17,7 @@ from totto_suite.live.runner import (
     run_instrumented_probe,
     save_layer_artifact,
     slugify,
+    use_tool_fakes,
     with_quota_retry,
 )
 from totto_suite.config import REPO_ROOT
@@ -99,6 +100,8 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     sim.max_retries = 6
     sim.retry_delay_base = 3
     ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    fake = use_tool_fakes(ctx)
+    tool_mode = "fake" if fake else "real"
 
     results: list[dict[str, Any]] = []
     all_artifacts: list[dict[str, Any]] = []
@@ -119,6 +122,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                         sim_user_model=FAST_SIM_MODEL,
                         eval_model=FAST_SIM_MODEL,
                         modality="text",
+                        use_tool_fakes=fake,
                     ),
                     label=f"sim[{c_name}:r{rep_idx}]",
                 )
@@ -136,6 +140,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
 
             row = dict(sim_rows[0]) if sim_rows else {"name": c_name, "run": rep_idx}
             row["run"] = rep_idx
+            row["tool_mode"] = tool_mode
             session_id = str(row.get("session_id") or "")
             row["conversation_name"] = resolve_conversation_resource(
                 app_name, session_id, ch_client=ch_client
@@ -158,6 +163,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 modality="text",
                 is_simulation=True,
             )
+            entry["tool_mode"] = tool_mode
             results.append(entry)
 
     # 2. Run scripted multi-turn probes sequentially (parallel=1)
@@ -174,6 +180,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 judge_model=FAST_SIM_MODEL,
                 now_dt=now_dt,
                 ch_client=ch_client,
+                use_tool_fakes=fake,
             )
             art_path = save_layer_artifact(
                 ctx, f"live_sims/{slugify(p_name)}_r{rep_idx}.json", row
@@ -192,6 +199,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 modality="text",
                 is_simulation=False,
             )
+            entry["tool_mode"] = tool_mode
             results.append(entry)
 
     save_layer_artifact(ctx, "live_sims/summary.json", all_artifacts)

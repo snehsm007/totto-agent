@@ -1,0 +1,86 @@
+[ci-gate] run ci-staging-demo-openf1-down-real: target=staging tool_mode=real repeats=2 layers=tools,goldens,sims model=gemini-3.0-flash-001
+[ci-gate] running live_tools ...
+[ci-gate] live_tools: 30 results in 25.5s
+[ci-gate] running live_goldens ...
+[ci-gate] live_goldens: 10 results in 74.1s
+[ci-gate] running live_sims ...
+Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
+  FAIL  sim_ac1_ac7_next_race_and_timezone_clarification (run 1/1) | goals: 1/1 | expectations: 3/4 | turns: 4 | 13.9s
+Running Simulations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  FAIL  sim_ac1_ac7_next_race_and_timezone_clarification (run 1/1) | goals: 1/1 | expectations: 3/4 | turns: 4 | 15.0s
+Running Simulations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  PASS  sim_ac2_mercedes_standings_priority (run 1/1) | goals: 1/1 | expectations: 3/3 | turns: 4 | 10.0s
+Running Simulations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  PASS  sim_ac2_mercedes_standings_priority (run 1/1) | goals: 1/1 | expectations: 3/3 | turns: 4 | 24.3s
+Running Simulations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  PASS  sim_ac5_mock_merch_order_lookup_and_damaged_item (run 1/1) | goals: 1/1 | expectations: 3/3 | turns: 4 | 10.1s
+Running Simulations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  PASS  sim_ac5_mock_merch_order_lookup_and_damaged_item (run 1/1) | goals: 1/1 | expectations: 3/3 | turns: 3 | 9.2s
+Running Simulations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  [retry] probe[probe_handoff_memory_tokyo:welcome] raised transient/quota exception (ResourceExhausted('Resource has been exhausted (e.g. check quota).')); sleeping 10s...
+  [retry] probe[probe_handoff_memory_tokyo:welcome] raised transient/quota exception (ResourceExhausted('Resource has been exhausted (e.g. check quota).')); sleeping 20s...
+  [retry] probe[probe_french_across_handoff:welcome] raised transient/quota exception (ResourceExhausted('Resource has been exhausted (e.g. check quota).')); sleeping 10s...
+  [retry] probe[probe_french_across_handoff:welcome] raised transient/quota exception (ResourceExhausted('Resource has been exhausted (e.g. check quota).')); sleeping 20s...
+[ci-gate] live_sims: 14 results in 225.6s
+
+TEST                                                            STATUS       REPEATS                TOOLS FAKE✓  PLATFORM IDS (app-relative)
+live_tools::probe_merch_order_1001                              PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::probe_merch_order_1002                              PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::probe_merch_order_1003                              PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::probe_merch_order_123456                            PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::probe_merch_order_9999                              PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::probe_rc01_official_merch_store_link                PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555554
+live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox     FAIL         FAIL                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tb1_tr09_schedule_data_source_label           PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308          PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tb3_spain_substring_collision_with_spa        PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tb3_unknown_race_moon_gp                      PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tb4_future_weather_not_labelled_forecast      PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp  PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tr10_unseen_city_auckland                     PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tr10_unseen_city_edinburgh                    PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tr10_unseen_city_mumbai                       PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tr10_unseen_city_são_paulo                    PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tr10_unseen_city_toronto                      PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::probe_tr10_unseen_city_vienna                       PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::test_get_driver_standings_category_both             PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555552
+live_tools::test_get_driver_standings_invalid_season            PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555552
+live_tools::test_get_driver_standings_mercedes_lead             PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555552
+live_tools::test_get_official_links_ticketing                   PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555554
+live_tools::test_get_race_schedule_default_utc                  FAIL         FAIL                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::test_get_race_schedule_localized_est                PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::test_get_race_schedule_sydney_aedt                  PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::test_get_race_schedule_unseen_city_toronto          PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555551
+live_tools::test_lookup_mock_merch_order_delivered_1001         PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::test_lookup_mock_merch_order_in_transit_1002        PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_tools::test_lookup_mock_merch_order_not_found_9999         PASS         PASS                   real  no     r1:tools/d1111111-2222-3333-4444-555555555553
+live_goldens::golden_ac3_mercedes_history_qualified             PASS         PASS,PASS              real  no     r1:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a | r2:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a
+live_goldens::golden_ac6_multilingual_spanish_response          PASS         PASS,PASS              real  no     r1:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a | r2:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a
+live_goldens::golden_ac8_identity_and_non_impersonation         PASS         PASS,PASS              real  no     r1:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a | r2:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a
+live_goldens::golden_ac9_brand_safe_rivalry_humor               PASS         PASS,PASS              real  no     r1:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a | r2:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a
+live_goldens::golden_official_mercedes_links                    PASS         PASS,PASS              real  no     r1:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a | r2:evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a
+live_sims::probe_french_across_handoff                          FAIL         FAIL,FAIL              real  no     r1:conversations/8c83c351-4d75-4438-b096-ad43bdd53922 | r2:conversations/d08297ba-51f4-46c3-893d-37c7456967cb
+live_sims::probe_handoff_memory_tokyo                           PASS         PASS,PASS              real  no     r1:conversations/8cf9cfef-da68-4363-8439-365bda5e44b5 | r2:conversations/cf10c1e7-e0d9-4f97-83ad-7f11ad7ffb61
+live_sims::probe_timezone_gate_sydney                           FAIL         FAIL,FAIL              real  no     r1:conversations/dc838f26-dcf4-4fa6-a611-e081072bb78a | r2:conversations/0469e914-c1da-4b65-aac9-7b96a9e2a637
+live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh        FAIL         FAIL,FAIL              real  no     r1:conversations/1a05bdb6-f023-489c-a37b-e9ed625cb8e8 | r2:conversations/00c253eb-7d06-4293-8362-835bfdf1feb0
+live_sims::sim_ac1_ac7_next_race_and_timezone_clarification     FAIL         FAIL,FAIL              real  no     r1:conversations/134777a0-adf5-4a9f-af5e-59cae76db30b | r2:conversations/c98e1f97-32ba-4e94-89c5-64f572da4c51
+live_sims::sim_ac2_mercedes_standings_priority                  PASS         PASS,PASS              real  no     r1:conversations/474e73b3-7942-460a-b91e-a30f7d666c1c | r2:conversations/7509d4e5-338b-401e-a9bf-4e2b19cc8cd7
+live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item     PASS         PASS,PASS              real  no     r1:conversations/d3fdd052-d214-4380-aff5-28f5fa8120d3 | r2:conversations/d8a2c618-b8c7-440e-bd66-8044a514b447
+
+Layers:
+  live_goldens     pass=5 fail=0 infra=0 skipped=0 pass_rate=100.0%
+  live_sims        pass=3 fail=4 infra=0 skipped=0 pass_rate=42.9%
+  live_tools       pass=28 fail=2 infra=0 skipped=0 pass_rate=93.3%
+
+evaluationRuns: evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a
+target=staging tool_mode=real fake_verified=False pass_rate=85.7% baseline=n/a duration=343.26s
+VERDICT: PASS
+  - no baseline: absolute floors only
+  - all floors met
+
+record: evals/history/runs/ci-staging-demo-openf1-down-real.json (artifacts redacted: 58 files)
+summary: /tmp/gate_demo_real.json
+verify: python -m totto_suite verify-ids --app-name <same app> --run-id ci-staging-demo-openf1-down-real
+exit=0
+[verify-ids] run_id=ci-staging-demo-openf1-down-real app_ref=staging: 54/54 test entries verified, 0 failed, 0 legacy (unverifiable placeholders); 68/68 unique platform resources fetched.
+[verify-ids] Report written: evals/history/artifacts/ci-staging-demo-openf1-down-real/verify_ids.json

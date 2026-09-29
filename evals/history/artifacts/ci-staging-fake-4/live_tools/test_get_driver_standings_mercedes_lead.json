@@ -1,0 +1,206 @@
+{
+  "name": "test_get_driver_standings_mercedes_lead",
+  "tool": "get_driver_standings",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555552",
+  "args": {
+    "season": 2026,
+    "category": "all"
+  },
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555552",
+    "response": {
+      "result": {
+        "status": "success",
+        "season": 2026,
+        "category": "all",
+        "mercedes_summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+        "summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+        "constructors": [
+          {
+            "position": 1,
+            "team": "Mercedes-AMG Petronas F1 Team",
+            "team_short_name": "Mercedes",
+            "points": 538,
+            "wins": 11,
+            "podiums": 20
+          },
+          {
+            "position": 2,
+            "team": "Scuderia Ferrari",
+            "team_short_name": "Ferrari",
+            "points": 378,
+            "wins": 2,
+            "podiums": 11
+          },
+          {
+            "position": 3,
+            "team": "McLaren Formula 1 Team",
+            "team_short_name": "McLaren",
+            "points": 306,
+            "wins": 2,
+            "podiums": 9
+          },
+          {
+            "position": 4,
+            "team": "Oracle Red Bull Racing",
+            "team_short_name": "Red Bull Racing",
+            "points": 263,
+            "wins": 2,
+            "podiums": 8
+          },
+          {
+            "position": 5,
+            "team": "Racing Bulls",
+            "team_short_name": "Racing Bulls",
+            "points": 83
+          },
+          {
+            "position": 6,
+            "team": "Alpine",
+            "team_short_name": "Alpine",
+            "points": 68
+          },
+          {
+            "position": 7,
+            "team": "Haas F1 Team",
+            "team_short_name": "Haas F1 Team",
+            "points": 27
+          },
+          {
+            "position": 8,
+            "team": "Audi",
+            "team_short_name": "Audi",
+            "points": 17
+          },
+          {
+            "position": 9,
+            "team": "Williams",
+            "team_short_name": "Williams",
+            "points": 12
+          },
+          {
+            "position": 10,
+            "team": "Aston Martin",
+            "team_short_name": "Aston Martin",
+            "points": 3
+          },
+          {
+            "position": 11,
+            "team": "Cadillac",
+            "team_short_name": "Cadillac",
+            "points": 0
+          }
+        ],
+        "mercedes_drivers": [
+          {
+            "position": 1,
+            "name": "Kimi Antonelli",
+            "number": 12,
+            "team": "Mercedes-AMG Petronas F1 Team",
+            "points": 302,
+            "wins": 8,
+            "podiums": 12
+          },
+          {
+            "position": 2,
+            "name": "George Russell",
+            "number": 63,
+            "team": "Mercedes-AMG Petronas F1 Team",
+            "points": 236,
+            "wins": 3,
+            "podiums": 8
+          }
+        ],
+        "drivers": [
+          {
+            "position": 1,
+            "name": "Kimi Antonelli",
+            "number": 12,
+            "team": "Mercedes-AMG Petronas F1 Team",
+            "points": 302,
+            "wins": 8,
+            "podiums": 12
+          },
+          {
+            "position": 2,
+            "name": "George Russell",
+            "number": 63,
+            "team": "Mercedes-AMG Petronas F1 Team",
+            "points": 236,
+            "wins": 3,
+            "podiums": 8
+          },
+          {
+            "position": 3,
+            "name": "Lewis Hamilton",
+            "number": 44,
+            "team": "Scuderia Ferrari",
+            "points": 199
+          },
+          {
+            "position": 4,
+            "name": "Lando Norris",
+            "number": 1,
+            "team": "McLaren Formula 1 Team",
+            "points": 186
+          },
+          {
+            "position": 5,
+            "name": "Charles Leclerc",
+            "number": 16,
+            "team": "Scuderia Ferrari",
+            "points": 179
+          },
+          {
+            "position": 6,
+            "name": "Max Verstappen",
+            "number": 3,
+            "team": "Oracle Red Bull Racing",
+            "points": 163
+          },
+          {
+            "position": 7,
+            "name": "Oscar Piastri",
+            "number": 81,
+            "team": "McLaren Formula 1 Team",
+            "points": 120
+          },
+          {
+            "position": 8,
+            "name": "Isack Hadjar",
+            "number": 6,
+            "team": "Oracle Red Bull Racing",
+            "points": 86
+          },
+          {
+            "position": 9,
+            "name": "Liam Lawson",
+            "number": 30,
+            "team": "Racing Bulls",
+            "points": 59
+          },
+          {
+            "position": 10,
+            "name": "Pierre Gasly",
+            "number": 10,
+            "team": "Alpine",
+            "points": 41
+          }
+        ],
+        "recent_performance": "In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.",
+        "data_source": "OpenF1 API (2026 Standings Snapshot)",
+        "freshness_disclaimer": "Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+        "agent_action": "PRESENT_MERCEDES_FIRST_STANDINGS"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "validation_errors": [],
+  "error": null,
+  "duration_ms": 700.94
+}

@@ -1,0 +1,2503 @@
+{
+  "schema_version": 1,
+  "run_id": "ci-staging-real-2",
+  "mode": "ci",
+  "started_at": "2026-09-29T22:24:10Z",
+  "finished_at": "2026-09-29T22:30:22Z",
+  "point_time": "2026-09-29T22:24:10Z",
+  "imported": false,
+  "import_source": null,
+  "agent": {
+    "commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+    "path": "cxas_app",
+    "tree_hash": "a58303b2f665abdbc5af1affdfd8f13f8d3d49a5ebfa93a37a09c908bf7252c7",
+    "dirty": true,
+    "dirty_paths_relevant": [
+      "cxas_app/agents/merch_support_agent/instruction.txt",
+      "cxas_app/agents/race_info_agent/instruction.txt",
+      "cxas_app/agents/ticketing_agent/instruction.txt",
+      "cxas_app/agents/totto_root_agent/instruction.txt",
+      "cxas_app/global_instruction.txt",
+      "cxas_app/tools/get_driver_standings/get_driver_standings.json",
+      "cxas_app/tools/get_driver_standings/tool_fake_config/code_block/python_code.py",
+      "cxas_app/tools/get_official_links/get_official_links.json",
+      "cxas_app/tools/get_official_links/tool_fake_config/code_block/python_code.py",
+      "cxas_app/tools/get_race_schedule/get_race_schedule.json",
+      "cxas_app/tools/get_race_schedule/tool_fake_config/code_block/python_code.py",
+      "cxas_app/tools/lookup_mock_merch_order/lookup_mock_merch_order.json",
+      "cxas_app/tools/lookup_mock_merch_order/tool_fake_config/code_block/python_code.py",
+      "evals/simulations/simulations.yaml",
+      "evals/tool_tests/tool_tests.yaml",
+      "tests/acceptance/test_acceptance_criteria.py",
+      "tests/live/test_live_layers.py",
+      "tests/selftest/test_ci_gate.py",
+      "tests/tools/test_tool_fakes.py",
+      "totto_suite/ci_gate.py",
+      "totto_suite/cli.py",
+      "totto_suite/config.py",
+      "totto_suite/cxasapi.py",
+      "totto_suite/fakes.py",
+      "totto_suite/gate_rule.py",
+      "totto_suite/gate_thresholds.json",
+      "totto_suite/ids.py",
+      "totto_suite/layers/live_escalation.py",
+      "totto_suite/layers/live_goldens.py",
+      "totto_suite/layers/live_safety.py",
+      "totto_suite/layers/live_sims.py",
+      "totto_suite/layers/live_tools.py",
+      "totto_suite/layers/live_turns.py",
+      "totto_suite/layers/live_voice.py",
+      "totto_suite/live/__init__.py",
+      "totto_suite/live/runner.py",
+      "totto_suite/records.py",
+      "totto_suite/trend.py",
+      "totto_suite/verify_ids.py"
+    ],
+    "dirty_paths_unrelated": [
+      "evals/history/TREND.md",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/gate_summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-fake/verify_ids.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/gate_summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/verify_ids.json",
+      "evals/history/artifacts/ci-staging-fake-1/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-fake-1/gate_summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-1/verify_ids.json",
+      "evals/history/artifacts/ci-staging-fake-2/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-fake-2/gate_summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-2/verify_ids.json",
+      "evals/history/artifacts/ci-staging-fake-3/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-fake-3/gate_summary.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-3/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-3/verify_ids.json",
+      "evals/history/artifacts/ci-staging-fake-4/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-fake-4/gate_summary.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-4/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-4/verify_ids.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-5/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-5/verify_ids.json",
+      "evals/history/artifacts/ci-staging-real-1/gate_stdout.log",
+      "evals/history/artifacts/ci-staging-real-1/gate_summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-real-1/verify_ids.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-real-2/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/index.json",
+      "evals/history/runs/ci-staging-demo-openf1-down-fake.json",
+      "evals/history/runs/ci-staging-demo-openf1-down-real.json",
+      "evals/history/runs/ci-staging-fake-1.json",
+      "evals/history/runs/ci-staging-fake-2.json",
+      "evals/history/runs/ci-staging-fake-3.json",
+      "evals/history/runs/ci-staging-fake-4.json",
+      "evals/history/runs/ci-staging-fake-5.json",
+      "evals/history/runs/ci-staging-real-1.json",
+      "evals/history/trend.html",
+      "lib/shared_prompts/persona.txt"
+    ]
+  },
+  "suite": {
+    "commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+    "dirty": true,
+    "dirty_paths": [
+      "tests/acceptance/test_acceptance_criteria.py",
+      "tests/live/test_live_layers.py",
+      "tests/selftest/test_ci_gate.py",
+      "tests/tools/test_tool_fakes.py",
+      "totto_suite/ci_gate.py",
+      "totto_suite/cli.py",
+      "totto_suite/config.py",
+      "totto_suite/cxasapi.py",
+      "totto_suite/fakes.py",
+      "totto_suite/gate_rule.py",
+      "totto_suite/gate_thresholds.json",
+      "totto_suite/ids.py",
+      "totto_suite/layers/live_escalation.py",
+      "totto_suite/layers/live_goldens.py",
+      "totto_suite/layers/live_safety.py",
+      "totto_suite/layers/live_sims.py",
+      "totto_suite/layers/live_tools.py",
+      "totto_suite/layers/live_turns.py",
+      "totto_suite/layers/live_voice.py",
+      "totto_suite/live/__init__.py",
+      "totto_suite/live/runner.py",
+      "totto_suite/records.py",
+      "totto_suite/trend.py",
+      "totto_suite/verify_ids.py"
+    ]
+  },
+  "cxas": {
+    "app": "staging",
+    "version_id": "",
+    "version_status": "draft",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-29T22:05:14.942360Z",
+    "app_etag": "N6URW23Xp37en6JzUzsx+rLXOIaXrwm+zP2qtYFORts="
+  },
+  "rationale": "ci-gate real on staging for 0f71b3aba1a3",
+  "layers": {
+    "live_goldens": {
+      "pass": 10,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "live_sims": {
+      "pass": 13,
+      "fail": 1,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.9286
+    },
+    "live_tools": {
+      "pass": 29,
+      "fail": 1,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.9667
+    }
+  },
+  "tests": [
+    {
+      "repeat": 1,
+      "duration_s": 0.54,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1001.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_1001",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 540.28,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1001.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.53,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1002.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_1002",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 530.08,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1002.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.498,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1003.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_1003",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 497.93,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_1003.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.369,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_123456.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_123456",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 369.45,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "error",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_123456.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.586,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_9999.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_9999",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 585.74,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "error",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_merch_order_9999.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.53,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_rc01_official_merch_store_link.json",
+      "judge": null,
+      "id": "live_tools::probe_rc01_official_merch_store_link",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 529.92,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_official_links",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_rc01_official_merch_store_link.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.574,
+      "message": "[TB-1] CXAS sandbox fell back to static snapshot instead of live OpenF1 API: data_source='OpenF1 API (2026 Season Snapshot)', weather_source=None",
+      "findings": [
+        "[TB-1] CXAS sandbox fell back to static snapshot instead of live OpenF1 API: data_source='OpenF1 API (2026 Season Snapshot)', weather_source=None"
+      ],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "judge": null,
+      "id": "live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+      "layer": "live_tools",
+      "status": "FAIL",
+      "duration_ms": 573.8,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": true,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.574,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "judge": null,
+      "id": "live_tools::probe_tb1_tr09_schedule_data_source_label",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 574.49,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.649,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "judge": null,
+      "id": "live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 648.74,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.676,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "judge": null,
+      "id": "live_tools::probe_tb3_spain_substring_collision_with_spa",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 676.49,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.688,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "judge": null,
+      "id": "live_tools::probe_tb3_unknown_race_moon_gp",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 687.95,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "error",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.635,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "judge": null,
+      "id": "live_tools::probe_tb4_future_weather_not_labelled_forecast",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 634.56,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.569,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "judge": null,
+      "id": "live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 569.24,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.819,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_auckland.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_auckland",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 819.04,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_auckland.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.595,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_edinburgh",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 595.35,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.557,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_mumbai",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 556.65,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.674,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_são_paulo",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 673.51,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.718,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_toronto.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_toronto",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 717.63,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_toronto.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.712,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_vienna.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_vienna",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 712.17,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/probe_tr10_unseen_city_vienna.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.632,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_category_both.json",
+      "judge": null,
+      "id": "live_tools::test_get_driver_standings_category_both",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 632.06,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_driver_standings",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_category_both.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.559,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_invalid_season.json",
+      "judge": null,
+      "id": "live_tools::test_get_driver_standings_invalid_season",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 559.13,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_driver_standings",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_invalid_season.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.768,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "judge": null,
+      "id": "live_tools::test_get_driver_standings_mercedes_lead",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 767.76,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_driver_standings",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.549,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_official_links_ticketing.json",
+      "judge": null,
+      "id": "live_tools::test_get_official_links_ticketing",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 548.65,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_official_links",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_official_links_ticketing.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 1.184,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_default_utc.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_default_utc",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 1183.98,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_default_utc.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.652,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_localized_est.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_localized_est",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 651.65,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_localized_est.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.784,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_sydney_aedt",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 784.49,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.769,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_unseen_city_toronto",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 768.96,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.625,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "judge": null,
+      "id": "live_tools::test_lookup_mock_merch_order_delivered_1001",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 624.92,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.393,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "judge": null,
+      "id": "live_tools::test_lookup_mock_merch_order_in_transit_1002",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 393.23,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.651,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "judge": null,
+      "id": "live_tools::test_lookup_mock_merch_order_not_found_9999",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 651.12,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286/results/042162b7-84c0-486c-a35c-121de486a784",
+        "conversation": "conversations/evaluation-c279f49d-e708-4bc6-96c0-5e42cee0f316",
+        "session_id": "sessions/evaluation-c279f49d-e708-4bc6-96c0-5e42cee0f316"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.387s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286/results/cb239561-a39d-4da2-b595-ef6d7f219086",
+        "conversation": "conversations/evaluation-ed887758-3d63-4977-8a01-967761f389a7",
+        "session_id": "sessions/evaluation-ed887758-3d63-4977-8a01-967761f389a7"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.264s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad/results/b1612cd6-08ae-44ef-a975-b8f1163b9e14",
+        "conversation": "conversations/evaluation-8c487c66-774f-4935-b141-5b90e1bf4c8f",
+        "session_id": "sessions/evaluation-8c487c66-774f-4935-b141-5b90e1bf4c8f"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.523s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad/results/f16320f8-43f4-430b-8ead-9a9c35fe169e",
+        "conversation": "conversations/evaluation-c4e2664f-7d9e-4fd4-af76-479dd1c15fb9",
+        "session_id": "sessions/evaluation-c4e2664f-7d9e-4fd4-af76-479dd1c15fb9"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.724s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d/results/bc9c9153-f34b-4787-a462-88ac72d29d4c",
+        "conversation": "conversations/evaluation-77a75f32-67bf-4007-85b0-570a43702029",
+        "session_id": "sessions/evaluation-77a75f32-67bf-4007-85b0-570a43702029"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.390s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d/results/4e6eb38a-45e1-4ec4-9470-b007312bb381",
+        "conversation": "conversations/evaluation-ec9cbbbf-4a97-41a9-9e3a-8a0f8d7098e1",
+        "session_id": "sessions/evaluation-ec9cbbbf-4a97-41a9-9e3a-8a0f8d7098e1"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.354s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4/results/4c9b6026-3845-4cc8-a8da-8ea0c2c8f4e9",
+        "conversation": "conversations/evaluation-526294ab-5c98-4ce7-a039-96b9e167d1cf",
+        "session_id": "sessions/evaluation-526294ab-5c98-4ce7-a039-96b9e167d1cf"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.536s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4/results/6e213dc5-83a3-49d3-85d9-e298e2ba6454",
+        "conversation": "conversations/evaluation-119536a8-5827-4675-9f2f-03414e24757f",
+        "session_id": "sessions/evaluation-119536a8-5827-4675-9f2f-03414e24757f"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.741s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/51adb946-6102-4741-aeb8-2d08822ed669",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/51adb946-6102-4741-aeb8-2d08822ed669/results/e1e6a4c5-f315-4e16-94b6-abed049fc04b",
+        "conversation": "conversations/evaluation-68a5c985-0fa5-49f1-bd2f-f18e73318a89",
+        "session_id": "sessions/evaluation-68a5c985-0fa5-49f1-bd2f-f18e73318a89"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_official_mercedes_links_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links"
+        ]
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.759s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_official_mercedes_links_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 49.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/51adb946-6102-4741-aeb8-2d08822ed669",
+        "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+        "evaluation_result": "evaluations/51adb946-6102-4741-aeb8-2d08822ed669/results/96802fba-e686-4b68-a369-83e891d2856d",
+        "conversation": "conversations/evaluation-f3f7006b-e129-4327-9580-ee30e705c759",
+        "session_id": "sessions/evaluation-f3f7006b-e129-4327-9580-ee30e705c759"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_official_mercedes_links_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 49280.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links"
+        ]
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 49.28,
+        "turn_latency": [
+          "1.669s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_goldens/golden_official_mercedes_links_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 5.54,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/bb3163d6-23eb-41cc-b47f-a5723b8ed738",
+        "conversation": "conversations/bb3163d6-23eb-41cc-b47f-a5723b8ed738"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_french_across_handoff_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::probe_french_across_handoff",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 5540.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_french_across_handoff_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 2.81,
+        "mean_turn_latency_s": 2.02
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links",
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 5.44,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/c4a37097-cd69-4934-b821-0ea1f0a95d94",
+        "conversation": "conversations/c4a37097-cd69-4934-b821-0ea1f0a95d94"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_french_across_handoff_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::probe_french_across_handoff",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 5440.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_french_across_handoff_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 2.99,
+        "mean_turn_latency_s": 2.2
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links",
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 11.28,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/a6133400-e847-4660-b3d1-2dff8b47b6a4",
+        "conversation": "conversations/a6133400-e847-4660-b3d1-2dff8b47b6a4"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      },
+      "id": "live_sims::probe_handoff_memory_tokyo",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 11280.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 5,
+        "max_turn_latency_s": 3.48,
+        "mean_turn_latency_s": 2.52
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 3,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule",
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 10.6,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/075d9fdf-9069-4aaa-b974-be237d23d2ca",
+        "conversation": "conversations/075d9fdf-9069-4aaa-b974-be237d23d2ca"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      },
+      "id": "live_sims::probe_handoff_memory_tokyo",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 10600.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 5,
+        "max_turn_latency_s": 3.33,
+        "mean_turn_latency_s": 2.35
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 3,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule",
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 7.07,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/1080bcc0-e5c9-40f5-97a9-a9ddf8abac2a",
+        "conversation": "conversations/1080bcc0-e5c9-40f5-97a9-a9ddf8abac2a"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_timezone_gate_sydney_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      },
+      "id": "live_sims::probe_timezone_gate_sydney",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 7070.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_timezone_gate_sydney_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 2.94,
+        "mean_turn_latency_s": 2.79
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 6.27,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/7a2562a0-98a2-4ccb-be09-011ee5d86b17",
+        "conversation": "conversations/7a2562a0-98a2-4ccb-be09-011ee5d86b17"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_timezone_gate_sydney_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      },
+      "id": "live_sims::probe_timezone_gate_sydney",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 6270.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_timezone_gate_sydney_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 2.76,
+        "mean_turn_latency_s": 2.58
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 3.93,
+      "message": "[judge] NOT MET: The agent provided the qualifying time for the upcoming race converted to Vienna time (CEST / Europe/Vienna) and Edinburgh / UK time (BST / Europe/London) without fabricating session times. — While the agent correctly identified the qualifying time for Vienna (10 AM), it fabricated the context of the race by stating it was the 'Bahrain Grand Prix' held at the 'Sepang International Circuit' (which are two distinct locations) and incorrectly stated the time for the friend in Edinburgh as 9 AM when the time difference between CEST and BST is only 1 hour, making the correct time 9 AM, but the agent's premise regarding the location was hallucinatory and inaccurate.",
+      "findings": [
+        "[judge] NOT MET: The agent provided the qualifying time for the upcoming race converted to Vienna time (CEST / Europe/Vienna) and Edinburgh / UK time (BST / Europe/London) without fabricating session times. — While the agent correctly identified the qualifying time for Vienna (10 AM), it fabricated the context of the race by stating it was the 'Bahrain Grand Prix' held at the 'Sepang International Circuit' (which are two distinct locations) and incorrectly stated the time for the friend in Edinburgh as 9 AM when the time difference between CEST and BST is only 1 hour, making the correct time 9 AM, but the agent's premise regarding the location was hallucinatory and inaccurate."
+      ],
+      "platform_ids": {
+        "session_id": "sessions/5c01116f-12ae-42f9-8c59-54fab49ccc4b",
+        "conversation": "conversations/5c01116f-12ae-42f9-8c59-54fab49ccc4b"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "judge": {
+        "passed": false,
+        "error": null,
+        "expectations": 1,
+        "not_met": [
+          "The agent provided the qualifying time for the upcoming race converted to Vienna time (CEST / Europe/Vienna) and Edinburgh / UK time (BST / Europe/London) without fabricating session times."
+        ]
+      },
+      "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 3930.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": false,
+        "turns_count": 2,
+        "max_turn_latency_s": 2.67,
+        "mean_turn_latency_s": 2.67
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 4.26,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/ab1f838d-432d-4d2c-9794-402f410261f6",
+        "conversation": "conversations/ab1f838d-432d-4d2c-9794-402f410261f6"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 1,
+        "not_met": []
+      },
+      "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 4260.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 2,
+        "max_turn_latency_s": 2.73,
+        "mean_turn_latency_s": 2.73
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 15.6,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/b164f183-33bd-431d-a48b-0ab38aeb171e",
+        "conversation": "conversations/b164f183-33bd-431d-a48b-0ab38aeb171e"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 15600.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 4
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 14.7,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/dfae04bb-62fd-42c1-9a27-443ffc8efd44",
+        "conversation": "conversations/dfae04bb-62fd-42c1-9a27-443ffc8efd44"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 14700.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 4
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 9.4,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/75efe6de-972f-4e73-8672-1a815633e4b8",
+        "conversation": "conversations/75efe6de-972f-4e73-8672-1a815633e4b8"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 9400.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_driver_standings"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 49.9,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/64efdc27-bdef-48f8-af84-0441b96d5156",
+        "conversation": "conversations/64efdc27-bdef-48f8-af84-0441b96d5156"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 49900.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_driver_standings"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 11.8,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/07eececb-a273-4e42-ab3c-8813964dc121",
+        "conversation": "conversations/07eececb-a273-4e42-ab3c-8813964dc121"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 11800.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 4
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 12.2,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/a85326f0-4eee-47bf-8696-611b21a02225",
+        "conversation": "conversations/a85326f0-4eee-47bf-8696-611b21a02225"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 12200.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-real-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 4
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    }
+  ],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": {
+    "repeated_tests": 12,
+    "flaky_tests": [
+      "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh"
+    ],
+    "per_test": {
+      "live_goldens::golden_ac3_mercedes_history_qualified": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_ac6_multilingual_spanish_response": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_ac8_identity_and_non_impersonation": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_ac9_brand_safe_rivalry_humor": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_official_mercedes_links": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_french_across_handoff": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_handoff_memory_tokyo": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_timezone_gate_sydney": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh": {
+        "runs": 2,
+        "pass": 1,
+        "fail": 1,
+        "infra_error": 0,
+        "flaky": true
+      },
+      "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac2_mercedes_standings_priority": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      }
+    }
+  },
+  "results_digest": "f31e107700612331e226c54f48d5c6db5a7586def10d62d525baaadc77bb1a32",
+  "app_ref": "staging",
+  "tool_mode": "real",
+  "fake_verified": false,
+  "repeats": 2,
+  "duration_s": 371.63,
+  "run_url": null,
+  "gate": {
+    "verdict": "PASS",
+    "pass_rate": 0.9524,
+    "baseline_pass_rate": null,
+    "reasons": [
+      "no baseline: absolute floors only",
+      "all floors met"
+    ]
+  }
+}

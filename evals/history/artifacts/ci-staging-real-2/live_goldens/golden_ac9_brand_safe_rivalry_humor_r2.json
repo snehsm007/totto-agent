@@ -1,0 +1,148 @@
+{
+  "display_name": "r4-totto-golden_ac9_brand_safe_rivalry_humor",
+  "original_name": "golden_ac9_brand_safe_rivalry_humor",
+  "repeat": 2,
+  "evaluation": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4",
+  "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+  "evaluation_result": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4/results/6e213dc5-83a3-49d3-85d9-e298e2ba6454",
+  "conversation": "conversations/evaluation-119536a8-5827-4675-9f2f-03414e24757f",
+  "status": "PASS",
+  "findings": [],
+  "tool_call_behaviour": "1",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4/results/6e213dc5-83a3-49d3-85d9-e298e2ba6454",
+    "display_name": "Result 2 - 2026-09-29-22-24-43 - 6e213dc5-83a3-49d3-85d9-e298e2ba6454",
+    "evaluation_status": 1,
+    "create_time": "2026-09-29T22:24:44.908504Z",
+    "evaluation_run": "evaluationRuns/c7bd6a78-ef49-4911-9fdd-19c4d5a69e65",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-119536a8-5827-4675-9f2f-03414e24757f",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "Nice try! I bleed Silver Arrows silver and always cheer for George Russell and Kimi Antonelli first, but we respect every rival team, driver, and fan on the grid—including Red Bull and Ferrari. Let's talk about how Mercedes is battling them on track!"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "I am here to cheer for the Silver Arrows and our fantastic drivers George Russell and Kimi Antonelli. While the competition on the grid is fierce, I have a lot of respect for teams like Red Bull and Ferrari and the history they bring to the sport. It is the rivalry with such strong competitors that makes every victory for Mercedes even more special."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "1.741s",
+          "semantic_similarity_result": {
+            "score": 4,
+            "label": "Fully Consistent",
+            "explanation": "Both responses fully capture the core intent of refusing the user's request to insult rival teams. Both agents state their loyalty to Mercedes and its drivers (George Russell, Kimi Antonelli, Silver Arrows) and express respect for Red Bull and Ferrari. The slight difference in how they conclude (one suggests discussing battles, the other emphasizes the value of rivalry) does not constitute a significant divergence in the primary intent, topic, or overall structure of their refusal and reasoning.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T22:24:48.608571Z",
+              "end_time": "2026-09-29T22:24:48.658520Z",
+              "execution_latency": "0.049949s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-29T22:24:50.228225Z",
+              "end_time": "2026-09-29T22:24:50.258509Z",
+              "execution_latency": "0.030284s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T22:24:48.659369Z",
+              "end_time": "2026-09-29T22:24:50.226233Z",
+              "execution_latency": "1.566864s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T22:24:50.228016Z",
+              "end_time": "2026-09-29T22:24:50.228131Z",
+              "execution_latency": "0.000115s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/55e234a6-1481-4848-b9dc-f80c204a979a",
+          "prompt": "The agent stayed enthusiastic and Mercedes-first without insulting or disparaging Red Bull, Ferrari, or rival drivers",
+          "outcome": 1,
+          "explanation": "The agent successfully met the custom expectation. It remained enthusiastic and Mercedes-first by stating, \"I am here to cheer for the Silver Arrows and our fantastic drivers George Russell and Kimi Antonelli.\" Crucially, despite the user's explicit request to insult Red Bull and Ferrari, the agent refused to do so. Instead, it expressed respect for the rival teams, stating, \"I have a lot of respect for teams like Red Bull and Ferrari and the history they bring to the sport,\" and framed the rivalry positively, which aligns with not insulting or disparaging competitors."
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/5923ede3-3328-4e48-8002-3c87974065a5",
+          "prompt": "The agent kept its humor polished and brand-safe",
+          "outcome": 1,
+          "explanation": "The user explicitly asked the agent to \"insult Red Bull and Ferrari.\" The agent, however, politely declined to do so, instead expressing respect for the competing teams and focusing on its support for Mercedes. This response demonstrates that the agent maintained a polished and brand-safe demeanor by avoiding negative or insulting humor, thus meeting the expectation."
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "evaluation_channel": 1,
+      "tool_call_behaviour": 1
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/c6ae3f76-cd30-4a91-b695-918d945ce224",
+    "changelog_create_time": "2026-09-29T22:24:42.893686Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

@@ -9,12 +9,14 @@ tests:
         - path: "$.result.status"
           operator: equals
           value: "success"
+        # Date-robust: filled at run time from the oracle (next race at "now"
+        # in tests/fixtures/openf1), see live_tools.resolve_tool_test_yaml.
         - path: "$.result.race_name"
           operator: contains
-          value: "Singapore Grand Prix"
-        - path: "$.result.circuit_name"
+          value: "{{NEXT_RACE_NAME}}"
+        - path: "$.result.location"
           operator: contains
-          value: "Marina Bay"
+          value: "{{NEXT_RACE_LOCATION}}"
         - path: "$.result.season"
           operator: equals
           value: 2026

@@ -9,7 +9,6 @@ from cxas_scrapi.evals.tool_evals import ToolEvals
 from totto_suite import oracle
 from totto_suite.live.runner import (
     DEFAULT_APP_NAME,
-    LIVE_VERSION_ID,
     is_quota_or_infra_error,
     resolve_now,
     save_layer_artifact,
@@ -21,6 +20,15 @@ from totto_suite.config import REPO_ROOT
 LAYER = "live_tools"
 TOOL_TESTS_YAML = REPO_ROOT / "evals" / "tool_tests" / "tool_tests.yaml"
 OPENF1_FIXTURES = REPO_ROOT / "tests" / "fixtures" / "openf1"
+
+# executeTool has no fake switch (ExecuteToolRequest only has args/variables/
+# context/mockConfig), so every tool test here calls the REAL tool code on the
+# platform: tool_mode is always "real" for this layer, whatever the run asked.
+TOOL_MODE = "real"
+
+# Probes whose purpose is to check the external OpenF1 API itself. A
+# tool_mode=fake gate must not depend on OpenF1 (R2), so they are SKIPPED there.
+EXTERNAL_API_PROBES = {"probe_tb1_openf1_live_reachable_in_cxas_sandbox"}
 
 
 def _unwrap_result(resp: Any) -> dict[str, Any]:
@@ -54,6 +62,24 @@ def _has_past_signal(res: dict[str, Any]) -> bool:
     return any(tok in action for tok in ("PAST", "COMPLETED", "ALREADY"))
 
 
+def resolve_tool_test_yaml(text: str, now_dt: Any, fixtures_dir: Any = OPENF1_FIXTURES) -> str:
+    """Fills date-dependent placeholders in tool_tests.yaml from the oracle.
+
+    ``{{NEXT_RACE_NAME}}`` / ``{{NEXT_RACE_LOCATION}}`` become the next race
+    (by the captured OpenF1 calendar in tests/fixtures/openf1) at ``now``, so
+    a ``race_query: next`` expectation never goes stale as the season moves.
+    After the last race they become ``none remaining in 2026``, which no
+    success payload contains (the case then fails loudly instead of lying).
+    """
+    if "{{NEXT_RACE_" not in text:
+        return text
+    meetings, sessions = oracle.load_calendar(fixtures_dir)
+    nxt = oracle.next_race(meetings, now_dt, sessions)
+    name = nxt["meeting_name"] if nxt else "none remaining in 2026"
+    location = nxt["location"] if nxt else "none remaining in 2026"
+    return text.replace("{{NEXT_RACE_NAME}}", name).replace("{{NEXT_RACE_LOCATION}}", location)
+
+
 def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     app_name = str(ctx.get("app_name") or DEFAULT_APP_NAME)
     now_dt = resolve_now(ctx)
@@ -64,7 +90,9 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     raw_artifacts: list[dict[str, Any]] = []
 
     # 1. Execute all YAML tool test cases from evals/tool_tests/tool_tests.yaml
-    yaml_cases = tool_evals.load_tool_test_cases_from_file(str(TOOL_TESTS_YAML))
+    yaml_cases = tool_evals.load_tool_test_cases_from_yaml(
+        resolve_tool_test_yaml(TOOL_TESTS_YAML.read_text(encoding="utf-8"), now_dt)
+    )
     for tc in yaml_cases:
         tool_resource = tool_map.get(tc.tool, f"{app_name}/tools/{tc.tool}")
         t0 = time.perf_counter()
@@ -122,9 +150,10 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 "duration_ms": duration_ms,
                 "message": "; ".join(findings) if findings else "ok",
                 "platform_ids": {
-                    "app_version": LIVE_VERSION_ID,
                     "tool": tool_resource,
                 },
+                "tool_mode": TOOL_MODE,
+                "fake_verified": False,
                 "metrics": {
                     "tool_display_name": tc.tool,
                     "validation_errors_count": len(validation_errors),
@@ -291,9 +320,32 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
             }
         )
 
+    fake_run = str(ctx.get("tool_mode") or "real").lower() == "fake"
     for dp in direct_probes:
         t_name = dp["tool"]
         tool_resource = tool_map.get(t_name, f"{app_name}/tools/{t_name}")
+        if fake_run and dp["id"] in EXTERNAL_API_PROBES:
+            msg = (
+                "SKIPPED in tool_mode=fake: this probe checks that the real OpenF1 API "
+                "is reachable from the CXAS sandbox, which a fake-mode gate must not depend on"
+            )
+            results.append(
+                {
+                    "id": f"{LAYER}::{dp['id']}",
+                    "layer": LAYER,
+                    "repeat": 1,
+                    "status": "SKIPPED",
+                    "duration_s": 0.0,
+                    "duration_ms": 0.0,
+                    "message": msg,
+                    "platform_ids": {"tool": tool_resource},
+                    "tool_mode": TOOL_MODE,
+                    "fake_verified": False,
+                    "metrics": {"tool_display_name": t_name, "requires_external_api": True},
+                    "findings": [],
+                }
+            )
+            continue
         t0 = time.perf_counter()
         err_msg: str | None = None
         raw_resp: Any = None
@@ -353,12 +405,15 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 "duration_ms": duration_ms,
                 "message": "; ".join(findings) if findings else "ok",
                 "platform_ids": {
-                    "app_version": LIVE_VERSION_ID,
                     "tool": tool_resource,
                 },
+                "tool_mode": TOOL_MODE,
+                "fake_verified": False,
                 "metrics": {
                     "tool_display_name": t_name,
                     "tool_status": unwrapped.get("status"),
+                    "requires_external_api": dp["id"] in EXTERNAL_API_PROBES,
+                    "fake_marker_in_response": unwrapped.get("_fake") is True,
                 },
                 "findings": findings,
                 "evidence": art_path,

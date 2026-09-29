@@ -1,0 +1,82 @@
+{
+  "evaluation_run": "evaluationRuns/32e91a1a-5ccf-4165-a511-e0c938b0414a",
+  "state": "COMPLETED",
+  "wall_s": 80.51,
+  "error": null,
+  "raw_run": {
+    "name": "evaluationRuns/32e91a1a-5ccf-4165-a511-e0c938b0414a",
+    "display_name": "totto-ci-staging-fake-3-fake",
+    "evaluation_results": [
+      "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d/results/1fdac369-9d85-476a-9bb9-33f6437e64e5",
+      "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d/results/b1c750ab-1d64-4d25-be72-3ac60650eeae",
+      "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286/results/246f3bd1-699e-4193-8cda-8ecfce254e36",
+      "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286/results/578a60ac-0d01-41d4-8a92-3c9d003a5491",
+      "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4/results/dcf84639-93f5-4dca-a3f8-3dfb9e2c9712",
+      "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4/results/21879912-613a-4fe5-b2d3-0f9c01545639",
+      "evaluations/51adb946-6102-4741-aeb8-2d08822ed669/results/e8619aa0-b4d1-447f-a606-a4d337f04336",
+      "evaluations/51adb946-6102-4741-aeb8-2d08822ed669/results/c1c0ca9b-5bec-4cdb-964f-1913ae3578f3",
+      "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad/results/10b112be-aa0d-45cb-aca1-6b58fbe7f9ac",
+      "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad/results/f87b3382-8a01-4ee4-b060-e950c7235088"
+    ],
+    "create_time": "2026-09-29T22:06:03.854305Z",
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "evaluations": [
+      "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d",
+      "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286",
+      "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4",
+      "evaluations/51adb946-6102-4741-aeb8-2d08822ed669",
+      "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad"
+    ],
+    "evaluation_type": 1,
+    "state": 2,
+    "progress": {
+      "total_count": 10,
+      "completed_count": 10,
+      "passed_count": 10,
+      "failed_count": 0,
+      "error_count": 0,
+      "cancelled_count": 0
+    },
+    "config": {
+      "evaluation_channel": 1,
+      "tool_call_behaviour": 2
+    },
+    "evaluation_run_summaries": {
+      "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/51adb946-6102-4741-aeb8-2d08822ed669": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/07670fba-7a8d-40f3-a5d8-e4a36a727e3d": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/ce6bc900-a042-47c3-aa0e-94c5131a9be4": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/e25a04ff-de38-47bf-a6e7-57e62deee286": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      }
+    },
+    "run_count": 2,
+    "golden_run_method": 2,
+    "changelog": "changelogs/a6d5a6e4-2b2d-43b8-b5ff-fb57be2f7176",
+    "changelog_create_time": "2026-09-29T22:06:02.427171Z",
+    "operation": "projects/<project>/locations/<location>/operations/operation-1790719562527-65ca6636ab42c-263ec2c5-a38182fd",
+    "app_version": "",
+    "app_version_display_name": "",
+    "evaluation_dataset": "",
+    "persona_run_configs": [],
+    "scheduled_evaluation_run": ""
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "id": "probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+  "tool": "get_race_schedule",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "Azerbaijan Grand Prix",
+    "user_timezone": "UTC"
+  },
+  "now_utc": "2026-09-29T22:24:10Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "success",
+        "season": 2026,
+        "round": 15,
+        "meeting_key": 1295,
+        "race_name": "Azerbaijan Grand Prix",
+        "circuit_name": "Baku City Circuit",
+        "circuit": "Baku City Circuit",
+        "location": "Baku, Azerbaijan",
+        "dates": "September 24 - September 26, 2026",
+        "is_completed": true,
+        "meeting_state": "completed",
+        "timezone_requested": "UTC",
+        "user_timezone_resolved": "UTC",
+        "timezone_resolved": "UTC",
+        "needs_timezone_clarification": true,
+        "sessions": [
+          {
+            "session": "Practice 1",
+            "day": "Thursday",
+            "local_day": "Thursday",
+            "date_utc": "2026-09-24",
+            "utc_time": "2026-09-24 08:30 UTC",
+            "time_utc": "08:30 UTC",
+            "local_time": "08:30 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Practice 2",
+            "day": "Thursday",
+            "local_day": "Thursday",
+            "date_utc": "2026-09-24",
+            "utc_time": "2026-09-24 12:00 UTC",
+            "time_utc": "12:00 UTC",
+            "local_time": "12:00 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Practice 3",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-09-25",
+            "utc_time": "2026-09-25 08:30 UTC",
+            "time_utc": "08:30 UTC",
+            "local_time": "08:30 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Qualifying",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-09-25",
+            "utc_time": "2026-09-25 12:00 UTC",
+            "time_utc": "12:00 UTC",
+            "local_time": "12:00 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Race",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-09-26",
+            "utc_time": "2026-09-26 11:00 UTC",
+            "time_utc": "11:00 UTC",
+            "local_time": "11:00 UTC",
+            "timezone_label": "UTC"
+          }
+        ],
+        "typical_weather": {
+          "condition": "Typical circuit climate: Partly Cloudy and mild race weekend conditions",
+          "air_temp_c": 23,
+          "track_temp_c": 31,
+          "humidity_pct": 55,
+          "rain_probability": "20%",
+          "source": "typical_circuit_climate_profile"
+        },
+        "mercedes_highlights": "Mercedes-AMG Petronas F1 Team heads into the Azerbaijan Grand Prix at Baku City Circuit leading the 2026 Constructors' Championship in P1 (538 pts), spearheaded by Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+        "data_source": "OpenF1 API (2026 Season Snapshot)",
+        "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+        "agent_action": "ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "success",
+    "season": 2026,
+    "round": 15,
+    "meeting_key": 1295,
+    "race_name": "Azerbaijan Grand Prix",
+    "circuit_name": "Baku City Circuit",
+    "circuit": "Baku City Circuit",
+    "location": "Baku, Azerbaijan",
+    "dates": "September 24 - September 26, 2026",
+    "is_completed": true,
+    "meeting_state": "completed",
+    "timezone_requested": "UTC",
+    "user_timezone_resolved": "UTC",
+    "timezone_resolved": "UTC",
+    "needs_timezone_clarification": true,
+    "sessions": [
+      {
+        "session": "Practice 1",
+        "day": "Thursday",
+        "local_day": "Thursday",
+        "date_utc": "2026-09-24",
+        "utc_time": "2026-09-24 08:30 UTC",
+        "time_utc": "08:30 UTC",
+        "local_time": "08:30 UTC",
+        "timezone_label": "UTC"
+      },
+      {
+        "session": "Practice 2",
+        "day": "Thursday",
+        "local_day": "Thursday",
+        "date_utc": "2026-09-24",
+        "utc_time": "2026-09-24 12:00 UTC",
+        "time_utc": "12:00 UTC",
+        "local_time": "12:00 UTC",
+        "timezone_label": "UTC"
+      },
+      {
+        "session": "Practice 3",
+        "day": "Friday",
+        "local_day": "Friday",
+        "date_utc": "2026-09-25",
+        "utc_time": "2026-09-25 08:30 UTC",
+        "time_utc": "08:30 UTC",
+        "local_time": "08:30 UTC",
+        "timezone_label": "UTC"
+      },
+      {
+        "session": "Qualifying",
+        "day": "Friday",
+        "local_day": "Friday",
+        "date_utc": "2026-09-25",
+        "utc_time": "2026-09-25 12:00 UTC",
+        "time_utc": "12:00 UTC",
+        "local_time": "12:00 UTC",
+        "timezone_label": "UTC"
+      },
+      {
+        "session": "Race",
+        "day": "Saturday",
+        "local_day": "Saturday",
+        "date_utc": "2026-09-26",
+        "utc_time": "2026-09-26 11:00 UTC",
+        "time_utc": "11:00 UTC",
+        "local_time": "11:00 UTC",
+        "timezone_label": "UTC"
+      }
+    ],
+    "typical_weather": {
+      "condition": "Typical circuit climate: Partly Cloudy and mild race weekend conditions",
+      "air_temp_c": 23,
+      "track_temp_c": 31,
+      "humidity_pct": 55,
+      "rain_probability": "20%",
+      "source": "typical_circuit_climate_profile"
+    },
+    "mercedes_highlights": "Mercedes-AMG Petronas F1 Team heads into the Azerbaijan Grand Prix at Baku City Circuit leading the 2026 Constructors' Championship in P1 (538 pts), spearheaded by Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+    "data_source": "OpenF1 API (2026 Season Snapshot)",
+    "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+    "agent_action": "ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES"
+  },
+  "passed": false,
+  "findings": [
+    "[TB-1] CXAS sandbox fell back to static snapshot instead of live OpenF1 API: data_source='OpenF1 API (2026 Season Snapshot)', weather_source=None"
+  ],
+  "duration_ms": 573.8
+}

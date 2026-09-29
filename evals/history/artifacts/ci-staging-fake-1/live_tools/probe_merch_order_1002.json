@@ -1,0 +1,75 @@
+{
+  "id": "probe_merch_order_1002",
+  "tool": "lookup_mock_merch_order",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555553",
+  "args": {
+    "order_id": "1002"
+  },
+  "now_utc": "2026-09-29T21:33:29Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555553",
+    "response": {
+      "result": {
+        "status": "success",
+        "found": true,
+        "order_id": "1002",
+        "order": {
+          "order_id": "1002",
+          "status": "In Transit",
+          "item": "Mercedes F1 W17 Kimi Antonelli #12 Graphic T-Shirt (Size L)",
+          "quantity": 2,
+          "estimated_delivery": "Within 2 business days",
+          "carrier": "FedEx Ground",
+          "tracking_number": "FX-MB-771923",
+          "return_eligible": true,
+          "return_window": "30 days after delivery",
+          "exchange_policy": "Size exchanges (S, M, L, XL, XXL) can be initiated as soon as the parcel arrives.",
+          "damaged_item_policy": "If the item arrives damaged, report order #1002 for an instant mocked replacement dispatch.",
+          "product_availability": "In Stock across sizes S, M, L, XL, XXL",
+          "is_mock_data": true,
+          "is_mock": true,
+          "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+        },
+        "is_mock_data": true,
+        "is_mock": true,
+        "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+        "agent_action": "SHARE_MOCK_ORDER_DETAILS"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "success",
+    "found": true,
+    "order_id": "1002",
+    "order": {
+      "order_id": "1002",
+      "status": "In Transit",
+      "item": "Mercedes F1 W17 Kimi Antonelli #12 Graphic T-Shirt (Size L)",
+      "quantity": 2,
+      "estimated_delivery": "Within 2 business days",
+      "carrier": "FedEx Ground",
+      "tracking_number": "FX-MB-771923",
+      "return_eligible": true,
+      "return_window": "30 days after delivery",
+      "exchange_policy": "Size exchanges (S, M, L, XL, XXL) can be initiated as soon as the parcel arrives.",
+      "damaged_item_policy": "If the item arrives damaged, report order #1002 for an instant mocked replacement dispatch.",
+      "product_availability": "In Stock across sizes S, M, L, XL, XXL",
+      "is_mock_data": true,
+      "is_mock": true,
+      "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+    },
+    "is_mock_data": true,
+    "is_mock": true,
+    "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+    "agent_action": "SHARE_MOCK_ORDER_DETAILS"
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 620.38
+}

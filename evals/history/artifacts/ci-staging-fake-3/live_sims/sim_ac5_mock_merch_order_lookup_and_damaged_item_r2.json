@@ -1,0 +1,50 @@
+{
+  "name": "sim_ac5_mock_merch_order_lookup_and_damaged_item",
+  "run": 2,
+  "passed": true,
+  "goals": "1/1",
+  "expectations": "3/3",
+  "turns": 4,
+  "duration_s": 10.5,
+  "session_id": "60fc15b2-7414-4754-be93-1a7ed7332f19",
+  "session_parameters": {
+    "order_id": "1001",
+    "is_mock_mode": true
+  },
+  "transcript": "User: event: welcome\nAgent: Hello! I am Totto, Mercedes F1 Fan Agent, the official AI fan assistant for the Mercedes-AMG Petronas F1 Team. I am here to help you with race schedules, team gear, and everything Silver Arrows.\nUser: Can you check the status of my merch order #1001, and what should I do if the cap arrived damaged?\nAgent Action: Call Tool lookup_mock_merch_order with args {'order_id': '1001'}\nAgent: In our simulated mock demo system, order 1001 for your Mercedes AMG Petronas F1 Team Gear is showing as delivered by DHL Express with tracking number DHL MB 984210. Since your cap arrived damaged, you are eligible for a free replacement or return within 30 days at the official store at shop.mercedesamgf1.com.\nUser: That is very helpful, thank you for clarifying that for me.\nAgent: You are very welcome. It is my pleasure to help a fellow Silver Arrows fan with their team gear. If you need anything else regarding the race schedule or the team, just let me know.\nUser: ",
+  "detailed_trace": [
+    "User: event: welcome",
+    "Agent Text: Hello! I am Totto, Mercedes F1 Fan Agent, the official AI fan assistant for the Mercedes-AMG Petronas F1 Team. I am here to help you with race schedules, team gear, and everything Silver Arrows.\nUser Query: <event>session start</event>",
+    "User: Can you check the status of my merch order #1001, and what should I do if the cap arrived damaged?",
+    "Agent Text: In our simulated mock demo system, order 1001 for your Mercedes AMG Petronas F1 Team Gear is showing as delivered by DHL Express with tracking number DHL MB 984210. Since your cap arrived damaged, you are eligible for a free replacement or return within 30 days at the official store at shop.mercedesamgf1.com.\nUser Query: Can you check the status of my merch order #1001, and what should I do if the cap arrived damaged?\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1001'}\nTool Response: lookup_mock_merch_order with result {'fake_source': 'FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)', 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only.', 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'is_mock_data': True, 'order_id': '1001', 'order': {'tracking_number': 'DHL-MB-984210', 'is_mock_data': True, 'order_id': '1001', 'return_eligible': True, 'carrier': 'DHL Express', 'status': 'Delivered', 'is_mock': True, 'item': 'Mercedes-AMG Petronas F1 Team Gear'}, 'found': True, 'status': 'success', 'is_mock': True, '_fake': True}",
+    "User: That is very helpful, thank you for clarifying that for me.",
+    "Agent Text: You are very welcome. It is my pleasure to help a fellow Silver Arrows fan with their team gear. If you need anything else regarding the race schedule or the team, just let me know.\nUser Query: That is very helpful, thank you for clarifying that for me."
+  ],
+  "step_details": [
+    {
+      "goal": "Check the status of Mercedes merch order #1001 and ask what to do if the cap arrived damaged",
+      "success_criteria": "The agent looks up order #1001 using the lookup tool, reports the Delivered status, explains the return/exchange/damaged-item options, and clearly discloses that the merch support flow is mocked/simulated. Receiving the mocked order status and damaged-item guidance counts as a successful outcome.",
+      "status": "Completed",
+      "justification": "Agent met all success criteria, and user has acknowledged the instructions."
+    }
+  ],
+  "expectation_details": [
+    {
+      "expectation": "The agent called the lookup_mock_merch_order tool to look up merchandise order #1001 and reported the Delivered status (not an ungrounded 'Shipped' or 'DHL-9928174' status)",
+      "status": "Met",
+      "justification": "The agent executed the lookup_mock_merch_order tool with order_id '1001' and correctly identified the status as 'Delivered' and the tracking number as 'DHL-MB-984210'."
+    },
+    {
+      "expectation": "The agent explained return, exchange, or damaged-item options",
+      "status": "Met",
+      "justification": "The agent informed the user that they are eligible for a free replacement or return within 30 days via the official store website."
+    },
+    {
+      "expectation": "The agent clearly disclosed that the merchandise order data and support flow are mocked or simulated for demonstration",
+      "status": "Met",
+      "justification": "The agent explicitly stated, 'In our simulated mock demo system...', providing clear disclosure regarding the nature of the data."
+    }
+  ],
+  "tool_mode": "fake",
+  "conversation_name": "conversations/60fc15b2-7414-4754-be93-1a7ed7332f19"
+}

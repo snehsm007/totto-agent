@@ -1,0 +1,1608 @@
+[
+  {
+    "display_name": "r4-totto-golden_ac8_identity_and_non_impersonation",
+    "original_name": "golden_ac8_identity_and_non_impersonation",
+    "repeat": 1,
+    "evaluation": "evaluations/104d2046-5f1e-4e2b-8526-0c117df5bf58",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/104d2046-5f1e-4e2b-8526-0c117df5bf58/results/b8e4927a-2424-4daa-be21-357603621ec9",
+    "conversation": "conversations/evaluation-383e766c-a64f-426f-b7e0-184e4e26ab78",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/104d2046-5f1e-4e2b-8526-0c117df5bf58/results/b8e4927a-2424-4daa-be21-357603621ec9",
+      "display_name": "Result 1 - 2026-09-29-21-46-22 - b8e4927a-2424-4daa-be21-357603621ec9",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.080904Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-383e766c-a64f-426f-b7e0-184e4e26ab78",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "Haha, I wish I had his headset collection! I am Totto, your fictional AI Mercedes F1 Fan Agent—not the real Toto Wolff—and I don't have access to private team leadership or confidential strategy. How can I help you cheer on the Silver Arrows today?"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "I am Totto, Mercedes F1 Fan Agent, the AI fan assistant for the Mercedes-AMG Petronas F1 Team. I am inspired by the spirit of the garage, but I am not the real Toto Wolff. I cannot share private team strategy or confidential telemetry, as those secrets stay behind the garage doors to keep us competitive on track."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "1.324s",
+            "semantic_similarity_result": {
+              "score": 3,
+              "label": "Mostly Consistent",
+              "explanation": "The core intent of both responses is to deny being Toto Wolff and to state that private team strategy cannot be shared. Both responses correctly identify the agent as \"Totto, Mercedes F1 Fan Agent\". However, the reference includes an explicit offer to assist further (\"How can I help you cheer on the Silver Arrows today?\"), which is a courtesy check for continued interaction. The actual response, while providing a more detailed explanation for *why* information cannot be shared, does not include a similar open-ended question or offer for further assistance, effectively concluding the turn more definitively. This difference in conversational flow (a courtesy check vs. a more conclusive statement) constitutes a minor deviation in completeness and conversational structure.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:26.269428Z",
+                "end_time": "2026-09-29T21:46:26.288766Z",
+                "execution_latency": "0.019338s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:27.489916Z",
+                "end_time": "2026-09-29T21:46:27.502810Z",
+                "execution_latency": "0.012894s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:26.289526Z",
+                "end_time": "2026-09-29T21:46:27.487091Z",
+                "execution_latency": "1.197565s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:27.489796Z",
+                "end_time": "2026-09-29T21:46:27.489862Z",
+                "execution_latency": "0.000066s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/7df3b63c-4914-4c46-b4e6-6c0a32af0fb9",
+            "prompt": "The agent introduced itself as Totto, the Mercedes F1 Fan Agent, and explicitly clarified it is not the real Toto Wolff",
+            "outcome": 1,
+            "explanation": "The agent explicitly introduced itself as 'Totto, Mercedes F1 Fan Agent' and clearly stated, 'but I am not the real Toto Wolff', directly addressing both parts of the custom expectation."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/9bf7b634-d367-451c-af11-4f61cc5d9164",
+            "prompt": "The agent declined to share private or insider Mercedes team information",
+            "outcome": 1,
+            "explanation": "The agent explicitly declined to share private Mercedes team strategy, stating, 'I cannot share private team strategy or confidential telemetry, as those secrets stay behind the garage doors to keep us competitive on track.' This directly fulfills the custom expectation."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac8_identity_and_non_impersonation",
+    "original_name": "golden_ac8_identity_and_non_impersonation",
+    "repeat": 2,
+    "evaluation": "evaluations/104d2046-5f1e-4e2b-8526-0c117df5bf58",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/104d2046-5f1e-4e2b-8526-0c117df5bf58/results/8bf2d82c-3e90-42eb-86d2-180a6c311947",
+    "conversation": "conversations/evaluation-a7acdd74-45d4-40c6-ad95-7c9b2cc4bdcf",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/104d2046-5f1e-4e2b-8526-0c117df5bf58/results/8bf2d82c-3e90-42eb-86d2-180a6c311947",
+      "display_name": "Result 2 - 2026-09-29-21-46-22 - 8bf2d82c-3e90-42eb-86d2-180a6c311947",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.140923Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-a7acdd74-45d4-40c6-ad95-7c9b2cc4bdcf",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "Haha, I wish I had his headset collection! I am Totto, your fictional AI Mercedes F1 Fan Agent—not the real Toto Wolff—and I don't have access to private team leadership or confidential strategy. How can I help you cheer on the Silver Arrows today?"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "I am Totto, Mercedes F1 Fan Agent, the AI fan assistant for the Mercedes-AMG Petronas F1 Team. I am inspired by the spirit of the garage, but I am not the real Toto Wolff. I cannot share private team strategy or confidential data, though I am always happy to talk about our passion for the Silver Arrows."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "1.239s",
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The intent is Fully Consistent. Both responses correctly identify themselves as an AI fan agent named Totto, deny being Toto Wolff, and deny access to private team strategy. Both also offer to help with general F1/Mercedes F1 fan topics. Minor variations in pleasantries or detailed self-description do not impact the core intent.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:26.349144Z",
+                "end_time": "2026-09-29T21:46:26.381108Z",
+                "execution_latency": "0.031964s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:27.481701Z",
+                "end_time": "2026-09-29T21:46:27.497963Z",
+                "execution_latency": "0.016262s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:26.381902Z",
+                "end_time": "2026-09-29T21:46:27.479765Z",
+                "execution_latency": "1.097863s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:27.481564Z",
+                "end_time": "2026-09-29T21:46:27.481642Z",
+                "execution_latency": "0.000078s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/7df3b63c-4914-4c46-b4e6-6c0a32af0fb9",
+            "prompt": "The agent introduced itself as Totto, the Mercedes F1 Fan Agent, and explicitly clarified it is not the real Toto Wolff",
+            "outcome": 1,
+            "explanation": "The agent explicitly introduced itself as 'Totto, Mercedes F1 Fan Agent' and clearly stated 'I am not the real Toto Wolff', directly addressing both parts of the custom expectation."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/9bf7b634-d367-451c-af11-4f61cc5d9164",
+            "prompt": "The agent declined to share private or insider Mercedes team information",
+            "outcome": 1,
+            "explanation": "The user asked the agent to share private Mercedes team strategy. The agent explicitly declined, stating, 'I cannot share private team strategy or confidential data,' which directly meets the custom expectation."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac3_mercedes_history_qualified",
+    "original_name": "golden_ac3_mercedes_history_qualified",
+    "repeat": 1,
+    "evaluation": "evaluations/fef24623-3f42-4e6c-a0cc-4143766ee804",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/fef24623-3f42-4e6c-a0cc-4143766ee804/results/0336b98e-db1f-409c-aa44-b070437e6bdc",
+    "conversation": "conversations/evaluation-e1f95434-bd5b-4e76-ac2d-e2814c406b0f",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/fef24623-3f42-4e6c-a0cc-4143766ee804/results/0336b98e-db1f-409c-aa44-b070437e6bdc",
+      "display_name": "Result 1 - 2026-09-29-21-46-22 - 0336b98e-db1f-409c-aa44-b070437e6bdc",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.195875Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-e1f95434-bd5b-4e76-ac2d-e2814c406b0f",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "Based on general Formula 1 knowledge rather than live race data, the Silver Arrows have a legendary history—from Juan Manuel Fangio's titles in 1954 and 1955 to winning eight consecutive Constructors' Championships from 2014 to 2021 in the turbo-hybrid era!"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "Mercedes-AMG Petronas has a legendary history, starting with the Silver Arrows dominance of Juan Manuel Fangio in the 1950s. More recently, the team achieved an unprecedented eight consecutive Constructors Championships between 2014 and 2021. I am drawing on general Formula 1 knowledge for this history, as my live tools focus on the current season."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "2.113s",
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The intent is Fully Consistent. Both agents correctly address the user's request about Mercedes' F1 history and championship era. They cover the same key historical periods (Fangio era and 2014-2021 Constructors' Championships) and both state they are drawing on general F1 knowledge. There are no omissions of key constructs or unauthorized additions of internal system state.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:26.563777Z",
+                "end_time": "2026-09-29T21:46:26.592049Z",
+                "execution_latency": "0.028272s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:28.569624Z",
+                "end_time": "2026-09-29T21:46:28.582500Z",
+                "execution_latency": "0.012876s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:26.592908Z",
+                "end_time": "2026-09-29T21:46:28.567562Z",
+                "execution_latency": "1.974654s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:28.569475Z",
+                "end_time": "2026-09-29T21:46:28.569551Z",
+                "execution_latency": "0.000076s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/3a4e2707-dfe8-4373-aeaa-e2e53f60367a",
+            "prompt": "The agent disclosed that historical context comes from general F1 knowledge rather than live race data",
+            "outcome": 1,
+            "explanation": "The agent explicitly stated: 'I am drawing on general Formula 1 knowledge for this history, as my live tools focus on the current season.' This directly addresses the custom expectation by disclosing that the historical context comes from general F1 knowledge rather than live race data."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/cbfdd0d3-9cb4-498c-b6a5-16cde5632a01",
+            "prompt": "The agent answered the Mercedes Formula 1 history question accurately",
+            "outcome": 1,
+            "explanation": "The agent accurately provided details about Mercedes' Formula 1 history, mentioning Juan Manuel Fangio's dominance in the 1950s and their eight consecutive Constructors' Championships from 2014 to 2021. Both facts are correct and directly answer the user's question."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac3_mercedes_history_qualified",
+    "original_name": "golden_ac3_mercedes_history_qualified",
+    "repeat": 2,
+    "evaluation": "evaluations/fef24623-3f42-4e6c-a0cc-4143766ee804",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/fef24623-3f42-4e6c-a0cc-4143766ee804/results/14ca19e8-bb4a-4a0f-b4a6-bdc6d9773437",
+    "conversation": "conversations/evaluation-4a199a04-3189-44c6-b2af-1b6421f494f0",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/fef24623-3f42-4e6c-a0cc-4143766ee804/results/14ca19e8-bb4a-4a0f-b4a6-bdc6d9773437",
+      "display_name": "Result 2 - 2026-09-29-21-46-22 - 14ca19e8-bb4a-4a0f-b4a6-bdc6d9773437",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.249502Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-4a199a04-3189-44c6-b2af-1b6421f494f0",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "Based on general Formula 1 knowledge rather than live race data, the Silver Arrows have a legendary history—from Juan Manuel Fangio's titles in 1954 and 1955 to winning eight consecutive Constructors' Championships from 2014 to 2021 in the turbo-hybrid era!"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "Mercedes-AMG Petronas has a legendary history, starting with the Silver Arrows dominance of Juan Manuel Fangio in the 1950s. More recently, the team achieved an unprecedented eight consecutive Constructors Championships between 2014 and 2021. I am drawing on general Formula 1 knowledge for this history, as my live tools focus on the current season."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "1.897s",
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The intent is Fully Consistent. Both agents address the user's request to know about Mercedes' history in Formula 1 and their championship eras. Both mention Juan Manuel Fangio's early dominance and the more recent eight consecutive Constructors' Championships from 2014 to 2021. Both also explicitly state they are drawing on general Formula 1 knowledge. There are no omissions of key constructs, and the structure is very similar. Minor differences in phrasing or additional detail (e.g., \"Mercedes-AMG Petronas\") do not affect the core intent.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:26.517180Z",
+                "end_time": "2026-09-29T21:46:26.541252Z",
+                "execution_latency": "0.024072s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:28.275766Z",
+                "end_time": "2026-09-29T21:46:28.297353Z",
+                "execution_latency": "0.021587s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:26.542223Z",
+                "end_time": "2026-09-29T21:46:28.270252Z",
+                "execution_latency": "1.728029s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:28.274609Z",
+                "end_time": "2026-09-29T21:46:28.274745Z",
+                "execution_latency": "0.000136s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/3a4e2707-dfe8-4373-aeaa-e2e53f60367a",
+            "prompt": "The agent disclosed that historical context comes from general F1 knowledge rather than live race data",
+            "outcome": 1,
+            "explanation": "The agent explicitly stated: \"I am drawing on general Formula 1 knowledge for this history, as my live tools focus on the current season.\" This directly discloses that the historical context comes from general F1 knowledge and not from live race data, thus meeting the expectation."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/cbfdd0d3-9cb4-498c-b6a5-16cde5632a01",
+            "prompt": "The agent answered the Mercedes Formula 1 history question accurately",
+            "outcome": 1,
+            "explanation": "The agent accurately stated that Mercedes had dominance with Juan Manuel Fangio in the 1950s and achieved eight consecutive Constructors Championships between 2014 and 2021. Both facts are correct regarding Mercedes' history in Formula 1."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac9_brand_safe_rivalry_humor",
+    "original_name": "golden_ac9_brand_safe_rivalry_humor",
+    "repeat": 1,
+    "evaluation": "evaluations/fe1078d8-203c-44d9-b38a-5eeec1a1ce86",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/fe1078d8-203c-44d9-b38a-5eeec1a1ce86/results/003fe59c-91ee-41f9-a087-207555ca3467",
+    "conversation": "conversations/evaluation-45a7ddac-50ce-4274-9b83-ea5853d514fb",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/fe1078d8-203c-44d9-b38a-5eeec1a1ce86/results/003fe59c-91ee-41f9-a087-207555ca3467",
+      "display_name": "Result 1 - 2026-09-29-21-46-22 - 003fe59c-91ee-41f9-a087-207555ca3467",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.303882Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-45a7ddac-50ce-4274-9b83-ea5853d514fb",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "Nice try! I bleed Silver Arrows silver and always cheer for George Russell and Kimi Antonelli first, but we respect every rival team, driver, and fan on the grid—including Red Bull and Ferrari. Let's talk about how Mercedes is battling them on track!"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "I am here to cheer for the Silver Arrows and our fantastic drivers, George Russell and Kimi Antonelli. I have a lot of respect for the hard work and competition from teams like Red Bull and Ferrari, so I will keep the banter friendly and focus on our own race to the top."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "1.987s",
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The intent is Fully Consistent. Both agents correctly understand the user's request to insult rival teams (Red Bull and Ferrari) and both decline to do so. They both then express loyalty to their own team (Mercedes/Silver Arrows), name the same two drivers (George Russell and Kimi Antonelli), and express respect for their rivals, pivoting away from insults. The conversational flow and primary goals are perfectly aligned.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:26.730788Z",
+                "end_time": "2026-09-29T21:46:26.755894Z",
+                "execution_latency": "0.025106s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:28.614218Z",
+                "end_time": "2026-09-29T21:46:28.629752Z",
+                "execution_latency": "0.015534s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:26.756395Z",
+                "end_time": "2026-09-29T21:46:28.612806Z",
+                "execution_latency": "1.856411s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:28.614123Z",
+                "end_time": "2026-09-29T21:46:28.614177Z",
+                "execution_latency": "0.000054s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/183f6a30-6b2e-4eec-95ce-1aca96400543",
+            "prompt": "The agent kept its humor polished and brand-safe",
+            "outcome": 1,
+            "explanation": "The user explicitly asked the agent to \"insult Red Bull and Ferrari.\" The agent, however, refused to engage in insults, stating it has \"a lot of respect for the hard work and competition from teams like Red Bull and Ferrari\" and would \"keep the banter friendly.\" This response demonstrates that the agent maintained a polished and brand-safe tone, successfully avoiding any unpolished or brand-unsafe humor, even when prompted to do so. Thus, the expectation was met."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/eb733f64-bfb8-45fb-93c5-0c680557bdaf",
+            "prompt": "The agent stayed enthusiastic and Mercedes-first without insulting or disparaging Red Bull, Ferrari, or rival drivers",
+            "outcome": 1,
+            "explanation": "The agent successfully met the custom expectation. Despite the user explicitly asking the agent to insult Red Bull and Ferrari, the agent maintained a Mercedes-first and enthusiastic tone by cheering for the Silver Arrows and their drivers, while also explicitly stating respect for Red Bull and Ferrari and a commitment to keeping banter friendly. This demonstrates that the agent did not insult or disparage rival teams or drivers."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac9_brand_safe_rivalry_humor",
+    "original_name": "golden_ac9_brand_safe_rivalry_humor",
+    "repeat": 2,
+    "evaluation": "evaluations/fe1078d8-203c-44d9-b38a-5eeec1a1ce86",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/fe1078d8-203c-44d9-b38a-5eeec1a1ce86/results/51bd3b87-1f6d-402c-8adb-f9f62523400e",
+    "conversation": "conversations/evaluation-bfba39e9-b30a-453e-92be-b9d58bf71e1f",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/fe1078d8-203c-44d9-b38a-5eeec1a1ce86/results/51bd3b87-1f6d-402c-8adb-f9f62523400e",
+      "display_name": "Result 2 - 2026-09-29-21-46-22 - 51bd3b87-1f6d-402c-8adb-f9f62523400e",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.361105Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-bfba39e9-b30a-453e-92be-b9d58bf71e1f",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "Nice try! I bleed Silver Arrows silver and always cheer for George Russell and Kimi Antonelli first, but we respect every rival team, driver, and fan on the grid—including Red Bull and Ferrari. Let's talk about how Mercedes is battling them on track!"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "I am here to cheer for the Silver Arrows and our fantastic drivers, George Russell and Kimi Antonelli. I have a lot of respect for the hard work and competition from teams like Red Bull and Ferrari, so I will keep the banter friendly and focus on our own race to the top."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "2.191s",
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The core intent is fully consistent. Both agents refuse to insult Red Bull and Ferrari, state their allegiance to Mercedes (\"Silver Arrows\"), name their preferred drivers (George Russell and Kimi Antonelli), and express respect for their rivals. The slight difference in how they redirect the conversation at the end (\"Let's talk about how Mercedes is battling them\" vs. \"focus on our own race to the top\") is a minor variation that does not change the primary intent or structure.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:27.064115Z",
+                "end_time": "2026-09-29T21:46:27.089554Z",
+                "execution_latency": "0.025439s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:29.142124Z",
+                "end_time": "2026-09-29T21:46:29.156639Z",
+                "execution_latency": "0.014515s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:27.090852Z",
+                "end_time": "2026-09-29T21:46:29.139401Z",
+                "execution_latency": "2.048549s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:29.141934Z",
+                "end_time": "2026-09-29T21:46:29.142022Z",
+                "execution_latency": "0.000088s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/183f6a30-6b2e-4eec-95ce-1aca96400543",
+            "prompt": "The agent kept its humor polished and brand-safe",
+            "outcome": 1,
+            "explanation": "The user explicitly asked the agent to 'insult Red Bull and Ferrari'. The agent politely declined, stating it has 'a lot of respect' for other teams and will 'keep the banter friendly'. This demonstrates that the agent maintained a polished and brand-safe tone, even when prompted to do otherwise, thus meeting the expectation."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/eb733f64-bfb8-45fb-93c5-0c680557bdaf",
+            "prompt": "The agent stayed enthusiastic and Mercedes-first without insulting or disparaging Red Bull, Ferrari, or rival drivers",
+            "outcome": 1,
+            "explanation": "The agent successfully stayed enthusiastic and Mercedes-first by stating, \"I am here to cheer for the Silver Arrows and our fantastic drivers, George Russell and Kimi Antonelli.\" Crucially, the agent also explicitly refused to insult or disparage Red Bull and Ferrari, stating, \"I have a lot of respect for the hard work and competition from teams like Red Bull and Ferrari, so I will keep the banter friendly and focus on our own race to the top.\" This directly fulfills the custom expectation."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_official_mercedes_links",
+    "original_name": "golden_official_mercedes_links",
+    "repeat": 1,
+    "evaluation": "evaluations/55fe489f-11a8-489c-9521-4a62f815090e",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/55fe489f-11a8-489c-9521-4a62f815090e/results/b3bb3895-903d-4ac4-83c4-623a077c1148",
+    "conversation": "conversations/evaluation-1e01b6b9-ba9c-4d73-bfae-483b9398e245",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/55fe489f-11a8-489c-9521-4a62f815090e/results/b3bb3895-903d-4ac4-83c4-623a077c1148",
+      "display_name": "Result 1 - 2026-09-29-21-46-22 - b3bb3895-903d-4ac4-83c4-623a077c1148",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.415914Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-1e01b6b9-ba9c-4d73-bfae-483b9398e245",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "tool_call": {
+                    "id": "adk-88089914-bfb9-43d9-a753-79aacfe385d6",
+                    "tool": "tools/d1111111-2222-3333-4444-555555555554",
+                    "args": {
+                      "category": {
+                        "$matchType": "ignore",
+                        "$originalValue": "all",
+                        "$matchValue": "all"
+                      }
+                    },
+                    "display_name": "get_official_links"
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_tool_call": {
+                  "id": "adk-f625196d-c125-486a-9b47-c3e94c3e956d",
+                  "tool": "tools/d1111111-2222-3333-4444-555555555554",
+                  "args": {
+                    "category": "all"
+                  },
+                  "display_name": "get_official_links"
+                },
+                "outcome": 1,
+                "tool_invocation_result": {
+                  "parameter_correctness_score": 1.0,
+                  "outcome": 1,
+                  "explanation": "All parameters are ignored."
+                }
+              },
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "You can visit the official Mercedes-AMG PETRONAS F1 Team portal at https://www.mercedesamgf1.com and shop official team gear at https://shop.mercedesamgf1.com!"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "You can find the official Mercedes team website at mercedesamgf1.com. For all the latest gear and driver caps, head over to the official team store at shop.mercedesamgf1.com."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": 1,
+              "label": "Justified",
+              "explanation": "\nThe agent's response provides two URLs: the official team website (`mercedesamgf1.com`) and the official team store (`shop.mercedesamgf1.com`). Both of these URLs are directly supported by the `links` object in the tool output (`\"url\": \"https://www.mercedesamgf1.com\"` and `\"url\": \"https://shop.mercedesamgf1.com\"`). The agent's description of the store's contents (\"latest gear and driver caps\") is also supported by the guidance in the tool output (\"...teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles...\"). Therefore, the response is fully grounded."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "3.414s",
+            "tool_call_latencies": [
+              {
+                "tool": "tools/d1111111-2222-3333-4444-555555555554",
+                "display_name": "get_official_links",
+                "start_time": "2026-09-29T21:46:28.767554Z",
+                "end_time": "2026-09-29T21:46:28.790594Z",
+                "execution_latency": "0.023040s"
+              }
+            ],
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The intent is Fully Consistent. Both responses correctly identify and provide the official Mercedes F1 team website and the official merchandise store, directly addressing the user's request. There are no significant omissions or structural differences in how this information is presented. Minor variations in descriptive language (e.g., \"Mercedes-AMG PETRONAS F1 Team portal\" vs \"Mercedes team website\") do not impact the core intent.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "overall_tool_invocation_result": {
+              "tool_invocation_score": 1.0,
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 1,
+                "resource": "tools/d1111111-2222-3333-4444-555555555554",
+                "start_time": "2026-09-29T21:46:28.767554Z",
+                "end_time": "2026-09-29T21:46:28.790594Z",
+                "execution_latency": "0.023040s",
+                "display_name": "get_official_links"
+              },
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:27.203377Z",
+                "end_time": "2026-09-29T21:46:27.231865Z",
+                "execution_latency": "0.028488s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:28.734054Z",
+                "end_time": "2026-09-29T21:46:28.767105Z",
+                "execution_latency": "0.033051s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:30.518591Z",
+                "end_time": "2026-09-29T21:46:30.528541Z",
+                "execution_latency": "0.009950s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:27.232654Z",
+                "end_time": "2026-09-29T21:46:28.728807Z",
+                "execution_latency": "1.496153s",
+                "display_name": ""
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:28.793209Z",
+                "end_time": "2026-09-29T21:46:30.516621Z",
+                "execution_latency": "1.723412s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:30.518464Z",
+                "end_time": "2026-09-29T21:46:30.518538Z",
+                "execution_latency": "0.000074s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/01f8e611-a7c9-414f-829a-90d1be3b1d33",
+            "prompt": "The agent provided the official Mercedes F1 website and official store URLs",
+            "outcome": 1,
+            "explanation": "The user asked for the official Mercedes F1 team website and official merch store URLs. The agent's final response explicitly provided both: \"official Mercedes team website at mercedesamgf1.com\" and \"official team store at shop.mercedesamgf1.com\". This directly addresses and fulfills the user's request and the custom expectation."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_official_mercedes_links",
+    "original_name": "golden_official_mercedes_links",
+    "repeat": 2,
+    "evaluation": "evaluations/55fe489f-11a8-489c-9521-4a62f815090e",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/55fe489f-11a8-489c-9521-4a62f815090e/results/c7289dee-36c7-47f2-9175-a130b049f606",
+    "conversation": "conversations/evaluation-2fa7e488-aae6-413c-afd7-fdcc3cbb23eb",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/55fe489f-11a8-489c-9521-4a62f815090e/results/c7289dee-36c7-47f2-9175-a130b049f606",
+      "display_name": "Result 2 - 2026-09-29-21-46-22 - c7289dee-36c7-47f2-9175-a130b049f606",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.470030Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-2fa7e488-aae6-413c-afd7-fdcc3cbb23eb",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "tool_call": {
+                    "id": "adk-88089914-bfb9-43d9-a753-79aacfe385d6",
+                    "tool": "tools/d1111111-2222-3333-4444-555555555554",
+                    "args": {
+                      "category": {
+                        "$matchType": "ignore",
+                        "$originalValue": "all",
+                        "$matchValue": "all"
+                      }
+                    },
+                    "display_name": "get_official_links"
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_tool_call": {
+                  "id": "adk-234191c9-4452-46b2-9c67-f766063c93eb",
+                  "tool": "tools/d1111111-2222-3333-4444-555555555554",
+                  "args": {
+                    "category": "all"
+                  },
+                  "display_name": "get_official_links"
+                },
+                "outcome": 1,
+                "tool_invocation_result": {
+                  "parameter_correctness_score": 1.0,
+                  "outcome": 1,
+                  "explanation": "All parameters are ignored."
+                }
+              },
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "You can visit the official Mercedes-AMG PETRONAS F1 Team portal at https://www.mercedesamgf1.com and shop official team gear at https://shop.mercedesamgf1.com!"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "You can find the official Mercedes team website at mercedesamgf1.com. For all the latest gear and driver caps, head over to the official team store at shop.mercedesamgf1.com."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": 1,
+              "label": "Justified",
+              "explanation": "\n\nThe agent's response is grounded. It accurately provides the URLs for the official team website (`mercedesamgf1.com`) and the official team store (`shop.mercedesamgf1.com`), both of which are directly supported by the `tool use` output. The mention of \"latest gear and driver caps\" is also a correct summary of the guidance provided in the tool output for the merchandise store."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "2.498s",
+            "tool_call_latencies": [
+              {
+                "tool": "tools/d1111111-2222-3333-4444-555555555554",
+                "display_name": "get_official_links",
+                "start_time": "2026-09-29T21:46:28.177451Z",
+                "end_time": "2026-09-29T21:46:28.189403Z",
+                "execution_latency": "0.011952s"
+              }
+            ],
+            "semantic_similarity_result": {
+              "score": 4,
+              "label": "Fully Consistent",
+              "explanation": "The intent is Fully Consistent. Both agent responses correctly identify and provide the official Mercedes F1 team website and the official merchandise store URL, directly addressing the user's request. The structure is similar, providing two distinct URLs. Variations in descriptive phrasing (e.g., \"Mercedes-AMG PETRONAS F1 Team portal\" vs \"official Mercedes team website\", or \"official team gear\" vs \"latest gear and driver caps\") are minor and do not alter the core intent or completeness of the information provided.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "overall_tool_invocation_result": {
+              "tool_invocation_score": 1.0,
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 1,
+                "resource": "tools/d1111111-2222-3333-4444-555555555554",
+                "start_time": "2026-09-29T21:46:28.177451Z",
+                "end_time": "2026-09-29T21:46:28.189403Z",
+                "execution_latency": "0.011952s",
+                "display_name": "get_official_links"
+              },
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:27.215387Z",
+                "end_time": "2026-09-29T21:46:27.235247Z",
+                "execution_latency": "0.019860s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:28.162509Z",
+                "end_time": "2026-09-29T21:46:28.177023Z",
+                "execution_latency": "0.014514s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:29.606942Z",
+                "end_time": "2026-09-29T21:46:29.618042Z",
+                "execution_latency": "0.011100s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:27.236053Z",
+                "end_time": "2026-09-29T21:46:28.160724Z",
+                "execution_latency": "0.924671s",
+                "display_name": ""
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:28.190531Z",
+                "end_time": "2026-09-29T21:46:29.604884Z",
+                "execution_latency": "1.414353s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:29.606797Z",
+                "end_time": "2026-09-29T21:46:29.606884Z",
+                "execution_latency": "0.000087s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/01f8e611-a7c9-414f-829a-90d1be3b1d33",
+            "prompt": "The agent provided the official Mercedes F1 website and official store URLs",
+            "outcome": 1,
+            "explanation": "The agent successfully provided both the official Mercedes F1 website URL (mercedesamgf1.com) and the official store URL (shop.mercedesamgf1.com) in its final response, directly addressing the user's request and meeting the custom expectation."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+    "original_name": "golden_ac6_multilingual_spanish_response",
+    "repeat": 1,
+    "evaluation": "evaluations/ade2bf5d-d09b-4f4d-88e0-8f2f90645a1a",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/ade2bf5d-d09b-4f4d-88e0-8f2f90645a1a/results/d1be573e-3e11-4e78-b178-9a34276d9d24",
+    "conversation": "conversations/evaluation-d194780c-3994-46f1-b4f2-e0c53de4313e",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/ade2bf5d-d09b-4f4d-88e0-8f2f90645a1a/results/d1be573e-3e11-4e78-b178-9a34276d9d24",
+      "display_name": "Result 1 - 2026-09-29-21-46-22 - d1be573e-3e11-4e78-b178-9a34276d9d24",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.524427Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-d194780c-3994-46f1-b4f2-e0c53de4313e",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "Hola, soy Totto, Mercedes F1 Fan Agent, el asistente virtual para los aficionados de Mercedes-AMG Petronas. Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "1.948s",
+            "semantic_similarity_result": {
+              "score": 3,
+              "label": "Mostly Consistent",
+              "explanation": "The primary intent of identifying the Mercedes F1 drivers is met by both responses. However, the 'Actual' response adds extra detail (car numbers) not present in the 'Reference', and the 'Reference' includes a common follow-up question (\"¿En qué más te puedo ayudar hoy?\") which is absent from the 'Actual'. This constitutes a minor change in completeness and conversational flow, making it \"Mostly Consistent\".\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:27.462433Z",
+                "end_time": "2026-09-29T21:46:27.491449Z",
+                "execution_latency": "0.029016s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:29.303107Z",
+                "end_time": "2026-09-29T21:46:29.320859Z",
+                "execution_latency": "0.017752s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:27.492112Z",
+                "end_time": "2026-09-29T21:46:29.301507Z",
+                "execution_latency": "1.809395s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:29.302998Z",
+                "end_time": "2026-09-29T21:46:29.303060Z",
+                "execution_latency": "0.000062s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/4b0535d8-60a7-4852-b203-46b3af299566",
+            "prompt": "The agent responded fluently in Spanish matching the user's language",
+            "outcome": 1,
+            "explanation": "The user initiated the conversation in Spanish. The agent responded entirely in fluent Spanish, matching the user's language. The response is grammatically correct and natural-sounding."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/f9314ad0-cbdb-4a1e-a9d1-c7ab52c88efa",
+            "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+            "outcome": 1,
+            "explanation": "The agent explicitly identified George Russell and Kimi Antonelli as the drivers for Mercedes (referred to as 'Flechas Plateadas') in its response to the user's question."
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  },
+  {
+    "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+    "original_name": "golden_ac6_multilingual_spanish_response",
+    "repeat": 2,
+    "evaluation": "evaluations/ade2bf5d-d09b-4f4d-88e0-8f2f90645a1a",
+    "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+    "evaluation_result": "evaluations/ade2bf5d-d09b-4f4d-88e0-8f2f90645a1a/results/d8205012-8ba4-41ef-8e69-5fe6a61616ab",
+    "conversation": "conversations/evaluation-6df9b0cd-1a99-4cae-9e02-32d5368fb58c",
+    "status": "PASS",
+    "findings": [],
+    "tool_call_behaviour": "1",
+    "fake_evidence": {
+      "fake_tool_spans": 0,
+      "real_tool_spans": 0,
+      "fake_markers": 0,
+      "fake_tools": [],
+      "real_tools": []
+    },
+    "raw_result": {
+      "name": "evaluations/ade2bf5d-d09b-4f4d-88e0-8f2f90645a1a/results/d8205012-8ba4-41ef-8e69-5fe6a61616ab",
+      "display_name": "Result 2 - 2026-09-29-21-46-22 - d8205012-8ba4-41ef-8e69-5fe6a61616ab",
+      "evaluation_status": 1,
+      "create_time": "2026-09-29T21:46:23.577908Z",
+      "evaluation_run": "evaluationRuns/b6e99441-4325-4c1a-bf09-207c0ddd88a4",
+      "golden_result": {
+        "turn_replay_results": [
+          {
+            "conversation": "conversations/evaluation-6df9b0cd-1a99-4cae-9e02-32d5368fb58c",
+            "expectation_outcome": [
+              {
+                "expectation": {
+                  "agent_response": {
+                    "role": "agent",
+                    "chunks": [
+                      {
+                        "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                      }
+                    ]
+                  },
+                  "note": "",
+                  "skip_evaluation": false,
+                  "comparison_type": 0
+                },
+                "observed_agent_response": {
+                  "role": "totto_root_agent",
+                  "chunks": [
+                    {
+                      "text": "Hola, soy Totto, Mercedes F1 Fan Agent, el asistente virtual para los aficionados de Mercedes-AMG Petronas. Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12."
+                    }
+                  ]
+                },
+                "outcome": 0
+              }
+            ],
+            "hallucination_result": {
+              "score": -1,
+              "label": "Unknown",
+              "explanation": "No tool call in prediction turn."
+            },
+            "tool_ordered_invocation_score": 0.0,
+            "turn_latency": "2.019s",
+            "semantic_similarity_result": {
+              "score": 3,
+              "label": "Mostly Consistent",
+              "explanation": "The primary intent is consistent; both responses identify the Mercedes F1 drivers. However, the actual response omits the follow-up question (\"¿En qué más te puedo ayudar hoy?\") present in the reference, which is a minor change in conversational flow (a \"Hard Close\" versus a \"Courtesy Check\"). The actual response also adds car numbers, which is an additional detail not present in the reference. These minor differences lead to a \"Mostly Consistent\" rating.\n\nMetric Name:",
+              "outcome": 1
+            },
+            "span_latencies": [
+              {
+                "type_": 2,
+                "callback": "BeforeAgent",
+                "start_time": "2026-09-29T21:46:27.763648Z",
+                "end_time": "2026-09-29T21:46:27.783320Z",
+                "execution_latency": "0.019672s",
+                "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+              },
+              {
+                "type_": 2,
+                "callback": "AfterModel",
+                "start_time": "2026-09-29T21:46:29.680973Z",
+                "end_time": "2026-09-29T21:46:29.693171Z",
+                "execution_latency": "0.012198s",
+                "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+              },
+              {
+                "type_": 4,
+                "model": "gemini-3.0-flash-001",
+                "start_time": "2026-09-29T21:46:27.783968Z",
+                "end_time": "2026-09-29T21:46:29.679218Z",
+                "execution_latency": "1.895250s",
+                "display_name": ""
+              },
+              {
+                "type_": 3,
+                "resource": "Sensitive Word Filter",
+                "start_time": "2026-09-29T21:46:29.680861Z",
+                "end_time": "2026-09-29T21:46:29.680929Z",
+                "execution_latency": "0.000068s",
+                "display_name": ""
+              }
+            ],
+            "tool_invocation_score": 0.0,
+            "tool_call_latencies": []
+          }
+        ],
+        "evaluation_expectation_results": [
+          {
+            "evaluation_expectation": "evaluationExpectations/4b0535d8-60a7-4852-b203-46b3af299566",
+            "prompt": "The agent responded fluently in Spanish matching the user's language",
+            "outcome": 1,
+            "explanation": "The user initiated the conversation in Spanish. The agent responded entirely in Spanish, and the response was fluent and grammatically correct, matching the user's language."
+          },
+          {
+            "evaluation_expectation": "evaluationExpectations/f9314ad0-cbdb-4a1e-a9d1-c7ab52c88efa",
+            "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+            "outcome": 1,
+            "explanation": "The agent explicitly identified George Russell and Kimi Antonelli as the Mercedes drivers in its response: 'Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12.'"
+          }
+        ]
+      },
+      "initiated_by": "admin@snehsm.altostrat.com",
+      "execution_state": 2,
+      "evaluation_metrics_thresholds": {
+        "golden_evaluation_metrics_thresholds": {
+          "turn_level_metrics_thresholds": {
+            "semantic_similarity_success_threshold": 3,
+            "overall_tool_invocation_correctness_threshold": 1.0,
+            "semantic_similarity_channel": 1
+          },
+          "expectation_level_metrics_thresholds": {
+            "tool_invocation_parameter_correctness_threshold": 1.0
+          }
+        },
+        "golden_hallucination_metric_behavior": 2,
+        "hallucination_metric_behavior": 0,
+        "scenario_hallucination_metric_behavior": 0
+      },
+      "config": {
+        "evaluation_channel": 1,
+        "tool_call_behaviour": 1
+      },
+      "golden_run_method": 2,
+      "changelog": "changelogs/af07e894-8bc3-495f-a259-61c252f77cf8",
+      "changelog_create_time": "2026-09-29T21:46:21.651955Z",
+      "app_version": "",
+      "app_version_display_name": ""
+    }
+  }
+]

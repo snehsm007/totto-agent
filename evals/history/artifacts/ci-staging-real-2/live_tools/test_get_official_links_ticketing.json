@@ -1,0 +1,40 @@
+{
+  "name": "test_get_official_links_ticketing",
+  "tool": "get_official_links",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555554",
+  "args": {
+    "category": "ticketing"
+  },
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555554",
+    "response": {
+      "result": {
+        "status": "success",
+        "category": "ticketing",
+        "result": {
+          "title": "Official Formula 1 Tickets",
+          "url": "https://tickets.formula1.com",
+          "guidance": "Visit the official Formula 1 ticketing portal for live seat availability, grandstand pricing, general admission, and hospitality packages. Totto cannot check live seat inventory, quote prices, or book tickets directly."
+        },
+        "links": {
+          "ticketing": {
+            "title": "Official Formula 1 Tickets",
+            "url": "https://tickets.formula1.com",
+            "guidance": "Visit the official Formula 1 ticketing portal for live seat availability, grandstand pricing, general admission, and hospitality packages. Totto cannot check live seat inventory, quote prices, or book tickets directly."
+          }
+        },
+        "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+        "agent_action": "PROVIDE_OFFICIAL_LINKS"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "validation_errors": [],
+  "error": null,
+  "duration_ms": 548.65
+}

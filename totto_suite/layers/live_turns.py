@@ -9,11 +9,11 @@ from cxas_scrapi.core.conversation_history import ConversationHistory
 from cxas_scrapi.evals.turn_evals import TurnEvals
 from totto_suite.live.runner import (
     DEFAULT_APP_NAME,
-    LIVE_VERSION_ID,
     is_quota_or_infra_error,
     resolve_conversation_resource,
     save_layer_artifact,
     slugify,
+    use_tool_fakes,
     with_quota_retry,
 )
 from totto_suite.config import REPO_ROOT
@@ -29,6 +29,11 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     turn_evals = TurnEvals(app_name=app_name)
     ch_client = ConversationHistory(app_name=app_name, transport="rest")
     cases = turn_evals.load_turn_test_cases_from_file(str(TURN_EVALS_YAML))
+    fake = use_tool_fakes(ctx)
+    for tc in cases:
+        # TurnEvals merges case.config into every sessions.run(**config) call,
+        # so this turns on SessionConfig.use_tool_fakes for the whole case.
+        tc.config = {**(tc.config or {}), "use_tool_fakes": fake}
 
     results: list[dict[str, Any]] = []
     raw_artifacts: list[dict[str, Any]] = []
@@ -108,8 +113,8 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                     "platform_ids": {
                         "session_id": session_id,
                         "conversation": conv_name,
-                        "app_version": LIVE_VERSION_ID,
                     },
+                    "tool_mode": "fake" if fake else "real",
                     "metrics": {
                         "checks_count": len(rows),
                         "failed_checks_count": failed_rows,

@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import json
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
 from totto_suite.live.runner import (
-    LIVE_VERSION_ID,
     grade_and_build_test_result,
     is_quota_or_infra_error,
     resolve_dynamic_expectations,
@@ -99,7 +99,8 @@ def test_grade_and_build_test_result_combines_deterministic_and_judge() -> None:
     assert res["status"] == "FAIL"
     assert "pci_echo" in res["metrics"]["deterministic_failed_checks"]
     assert res["platform_ids"]["session_id"] == "sess-123"
-    assert res["platform_ids"]["app_version"] == LIVE_VERSION_ID
+    # Runs talk to the app draft; no hard-coded version id is attached.
+    assert "app_version" not in res["platform_ids"]
 
 
 def test_grade_and_build_test_result_marks_429_as_infra_error() -> None:
@@ -126,39 +127,39 @@ def test_grade_and_build_test_result_marks_429_as_infra_error() -> None:
     assert res["status"] == "INFRA_ERROR"
 
 
-def test_verify_run_record_validates_all_platform_id_kinds() -> None:
-    fake_ch = SimpleNamespace(
-        get_conversation=lambda cid: SimpleNamespace(
-            name=f"projects/p/locations/us/apps/a/conversations/{cid.split('/')[-1]}",
-            turns=[1, 2],
-        )
-    )
-    fake_ev = SimpleNamespace(
-        get_evaluation=lambda eid: SimpleNamespace(name=eid, display_name="r4-totto-1"),
-        get_evaluation_run=lambda rid: SimpleNamespace(name=rid, state="COMPLETED"),
-        get_evaluation_result=lambda resid: SimpleNamespace(
-            name=resid, evaluation_status=1
+def _fake_clients(seen: list[str]):
+    def rec(name, **extra):
+        seen.append(name)
+        return SimpleNamespace(name=name, **extra)
+
+    return dict(
+        ch_client=SimpleNamespace(get_conversation=lambda cid: rec(cid, turns=[1, 2])),
+        ev_client=SimpleNamespace(
+            get_evaluation=lambda eid: rec(eid, display_name="r4-totto-1"),
+            get_evaluation_run=lambda rid: rec(rid, state="COMPLETED"),
+            get_evaluation_result=lambda resid: rec(resid, evaluation_status=1),
+        ),
+        tools_client=SimpleNamespace(
+            get_tool=lambda tid: rec(tid, display_name="get_race_schedule")
+        ),
+        versions_client=SimpleNamespace(
+            get_version=lambda vid: rec(f"projects/p/locations/us/apps/a/versions/{vid}")
         ),
     )
-    fake_tl = SimpleNamespace(
-        get_tool=lambda tid: SimpleNamespace(name=tid, display_name="get_race_schedule")
-    )
-    fake_vr = SimpleNamespace(
-        get_version=lambda vid: SimpleNamespace(name=vid, display_name="v1")
-    )
 
+
+def test_verify_run_record_prefixes_app_relative_ids_with_app_name() -> None:
+    seen: list[str] = []
     record: dict[str, Any] = {
-        "run_id": "test-live-run",
+        "run_id": "test-ci-run",
+        "app_ref": "staging",
         "tests": [
             {
                 "id": "live_tools::t1",
                 "layer": "live_tools",
                 "repeat": 1,
                 "status": "PASS",
-                "platform_ids": {
-                    "tool": "projects/p/locations/us/apps/a/tools/t1",
-                    "app_version": LIVE_VERSION_ID,
-                },
+                "platform_ids": {"tool": "tools/t1", "app_version": "versions/v1"},
             },
             {
                 "id": "live_goldens::g1",
@@ -166,24 +167,111 @@ def test_verify_run_record_validates_all_platform_id_kinds() -> None:
                 "repeat": 1,
                 "status": "PASS",
                 "platform_ids": {
-                    "evaluation": "projects/p/locations/us/apps/a/evaluations/e1",
-                    "evaluation_run": "projects/p/locations/us/apps/a/evaluationRuns/r1",
-                    "evaluation_result": "projects/p/locations/us/apps/a/evaluations/e1/results/res1",
-                    "conversation": "projects/p/locations/us/apps/a/conversations/c1",
-                    "app_version": LIVE_VERSION_ID,
+                    "evaluation": "evaluations/e1",
+                    "evaluation_run": "evaluationRuns/r1",
+                    "evaluation_result": "evaluations/e1/results/res1",
+                    "conversation": "conversations/c1",
+                },
+            },
+            {
+                "id": "live_sims::s1",
+                "layer": "live_sims",
+                "repeat": 1,
+                "status": "PASS",
+                "platform_ids": {"session_id": "sessions/sess-9"},
+            },
+        ],
+    }
+    report = verify_run_record(
+        record, app_name="projects/p/locations/us/apps/a", **_fake_clients(seen)
+    )
+    assert report["all_verified"] is True
+    assert report["verified_test_entries"] == 3
+    assert report["failed_test_entries"] == 0
+    assert report["app_ref"] == "staging"
+    assert "projects/p/locations/us/apps/a/tools/t1" in seen
+    assert "projects/p/locations/us/apps/a/evaluationRuns/r1" in seen
+    assert "projects/p/locations/us/apps/a/evaluations/e1/results/res1" in seen
+    # session ids are verified through the conversation with the same id
+    assert "projects/p/locations/us/apps/a/conversations/sess-9" in seen
+    # the written report stays app-relative (no project / app identifiers)
+    blob = json.dumps(report)
+    assert "projects/p" not in blob and "apps/a/" not in blob
+
+
+def test_verify_run_record_reports_legacy_placeholders_separately() -> None:
+    seen: list[str] = []
+    placeholder = "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000"
+    record: dict[str, Any] = {
+        "run_id": "old-live-run",
+        "tests": [
+            {
+                "id": "live_tools::old",
+                "layer": "live_tools",
+                "repeat": 1,
+                "status": "PASS",
+                "platform_ids": {"tool": f"{placeholder}/tools/t1"},
+            },
+            {
+                "id": "live_goldens::legacy_full",
+                "layer": "live_goldens",
+                "repeat": 1,
+                "status": "PASS",
+                "platform_ids": {
+                    "evaluation_run": "projects/p/locations/us/apps/a/evaluationRuns/r1"
                 },
             },
         ],
     }
-
     report = verify_run_record(
-        record,
-        app_name="projects/p/locations/us/apps/a",
-        ch_client=fake_ch,
-        ev_client=fake_ev,
-        tools_client=fake_tl,
-        versions_client=fake_vr,
+        record, app_name="projects/p/locations/us/apps/a", **_fake_clients(seen)
     )
-    assert report["all_verified"] is True
-    assert report["verified_test_entries"] == 2
+    assert report["legacy_unverifiable_entries"] == 1
+    assert report["verified_test_entries"] == 1
     assert report["failed_test_entries"] == 0
+    assert report["all_verified"] is True
+    assert report["app_ref"] == "legacy"
+    assert not any("your-gcp-project" in s for s in seen)  # never fetched
+    legacy_entry = report["entries"][0]
+    assert legacy_entry["ok"] is None and legacy_entry["legacy"] is True
+
+
+def test_verify_run_record_fails_on_unfetchable_and_empty_ids() -> None:
+    def boom(_name):
+        raise RuntimeError("404 NotFound projects/p/locations/us/apps/a/tools/gone")
+
+    clients = _fake_clients([])
+    clients["tools_client"] = SimpleNamespace(get_tool=boom)
+    record: dict[str, Any] = {
+        "run_id": "r",
+        "app_ref": "staging",
+        "tests": [
+            {"id": "a", "repeat": 1, "platform_ids": {"tool": "tools/gone"}},
+            {"id": "b", "repeat": 1, "platform_ids": {}},
+            {"id": "c", "repeat": 1, "platform_ids": {"app_version": "versions/v1"}},
+        ],
+    }
+    report = verify_run_record(record, app_name="projects/p/locations/us/apps/a", **clients)
+    assert report["failed_test_entries"] == 3  # 404, empty, no primary id
+    assert report["all_verified"] is False
+    err = report["entries"][0]["checks"]["tool"]["error"]
+    assert "404" in err and "projects/p" not in err
+
+
+def test_tool_test_yaml_next_race_expectation_follows_the_oracle() -> None:
+    import yaml
+
+    from totto_suite import oracle
+    from totto_suite.layers.live_tools import OPENF1_FIXTURES, TOOL_TESTS_YAML, resolve_tool_test_yaml
+
+    raw = TOOL_TESTS_YAML.read_text(encoding="utf-8")
+    meetings, sessions = oracle.load_calendar(OPENF1_FIXTURES)
+    for now in (datetime(2026, 6, 1, tzinfo=timezone.utc), datetime(2026, 9, 29, tzinfo=timezone.utc)):
+        expected = oracle.next_race(meetings, now, sessions)
+        cases = yaml.safe_load(resolve_tool_test_yaml(raw, now))["tests"]
+        case = next(c for c in cases if c["name"] == "test_get_race_schedule_default_utc")
+        values = {e["path"]: e["value"] for e in case["expectations"]["response"]}
+        assert values["$.result.race_name"] == expected["meeting_name"]
+        assert values["$.result.location"] == expected["location"]
+    over = resolve_tool_test_yaml(raw, datetime(2027, 1, 1, tzinfo=timezone.utc))
+    assert "{{NEXT_RACE_" not in over and "none remaining in 2026" in over

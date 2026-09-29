@@ -1,0 +1,35 @@
+{
+  "_doc": "Gate thresholds per tool_mode for `python -m totto_suite ci-gate` (rule: totto_suite/gate_rule.py). Pass rates are over tests aggregated across repeats (strict majority of decided repeats). Floor rule: lowest measured rate over the post-fix runs minus one test's worth of slack for that scope, rounded down to a multiple of 0.05. No floor is 0.0. All runs: staging app, default layers tools,goldens,sims, repeats 2, model gemini-3.0-flash-001, deployed app = HEAD 0f71b3a cxas_app + R5 tool fakes + persona freshness-disclosure rule (agent.tree_hash a58303b2..., staging app_update_time 2026-09-29T22:05:14Z). Pre-fix runs (ci-staging-fake-1/-2, ci-staging-real-1, both ci-staging-demo-openf1-down-*) stay in evals/history but are superseded: they ran an agent without the persona freshness rule and fail 4-6 sims on TR-09 disclosure_freshness.",
+  "fake": {
+    "overall_floor": 0.95,
+    "layer_floors": {
+      "live_tools": 0.95,
+      "live_goldens": 0.8,
+      "live_sims": 0.7
+    },
+    "baseline_tolerance_pp": 10.0,
+    "max_new_failures": 1,
+    "max_infra_ratio": 0.25,
+    "measured_from": [
+      {"run_id": "ci-staging-fake-3", "overall": 0.9756, "live_tools": 1.0, "live_goldens": 1.0, "live_sims": 0.8571, "duration_s": 372.9, "note": "sims yaml before the {{NEXT_RACE}} fix: the only failure is sim_ac1's stale 'Singapore' judge expectation"},
+      {"run_id": "ci-staging-fake-4", "overall": 0.9756, "live_tools": 1.0, "live_goldens": 1.0, "live_sims": 0.8571, "duration_s": 319.4, "note": "only failure probe_tr10 (PASS,FAIL): judge said Edinburgh time missing although the reply gave it"},
+      {"run_id": "ci-staging-fake-5", "overall": 1.0, "live_tools": 1.0, "live_goldens": 1.0, "live_sims": 1.0, "duration_s": 289.8}
+    ],
+    "justification": "overall: min 97.6% (41 decided tests, 1 test = 2.4pp) -> 95.1% -> 0.95 (tolerates 2 failing tests of 41). live_tools: 29/29 in all three runs (1 test = 3.4pp) -> 96.6% -> 0.95. live_goldens: 5/5 in all three runs (1 test = 20pp) -> 0.80. live_sims: min 6/7 = 85.7% (1 test = 14.3pp) -> 71.4% -> 0.70 (tolerates 2 failing sims of 7). The one flaky sim is probe_tr10_unseen_cities_vienna_and_edinburgh, which failed 1 repeat in fake-4 and in real-2 on LLM-judge noise (see handoff). Before the persona fix sims measured 1/7 and 2/7 (ci-staging-fake-1/-2) because the agent never disclosed data freshness (TR-09)."
+  },
+  "real": {
+    "overall_floor": 0.9,
+    "layer_floors": {
+      "live_tools": 0.9,
+      "live_goldens": 0.8,
+      "live_sims": 0.7
+    },
+    "baseline_tolerance_pp": 10.0,
+    "max_new_failures": 1,
+    "max_infra_ratio": 0.25,
+    "measured_from": [
+      {"run_id": "ci-staging-real-2", "overall": 0.9524, "live_tools": 0.9667, "live_goldens": 1.0, "live_sims": 0.8571, "duration_s": 371.6}
+    ],
+    "justification": "One post-fix real-mode measurement (real mode is not the CI default). overall: 95.2% (42 decided, 1 test = 2.4pp) -> 92.9% -> 0.90. live_tools: 29/30 (96.7%, 1 test = 3.3pp) -> 93.3% -> 0.90; the failure is structural: probe_tb1 detects that the CXAS sandbox cannot reach OpenF1, so the real tool always serves its snapshot (TB-1). The fake tools skip this probe. live_goldens: 5/5 -> 0.80. live_sims: 6/7 (probe_tr10 FAIL,PASS) -> 71.4% -> 0.70, the same as fake mode. Pre-fix real run ci-staging-real-1 measured 81.0% overall with sims 1/7 (TR-09 disclosure_freshness). The post-fix OpenF1-unreachable demo ci-staging-demo2-openf1-down-real (fault injection, so it is not used to derive floors) measured 95.2% overall: tools 29/30 (probe_tb1), goldens 4/5 (golden_ac6 PASS,FAIL on Spanish semantic similarity 2/4, exactly at the 0.80 floor) and sims 7/7. It passes every real floor. Re-measure before tightening."
+  }
+}

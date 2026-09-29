@@ -1,0 +1,148 @@
+{
+  "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+  "original_name": "golden_ac6_multilingual_spanish_response",
+  "repeat": 1,
+  "evaluation": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad",
+  "evaluation_run": "evaluationRuns/32e91a1a-5ccf-4165-a511-e0c938b0414a",
+  "evaluation_result": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad/results/10b112be-aa0d-45cb-aca1-6b58fbe7f9ac",
+  "conversation": "conversations/evaluation-884c447c-fa7c-4a9e-8777-60017f34a9e3",
+  "status": "PASS",
+  "findings": [],
+  "tool_call_behaviour": "2",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/e8478fee-35cb-44fc-a808-c994a036c3ad/results/10b112be-aa0d-45cb-aca1-6b58fbe7f9ac",
+    "display_name": "Result 1 - 2026-09-29-22-06-02 - 10b112be-aa0d-45cb-aca1-6b58fbe7f9ac",
+    "evaluation_status": 1,
+    "create_time": "2026-09-29T22:06:04.542019Z",
+    "evaluation_run": "evaluationRuns/32e91a1a-5ccf-4165-a511-e0c938b0414a",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-884c447c-fa7c-4a9e-8777-60017f34a9e3",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "¡Hola! Es un placer saludarte. Los pilotos de las Flechas de Plata son George Russell en el coche 63 y Kimi Antonelli en el coche 12. Estamos muy emocionados de ver lo que pueden lograr juntos en la pista."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "1.309s",
+          "semantic_similarity_result": {
+            "score": 3,
+            "label": "Mostly Consistent",
+            "explanation": "The primary intent to identify the Mercedes F1 drivers is captured correctly by both responses. Both agents address the correct topic and provide the names of the drivers. However, there is a slight difference in conversational flow and completeness. The reference explicitly asks \"En qué más te puedo ayudar hoy?\" (How else can I help you today?), which is an offer for further assistance. The actual agent does not include this explicit offer, instead ending with an emotional statement (\"Estamos muy emocionados de ver lo que pueden lograr juntos en la pista.\") and adds car numbers. The difference between offering further help and not, as per the rubric, constitutes a \"Minor Deviation\" in conversational flow.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T22:06:07.855874Z",
+              "end_time": "2026-09-29T22:06:07.878911Z",
+              "execution_latency": "0.023037s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-29T22:06:09.036962Z",
+              "end_time": "2026-09-29T22:06:09.053021Z",
+              "execution_latency": "0.016059s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T22:06:07.879713Z",
+              "end_time": "2026-09-29T22:06:09.034175Z",
+              "execution_latency": "1.154462s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T22:06:09.036824Z",
+              "end_time": "2026-09-29T22:06:09.036891Z",
+              "execution_latency": "0.000067s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/3bd62fe8-920d-45df-9751-1621e54da511",
+          "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+          "outcome": 1,
+          "explanation": "The agent correctly identified George Russell and Kimi Antonelli as the Mercedes drivers, directly fulfilling the custom expectation. The agent stated: \"Los pilotos de las Flechas de Plata son George Russell en el coche 63 y Kimi Antonelli en el coche 12.\""
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/5ad78ab2-e6a6-4c74-b149-73f4375524c5",
+          "prompt": "The agent responded fluently in Spanish matching the user's language",
+          "outcome": 1,
+          "explanation": "The user's query was in Spanish, and the agent responded fluently and correctly in Spanish, matching the user's language. The agent's response is grammatically sound and natural-sounding."
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "evaluation_channel": 1,
+      "tool_call_behaviour": 2
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/a6d5a6e4-2b2d-43b8-b5ff-fb57be2f7176",
+    "changelog_create_time": "2026-09-29T22:06:02.427171Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

@@ -13,7 +13,7 @@ from __future__ import annotations
 import html
 from pathlib import Path
 
-from totto_suite import config, records
+from totto_suite import config, ids, records
 
 
 def _short(sha: str | None) -> str:
@@ -296,8 +296,9 @@ def generate(
     md_path = Path(md_path or config.TREND_MD_PATH)
     html_path = Path(html_path or config.TREND_HTML_PATH)
     md_path.parent.mkdir(parents=True, exist_ok=True)
-    md_path.write_text(render_markdown(recs, flags), encoding="utf-8")
-    html_path.write_text(render_html(recs, flags), encoding="utf-8")
+    # Scrub configured project/app identifiers (older local records may carry them).
+    md_path.write_text(ids.scrub_configured(render_markdown(recs, flags)), encoding="utf-8")
+    html_path.write_text(ids.scrub_configured(render_html(recs, flags)), encoding="utf-8")
     idx = records.write_index(recs, index_path=index_path, runs_dir=runs_dir)
     return {
         "points": len(recs),

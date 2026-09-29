@@ -68,9 +68,6 @@ DEFAULT_APP_NAME = f"projects/{PROJECT}/locations/{LOCATION}/apps/{APP_ID}"
 APP_DISPLAY_NAME = "totto-mercedes-f1-fan-agent"
 EXPECTED_MODEL = "gemini-3.0-flash-001"
 
-# Evaluation Auto-Generated Version IDs re-checked by snapshot inventory.
-KNOWN_HIDDEN_VERSION_IDS = ("534c9b06-bd43-41c3-9f8c-abe31d6f8b4c",)
-
 _APP_NAME_RE = re.compile(
     r"^projects/(?P<project>[^/]+)/locations/(?P<location>[^/]+)"
     r"/apps/(?P<app_id>[^/]+)$"

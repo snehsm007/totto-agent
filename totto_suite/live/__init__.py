@@ -8,13 +8,10 @@ from pathlib import Path
 import sys
 import time
 
-from totto_suite import config, cxasapi, gitinfo, oracle, records, trend
+from totto_suite import config, cxasapi, gitinfo, ids, oracle, records, trend
 from totto_suite import layers as layers_pkg
 from totto_suite.cli import EXIT_CRASH, exit_code_for, print_summary
-from totto_suite.live.runner import (
-    DEFAULT_APP_NAME,
-    fetch_live_cxas_metadata,
-)
+from totto_suite.live.runner import TOOL_MODES, fetch_live_cxas_metadata
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -39,9 +36,22 @@ def main(argv: list[str] | None = None) -> int:
         help="Optional explicit run ID.",
     )
     parser.add_argument(
+        "--target",
+        choices=ids.APP_REFS,
+        default="live",
+        help="Which app this is; stored as the record's app_ref (default: live).",
+    )
+    parser.add_argument(
         "--app-name",
-        default=DEFAULT_APP_NAME,
-        help="Full CXAS app resource name.",
+        default=None,
+        help="Full CXAS app resource name (default: $TOTTO_APP_NAME / env /"
+        " gecx-config.json for --target).",
+    )
+    parser.add_argument(
+        "--tool-mode",
+        choices=TOOL_MODES,
+        default="real",
+        help="real tools (default) or platform tool fakes (use_tool_fakes / FAKE).",
     )
     parser.add_argument(
         "--layers",
@@ -59,6 +69,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Run without writing to evals/history/runs/.",
     )
     args = parser.parse_args(argv)
+    try:
+        args.app_name = ids.resolve_app_name(args.app_name, args.target)
+    except ValueError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return EXIT_CRASH
 
     started = datetime.now(timezone.utc)
     t0 = time.monotonic()
@@ -95,6 +110,7 @@ def main(argv: list[str] | None = None) -> int:
         "run_id": run_id,
         "artifacts_dir": str(artifacts_dir),
         "app_name": args.app_name,
+        "tool_mode": args.tool_mode,
     }
 
     print(
@@ -119,8 +135,11 @@ def main(argv: list[str] | None = None) -> int:
             print(f"SUITE CRASH in {o.layer.module}:\n{o.error}", file=sys.stderr)
         return EXIT_CRASH
 
+    from totto_suite.ci_gate import finalize_test, redact_artifacts  # pylint: disable=import-outside-toplevel
+
+    # App-relative platform IDs + tool_mode/fake_verified; no identifiers.
     tests = sorted(
-        (r for o in outcomes for r in o.results),
+        (finalize_test(r, args.tool_mode, args.app_name) for o in outcomes for r in o.results),
         key=lambda t: (t["id"], t.get("repeat", 1)),
     )
     if not tests:
@@ -144,7 +163,16 @@ def main(argv: list[str] | None = None) -> int:
     finished = datetime.now(timezone.utc)
     started_iso = gitinfo.iso_utc(started)
     finished_iso = gitinfo.iso_utc(finished)
-    cxas_meta = fetch_live_cxas_metadata(args.app_name)
+    version_hint = next(
+        (t["platform_ids"]["app_version"] for t in tests if t["platform_ids"].get("app_version")),
+        None,
+    )
+    cxas_meta = fetch_live_cxas_metadata(
+        args.app_name,
+        app_ref=args.target,
+        version_hint=ids.to_full(args.app_name, version_hint) if version_hint else None,
+    )
+    cxas_meta = ids.redact_obj({k: cxas_meta.get(k) for k in records.CXAS_KEYS}, args.app_name)
 
     record = records.build_record(
         mode="live",
@@ -169,11 +197,14 @@ def main(argv: list[str] | None = None) -> int:
         rationale=args.rationale,
         tests=tests,
         extra={
+            "app_ref": args.target,
+            "tool_mode": args.tool_mode,
             "repeats": ctx["repeats"],
             "duration_s": round(elapsed, 2),
         },
     )
     path = records.write_record(record)
+    redact_artifacts(artifacts_dir, args.app_name)
     info = trend.generate()
     print(f"record: {config.repo_relative(path)}", flush=True)
     print(

@@ -1,0 +1,34 @@
+{
+  "id": "probe_tb3_unknown_race_moon_gp",
+  "tool": "get_race_schedule",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "Moon Grand Prix",
+    "user_timezone": "UTC"
+  },
+  "now_utc": "2026-09-29T21:33:29Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "error",
+        "agent_action": "CLARIFY_RACE_NAME",
+        "error_message": "No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "error",
+    "agent_action": "CLARIFY_RACE_NAME",
+    "error_message": "No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 720.2
+}

@@ -1,0 +1,28 @@
+{
+  "name": "test_get_driver_standings_invalid_season",
+  "tool": "get_driver_standings",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555552",
+  "args": {
+    "season": 1920,
+    "category": "all"
+  },
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555552",
+    "response": {
+      "result": {
+        "status": "error",
+        "agent_action": "EXPLAIN_INVALID_SEASON",
+        "error_message": "Season 1920 is out of valid Formula 1 range (1950-2030)."
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "validation_errors": [],
+  "error": null,
+  "duration_ms": 725.91
+}

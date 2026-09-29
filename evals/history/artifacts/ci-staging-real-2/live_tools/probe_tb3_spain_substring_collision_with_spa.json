@@ -1,0 +1,186 @@
+{
+  "id": "probe_tb3_spain_substring_collision_with_spa",
+  "tool": "get_race_schedule",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "Spain",
+    "user_timezone": "Madrid"
+  },
+  "now_utc": "2026-09-29T22:24:10Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "success",
+        "season": 2026,
+        "round": 14,
+        "meeting_key": 1294,
+        "race_name": "Spanish Grand Prix",
+        "circuit_name": "Madring Street Circuit (Madrid)",
+        "circuit": "Madring Street Circuit (Madrid)",
+        "location": "Madrid, Spain",
+        "dates": "September 11 - September 13, 2026",
+        "is_completed": true,
+        "meeting_state": "completed",
+        "timezone_requested": "Madrid",
+        "user_timezone_resolved": "Europe/Madrid",
+        "timezone_resolved": "Europe/Madrid (CEST (Madrid))",
+        "needs_timezone_clarification": false,
+        "sessions": [
+          {
+            "session": "Practice 1",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-09-11",
+            "utc_time": "2026-09-11 11:30 UTC",
+            "time_utc": "11:30 UTC",
+            "local_time": "13:30 CEST (Madrid)",
+            "timezone_label": "CEST (Madrid)"
+          },
+          {
+            "session": "Practice 2",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-09-11",
+            "utc_time": "2026-09-11 15:00 UTC",
+            "time_utc": "15:00 UTC",
+            "local_time": "17:00 CEST (Madrid)",
+            "timezone_label": "CEST (Madrid)"
+          },
+          {
+            "session": "Practice 3",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-09-12",
+            "utc_time": "2026-09-12 10:30 UTC",
+            "time_utc": "10:30 UTC",
+            "local_time": "12:30 CEST (Madrid)",
+            "timezone_label": "CEST (Madrid)"
+          },
+          {
+            "session": "Qualifying",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-09-12",
+            "utc_time": "2026-09-12 14:00 UTC",
+            "time_utc": "14:00 UTC",
+            "local_time": "16:00 CEST (Madrid)",
+            "timezone_label": "CEST (Madrid)"
+          },
+          {
+            "session": "Race",
+            "day": "Sunday",
+            "local_day": "Sunday",
+            "date_utc": "2026-09-13",
+            "utc_time": "2026-09-13 13:00 UTC",
+            "time_utc": "13:00 UTC",
+            "local_time": "15:00 CEST (Madrid)",
+            "timezone_label": "CEST (Madrid)"
+          }
+        ],
+        "typical_weather": {
+          "condition": "Typical circuit climate: Partly Cloudy and mild race weekend conditions",
+          "air_temp_c": 23,
+          "track_temp_c": 31,
+          "humidity_pct": 55,
+          "rain_probability": "20%",
+          "source": "typical_circuit_climate_profile"
+        },
+        "mercedes_highlights": "Mercedes-AMG Petronas F1 Team heads into the Spanish Grand Prix at Madring Street Circuit (Madrid) leading the 2026 Constructors' Championship in P1 (538 pts), spearheaded by Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+        "data_source": "OpenF1 API (2026 Season Snapshot)",
+        "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+        "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "success",
+    "season": 2026,
+    "round": 14,
+    "meeting_key": 1294,
+    "race_name": "Spanish Grand Prix",
+    "circuit_name": "Madring Street Circuit (Madrid)",
+    "circuit": "Madring Street Circuit (Madrid)",
+    "location": "Madrid, Spain",
+    "dates": "September 11 - September 13, 2026",
+    "is_completed": true,
+    "meeting_state": "completed",
+    "timezone_requested": "Madrid",
+    "user_timezone_resolved": "Europe/Madrid",
+    "timezone_resolved": "Europe/Madrid (CEST (Madrid))",
+    "needs_timezone_clarification": false,
+    "sessions": [
+      {
+        "session": "Practice 1",
+        "day": "Friday",
+        "local_day": "Friday",
+        "date_utc": "2026-09-11",
+        "utc_time": "2026-09-11 11:30 UTC",
+        "time_utc": "11:30 UTC",
+        "local_time": "13:30 CEST (Madrid)",
+        "timezone_label": "CEST (Madrid)"
+      },
+      {
+        "session": "Practice 2",
+        "day": "Friday",
+        "local_day": "Friday",
+        "date_utc": "2026-09-11",
+        "utc_time": "2026-09-11 15:00 UTC",
+        "time_utc": "15:00 UTC",
+        "local_time": "17:00 CEST (Madrid)",
+        "timezone_label": "CEST (Madrid)"
+      },
+      {
+        "session": "Practice 3",
+        "day": "Saturday",
+        "local_day": "Saturday",
+        "date_utc": "2026-09-12",
+        "utc_time": "2026-09-12 10:30 UTC",
+        "time_utc": "10:30 UTC",
+        "local_time": "12:30 CEST (Madrid)",
+        "timezone_label": "CEST (Madrid)"
+      },
+      {
+        "session": "Qualifying",
+        "day": "Saturday",
+        "local_day": "Saturday",
+        "date_utc": "2026-09-12",
+        "utc_time": "2026-09-12 14:00 UTC",
+        "time_utc": "14:00 UTC",
+        "local_time": "16:00 CEST (Madrid)",
+        "timezone_label": "CEST (Madrid)"
+      },
+      {
+        "session": "Race",
+        "day": "Sunday",
+        "local_day": "Sunday",
+        "date_utc": "2026-09-13",
+        "utc_time": "2026-09-13 13:00 UTC",
+        "time_utc": "13:00 UTC",
+        "local_time": "15:00 CEST (Madrid)",
+        "timezone_label": "CEST (Madrid)"
+      }
+    ],
+    "typical_weather": {
+      "condition": "Typical circuit climate: Partly Cloudy and mild race weekend conditions",
+      "air_temp_c": 23,
+      "track_temp_c": 31,
+      "humidity_pct": 55,
+      "rain_probability": "20%",
+      "source": "typical_circuit_climate_profile"
+    },
+    "mercedes_highlights": "Mercedes-AMG Petronas F1 Team heads into the Spanish Grand Prix at Madring Street Circuit (Madrid) leading the 2026 Constructors' Championship in P1 (538 pts), spearheaded by Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+    "data_source": "OpenF1 API (2026 Season Snapshot)",
+    "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+    "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE"
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 676.49
+}

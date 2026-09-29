@@ -13,6 +13,8 @@
       "version_id": null,
       "version_status": "not_deployed",
       "model": "gemini-2.5-flash",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Initial commit bdb8f3b: baseline multi-agent Totto scaffolding before PIF XML rewrite and OpenF1/Mercedes standings tools (reproduced offline + iteration 1 static checks 26/42)",
       "layers": {
         "callbacks": {
@@ -67,6 +69,8 @@
       "version_id": null,
       "version_status": "not_deployed",
       "model": "gemini-2.5-flash",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Iteration 2 commit 1a17988: PIF XML instructions, OpenF1 2026 schedule, Mercedes standings, and 42/42 static eval pass (reproduced offline)",
       "layers": {
         "callbacks": {
@@ -121,6 +125,8 @@
       "version_id": null,
       "version_status": "not_deployed",
       "model": "gemini-2.5-flash",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Iteration 3 snapshot on commit a7c3094: shortened totto_root_agent and merch_support_agent instructions causing config/static regression (42/42 -> 34/42)",
       "layers": {
         "callbacks": {
@@ -175,6 +181,8 @@
       "version_id": "8f80d3eb-8290-419a-94d7-ceff64b804c1",
       "version_status": "in_version_list",
       "model": "gemini-2.5-flash",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Imported Gemini 2.5 Flash live baseline (Version 1 8f80d3eb): re-graded sims (184131, 182715), probes (183505, 182711), audio (184320), goldens (182733), and remote tool tests (182511) with totto_suite.grader; 429 quota bursts isolated as INFRA_ERROR[quota]",
       "layers": {
         "live_goldens": {
@@ -229,6 +237,8 @@
       "version_id": "8f80d3eb-8290-419a-94d7-ceff64b804c1",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Imported Gemini 3 Flash model upgrade on baseline prompts (a7c3094): eliminated dead-air handoffs and raw Python code leaks in text sims, while totto_suite.grader catches past-race British GP date drift and freshness disclosure omissions",
       "layers": {
         "live_probes": {
@@ -269,6 +279,8 @@
       "version_id": "534c9b06-bd43-41c3-9f8c-abe31d6f8b4c",
       "version_status": "hidden_fetchable",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Imported Gemini 3 Flash Round 2 evaluation (commit f073e02, hidden fetchable version 534c9b06): PIF XML prompt & tool fixes across sims (204506), probes (204757), audio (204951), goldens (205030), and remote tool probes (203656/203713)",
       "layers": {
         "live_goldens": {
@@ -323,6 +335,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Team 3 start: snapshot of the live app as found (last updated by team 2); first point of the history; no tests run yet",
       "layers": {},
       "infra_errors": 0,
@@ -341,6 +355,8 @@
       "version_id": "40170087-a913-495f-b3fb-644dbfdbebd7",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Post-live-suite snapshot proving live app agents, tools, callbacks, instructions, guardrails, and model settings are identical before and after",
       "layers": {},
       "infra_errors": 0,
@@ -359,6 +375,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "totto_suite: source commit = commit that introduced the agent content; correct live_before record (f073e02, not suite-only b48bd74)",
       "layers": {
         "callbacks": {
@@ -434,6 +452,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "totto_suite: source commit = commit that introduced the agent content; correct live_before record (f073e02, not suite-only b48bd74)",
       "layers": {
         "callbacks": {
@@ -509,6 +529,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Verify push-disabled deploy workflow: gate pass + fetchable CXAS version snapshot linked to commit and results",
       "layers": {
         "callbacks": {
@@ -584,6 +606,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Round 4 full live evaluation suite (repeats=3) against unmodified live app",
       "layers": {
         "live_escalation": {
@@ -652,6 +676,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "M5 final verification run 1",
       "layers": {
         "callbacks": {
@@ -727,6 +753,8 @@
       "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "M5 final verification run 2",
       "layers": {
         "callbacks": {
@@ -802,6 +830,8 @@
       "version_id": null,
       "version_status": "not_deployed",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Post-fix offline suite verification #1 on commit 12336d5 (313/313 PASS, toolFakeConfig + supervisor escalation + all 29 offline fixes)",
       "layers": {
         "callbacks": {
@@ -877,6 +907,8 @@
       "version_id": null,
       "version_status": "not_deployed",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Post-fix offline suite verification #2 on commit 12336d5 (repeatability check, 313/313 PASS)",
       "layers": {
         "callbacks": {
@@ -952,6 +984,8 @@
       "version_id": "365b82de-16af-4acf-bfb0-8298f1c1c01e",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Post-fix live CXAS deployment (version 365b82de-16af-4acf-bfb0-8298f1c1c01e) with toolFakeConfig and all 29 offline defects resolved",
       "layers": {},
       "infra_errors": 0,
@@ -970,6 +1004,8 @@
       "version_id": "365b82de-16af-4acf-bfb0-8298f1c1c01e",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Post-deploy offline verification #1 linked to live CXAS version 365b82de-16af-4acf-bfb0-8298f1c1c01e (313/313 PASS)",
       "layers": {
         "callbacks": {
@@ -1045,6 +1081,8 @@
       "version_id": "365b82de-16af-4acf-bfb0-8298f1c1c01e",
       "version_status": "in_version_list",
       "model": "gemini-3.0-flash-001",
+      "app_ref": null,
+      "tool_mode": null,
       "rationale": "Post-deploy offline verification #2 linked to live CXAS version 365b82de-16af-4acf-bfb0-8298f1c1c01e (repeatability check, 313/313 PASS)",
       "layers": {
         "callbacks": {
@@ -1107,6 +1145,426 @@
       "infra_errors": 0,
       "results_digest": "1b3baebd19bc4de860a7d5ff5a60054f677ebdd7eeee32592d706d1aa6901505",
       "path": "runs/20260929T150622Z_offline_95d3ccf.json"
+    },
+    {
+      "run_id": "ci-staging-fake-1",
+      "mode": "ci",
+      "point_time": "2026-09-29T21:33:29Z",
+      "started_at": "2026-09-29T21:33:29Z",
+      "imported": false,
+      "agent_commit": "632dfe87f24f4c7d5fb0ff47f75bc105eb77bed7",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "ci-gate fake on staging for 632dfe87f24f",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 4,
+          "fail": 10,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.2857
+        },
+        "live_tools": {
+          "pass": 28,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 1,
+          "score": 0.9655
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "54b0a6687f08daca401da4328926b6d25a141a3bcc0bb15a8cf4c87f84559b97",
+      "path": "runs/ci-staging-fake-1.json"
+    },
+    {
+      "run_id": "ci-staging-fake-2",
+      "mode": "ci",
+      "point_time": "2026-09-29T21:39:58Z",
+      "started_at": "2026-09-29T21:39:58Z",
+      "imported": false,
+      "agent_commit": "ff7744d510f8bb569eb804461958d6b79820a110",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "ci-gate fake on staging for ff7744d510f8",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 4,
+          "fail": 10,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.2857
+        },
+        "live_tools": {
+          "pass": 28,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 1,
+          "score": 0.9655
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "beb86a4b00964264eb7132423dc7ef0354b3bfe846f328fd8ed5b4c3656d4865",
+      "path": "runs/ci-staging-fake-2.json"
+    },
+    {
+      "run_id": "ci-staging-real-1",
+      "mode": "ci",
+      "point_time": "2026-09-29T21:45:44Z",
+      "started_at": "2026-09-29T21:45:44Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "real",
+      "rationale": "ci-gate real on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 3,
+          "fail": 11,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.2143
+        },
+        "live_tools": {
+          "pass": 28,
+          "fail": 2,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9333
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "ca7dfa92dcb8c96ec3ccfacf4f6a0101fcf3c49bbb019a47c67a08f3c51e91db",
+      "path": "runs/ci-staging-real-1.json"
+    },
+    {
+      "run_id": "ci-staging-demo-openf1-down-real",
+      "mode": "ci",
+      "point_time": "2026-09-29T21:52:41Z",
+      "started_at": "2026-09-29T21:52:41Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "real",
+      "rationale": "ci-gate real on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 6,
+          "fail": 8,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.4286
+        },
+        "live_tools": {
+          "pass": 28,
+          "fail": 2,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9333
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "3cebc2f9afd59a1cda803870839eda01c5527e1d5d43a1dd863e220e2f083363",
+      "path": "runs/ci-staging-demo-openf1-down-real.json"
+    },
+    {
+      "run_id": "ci-staging-demo-openf1-down-fake",
+      "mode": "ci",
+      "point_time": "2026-09-29T21:58:55Z",
+      "started_at": "2026-09-29T21:58:55Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "ci-gate fake on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 5,
+          "fail": 9,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.3571
+        },
+        "live_tools": {
+          "pass": 29,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 1,
+          "score": 1.0
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "d5272c227e9ed1039c10ab5541908648b6ca66d3f50e0178826681387ef6cf29",
+      "path": "runs/ci-staging-demo-openf1-down-fake.json"
+    },
+    {
+      "run_id": "ci-staging-fake-3",
+      "mode": "ci",
+      "point_time": "2026-09-29T22:05:25Z",
+      "started_at": "2026-09-29T22:05:25Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "ci-gate fake on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 12,
+          "fail": 2,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.8571
+        },
+        "live_tools": {
+          "pass": 29,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 1,
+          "score": 1.0
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "224929acc6360bb7ecbb9791242eaf15fbe719a055bce701c02ef6ec2d7c404f",
+      "path": "runs/ci-staging-fake-3.json"
+    },
+    {
+      "run_id": "ci-staging-fake-4",
+      "mode": "ci",
+      "point_time": "2026-09-29T22:12:16Z",
+      "started_at": "2026-09-29T22:12:16Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "ci-gate fake on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 13,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9286
+        },
+        "live_tools": {
+          "pass": 29,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 1,
+          "score": 1.0
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "9ef28b75fbf11228685d2672bac7cab9345cc6ae31ceb047e5db377cf6c59086",
+      "path": "runs/ci-staging-fake-4.json"
+    },
+    {
+      "run_id": "ci-staging-fake-5",
+      "mode": "ci",
+      "point_time": "2026-09-29T22:18:49Z",
+      "started_at": "2026-09-29T22:18:49Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "ci-gate fake on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 14,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_tools": {
+          "pass": 29,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 1,
+          "score": 1.0
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "8f3014c279838ebb14c8c98434c0a9c18a1c65fbc9b697046dc20756662af931",
+      "path": "runs/ci-staging-fake-5.json"
+    },
+    {
+      "run_id": "ci-staging-real-2",
+      "mode": "ci",
+      "point_time": "2026-09-29T22:24:10Z",
+      "started_at": "2026-09-29T22:24:10Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "real",
+      "rationale": "ci-gate real on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_sims": {
+          "pass": 13,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9286
+        },
+        "live_tools": {
+          "pass": 29,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9667
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "f31e107700612331e226c54f48d5c6db5a7586def10d62d525baaadc77bb1a32",
+      "path": "runs/ci-staging-real-2.json"
+    },
+    {
+      "run_id": "ci-staging-demo2-openf1-down-real",
+      "mode": "ci",
+      "point_time": "2026-09-29T22:32:43Z",
+      "started_at": "2026-09-29T22:32:43Z",
+      "imported": false,
+      "agent_commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "real",
+      "rationale": "ci-gate real on staging for 0f71b3aba1a3",
+      "layers": {
+        "live_goldens": {
+          "pass": 9,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9
+        },
+        "live_sims": {
+          "pass": 14,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_tools": {
+          "pass": 29,
+          "fail": 1,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.9667
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "4d68972ecc58d0a663a7c6cce188e562f797e60749428b088f0c4c8674e36ec5",
+      "path": "runs/ci-staging-demo2-openf1-down-real.json"
     }
   ]
 }

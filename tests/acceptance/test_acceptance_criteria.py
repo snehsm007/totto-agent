@@ -387,7 +387,7 @@ def test_ac_tracking_1_to_4_gate_deploy_records_and_chronological_trend_view() -
             "hidden_fetchable",
             "no_matching_version",
             "not_deployed",
-        )
+        ) or (rec["mode"] == "ci" and rec["cxas"]["version_status"] == "draft")
         if rec["mode"] in ("snapshot", "deploy", "live"):
             assert rec["cxas"]["version_id"]
         elif rec["mode"] == "offline":

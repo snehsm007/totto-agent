@@ -1,0 +1,1385 @@
+{
+  "schema": "totto-gate-summary/v1",
+  "commit": "632dfe87f24f4c7d5fb0ff47f75bc105eb77bed7",
+  "run_id": "ci-staging-fake-1",
+  "run_url": null,
+  "target": "staging",
+  "tool_mode": "fake",
+  "fake_verified": true,
+  "pass_rate": 0.8293,
+  "baseline_pass_rate": null,
+  "verdict": "PASS",
+  "reasons": [
+    "no baseline: absolute floors only",
+    "all floors met"
+  ],
+  "thresholds": {
+    "aggregation": "strict majority of decided repeats (ties FAIL; INFRA_ERROR/SKIPPED repeats ignored)",
+    "overall_floor": 0.0,
+    "layer_floors": {},
+    "baseline_tolerance_pp": 10.0,
+    "max_new_failures": 1,
+    "max_infra_ratio": 0.25
+  },
+  "counts": {
+    "PASS": 34,
+    "FAIL": 7,
+    "INFRA_ERROR": 0,
+    "SKIPPED": 1
+  },
+  "infra_ratio": 0.0,
+  "new_failures_vs_baseline": [],
+  "layers": {
+    "live_goldens": {
+      "pass": 5,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "pass_rate": 1.0
+    },
+    "live_sims": {
+      "pass": 1,
+      "fail": 6,
+      "infra_error": 0,
+      "skipped": 0,
+      "pass_rate": 0.1429
+    },
+    "live_tools": {
+      "pass": 28,
+      "fail": 1,
+      "infra_error": 0,
+      "skipped": 1,
+      "pass_rate": 0.9655
+    }
+  },
+  "layer_durations_s": {
+    "live_tools": 25.25,
+    "live_goldens": 54.14,
+    "live_sims": 204.26
+  },
+  "repeats": 2,
+  "model": "gemini-3.0-flash-001",
+  "app_version": null,
+  "started_at": "2026-09-29T21:33:29Z",
+  "finished_at": "2026-09-29T21:38:37Z",
+  "duration_s": 308.02,
+  "tests": [
+    {
+      "id": "live_tools::probe_merch_order_1001",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.62,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_merch_order_1002",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.62,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_merch_order_1003",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.5,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_merch_order_123456",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.615,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_merch_order_9999",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.578,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_rc01_official_merch_store_link",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555554"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.732,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+      "layer": "live_tools",
+      "status": "SKIPPED",
+      "repeat_statuses": [
+        "SKIPPED"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "SKIPPED",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.0,
+          "message": "SKIPPED in tool_mode=fake: this probe checks that the real OpenF1 API is reachable from the CXAS sandbox, which a fake-mode gate must not depend on"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb1_tr09_schedule_data_source_label",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.674,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.67,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb3_spain_substring_collision_with_spa",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.766,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb3_unknown_race_moon_gp",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.72,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb4_future_weather_not_labelled_forecast",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.667,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.62,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tr10_unseen_city_auckland",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.809,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tr10_unseen_city_edinburgh",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.844,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tr10_unseen_city_mumbai",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.619,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tr10_unseen_city_são_paulo",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.691,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tr10_unseen_city_toronto",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.867,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::probe_tr10_unseen_city_vienna",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.755,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_driver_standings_category_both",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555552"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.735,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_driver_standings_invalid_season",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555552"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.651,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_driver_standings_mercedes_lead",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555552"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.781,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_official_links_ticketing",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555554"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.622,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_race_schedule_default_utc",
+      "layer": "live_tools",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "FAIL"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "FAIL",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 1.576,
+          "message": "Response expectation failed: path='$.result.race_name', actual='Bahrain Grand Prix', expected='Singapore Grand Prix', operator='Operator.CONTAINS'; Response expectation failed: path='$.result.circuit_name', actual='Sepang International Circuit (Kuala Lumpur)', expected='Marina Bay', operator='Operat"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_race_schedule_localized_est",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.86,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_race_schedule_sydney_aedt",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.834,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_get_race_schedule_unseen_city_toronto",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.856,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_lookup_mock_merch_order_delivered_1001",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.74,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_lookup_mock_merch_order_in_transit_1002",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.677,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_tools::test_lookup_mock_merch_order_not_found_9999",
+      "layer": "live_tools",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "tool_mode": "real",
+      "fake_verified": false,
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "tool_mode": "real",
+          "fake_verified": false,
+          "duration_s": 0.581,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": null,
+      "platform_ids": {
+        "evaluation": "evaluations/9b60aff5-f238-412d-8fff-5306f9c0bd5e",
+        "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+        "evaluation_result": "evaluations/9b60aff5-f238-412d-8fff-5306f9c0bd5e/results/8d90e4e3-5aae-47bb-945d-d031e8c0434f",
+        "conversation": "conversations/evaluation-7a32cfee-81c7-42a3-a0da-a4565e52dfd1",
+        "session_id": "sessions/evaluation-7a32cfee-81c7-42a3-a0da-a4565e52dfd1"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/9b60aff5-f238-412d-8fff-5306f9c0bd5e",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/9b60aff5-f238-412d-8fff-5306f9c0bd5e/results/8d90e4e3-5aae-47bb-945d-d031e8c0434f",
+            "conversation": "conversations/evaluation-7a32cfee-81c7-42a3-a0da-a4565e52dfd1",
+            "session_id": "sessions/evaluation-7a32cfee-81c7-42a3-a0da-a4565e52dfd1"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/9b60aff5-f238-412d-8fff-5306f9c0bd5e",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/9b60aff5-f238-412d-8fff-5306f9c0bd5e/results/69899c11-c90b-45c4-aa6f-d234c204f329",
+            "conversation": "conversations/evaluation-38fa93ab-0b2a-4e23-a8e5-fd2b219e978a",
+            "session_id": "sessions/evaluation-38fa93ab-0b2a-4e23-a8e5-fd2b219e978a"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": null,
+      "platform_ids": {
+        "evaluation": "evaluations/05ebb1e5-30fd-4f2c-b9ca-17c5bf12c7ef",
+        "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+        "evaluation_result": "evaluations/05ebb1e5-30fd-4f2c-b9ca-17c5bf12c7ef/results/053ea261-1654-439d-98c7-4e61892cc0c0",
+        "conversation": "conversations/evaluation-9b934479-b6ec-4f7d-bd79-452a352138e6",
+        "session_id": "sessions/evaluation-9b934479-b6ec-4f7d-bd79-452a352138e6"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/05ebb1e5-30fd-4f2c-b9ca-17c5bf12c7ef",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/05ebb1e5-30fd-4f2c-b9ca-17c5bf12c7ef/results/053ea261-1654-439d-98c7-4e61892cc0c0",
+            "conversation": "conversations/evaluation-9b934479-b6ec-4f7d-bd79-452a352138e6",
+            "session_id": "sessions/evaluation-9b934479-b6ec-4f7d-bd79-452a352138e6"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/05ebb1e5-30fd-4f2c-b9ca-17c5bf12c7ef",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/05ebb1e5-30fd-4f2c-b9ca-17c5bf12c7ef/results/70c82c3f-cffd-4942-9712-fa8cbe5c3788",
+            "conversation": "conversations/evaluation-a0f314c9-7864-42fa-bbd3-ad5a45ea76c6",
+            "session_id": "sessions/evaluation-a0f314c9-7864-42fa-bbd3-ad5a45ea76c6"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": null,
+      "platform_ids": {
+        "evaluation": "evaluations/2d9b3424-2d00-47c7-b033-fc8aa521b340",
+        "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+        "evaluation_result": "evaluations/2d9b3424-2d00-47c7-b033-fc8aa521b340/results/096b24be-c1f3-454b-b3d0-9de99b7d760e",
+        "conversation": "conversations/evaluation-fed2c05b-e356-4f83-a5a1-94c90f870b12",
+        "session_id": "sessions/evaluation-fed2c05b-e356-4f83-a5a1-94c90f870b12"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/2d9b3424-2d00-47c7-b033-fc8aa521b340",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/2d9b3424-2d00-47c7-b033-fc8aa521b340/results/096b24be-c1f3-454b-b3d0-9de99b7d760e",
+            "conversation": "conversations/evaluation-fed2c05b-e356-4f83-a5a1-94c90f870b12",
+            "session_id": "sessions/evaluation-fed2c05b-e356-4f83-a5a1-94c90f870b12"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/2d9b3424-2d00-47c7-b033-fc8aa521b340",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/2d9b3424-2d00-47c7-b033-fc8aa521b340/results/8b475466-d631-4c79-ae82-998ecbe19fc1",
+            "conversation": "conversations/evaluation-f6e408ec-7454-4fd5-a73a-4fa1e20d836a",
+            "session_id": "sessions/evaluation-f6e408ec-7454-4fd5-a73a-4fa1e20d836a"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": null,
+      "platform_ids": {
+        "evaluation": "evaluations/42894634-33e0-43ac-b7f6-e24b1be7ecca",
+        "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+        "evaluation_result": "evaluations/42894634-33e0-43ac-b7f6-e24b1be7ecca/results/6344650d-9f9a-4183-a893-eb136d06b1e7",
+        "conversation": "conversations/evaluation-121942b1-febf-45a9-a239-6714d52d3ef7",
+        "session_id": "sessions/evaluation-121942b1-febf-45a9-a239-6714d52d3ef7"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/42894634-33e0-43ac-b7f6-e24b1be7ecca",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/42894634-33e0-43ac-b7f6-e24b1be7ecca/results/6344650d-9f9a-4183-a893-eb136d06b1e7",
+            "conversation": "conversations/evaluation-121942b1-febf-45a9-a239-6714d52d3ef7",
+            "session_id": "sessions/evaluation-121942b1-febf-45a9-a239-6714d52d3ef7"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/42894634-33e0-43ac-b7f6-e24b1be7ecca",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/42894634-33e0-43ac-b7f6-e24b1be7ecca/results/2a9f66a7-85b2-47e5-ac78-0a40126aef71",
+            "conversation": "conversations/evaluation-205d5213-8fa9-456b-8a97-b516f7988182",
+            "session_id": "sessions/evaluation-205d5213-8fa9-456b-8a97-b516f7988182"
+          },
+          "tool_mode": "fake",
+          "fake_verified": null,
+          "duration_s": 46.09,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "evaluation": "evaluations/ef74ed32-0493-462c-91fa-cd99aa7ea67c",
+        "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+        "evaluation_result": "evaluations/ef74ed32-0493-462c-91fa-cd99aa7ea67c/results/fe3a8932-db9a-43da-a39b-ba4e148c23a9",
+        "conversation": "conversations/evaluation-8a74a662-5a97-4686-a850-0d55ae53b778",
+        "session_id": "sessions/evaluation-8a74a662-5a97-4686-a850-0d55ae53b778"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/ef74ed32-0493-462c-91fa-cd99aa7ea67c",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/ef74ed32-0493-462c-91fa-cd99aa7ea67c/results/fe3a8932-db9a-43da-a39b-ba4e148c23a9",
+            "conversation": "conversations/evaluation-8a74a662-5a97-4686-a850-0d55ae53b778",
+            "session_id": "sessions/evaluation-8a74a662-5a97-4686-a850-0d55ae53b778"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 46.09,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "evaluation": "evaluations/ef74ed32-0493-462c-91fa-cd99aa7ea67c",
+            "evaluation_run": "evaluationRuns/688aa016-4d39-4e49-b799-34d2f84a5683",
+            "evaluation_result": "evaluations/ef74ed32-0493-462c-91fa-cd99aa7ea67c/results/8106a72c-3137-4257-81c3-4de37385e8c8",
+            "conversation": "conversations/evaluation-9f59e283-078e-4f13-94e2-a11571b42fe8",
+            "session_id": "sessions/evaluation-9f59e283-078e-4f13-94e2-a11571b42fe8"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 46.09,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::probe_french_across_handoff",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "PASS",
+        "FAIL"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/296b477a-7184-455d-89d1-6edff51d71c6",
+        "conversation": "conversations/296b477a-7184-455d-89d1-6edff51d71c6"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "session_id": "sessions/296b477a-7184-455d-89d1-6edff51d71c6",
+            "conversation": "conversations/296b477a-7184-455d-89d1-6edff51d71c6"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 7.98,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/d935073c-3a59-4b17-96f4-a743d7d903dd",
+            "conversation": "conversations/d935073c-3a59-4b17-96f4-a743d7d903dd"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 6.89,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Le Grand Prix de Grande-Bretagne 2026 à Silverstone a déjà eu lieu du 3 au 5 juillet dernier.'"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::probe_handoff_memory_tokyo",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "FAIL",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/fbae81eb-89b7-4a2b-ac97-804da65a06b1",
+        "conversation": "conversations/fbae81eb-89b7-4a2b-ac97-804da65a06b1"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/fbae81eb-89b7-4a2b-ac97-804da65a06b1",
+            "conversation": "conversations/fbae81eb-89b7-4a2b-ac97-804da65a06b1"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 13.73,
+          "message": "[dead_air_handoff:TR-03, RC-08] handoff turn took 5.7s (> 5.0s dead air)"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "session_id": "sessions/ccaf6a74-99ad-4262-a519-fa698f870169",
+            "conversation": "conversations/ccaf6a74-99ad-4262-a519-fa698f870169"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 14.59,
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::probe_timezone_gate_sydney",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "FAIL",
+        "FAIL"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/1ff83c72-f4b3-456f-a023-05700f1078af",
+        "conversation": "conversations/1ff83c72-f4b3-456f-a023-05700f1078af"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/1ff83c72-f4b3-456f-a023-05700f1078af",
+            "conversation": "conversations/1ff83c72-f4b3-456f-a023-05700f1078af"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 6.53,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit is scheduled for Saturday the 3rd of October at 8 AM UTC.'"
+        },
+        {
+          "repeat": 2,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/d02a10f3-8a57-45ee-8849-77f17fac89c8",
+            "conversation": "conversations/d02a10f3-8a57-45ee-8849-77f17fac89c8"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 8.69,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying is scheduled for Saturday the 3rd of October at 8 AM UTC.'"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "FAIL",
+        "FAIL"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/95e73d6e-c503-4e53-8728-ef9d2380b7a3",
+        "conversation": "conversations/95e73d6e-c503-4e53-8728-ef9d2380b7a3"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/95e73d6e-c503-4e53-8728-ef9d2380b7a3",
+            "conversation": "conversations/95e73d6e-c503-4e53-8728-ef9d2380b7a3"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 5.48,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit starts on Saturday the 3rd of October at 10 AM for you in Vienna.'; [judge] NOT MET: The agent"
+        },
+        {
+          "repeat": 2,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/3108dd37-cc72-4b26-aebc-2d69bb9d0217",
+            "conversation": "conversations/3108dd37-cc72-4b26-aebc-2d69bb9d0217"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 4.94,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit starts on Saturday the 3rd of October at 10 AM for you in Vienna.'; [judge] NOT MET: The agent"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "FAIL",
+        "FAIL"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/c75380e4-d6a2-4acd-845b-c736d9360c4c",
+        "conversation": "conversations/c75380e4-d6a2-4acd-845b-c736d9360c4c"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/c75380e4-d6a2-4acd-845b-c736d9360c4c",
+            "conversation": "conversations/c75380e4-d6a2-4acd-845b-c736d9360c4c"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 17.6,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit, taking place from October 2nd to October 4th.'; [judge] NOT MET: The a"
+        },
+        {
+          "repeat": 2,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/e0c9cd21-7752-41f8-8fb7-85633099fb5a",
+            "conversation": "conversations/e0c9cd21-7752-41f8-8fb7-85633099fb5a"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 15.8,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit, taking place from October 2nd to October 4th.'; [judge] NOT MET: The a"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat_statuses": [
+        "FAIL",
+        "FAIL"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/e2615796-52c7-415a-b4a7-7eeca4b9fbfd",
+        "conversation": "conversations/e2615796-52c7-415a-b4a7-7eeca4b9fbfd"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/e2615796-52c7-415a-b4a7-7eeca4b9fbfd",
+            "conversation": "conversations/e2615796-52c7-415a-b4a7-7eeca4b9fbfd"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 12.0,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'ding the 2026 Constructors Championship in first place with 538 points. In the Drivers Championship, Kimi Antonelli in car 12 is c'"
+        },
+        {
+          "repeat": 2,
+          "status": "FAIL",
+          "platform_ids": {
+            "session_id": "sessions/10e846ee-eab6-4d03-bcfa-a7e8b52b2f1e",
+            "conversation": "conversations/10e846ee-eab6-4d03-bcfa-a7e8b52b2f1e"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 11.2,
+          "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'ding the 2026 Constructors Championship in first place with 538 points. In the Drivers Championship, Kimi Antonelli in car 12 is i'"
+        }
+      ]
+    },
+    {
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "platform_ids": {
+        "session_id": "sessions/cb24fed8-b4e6-44b5-8005-aa9c0ae5f490",
+        "conversation": "conversations/cb24fed8-b4e6-44b5-8005-aa9c0ae5f490"
+      },
+      "repeats": [
+        {
+          "repeat": 1,
+          "status": "PASS",
+          "platform_ids": {
+            "session_id": "sessions/cb24fed8-b4e6-44b5-8005-aa9c0ae5f490",
+            "conversation": "conversations/cb24fed8-b4e6-44b5-8005-aa9c0ae5f490"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 11.5,
+          "message": "ok"
+        },
+        {
+          "repeat": 2,
+          "status": "PASS",
+          "platform_ids": {
+            "session_id": "sessions/32630c16-e598-4780-8f52-8f7a54dc28e1",
+            "conversation": "conversations/32630c16-e598-4780-8f52-8f7a54dc28e1"
+          },
+          "tool_mode": "fake",
+          "fake_verified": true,
+          "duration_s": 9.5,
+          "message": "ok"
+        }
+      ]
+    }
+  ]
+}

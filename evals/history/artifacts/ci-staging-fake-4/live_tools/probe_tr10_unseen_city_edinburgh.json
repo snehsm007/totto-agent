@@ -1,0 +1,186 @@
+{
+  "id": "probe_tr10_unseen_city_edinburgh",
+  "tool": "get_race_schedule",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "British Grand Prix",
+    "user_timezone": "Edinburgh"
+  },
+  "now_utc": "2026-09-29T22:12:16Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "success",
+        "season": 2026,
+        "round": 9,
+        "meeting_key": 1289,
+        "race_name": "British Grand Prix",
+        "circuit_name": "Silverstone Circuit",
+        "circuit": "Silverstone Circuit",
+        "location": "Silverstone, United Kingdom",
+        "dates": "July 3 - July 5, 2026",
+        "is_completed": true,
+        "meeting_state": "completed",
+        "timezone_requested": "Edinburgh",
+        "user_timezone_resolved": "Europe/London",
+        "timezone_resolved": "Europe/London (BST (Edinburgh))",
+        "needs_timezone_clarification": false,
+        "sessions": [
+          {
+            "session": "Practice 1",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-07-03",
+            "utc_time": "2026-07-03 11:30 UTC",
+            "time_utc": "11:30 UTC",
+            "local_time": "12:30 BST (Edinburgh)",
+            "timezone_label": "BST (Edinburgh)"
+          },
+          {
+            "session": "Sprint Qualifying",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-07-03",
+            "utc_time": "2026-07-03 15:30 UTC",
+            "time_utc": "15:30 UTC",
+            "local_time": "16:30 BST (Edinburgh)",
+            "timezone_label": "BST (Edinburgh)"
+          },
+          {
+            "session": "Sprint",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-07-04",
+            "utc_time": "2026-07-04 11:00 UTC",
+            "time_utc": "11:00 UTC",
+            "local_time": "12:00 BST (Edinburgh)",
+            "timezone_label": "BST (Edinburgh)"
+          },
+          {
+            "session": "Qualifying",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-07-04",
+            "utc_time": "2026-07-04 15:00 UTC",
+            "time_utc": "15:00 UTC",
+            "local_time": "16:00 BST (Edinburgh)",
+            "timezone_label": "BST (Edinburgh)"
+          },
+          {
+            "session": "Race",
+            "day": "Sunday",
+            "local_day": "Sunday",
+            "date_utc": "2026-07-05",
+            "utc_time": "2026-07-05 14:00 UTC",
+            "time_utc": "14:00 UTC",
+            "local_time": "15:00 BST (Edinburgh)",
+            "timezone_label": "BST (Edinburgh)"
+          }
+        ],
+        "typical_weather": {
+          "condition": "Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze",
+          "air_temp_c": 21,
+          "track_temp_c": 28,
+          "humidity_pct": 62,
+          "rain_probability": "35%",
+          "source": "typical_circuit_climate_profile"
+        },
+        "mercedes_highlights": "Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.",
+        "data_source": "OpenF1 API (2026 Season Snapshot)",
+        "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+        "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "success",
+    "season": 2026,
+    "round": 9,
+    "meeting_key": 1289,
+    "race_name": "British Grand Prix",
+    "circuit_name": "Silverstone Circuit",
+    "circuit": "Silverstone Circuit",
+    "location": "Silverstone, United Kingdom",
+    "dates": "July 3 - July 5, 2026",
+    "is_completed": true,
+    "meeting_state": "completed",
+    "timezone_requested": "Edinburgh",
+    "user_timezone_resolved": "Europe/London",
+    "timezone_resolved": "Europe/London (BST (Edinburgh))",
+    "needs_timezone_clarification": false,
+    "sessions": [
+      {
+        "session": "Practice 1",
+        "day": "Friday",
+        "local_day": "Friday",
+        "date_utc": "2026-07-03",
+        "utc_time": "2026-07-03 11:30 UTC",
+        "time_utc": "11:30 UTC",
+        "local_time": "12:30 BST (Edinburgh)",
+        "timezone_label": "BST (Edinburgh)"
+      },
+      {
+        "session": "Sprint Qualifying",
+        "day": "Friday",
+        "local_day": "Friday",
+        "date_utc": "2026-07-03",
+        "utc_time": "2026-07-03 15:30 UTC",
+        "time_utc": "15:30 UTC",
+        "local_time": "16:30 BST (Edinburgh)",
+        "timezone_label": "BST (Edinburgh)"
+      },
+      {
+        "session": "Sprint",
+        "day": "Saturday",
+        "local_day": "Saturday",
+        "date_utc": "2026-07-04",
+        "utc_time": "2026-07-04 11:00 UTC",
+        "time_utc": "11:00 UTC",
+        "local_time": "12:00 BST (Edinburgh)",
+        "timezone_label": "BST (Edinburgh)"
+      },
+      {
+        "session": "Qualifying",
+        "day": "Saturday",
+        "local_day": "Saturday",
+        "date_utc": "2026-07-04",
+        "utc_time": "2026-07-04 15:00 UTC",
+        "time_utc": "15:00 UTC",
+        "local_time": "16:00 BST (Edinburgh)",
+        "timezone_label": "BST (Edinburgh)"
+      },
+      {
+        "session": "Race",
+        "day": "Sunday",
+        "local_day": "Sunday",
+        "date_utc": "2026-07-05",
+        "utc_time": "2026-07-05 14:00 UTC",
+        "time_utc": "14:00 UTC",
+        "local_time": "15:00 BST (Edinburgh)",
+        "timezone_label": "BST (Edinburgh)"
+      }
+    ],
+    "typical_weather": {
+      "condition": "Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze",
+      "air_temp_c": 21,
+      "track_temp_c": 28,
+      "humidity_pct": 62,
+      "rain_probability": "35%",
+      "source": "typical_circuit_climate_profile"
+    },
+    "mercedes_highlights": "Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.",
+    "data_source": "OpenF1 API (2026 Season Snapshot)",
+    "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+    "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE"
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 547.33
+}

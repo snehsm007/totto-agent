@@ -1,0 +1,48 @@
+{
+  "name": "test_lookup_mock_merch_order_delivered_1001",
+  "tool": "lookup_mock_merch_order",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555553",
+  "args": {
+    "order_id": "1001"
+  },
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555553",
+    "response": {
+      "result": {
+        "status": "success",
+        "found": true,
+        "order_id": "1001",
+        "order": {
+          "order_id": "1001",
+          "status": "Delivered",
+          "item": "Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)",
+          "quantity": 1,
+          "delivery_date": "Yesterday, 2:15 PM",
+          "carrier": "DHL Express",
+          "tracking_number": "DHL-MB-984210",
+          "return_eligible": true,
+          "return_window": "30 days from delivery (free prepaid return label available)",
+          "exchange_policy": "Free size or colorway exchange within 30 days; Silver and Black caps are in stock.",
+          "damaged_item_policy": "Eligible for immediate no-cost replacement on damaged items using only your order number #1001.",
+          "product_availability": "In Stock (One Size Adjustable, Silver/Black & Team Teal)",
+          "is_mock_data": true,
+          "is_mock": true,
+          "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+        },
+        "is_mock_data": true,
+        "is_mock": true,
+        "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+        "agent_action": "SHARE_MOCK_ORDER_DETAILS"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "validation_errors": [],
+  "error": null,
+  "duration_ms": 670.99
+}

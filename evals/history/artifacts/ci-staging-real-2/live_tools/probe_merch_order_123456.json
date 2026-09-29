@@ -1,0 +1,53 @@
+{
+  "id": "probe_merch_order_123456",
+  "tool": "lookup_mock_merch_order",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555553",
+  "args": {
+    "order_id": "123456"
+  },
+  "now_utc": "2026-09-29T22:24:10Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555553",
+    "response": {
+      "result": {
+        "status": "error",
+        "agent_action": "OFFER_SAMPLE_ORDER_IDS",
+        "found": false,
+        "order_id": "123456",
+        "error_message": "Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).",
+        "sample_order_ids": [
+          "1001",
+          "1002",
+          "1003"
+        ],
+        "is_mock_data": true,
+        "is_mock": true,
+        "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "error",
+    "agent_action": "OFFER_SAMPLE_ORDER_IDS",
+    "found": false,
+    "order_id": "123456",
+    "error_message": "Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).",
+    "sample_order_ids": [
+      "1001",
+      "1002",
+      "1003"
+    ],
+    "is_mock_data": true,
+    "is_mock": true,
+    "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 369.45
+}

@@ -1,0 +1,59 @@
+{
+  "id": "probe_rc01_official_merch_store_link",
+  "tool": "get_official_links",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555554",
+  "args": {
+    "category": "merch"
+  },
+  "now_utc": "2026-09-29T21:39:58Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555554",
+    "response": {
+      "result": {
+        "status": "success",
+        "category": "merch",
+        "result": {
+          "title": "Official Mercedes-AMG Petronas F1 Team Store",
+          "url": "https://shop.mercedesamgf1.com",
+          "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store."
+        },
+        "links": {
+          "merch": {
+            "title": "Official Mercedes-AMG Petronas F1 Team Store",
+            "url": "https://shop.mercedesamgf1.com",
+            "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store."
+          }
+        },
+        "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+        "agent_action": "PROVIDE_OFFICIAL_LINKS"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "success",
+    "category": "merch",
+    "result": {
+      "title": "Official Mercedes-AMG Petronas F1 Team Store",
+      "url": "https://shop.mercedesamgf1.com",
+      "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store."
+    },
+    "links": {
+      "merch": {
+        "title": "Official Mercedes-AMG Petronas F1 Team Store",
+        "url": "https://shop.mercedesamgf1.com",
+        "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store."
+      }
+    },
+    "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+    "agent_action": "PROVIDE_OFFICIAL_LINKS"
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 451.24
+}

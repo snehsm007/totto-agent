@@ -15,12 +15,28 @@ import hashlib
 import json
 from pathlib import Path
 
-from totto_suite import config
+from totto_suite import config, ids
 from totto_suite.taxonomy import STATUSES, Status, summarize_infra
 
 SCHEMA_VERSION = 1
-MODES = ("offline", "live", "snapshot", "deploy", "gate", "imported", "reproduced")
-VERSION_STATUSES = ("in_version_list", "hidden_fetchable", "imported", "not_deployed")
+MODES = (
+    "offline",
+    "live",
+    "snapshot",
+    "deploy",
+    "gate",
+    "imported",
+    "reproduced",
+    "ci",  # `ci-gate` runs against the staging (or --app-name) app
+)
+# "draft": the run talked to the app's current draft, which has no version id.
+VERSION_STATUSES = (
+    "in_version_list",
+    "hidden_fetchable",
+    "imported",
+    "not_deployed",
+    "draft",
+)
 
 REQUIRED_KEYS = (
     "schema_version",
@@ -150,7 +166,18 @@ def build_record(
     import_source: str | None = None,
     extra: dict | None = None,
 ) -> dict:
-    """Assembles a schema-v1 record; derived fields are computed, not passed."""
+    """Assembles a schema-v1 record; derived fields are computed, not passed.
+
+    Configured project/app identifiers (env, gecx-config.json) are scrubbed
+    from every input first and ``cxas.app`` is reduced to an app_ref, so no
+    command can write them into a record, the index or the trend.
+    """
+    cxas = dict(cxas)
+    if "app" in cxas:
+        cxas["app"] = ids.app_ref_for(cxas["app"])
+    agent, suite, cxas, rationale, tests, extra = ids.scrub_configured(
+        [dict(agent), dict(suite), cxas, rationale, list(tests), dict(extra or {})]
+    )
     record = {
         "schema_version": SCHEMA_VERSION,
         "run_id": run_id,
@@ -219,16 +246,22 @@ def record_path(run_id: str, runs_dir: Path | None = None) -> Path:
     return Path(runs_dir or config.RUNS_DIR) / f"{run_id}.json"
 
 
+def check_no_identifiers(text: str, what: str) -> None:
+    """Raises RecordError if ``text`` contains a configured project/app identifier."""
+    found = ids.find_configured(text)
+    if found:
+        raise RecordError(f"{what} would contain configured identifiers {found}; refusing to write")
+
+
 def write_record(record: dict, runs_dir: Path | None = None) -> Path:
     validate(record)
     path = record_path(record["run_id"], runs_dir)
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
         raise RecordError(f"{path} already exists; run ids must be unique")
-    path.write_text(
-        json.dumps(record, indent=2, ensure_ascii=False, sort_keys=False) + "\n",
-        encoding="utf-8",
-    )
+    text = json.dumps(record, indent=2, ensure_ascii=False, sort_keys=False) + "\n"
+    check_no_identifiers(text, f"record {record['run_id']}")
+    path.write_text(text, encoding="utf-8")
     return path
 
 
@@ -261,6 +294,8 @@ def index_entry(record: dict) -> dict:
         "version_id": record["cxas"]["version_id"],
         "version_status": record["cxas"]["version_status"],
         "model": record["cxas"]["model"],
+        "app_ref": record.get("app_ref"),
+        "tool_mode": record.get("tool_mode"),
         "rationale": record["rationale"],
         "layers": record["layers"],
         "infra_errors": record["infra_errors"]["count"],
@@ -282,9 +317,10 @@ def write_index(
         "schema_version": SCHEMA_VERSION,
         "runs": [index_entry(r) for r in records],
     }
-    index_path.write_text(
-        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    # Older local records may predate scrubbing; the index never repeats them.
+    text = json.dumps(ids.scrub_configured(payload), indent=2, ensure_ascii=False) + "\n"
+    check_no_identifiers(text, "index.json")
+    index_path.write_text(text, encoding="utf-8")
     return index_path
 
 

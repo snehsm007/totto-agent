@@ -1,0 +1,75 @@
+{
+  "id": "probe_merch_order_1003",
+  "tool": "lookup_mock_merch_order",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555553",
+  "args": {
+    "order_id": "1003"
+  },
+  "now_utc": "2026-09-29T22:32:43Z",
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555553",
+    "response": {
+      "result": {
+        "status": "success",
+        "found": true,
+        "order_id": "1003",
+        "order": {
+          "order_id": "1003",
+          "status": "Return In Progress",
+          "item": "Mercedes-AMG Petronas Team Softshell Jacket (Size M)",
+          "quantity": 1,
+          "return_status": "Prepaid return label generated, awaiting carrier drop-off",
+          "carrier": "DHL Express",
+          "tracking_number": "DHL-RET-331099",
+          "return_eligible": true,
+          "return_window": "Active return (#DHL-RET-331099)",
+          "exchange_policy": "Exchange for Size L reserved in mock warehouse pending carrier scan.",
+          "damaged_item_policy": "Damaged zipper claim noted in mock system; replacement jacket ready to ship.",
+          "product_availability": "Size S, M, L, XL in stock; XXL limited availability",
+          "is_mock_data": true,
+          "is_mock": true,
+          "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+        },
+        "is_mock_data": true,
+        "is_mock": true,
+        "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+        "agent_action": "SHARE_MOCK_ORDER_DETAILS"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "success",
+    "found": true,
+    "order_id": "1003",
+    "order": {
+      "order_id": "1003",
+      "status": "Return In Progress",
+      "item": "Mercedes-AMG Petronas Team Softshell Jacket (Size M)",
+      "quantity": 1,
+      "return_status": "Prepaid return label generated, awaiting carrier drop-off",
+      "carrier": "DHL Express",
+      "tracking_number": "DHL-RET-331099",
+      "return_eligible": true,
+      "return_window": "Active return (#DHL-RET-331099)",
+      "exchange_policy": "Exchange for Size L reserved in mock warehouse pending carrier scan.",
+      "damaged_item_policy": "Damaged zipper claim noted in mock system; replacement jacket ready to ship.",
+      "product_availability": "Size S, M, L, XL in stock; XXL limited availability",
+      "is_mock_data": true,
+      "is_mock": true,
+      "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+    },
+    "is_mock_data": true,
+    "is_mock": true,
+    "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+    "agent_action": "SHARE_MOCK_ORDER_DETAILS"
+  },
+  "passed": true,
+  "findings": [],
+  "duration_ms": 546.61
+}

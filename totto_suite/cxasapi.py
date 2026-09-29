@@ -152,6 +152,7 @@ def list_evaluation_runs(app_name: str | None = None) -> list[dict]:
                 "display_name": getattr(r, "display_name", ""),
                 "create_time": _ts(getattr(r, "create_time", None)),
                 "state": str(getattr(r, "state", "")),
+                "app_version": getattr(r, "app_version", "") or "",
             }
         )
     return out

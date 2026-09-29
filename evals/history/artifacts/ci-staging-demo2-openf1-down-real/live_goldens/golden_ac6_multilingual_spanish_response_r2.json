@@ -1,0 +1,150 @@
+{
+  "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+  "original_name": "golden_ac6_multilingual_spanish_response",
+  "repeat": 2,
+  "evaluation": "evaluations/add31f2c-8f57-45f2-84ce-79b600f42331",
+  "evaluation_run": "evaluationRuns/a29c5346-6340-4bca-ac65-fc014b206710",
+  "evaluation_result": "evaluations/add31f2c-8f57-45f2-84ce-79b600f42331/results/9d73bf66-717c-43fe-9943-09b7111db8ac",
+  "conversation": "conversations/evaluation-810de122-a3aa-46e6-aff9-6157f18c5d9d",
+  "status": "FAIL",
+  "findings": [
+    "[Semantic Similarity] expected=¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy? | actual=Hola, soy Totto, Mercedes F1 Fan Agent, el asistente virtual para los seguidores de Mercedes-AMG Petronas. Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12. Estamos muy emocionados de ver lo que este talentoso dúo puede lograr en la pista. (score=2 / 4.0)"
+  ],
+  "tool_call_behaviour": "1",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/add31f2c-8f57-45f2-84ce-79b600f42331/results/9d73bf66-717c-43fe-9943-09b7111db8ac",
+    "display_name": "Result 2 - 2026-09-29-22-33-19 - 9d73bf66-717c-43fe-9943-09b7111db8ac",
+    "evaluation_status": 2,
+    "create_time": "2026-09-29T22:33:20.420287Z",
+    "evaluation_run": "evaluationRuns/a29c5346-6340-4bca-ac65-fc014b206710",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-810de122-a3aa-46e6-aff9-6157f18c5d9d",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "Hola, soy Totto, Mercedes F1 Fan Agent, el asistente virtual para los seguidores de Mercedes-AMG Petronas. Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12. Estamos muy emocionados de ver lo que este talentoso dúo puede lograr en la pista."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "1.545s",
+          "semantic_similarity_result": {
+            "score": 2,
+            "label": "Partially Consistent (Minor Omissions)",
+            "explanation": "The core intent of identifying the Mercedes F1 drivers is consistent. However, there are significant divergences in structure and completeness. The Actual response omits the conversational follow-up question (\"¿En qué más te puedo ayudar hoy?\") that is present in the Reference, which alters the conversational flow. Additionally, the Actual response includes extra information (car numbers for each driver) and a concluding enthusiastic statement that are not in the Reference. While adding detail, the omission of the follow-up question constitutes a significant structural difference in how the agent concludes its turn, making it less consistent than a Score 3.\n\nMetric Name:",
+            "outcome": 2
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T22:33:24.440551Z",
+              "end_time": "2026-09-29T22:33:24.463970Z",
+              "execution_latency": "0.023419s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-29T22:33:25.857653Z",
+              "end_time": "2026-09-29T22:33:25.870290Z",
+              "execution_latency": "0.012637s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T22:33:24.464728Z",
+              "end_time": "2026-09-29T22:33:25.855247Z",
+              "execution_latency": "1.390519s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T22:33:25.857503Z",
+              "end_time": "2026-09-29T22:33:25.857578Z",
+              "execution_latency": "0.000075s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/e5569f5c-a482-496d-ad40-db81183a8e29",
+          "prompt": "The agent responded fluently in Spanish matching the user's language",
+          "outcome": 1,
+          "explanation": "The user initiated the conversation in Spanish ('Hola Totto, ¿quiénes son los pilotos de Mercedes en Fórmula 1?'). The agent responded entirely in fluent Spanish ('Hola, soy Totto, Mercedes F1 Fan Agent, el asistente virtual para los seguidores de Mercedes-AMG Petronas. Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12. Estamos muy emocionados de ver lo que este talentoso dúo puede lograr en la pista.'). The agent successfully matched the user's language and responded fluently."
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/f7fc925e-be67-45ce-9a35-9ee5d064cbb8",
+          "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+          "outcome": 1,
+          "explanation": "The agent explicitly identified George Russell and Kimi Antonelli as the Mercedes drivers in its response: 'Los pilotos de las Flechas Plateadas son George Russell en el coche 63 y Kimi Antonelli en el coche 12.'"
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "evaluation_channel": 1,
+      "tool_call_behaviour": 1
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/ced28b35-d794-47e2-9967-3dcadc6e1b27",
+    "changelog_create_time": "2026-09-29T22:33:18.625426Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

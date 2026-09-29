@@ -1,6 +1,14 @@
-"""Deterministic tool fake for get_driver_standings (no network calls)."""
+"""Deterministic tool fake for get_driver_standings (no network calls).
+
+CES runs this instead of the real tool only when the session has
+useToolFakes (eval toolCallBehaviour=FAKE) AND toolFakeConfig.enableFakeMode.
+Every payload carries "_fake": True plus a source label so recorded tool
+results can be told apart from real OpenF1-backed results.
+"""
 
 from typing import Any
+
+FAKE_SOURCE = "FAKE: get_driver_standings tool_fake_config fixture (deterministic, no network)"
 
 
 def fake_tool_call(
@@ -8,6 +16,20 @@ def fake_tool_call(
     input: dict[str, Any],
     callback_context: Any,
 ) -> dict[str, Any]:
+    """Platform tool-fake entry point; marks every payload as fake."""
+    payload = _fake_payload(input)
+    if not isinstance(payload, dict):
+        payload = {
+            "status": "error",
+            "agent_action": "APOLOGIZE_TOOL_UNAVAILABLE",
+            "error_message": "Standings fake produced no payload.",
+        }
+    payload["_fake"] = True
+    payload["fake_source"] = FAKE_SOURCE
+    return payload
+
+
+def _fake_payload(input: Any) -> dict[str, Any]:
     """Returns a deterministic offline championship standings response without network I/O."""
     params = input if isinstance(input, dict) else {}
     try:

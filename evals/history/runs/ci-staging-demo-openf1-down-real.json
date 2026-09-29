@@ -1,0 +1,2222 @@
+{
+  "schema_version": 1,
+  "run_id": "ci-staging-demo-openf1-down-real",
+  "mode": "ci",
+  "started_at": "2026-09-29T21:52:41Z",
+  "finished_at": "2026-09-29T21:58:24Z",
+  "point_time": "2026-09-29T21:52:41Z",
+  "imported": false,
+  "import_source": null,
+  "agent": {
+    "commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+    "path": "cxas_app",
+    "tree_hash": "a350e97a31892bbf9a29690a33cf25f2a3a7d0262b27abd9755781d9d962cb24",
+    "dirty": true,
+    "dirty_paths_relevant": [
+      "cxas_app/tools/get_driver_standings/get_driver_standings.json",
+      "cxas_app/tools/get_driver_standings/tool_fake_config/code_block/python_code.py",
+      "cxas_app/tools/get_official_links/get_official_links.json",
+      "cxas_app/tools/get_official_links/tool_fake_config/code_block/python_code.py",
+      "cxas_app/tools/get_race_schedule/get_race_schedule.json",
+      "cxas_app/tools/get_race_schedule/tool_fake_config/code_block/python_code.py",
+      "cxas_app/tools/lookup_mock_merch_order/lookup_mock_merch_order.json",
+      "cxas_app/tools/lookup_mock_merch_order/tool_fake_config/code_block/python_code.py",
+      "evals/tool_tests/tool_tests.yaml",
+      "tests/live/test_live_layers.py",
+      "tests/selftest/test_ci_gate.py",
+      "tests/tools/test_tool_fakes.py",
+      "totto_suite/ci_gate.py",
+      "totto_suite/cli.py",
+      "totto_suite/config.py",
+      "totto_suite/cxasapi.py",
+      "totto_suite/fakes.py",
+      "totto_suite/gate_rule.py",
+      "totto_suite/gate_thresholds.json",
+      "totto_suite/ids.py",
+      "totto_suite/layers/live_escalation.py",
+      "totto_suite/layers/live_goldens.py",
+      "totto_suite/layers/live_safety.py",
+      "totto_suite/layers/live_sims.py",
+      "totto_suite/layers/live_tools.py",
+      "totto_suite/layers/live_turns.py",
+      "totto_suite/layers/live_voice.py",
+      "totto_suite/live/__init__.py",
+      "totto_suite/live/runner.py",
+      "totto_suite/records.py",
+      "totto_suite/trend.py",
+      "totto_suite/verify_ids.py"
+    ],
+    "dirty_paths_unrelated": [
+      "evals/history/TREND.md",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-1/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-1/verify_ids.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-fake-2/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-fake-2/verify_ids.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/evaluation_run.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_goldens/summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_french_across_handoff_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_french_across_handoff_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_timezone_gate_sydney_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_timezone_gate_sydney_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "evals/history/artifacts/ci-staging-real-1/live_sims/summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_1001.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_1002.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_1003.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_123456.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_merch_order_9999.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_rc01_official_merch_store_link.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_auckland.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/probe_tr10_unseen_city_vienna.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/summary.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_driver_standings_category_both.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_driver_standings_invalid_season.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_official_links_ticketing.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_default_utc.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_localized_est.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "evals/history/artifacts/ci-staging-real-1/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "evals/history/artifacts/ci-staging-real-1/verify_ids.json",
+      "evals/history/index.json",
+      "evals/history/runs/ci-staging-fake-1.json",
+      "evals/history/runs/ci-staging-fake-2.json",
+      "evals/history/runs/ci-staging-real-1.json",
+      "evals/history/trend.html"
+    ]
+  },
+  "suite": {
+    "commit": "0f71b3aba1a3da9c11f50d1d6511c97ce9890ff1",
+    "dirty": true,
+    "dirty_paths": [
+      "tests/live/test_live_layers.py",
+      "tests/selftest/test_ci_gate.py",
+      "tests/tools/test_tool_fakes.py",
+      "totto_suite/ci_gate.py",
+      "totto_suite/cli.py",
+      "totto_suite/config.py",
+      "totto_suite/cxasapi.py",
+      "totto_suite/fakes.py",
+      "totto_suite/gate_rule.py",
+      "totto_suite/gate_thresholds.json",
+      "totto_suite/ids.py",
+      "totto_suite/layers/live_escalation.py",
+      "totto_suite/layers/live_goldens.py",
+      "totto_suite/layers/live_safety.py",
+      "totto_suite/layers/live_sims.py",
+      "totto_suite/layers/live_tools.py",
+      "totto_suite/layers/live_turns.py",
+      "totto_suite/layers/live_voice.py",
+      "totto_suite/live/__init__.py",
+      "totto_suite/live/runner.py",
+      "totto_suite/records.py",
+      "totto_suite/trend.py",
+      "totto_suite/verify_ids.py"
+    ]
+  },
+  "cxas": {
+    "app": "staging",
+    "version_id": "",
+    "version_status": "draft",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-29T21:52:19.233518Z",
+    "app_etag": "LKJztGUTZBD0dPEQX/Y3uOGEhw9upLn53+JugRn+E5Y="
+  },
+  "rationale": "ci-gate real on staging for 0f71b3aba1a3",
+  "layers": {
+    "live_goldens": {
+      "pass": 10,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "live_sims": {
+      "pass": 6,
+      "fail": 8,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.4286
+    },
+    "live_tools": {
+      "pass": 28,
+      "fail": 2,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.9333
+    }
+  },
+  "tests": [
+    {
+      "repeat": 1,
+      "duration_s": 0.526,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1001.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_1001",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 526.1,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1001.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.541,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1002.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_1002",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 540.55,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1002.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.553,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1003.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_1003",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 553.12,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_1003.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.505,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_123456.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_123456",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 505.46,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "error",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_123456.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.569,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_9999.json",
+      "judge": null,
+      "id": "live_tools::probe_merch_order_9999",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 569.49,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "tool_status": "error",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_merch_order_9999.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.552,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_rc01_official_merch_store_link.json",
+      "judge": null,
+      "id": "live_tools::probe_rc01_official_merch_store_link",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 552.14,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_official_links",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_rc01_official_merch_store_link.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.587,
+      "message": "[TB-1] CXAS sandbox fell back to static snapshot instead of live OpenF1 API: data_source='OpenF1 API (2026 Season Snapshot)', weather_source=None",
+      "findings": [
+        "[TB-1] CXAS sandbox fell back to static snapshot instead of live OpenF1 API: data_source='OpenF1 API (2026 Season Snapshot)', weather_source=None"
+      ],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "judge": null,
+      "id": "live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+      "layer": "live_tools",
+      "status": "FAIL",
+      "duration_ms": 587.25,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": true,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_openf1_live_reachable_in_cxas_sandbox.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.9,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "judge": null,
+      "id": "live_tools::probe_tb1_tr09_schedule_data_source_label",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 900.2,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb1_tr09_schedule_data_source_label.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.671,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "judge": null,
+      "id": "live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 670.53,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb2_kuala_lumpur_openf1_meeting_1308.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.86,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "judge": null,
+      "id": "live_tools::probe_tb3_spain_substring_collision_with_spa",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 859.62,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_spain_substring_collision_with_spa.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.713,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "judge": null,
+      "id": "live_tools::probe_tb3_unknown_race_moon_gp",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 713.22,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "error",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb3_unknown_race_moon_gp.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.632,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "judge": null,
+      "id": "live_tools::probe_tb4_future_weather_not_labelled_forecast",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 631.67,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb4_future_weather_not_labelled_forecast.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.663,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "judge": null,
+      "id": "live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 663.09,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tb5_tr08_past_race_completed_flag_british_gp.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.661,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_auckland.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_auckland",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 661.23,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_auckland.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.636,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_edinburgh",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 635.63,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_edinburgh.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.585,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_mumbai",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 585.3,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_mumbai.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.797,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_são_paulo",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 796.7,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_são_paulo.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.716,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_toronto.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_toronto",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 715.93,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_toronto.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.823,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_vienna.json",
+      "judge": null,
+      "id": "live_tools::probe_tr10_unseen_city_vienna",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 823.37,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "tool_status": "success",
+        "requires_external_api": false,
+        "fake_marker_in_response": false
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/probe_tr10_unseen_city_vienna.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.716,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_category_both.json",
+      "judge": null,
+      "id": "live_tools::test_get_driver_standings_category_both",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 715.97,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_driver_standings",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_category_both.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.726,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_invalid_season.json",
+      "judge": null,
+      "id": "live_tools::test_get_driver_standings_invalid_season",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 725.91,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_driver_standings",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_invalid_season.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.755,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "judge": null,
+      "id": "live_tools::test_get_driver_standings_mercedes_lead",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 754.67,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_driver_standings",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_driver_standings_mercedes_lead.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.6,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_official_links_ticketing.json",
+      "judge": null,
+      "id": "live_tools::test_get_official_links_ticketing",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 599.68,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_official_links",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_official_links_ticketing.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 1.515,
+      "message": "Response expectation failed: path='$.result.race_name', actual='Bahrain Grand Prix', expected='Singapore Grand Prix', operator='Operator.CONTAINS'; Response expectation failed: path='$.result.circuit_name', actual='Sepang International Circuit (Kuala Lumpur)', expected='Marina Bay', operator='Operator.CONTAINS'",
+      "findings": [
+        "Response expectation failed: path='$.result.race_name', actual='Bahrain Grand Prix', expected='Singapore Grand Prix', operator='Operator.CONTAINS'",
+        "Response expectation failed: path='$.result.circuit_name', actual='Sepang International Circuit (Kuala Lumpur)', expected='Marina Bay', operator='Operator.CONTAINS'"
+      ],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_default_utc.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_default_utc",
+      "layer": "live_tools",
+      "status": "FAIL",
+      "duration_ms": 1514.91,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 2
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_default_utc.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.79,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_localized_est.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_localized_est",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 789.63,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_localized_est.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.962,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_sydney_aedt",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 962.19,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_sydney_aedt.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.755,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "judge": null,
+      "id": "live_tools::test_get_race_schedule_unseen_city_toronto",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 755.5,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "get_race_schedule",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_get_race_schedule_unseen_city_toronto.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.941,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "judge": null,
+      "id": "live_tools::test_lookup_mock_merch_order_delivered_1001",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 940.68,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_delivered_1001.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.735,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "judge": null,
+      "id": "live_tools::test_lookup_mock_merch_order_in_transit_1002",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 735.49,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_in_transit_1002.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.672,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "judge": null,
+      "id": "live_tools::test_lookup_mock_merch_order_not_found_9999",
+      "layer": "live_tools",
+      "status": "PASS",
+      "duration_ms": 671.74,
+      "tool_mode": "real",
+      "fake_verified": false,
+      "metrics": {
+        "tool_display_name": "lookup_mock_merch_order",
+        "validation_errors_count": 0
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_tools/test_lookup_mock_merch_order_not_found_9999.json",
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf/results/03c59fef-9acc-4b02-ac06-96cf26402811",
+        "conversation": "conversations/evaluation-96572017-e172-4505-bd5a-6dd9d917366e",
+        "session_id": "sessions/evaluation-96572017-e172-4505-bd5a-6dd9d917366e"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.313s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf/results/fa71d8ca-99f8-4d65-a9cb-375fdf3a2f53",
+        "conversation": "conversations/evaluation-7f734dae-4f7d-4429-b379-01474cbb14cc",
+        "session_id": "sessions/evaluation-7f734dae-4f7d-4429-b379-01474cbb14cc"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.304s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/641db7a7-e5b9-47f9-b2fa-51bdcb84e9cf",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/641db7a7-e5b9-47f9-b2fa-51bdcb84e9cf/results/917790df-e35d-4adf-a6d0-5c7c10068022",
+        "conversation": "conversations/evaluation-536405f7-f983-4116-b843-eca4d62f170d",
+        "session_id": "sessions/evaluation-536405f7-f983-4116-b843-eca4d62f170d"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.273s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/641db7a7-e5b9-47f9-b2fa-51bdcb84e9cf",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/641db7a7-e5b9-47f9-b2fa-51bdcb84e9cf/results/be71e06e-3399-400f-b396-a3e5d03621a3",
+        "conversation": "conversations/evaluation-ee501ae1-f2ad-4b1d-a2cf-433b3a32903d",
+        "session_id": "sessions/evaluation-ee501ae1-f2ad-4b1d-a2cf-433b3a32903d"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.302s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/9af2430c-7c9a-4076-8a3d-476f9602e49f",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/9af2430c-7c9a-4076-8a3d-476f9602e49f/results/9e7009ad-2a3b-4ef9-a742-6f95bd3f4a96",
+        "conversation": "conversations/evaluation-6d847010-7a93-4529-b51c-2587d31e2aa8",
+        "session_id": "sessions/evaluation-6d847010-7a93-4529-b51c-2587d31e2aa8"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.450s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/9af2430c-7c9a-4076-8a3d-476f9602e49f",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/9af2430c-7c9a-4076-8a3d-476f9602e49f/results/0d47b367-8778-4eab-9282-f5ac9691dbcb",
+        "conversation": "conversations/evaluation-0afe6e9b-a503-4aa5-ace4-9fcb38acd4f0",
+        "session_id": "sessions/evaluation-0afe6e9b-a503-4aa5-ace4-9fcb38acd4f0"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.522s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/44b9a99f-c173-45d7-aaca-892d66f6f467",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/44b9a99f-c173-45d7-aaca-892d66f6f467/results/0e1af7b9-d4b2-4e96-a428-aabed7c9853a",
+        "conversation": "conversations/evaluation-acc5cbf9-b62a-4f09-b679-ddf2cc775a9c",
+        "session_id": "sessions/evaluation-acc5cbf9-b62a-4f09-b679-ddf2cc775a9c"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.468s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/44b9a99f-c173-45d7-aaca-892d66f6f467",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/44b9a99f-c173-45d7-aaca-892d66f6f467/results/a8696207-d3ad-4063-9daf-bcae0de11dad",
+        "conversation": "conversations/evaluation-e2cfca86-0a72-479c-96d3-228bb8b87c2a",
+        "session_id": "sessions/evaluation-e2cfca86-0a72-479c-96d3-228bb8b87c2a"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.396s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/57d67b6c-638e-4216-9e93-f9aff5095997",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/57d67b6c-638e-4216-9e93-f9aff5095997/results/fae4f290-43d4-4721-a273-119a87cd4d83",
+        "conversation": "conversations/evaluation-cb7968f7-4f08-4383-97a9-3fd41f9b56c8",
+        "session_id": "sessions/evaluation-cb7968f7-4f08-4383-97a9-3fd41f9b56c8"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r1.json",
+      "judge": null,
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links"
+        ]
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.883s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r1.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 67.02,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "evaluation": "evaluations/57d67b6c-638e-4216-9e93-f9aff5095997",
+        "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+        "evaluation_result": "evaluations/57d67b6c-638e-4216-9e93-f9aff5095997/results/32adc701-0978-49fe-ae15-b0c1e5b00332",
+        "conversation": "conversations/evaluation-7e83ff5d-09dd-48fa-9ac0-faa2b13ce325",
+        "session_id": "sessions/evaluation-7e83ff5d-09dd-48fa-9ac0-faa2b13ce325"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r2.json",
+      "judge": null,
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "status": "PASS",
+      "duration_ms": 67020.0,
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links"
+        ]
+      },
+      "metrics": {
+        "evaluation_status": "PASS",
+        "execution_state": "COMPLETED",
+        "golden_run_method": "NAIVE",
+        "tool_call_behaviour": "1",
+        "batched_run_wall_s": 67.02,
+        "turn_latency": [
+          "1.898s"
+        ]
+      },
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_goldens/golden_official_mercedes_links_r2.json",
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 5.61,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Le Grand Prix de Grande-Bretagne 2026 à Silverstone s'est déjà déroulé du 3 au 5 juillet dernier.'",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Le Grand Prix de Grande-Bretagne 2026 à Silverstone s'est déjà déroulé du 3 au 5 juillet dernier.'"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/8c83c351-4d75-4438-b096-ad43bdd53922",
+        "conversation": "conversations/8c83c351-4d75-4438-b096-ad43bdd53922"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::probe_french_across_handoff",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 5610.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r1.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 3.12,
+        "mean_turn_latency_s": 2.14
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links",
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 5.65,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Le Grand Prix de Grande-Bretagne 2026 à Silverstone s'est déjà terminé le dimanche 5 juillet.'",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Le Grand Prix de Grande-Bretagne 2026 à Silverstone s'est déjà terminé le dimanche 5 juillet.'"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/d08297ba-51f4-46c3-893d-37c7456967cb",
+        "conversation": "conversations/d08297ba-51f4-46c3-893d-37c7456967cb"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::probe_french_across_handoff",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 5650.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_french_across_handoff_r2.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 3.09,
+        "mean_turn_latency_s": 2.29
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_official_links",
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 11.63,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/8cf9cfef-da68-4363-8439-365bda5e44b5",
+        "conversation": "conversations/8cf9cfef-da68-4363-8439-365bda5e44b5"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      },
+      "id": "live_sims::probe_handoff_memory_tokyo",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 11630.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 5,
+        "max_turn_latency_s": 4.02,
+        "mean_turn_latency_s": 2.59
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 3,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule",
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 11.38,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/cf10c1e7-e0d9-4f97-83ad-7f11ad7ffb61",
+        "conversation": "conversations/cf10c1e7-e0d9-4f97-83ad-7f11ad7ffb61"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      },
+      "id": "live_sims::probe_handoff_memory_tokyo",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 11380.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_handoff_memory_tokyo_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 5,
+        "max_turn_latency_s": 3.56,
+        "mean_turn_latency_s": 2.44
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 3,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule",
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 6.74,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit is on Saturday the 3rd of October at 8 AM UTC.'",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit is on Saturday the 3rd of October at 8 AM UTC.'"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/dc838f26-dcf4-4fa6-a611-e081072bb78a",
+        "conversation": "conversations/dc838f26-dcf4-4fa6-a611-e081072bb78a"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      },
+      "id": "live_sims::probe_timezone_gate_sydney",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 6740.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r1.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 2.96,
+        "mean_turn_latency_s": 2.77
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 7.37,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit is on Saturday the 3rd of October at 8 AM UTC.'",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Qualifying for the Bahrain Grand Prix at the Sepang International Circuit is on Saturday the 3rd of October at 8 AM UTC.'"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/0469e914-c1da-4b65-aac9-7b96a9e2a637",
+        "conversation": "conversations/0469e914-c1da-4b65-aac9-7b96a9e2a637"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      },
+      "id": "live_sims::probe_timezone_gate_sydney",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 7370.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_timezone_gate_sydney_r2.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": true,
+        "turns_count": 3,
+        "max_turn_latency_s": 3.58,
+        "mean_turn_latency_s": 3.04
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 4.31,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race is the Bahrain Grand Prix at the Sepang International Circuit, taking place from October 2nd to October 4th.'; [judge] NOT MET: The agent provided the qualifying time for the upcoming race converted to Vienna time (CEST / Europe/Vienna) and Edinburgh / UK time (BST / Europe/London) without fabricating session times. — While the agent provided the qualifying time for Vienna (10 AM), it did not provide the time for Edinburgh/UK. Furthermore, the agent's response to the user was generated before the tool call was made or processed, relying on incorrect information (e.g., stating the Bahrain GP is at the Sepang International Circuit, which is geographically incorrect).",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race is the Bahrain Grand Prix at the Sepang International Circuit, taking place from October 2nd to October 4th.'",
+        "[judge] NOT MET: The agent provided the qualifying time for the upcoming race converted to Vienna time (CEST / Europe/Vienna) and Edinburgh / UK time (BST / Europe/London) without fabricating session times. — While the agent provided the qualifying time for Vienna (10 AM), it did not provide the time for Edinburgh/UK. Furthermore, the agent's response to the user was generated before the tool call was made or processed, relying on incorrect information (e.g., stating the Bahrain GP is at the Sepang International Circuit, which is geographically incorrect)."
+      ],
+      "platform_ids": {
+        "session_id": "sessions/1a05bdb6-f023-489c-a37b-e9ed625cb8e8",
+        "conversation": "conversations/1a05bdb6-f023-489c-a37b-e9ed625cb8e8"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "judge": {
+        "passed": false,
+        "error": null,
+        "expectations": 1,
+        "not_met": [
+          "The agent provided the qualifying time for the upcoming race converted to Vienna time (CEST / Europe/Vienna) and Edinburgh / UK time (BST / Europe/London) without fabricating session times."
+        ]
+      },
+      "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 4310.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r1.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": false,
+        "turns_count": 2,
+        "max_turn_latency_s": 3.21,
+        "mean_turn_latency_s": 3.21
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 4.9,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit from October 2nd to the 4th.'",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit from October 2nd to the 4th.'"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/00c253eb-7d06-4293-8362-835bfdf1feb0",
+        "conversation": "conversations/00c253eb-7d06-4293-8362-835bfdf1feb0"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 1,
+        "not_met": []
+      },
+      "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 4900.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/probe_tr10_unseen_cities_vienna_and_edinburgh_r2.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": true,
+        "turns_count": 2,
+        "max_turn_latency_s": 3.73,
+        "mean_turn_latency_s": 3.73
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 13.9,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit from October 2nd to October 4th.'; [judge] NOT MET: The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay — The agent identified the upcoming race as the Bahrain Grand Prix at the Sepang International Circuit, not the Singapore Grand Prix.",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit from October 2nd to October 4th.'",
+        "[judge] NOT MET: The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay — The agent identified the upcoming race as the Bahrain Grand Prix at the Sepang International Circuit, not the Singapore Grand Prix."
+      ],
+      "platform_ids": {
+        "session_id": "sessions/134777a0-adf5-4a9f-af5e-59cae76db30b",
+        "conversation": "conversations/134777a0-adf5-4a9f-af5e-59cae76db30b"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "judge": {
+        "passed": false,
+        "error": null,
+        "expectations": 4,
+        "not_met": [
+          "The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay"
+        ]
+      },
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 13900.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r1.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": false,
+        "turns_count": 4
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 15.0,
+      "message": "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit, taking place from October 2nd to October 4th.'; [judge] NOT MET: The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay — The agent correctly identified the upcoming race as the Bahrain Grand Prix, not the Singapore Grand Prix.",
+      "findings": [
+        "[disclosure_freshness:TR-09, TB-1, RC-03] race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'The next race on our 2026 calendar is the Bahrain Grand Prix at the Sepang International Circuit, taking place from October 2nd to October 4th.'",
+        "[judge] NOT MET: The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay — The agent correctly identified the upcoming race as the Bahrain Grand Prix, not the Singapore Grand Prix."
+      ],
+      "platform_ids": {
+        "session_id": "sessions/c98e1f97-32ba-4e94-89c5-64f572da4c51",
+        "conversation": "conversations/c98e1f97-32ba-4e94-89c5-64f572da4c51"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "judge": {
+        "passed": false,
+        "error": null,
+        "expectations": 4,
+        "not_met": [
+          "The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay"
+        ]
+      },
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "duration_ms": 15000.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac1_ac7_next_race_and_timezone_clarification_r2.json",
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "disclosure_freshness"
+        ],
+        "judge_passed": false,
+        "turns_count": 4
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 2,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_race_schedule"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 10.0,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/474e73b3-7942-460a-b91e-a30f7d666c1c",
+        "conversation": "conversations/474e73b3-7942-460a-b91e-a30f7d666c1c"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 10000.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_driver_standings"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 24.3,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/7509d4e5-338b-401e-a9bf-4e2b19cc8cd7",
+        "conversation": "conversations/7509d4e5-338b-401e-a9bf-4e2b19cc8cd7"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 24300.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac2_mercedes_standings_priority_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "get_driver_standings"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 1,
+      "duration_s": 10.1,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/d3fdd052-d214-4380-aff5-28f5fa8120d3",
+        "conversation": "conversations/d3fdd052-d214-4380-aff5-28f5fa8120d3"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 10100.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r1.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    },
+    {
+      "repeat": 2,
+      "duration_s": 9.2,
+      "message": "ok",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "sessions/d8a2c618-b8c7-440e-bd66-8044a514b447",
+        "conversation": "conversations/d8a2c618-b8c7-440e-bd66-8044a514b447"
+      },
+      "evidence": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      },
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "duration_ms": 9200.0,
+      "raw_artifact_path": "evals/history/artifacts/ci-staging-demo-openf1-down-real/live_sims/sim_ac5_mock_merch_order_lookup_and_damaged_item_r2.json",
+      "metrics": {
+        "deterministic_passed": true,
+        "deterministic_failed_checks": [],
+        "judge_passed": true,
+        "turns_count": 3
+      },
+      "tool_mode": "real",
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 1,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": [
+          "lookup_mock_merch_order"
+        ]
+      },
+      "fake_verified": false,
+      "app_ref_ids": true
+    }
+  ],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": {
+    "repeated_tests": 12,
+    "flaky_tests": [],
+    "per_test": {
+      "live_goldens::golden_ac3_mercedes_history_qualified": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_ac6_multilingual_spanish_response": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_ac8_identity_and_non_impersonation": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_ac9_brand_safe_rivalry_humor": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_goldens::golden_official_mercedes_links": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_french_across_handoff": {
+        "runs": 2,
+        "pass": 0,
+        "fail": 2,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_handoff_memory_tokyo": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_timezone_gate_sydney": {
+        "runs": 2,
+        "pass": 0,
+        "fail": 2,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh": {
+        "runs": 2,
+        "pass": 0,
+        "fail": 2,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification": {
+        "runs": 2,
+        "pass": 0,
+        "fail": 2,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac2_mercedes_standings_priority": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      }
+    }
+  },
+  "results_digest": "3cebc2f9afd59a1cda803870839eda01c5527e1d5d43a1dd863e220e2f083363",
+  "app_ref": "staging",
+  "tool_mode": "real",
+  "fake_verified": false,
+  "repeats": 2,
+  "duration_s": 343.26,
+  "run_url": null,
+  "gate": {
+    "verdict": "PASS",
+    "pass_rate": 0.8571,
+    "baseline_pass_rate": null,
+    "reasons": [
+      "no baseline: absolute floors only",
+      "all floors met"
+    ]
+  }
+}

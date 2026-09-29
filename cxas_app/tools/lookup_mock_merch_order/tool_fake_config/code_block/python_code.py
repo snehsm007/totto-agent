@@ -1,6 +1,14 @@
-"""Deterministic tool fake for lookup_mock_merch_order."""
+"""Deterministic tool fake for lookup_mock_merch_order.
+
+CES runs this instead of the real tool only when the session has
+useToolFakes (eval toolCallBehaviour=FAKE) AND toolFakeConfig.enableFakeMode.
+Every payload carries "_fake": True plus a source label so recorded tool
+results can be told apart from real results.
+"""
 
 from typing import Any
+
+FAKE_SOURCE = "FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)"
 
 
 def fake_tool_call(
@@ -8,6 +16,21 @@ def fake_tool_call(
     input: dict[str, Any],
     callback_context: Any,
 ) -> dict[str, Any]:
+    """Platform tool-fake entry point; marks every payload as fake."""
+    payload = _fake_payload(input)
+    if not isinstance(payload, dict):
+        payload = {
+            "status": "error",
+            "found": False,
+            "agent_action": "APOLOGIZE_TOOL_UNAVAILABLE",
+            "error_message": "Order fake produced no payload.",
+        }
+    payload["_fake"] = True
+    payload["fake_source"] = FAKE_SOURCE
+    return payload
+
+
+def _fake_payload(input: Any) -> dict[str, Any]:
     """Returns a deterministic mocked merchandise order lookup response."""
     params = input if isinstance(input, dict) else {}
     raw_id = str(params.get("order_id", "") or "").strip().lstrip("#")

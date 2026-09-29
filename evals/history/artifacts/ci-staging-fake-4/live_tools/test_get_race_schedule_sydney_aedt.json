@@ -1,0 +1,104 @@
+{
+  "name": "test_get_race_schedule_sydney_aedt",
+  "tool": "get_race_schedule",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "Singapore Grand Prix",
+    "user_timezone": "Sydney, Australia"
+  },
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "success",
+        "season": 2026,
+        "round": 17,
+        "meeting_key": 1296,
+        "race_name": "Singapore Grand Prix",
+        "circuit_name": "Marina Bay Street Circuit",
+        "circuit": "Marina Bay Street Circuit",
+        "location": "Marina Bay, Singapore",
+        "dates": "October 9 - October 11, 2026",
+        "is_completed": false,
+        "meeting_state": "upcoming",
+        "timezone_requested": "Sydney, Australia",
+        "user_timezone_resolved": "Australia/Sydney",
+        "timezone_resolved": "Australia/Sydney (AEDT (Sydney))",
+        "needs_timezone_clarification": false,
+        "sessions": [
+          {
+            "session": "Practice 1",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-10-09",
+            "utc_time": "2026-10-09 08:30 UTC",
+            "time_utc": "08:30 UTC",
+            "local_time": "19:30 AEDT (Sydney)",
+            "timezone_label": "AEDT (Sydney)"
+          },
+          {
+            "session": "Sprint Qualifying",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-10-09",
+            "utc_time": "2026-10-09 12:30 UTC",
+            "time_utc": "12:30 UTC",
+            "local_time": "23:30 AEDT (Sydney)",
+            "timezone_label": "AEDT (Sydney)"
+          },
+          {
+            "session": "Sprint",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-10-10",
+            "utc_time": "2026-10-10 09:00 UTC",
+            "time_utc": "09:00 UTC",
+            "local_time": "20:00 AEDT (Sydney)",
+            "timezone_label": "AEDT (Sydney)"
+          },
+          {
+            "session": "Qualifying",
+            "day": "Saturday",
+            "local_day": "Sunday",
+            "date_utc": "2026-10-10",
+            "utc_time": "2026-10-10 13:00 UTC",
+            "time_utc": "13:00 UTC",
+            "local_time": "00:00 AEDT (Sydney)",
+            "timezone_label": "AEDT (Sydney)"
+          },
+          {
+            "session": "Race",
+            "day": "Sunday",
+            "local_day": "Sunday",
+            "date_utc": "2026-10-11",
+            "utc_time": "2026-10-11 12:00 UTC",
+            "time_utc": "12:00 UTC",
+            "local_time": "23:00 AEDT (Sydney)",
+            "timezone_label": "AEDT (Sydney)"
+          }
+        ],
+        "typical_weather": {
+          "condition": "Typical Marina Bay night conditions: Tropical Evening (High Humidity)",
+          "air_temp_c": 29,
+          "track_temp_c": 33,
+          "humidity_pct": 78,
+          "rain_probability": "40%",
+          "source": "typical_circuit_climate_profile"
+        },
+        "mercedes_highlights": "Marina Bay is a flagship night race for Title Partner PETRONAS and the Mercedes-AMG Petronas F1 Team! Mercedes enters the Singapore Grand Prix P1 in the 2026 Constructors' Championship (538 pts) after George Russell (#63) won the Azerbaijan GP in Baku and Kimi Antonelli (#12) leads the Drivers' Championship (302 pts).",
+        "data_source": "OpenF1 API (2026 Season Snapshot)",
+        "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+        "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "validation_errors": [],
+  "error": null,
+  "duration_ms": 705.34
+}

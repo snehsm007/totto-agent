@@ -1,0 +1,107 @@
+{
+  "name": "test_get_race_schedule_default_utc",
+  "tool": "get_race_schedule",
+  "tool_resource": "tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "next",
+    "user_timezone": "UTC"
+  },
+  "response": {
+    "tool": "tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "success",
+        "season": 2026,
+        "round": 16,
+        "meeting_key": 1308,
+        "race_name": "Bahrain Grand Prix",
+        "circuit_name": "Sepang International Circuit (Kuala Lumpur)",
+        "circuit": "Sepang International Circuit (Kuala Lumpur)",
+        "location": "Kuala Lumpur, Bahrain",
+        "dates": "October 2 - October 4, 2026",
+        "is_completed": false,
+        "meeting_state": "upcoming",
+        "timezone_requested": "UTC",
+        "user_timezone_resolved": "UTC",
+        "timezone_resolved": "UTC",
+        "needs_timezone_clarification": true,
+        "sessions": [
+          {
+            "session": "Practice 1",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-10-02",
+            "utc_time": "2026-10-02 04:30 UTC",
+            "time_utc": "04:30 UTC",
+            "local_time": "04:30 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Practice 2",
+            "day": "Friday",
+            "local_day": "Friday",
+            "date_utc": "2026-10-02",
+            "utc_time": "2026-10-02 08:00 UTC",
+            "time_utc": "08:00 UTC",
+            "local_time": "08:00 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Practice 3",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-10-03",
+            "utc_time": "2026-10-03 04:30 UTC",
+            "time_utc": "04:30 UTC",
+            "local_time": "04:30 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Qualifying",
+            "day": "Saturday",
+            "local_day": "Saturday",
+            "date_utc": "2026-10-03",
+            "utc_time": "2026-10-03 08:00 UTC",
+            "time_utc": "08:00 UTC",
+            "local_time": "08:00 UTC",
+            "timezone_label": "UTC"
+          },
+          {
+            "session": "Race",
+            "day": "Sunday",
+            "local_day": "Sunday",
+            "date_utc": "2026-10-04",
+            "utc_time": "2026-10-04 07:00 UTC",
+            "time_utc": "07:00 UTC",
+            "local_time": "07:00 UTC",
+            "timezone_label": "UTC"
+          }
+        ],
+        "typical_weather": {
+          "condition": "Typical circuit climate: Partly Cloudy and mild race weekend conditions",
+          "air_temp_c": 23,
+          "track_temp_c": 31,
+          "humidity_pct": 55,
+          "rain_probability": "20%",
+          "source": "typical_circuit_climate_profile"
+        },
+        "mercedes_highlights": "Mercedes-AMG Petronas F1 Team heads into the Bahrain Grand Prix at Sepang International Circuit (Kuala Lumpur) leading the 2026 Constructors' Championship in P1 (538 pts), spearheaded by Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+        "data_source": "OpenF1 API (2026 Season Snapshot)",
+        "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+        "agent_action": "ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES"
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "validation_errors": [
+    "Response expectation failed: path='$.result.race_name', actual='Bahrain Grand Prix', expected='Singapore Grand Prix', operator='Operator.CONTAINS'",
+    "Response expectation failed: path='$.result.circuit_name', actual='Sepang International Circuit (Kuala Lumpur)', expected='Marina Bay', operator='Operator.CONTAINS'"
+  ],
+  "error": null,
+  "duration_ms": 1780.77
+}

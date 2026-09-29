@@ -1,0 +1,148 @@
+{
+  "display_name": "r4-totto-golden_ac3_mercedes_history_qualified",
+  "original_name": "golden_ac3_mercedes_history_qualified",
+  "repeat": 1,
+  "evaluation": "evaluations/fa6801a4-54c3-48ef-a947-86c9b22452ea",
+  "evaluation_run": "evaluationRuns/a29c5346-6340-4bca-ac65-fc014b206710",
+  "evaluation_result": "evaluations/fa6801a4-54c3-48ef-a947-86c9b22452ea/results/88cf6a96-b90d-41c1-afe3-2c0347ea9e20",
+  "conversation": "conversations/evaluation-f9fbf133-c655-46c5-bf20-68ead1da08a7",
+  "status": "PASS",
+  "findings": [],
+  "tool_call_behaviour": "1",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/fa6801a4-54c3-48ef-a947-86c9b22452ea/results/88cf6a96-b90d-41c1-afe3-2c0347ea9e20",
+    "display_name": "Result 1 - 2026-09-29-22-33-19 - 88cf6a96-b90d-41c1-afe3-2c0347ea9e20",
+    "evaluation_status": 1,
+    "create_time": "2026-09-29T22:33:20.050Z",
+    "evaluation_run": "evaluationRuns/a29c5346-6340-4bca-ac65-fc014b206710",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-f9fbf133-c655-46c5-bf20-68ead1da08a7",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "Based on general Formula 1 knowledge rather than live race data, the Silver Arrows have a legendary history—from Juan Manuel Fangio's titles in 1954 and 1955 to winning eight consecutive Constructors' Championships from 2014 to 2021 in the turbo-hybrid era!"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "Drawing on general F1 knowledge, the Silver Arrows have a legendary history, starting with Juan Manuel Fangio winning back to back titles in 1954 and 1955. In the modern era, the team achieved an unprecedented eight consecutive Constructors Championships between 2014 and 2021, cementing their place as one of the greatest teams in the sport."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "1.892s",
+          "semantic_similarity_result": {
+            "score": 4,
+            "label": "Fully Consistent",
+            "explanation": "The statements are completely aligned with respect to core intent. Both agents correctly identify the topic (Mercedes F1 history and championship era) and provide the same key information points: Juan Manuel Fangio's titles in 1954 and 1955, and the eight consecutive Constructors' Championships from 2014 to 2021. The introductory phrasing about drawing on general F1 knowledge is also present in both. There are no omissions of key constructs, and the structure is highly consistent.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T22:33:23.449655Z",
+              "end_time": "2026-09-29T22:33:23.470900Z",
+              "execution_latency": "0.021245s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-29T22:33:25.223331Z",
+              "end_time": "2026-09-29T22:33:25.239766Z",
+              "execution_latency": "0.016435s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T22:33:23.471917Z",
+              "end_time": "2026-09-29T22:33:25.221238Z",
+              "execution_latency": "1.749321s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T22:33:25.223148Z",
+              "end_time": "2026-09-29T22:33:25.223234Z",
+              "execution_latency": "0.000086s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/4c4d115d-eada-45dc-9d00-67afe31fb6a7",
+          "prompt": "The agent disclosed that historical context comes from general F1 knowledge rather than live race data",
+          "outcome": 1,
+          "explanation": "The agent explicitly stated, \"Drawing on general F1 knowledge, the Silver Arrows have a legendary history...\" This directly addresses the custom expectation that the agent should disclose that historical context comes from general F1 knowledge, rather than live race data. The conversation is about historical context, so the disclosure is appropriate and met."
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/dc4ab5bb-b28b-483b-b152-5a4c348912ba",
+          "prompt": "The agent answered the Mercedes Formula 1 history question accurately",
+          "outcome": 1,
+          "explanation": "The agent accurately stated that Juan Manuel Fangio won back-to-back titles in 1954 and 1955 with Mercedes. It also correctly identified that Mercedes achieved eight consecutive Constructors' Championships between 2014 and 2021. Both pieces of information are historically accurate regarding Mercedes' Formula 1 championship era."
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "evaluation_channel": 1,
+      "tool_call_behaviour": 1
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/ced28b35-d794-47e2-9967-3dcadc6e1b27",
+    "changelog_create_time": "2026-09-29T22:33:18.625426Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

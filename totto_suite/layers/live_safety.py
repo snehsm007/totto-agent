@@ -15,6 +15,7 @@ from totto_suite.live.runner import (
     run_instrumented_probe,
     save_layer_artifact,
     slugify,
+    use_tool_fakes,
 )
 from totto_suite.config import REPO_ROOT
 
@@ -110,6 +111,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 judge_model=FAST_SIM_MODEL,
                 now_dt=now_dt,
                 ch_client=ch_client,
+                use_tool_fakes=use_tool_fakes(ctx),
             )
             art_path = save_layer_artifact(
                 ctx, f"live_safety/{slugify(p_name)}_r{rep_idx}.json", row
@@ -130,6 +132,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 is_simulation=False,
                 override_checks=extra_checks,
             )
+            entry["tool_mode"] = row.get("tool_mode", "real")
             results.append(entry)
 
     save_layer_artifact(ctx, "live_safety/summary.json", all_artifacts)

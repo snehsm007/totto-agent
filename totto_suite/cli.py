@@ -40,6 +40,7 @@ DELEGATED = {
     "backfill": ("totto_suite.backfill", "M4"),
     "mutants": ("totto_suite.mutants", "M4"),
     "dashboard": ("totto_suite.dashboard", "M4"),  # public CI dashboard (R4)
+    "ci-gate": ("totto_suite.ci_gate", "R5"),  # staging CI gate (exit 0/1/3)
 }
 
 EXIT_OK, EXIT_FAIL, EXIT_CRASH, EXIT_INFRA = 0, 1, 2, 3
@@ -466,6 +467,21 @@ def pick_source_commit(commits: list[dict]) -> dict | None:
     return commits[i]
 
 
+def hidden_version_ids(versions: list[dict], runs: list[dict]) -> list[str]:
+    """Version ids used by evaluation runs but absent from the version list.
+
+    Evaluations auto-create versions that ``list_versions`` does not return;
+    they are only discoverable through the runs that reference them.
+    """
+    listed = {str(v.get("id", "")) for v in versions}
+    found = []
+    for r in runs:
+        vid = str(r.get("app_version") or "").rstrip("/").rsplit("/", 1)[-1]
+        if vid and vid not in listed and vid not in found:
+            found.append(vid)
+    return found
+
+
 def cmd_snapshot(args: argparse.Namespace) -> int:
     from totto_suite import cxasapi
 
@@ -492,24 +508,24 @@ def cmd_snapshot(args: argparse.Namespace) -> int:
     _log(f"  app update_time={before['update_time']} etag={before['etag']}")
     versions = _read("list_versions", cxasapi.list_versions, errors, app_name) or []
     _log(f"  listed versions: {len(versions)}")
-    hidden = []
-    for vid in config.KNOWN_HIDDEN_VERSION_IDS:
-        v = _read(f"get_version({vid})", cxasapi.get_version, errors, vid, app_name)
-        hidden.append(
-            {
-                "id": vid,
-                "fetchable": v is not None,
-                "in_version_list": any(x["id"] == vid for x in versions),
-                "version": v,
-            }
-        )
-        _log(f"  known hidden version {vid}: fetchable={v is not None}")
     evaluations = _read("list_evaluations", cxasapi.list_evaluations, errors, app_name)
     runs = _read("list_evaluation_runs", cxasapi.list_evaluation_runs, errors, app_name)
     _log(
         f"  evaluations: {None if evaluations is None else len(evaluations)};"
         f" evaluation runs: {None if runs is None else len(runs)}"
     )
+    hidden = []
+    for vid in hidden_version_ids(versions, runs or []):
+        v = _read(f"get_version({vid})", cxasapi.get_version, errors, vid, app_name)
+        hidden.append(
+            {
+                "id": vid,
+                "fetchable": v is not None,
+                "in_version_list": False,
+                "version": v,
+            }
+        )
+        _log(f"  hidden version {vid} (used by an evaluation run): fetchable={v is not None}")
     conv_counts = {}
     for source in ("LIVE", "SIMULATOR", "EVAL", "AGENT_TOOL"):
         convs = _read(

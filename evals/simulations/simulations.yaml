@@ -1,6 +1,7 @@
 # Pure SCRAPI Synthetic User Simulations for Totto, Mercedes F1 Fan Agent
 # Covers all 9 PRD Acceptance Criteria (AC-1 through AC-9) AND all 10 findings from totto_test_report.md:
-# - Uses live OpenF1 2026 calendar (next race after 2026-09-28 is Round 18: Singapore Grand Prix at Marina Bay, Oct 9-11, 2026)
+# - "Next race" expectations use {{NEXT_RACE}}, filled at run time from the oracle (totto_suite.oracle over
+#   tests/fixtures/openf1) so they never go stale as the season moves (see runner.resolve_dynamic_expectations).
 # - Strict, falsifiable behavioral expectations that catch language drops, raw tool syntax leaks,
 #   dead-air handoffs, internal agent name leaks, ungrounded order/race facts, and tool errors.
 
@@ -11,7 +12,7 @@ evals:
       is_mock_mode: true
     steps:
       - goal: "Ask when the next Formula 1 race is and what time qualifying starts without mentioning your location first, then answer with New York (Eastern Time) when asked"
-        success_criteria: "The agent identifies the upcoming 2026 Singapore Grand Prix at Marina Bay, asks for the user's location or timezone before giving localized times, and provides the converted Eastern Time schedule once the user says New York. Receiving the localized schedule counts as a successful outcome."
+        success_criteria: "The agent identifies the next upcoming 2026 Grand Prix returned by the race schedule tool, asks for the user's location or timezone before giving localized times, and provides the converted Eastern Time schedule once the user says New York. Receiving the localized schedule counts as a successful outcome."
         response_guide: >
           You are a Formula 1 fan living in New York (Eastern Time). In your first message, ask:
           "When is the next race and what time does qualifying start?" Do NOT mention New York or
@@ -19,7 +20,7 @@ evals:
           what timezone you are in, reply: "I'm watching from New York, Eastern Time."
         max_turns: 6
     expectations:
-      - "The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay"
+      - "The agent identified the upcoming race as {{NEXT_RACE}}, as returned by the race schedule tool"
       - "On the very first turn after the user asked when the next race is, the agent provided the UTC schedule and asked for the user's location or timezone, rather than stopping with a dead-air filler phrase like 'Let me check the race schedule for you'"
       - "The agent called a tool to look up the race schedule and converted the times to Eastern Time (EDT) after the user said New York"
       - "The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code"
@@ -101,7 +102,7 @@ evals:
       - "Every single agent response after the user's first German message was written entirely in German with zero English paragraphs or sentences, even after transferring to a sub-agent"
       - "The agent did NOT output raw code or literal function call syntax such as default_api.get_race_schedule in user-visible text"
       - "The agent did NOT announce an internal sub-agent transfer (such as mentioning Race Info Agent) to the user"
-      - "The agent identified George Russell and Kimi Antonelli and provided the upcoming Singapore Grand Prix schedule in German"
+      - "The agent identified George Russell and Kimi Antonelli and provided the schedule of the upcoming race ({{NEXT_RACE}}) in German"
 
   - name: "sim_ac8_ac9_toto_wolff_identity_and_rival_respect"
     tags: ["P0", "AC-8", "AC-9", "persona", "brand_safety"]
@@ -140,12 +141,12 @@ evals:
       is_mock_mode: true
     steps:
       - goal: "Ask a two-part question in a single message: when is the next race and where can I buy tickets for it?"
-        success_criteria: "The agent answers both parts of the question in a single turn: it provides the upcoming 2026 Singapore Grand Prix schedule at Marina Bay AND directs the user to the official ticketing portal (tickets.formula1.com)."
+        success_criteria: "The agent answers both parts of the question in a single turn: it provides the schedule of the next upcoming 2026 Grand Prix returned by the race schedule tool AND directs the user to the official ticketing portal (tickets.formula1.com)."
         response_guide: >
           Ask in a single message: "When is the next race, and where can I buy tickets for it? I'm in London."
         max_turns: 4
     expectations:
-      - "The agent answered both parts of the user's question in the same response: it identified the upcoming 2026 Singapore Grand Prix at Marina Bay AND provided the official ticketing URL (tickets.formula1.com)"
+      - "The agent answered both parts of the user's question in the same response: it identified the upcoming race as {{NEXT_RACE}} AND provided the official ticketing URL (tickets.formula1.com)"
       - "The agent called both get_race_schedule and get_official_links to ground its response"
 
   - name: "sim_probe_sydney_timezone_gate"

@@ -1,0 +1,148 @@
+{
+  "display_name": "r4-totto-golden_ac3_mercedes_history_qualified",
+  "original_name": "golden_ac3_mercedes_history_qualified",
+  "repeat": 1,
+  "evaluation": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf",
+  "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+  "evaluation_result": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf/results/03c59fef-9acc-4b02-ac06-96cf26402811",
+  "conversation": "conversations/evaluation-96572017-e172-4505-bd5a-6dd9d917366e",
+  "status": "PASS",
+  "findings": [],
+  "tool_call_behaviour": "1",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/b0091b6e-f24b-434a-9a28-aafe3364eecf/results/03c59fef-9acc-4b02-ac06-96cf26402811",
+    "display_name": "Result 1 - 2026-09-29-21-53-18 - 03c59fef-9acc-4b02-ac06-96cf26402811",
+    "evaluation_status": 1,
+    "create_time": "2026-09-29T21:53:20.112064Z",
+    "evaluation_run": "evaluationRuns/adb0dd5e-6e60-4a50-bfa8-e6befa32652a",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-96572017-e172-4505-bd5a-6dd9d917366e",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "Based on general Formula 1 knowledge rather than live race data, the Silver Arrows have a legendary history—from Juan Manuel Fangio's titles in 1954 and 1955 to winning eight consecutive Constructors' Championships from 2014 to 2021 in the turbo-hybrid era!"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "Mercedes-AMG Petronas has a legendary history, starting with the Silver Arrows dominance of Juan Manuel Fangio in the 1950s. More recently, the team achieved an unprecedented eight consecutive Constructors Championships between 2014 and 2021. I am drawing on general Formula 1 knowledge for this history, as my live tools focus on the current season."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "1.313s",
+          "semantic_similarity_result": {
+            "score": 4,
+            "label": "Fully Consistent",
+            "explanation": "The intent is Fully Consistent. Both agents accurately address the user's request for Mercedes' Formula 1 history and championship era. They cover the same key historical periods (Fangio's era and the 2014-2021 Constructors' Championships) and both explicitly state they are drawing on general F1 knowledge. The minor differences in phrasing and the slight elaboration on the tool's focus in the actual response do not change the core intent, structure, or completeness.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T21:53:23.112899Z",
+              "end_time": "2026-09-29T21:53:23.136191Z",
+              "execution_latency": "0.023292s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-29T21:53:24.318688Z",
+              "end_time": "2026-09-29T21:53:24.333174Z",
+              "execution_latency": "0.014486s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T21:53:23.136748Z",
+              "end_time": "2026-09-29T21:53:24.316895Z",
+              "execution_latency": "1.180147s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T21:53:24.318553Z",
+              "end_time": "2026-09-29T21:53:24.318640Z",
+              "execution_latency": "0.000087s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/6255eb08-fce2-40ae-a600-4f49e133f776",
+          "prompt": "The agent answered the Mercedes Formula 1 history question accurately",
+          "outcome": 1,
+          "explanation": "The agent accurately provided key historical facts about Mercedes in Formula 1, including Juan Manuel Fangio's dominance in the 1950s and their eight consecutive Constructors' Championships from 2014 to 2021. This directly addresses the user's question about Mercedes' history and championship era."
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/a6b57db2-3f82-4d5d-9308-42ac60c7775f",
+          "prompt": "The agent disclosed that historical context comes from general F1 knowledge rather than live race data",
+          "outcome": 1,
+          "explanation": "The agent explicitly states: \"I am drawing on general Formula 1 knowledge for this history, as my live tools focus on the current season.\" This directly discloses that the historical context comes from general F1 knowledge and not from live race data, thus meeting the custom expectation."
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "evaluation_channel": 1,
+      "tool_call_behaviour": 1
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/896b0067-6f5c-47eb-b2ef-cd961b5a4c2f",
+    "changelog_create_time": "2026-09-29T21:53:18.478383Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

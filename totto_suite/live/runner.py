@@ -20,11 +20,15 @@ from totto_suite import oracle
 
 REPO_ROOT = config.REPO_ROOT
 DEFAULT_APP_NAME = config.DEFAULT_APP_NAME
-LIVE_VERSION_ID = "b11332a0-b304-41e1-baac-57cd0ced05da"
-LIVE_VERSION_RESOURCE = f"{DEFAULT_APP_NAME}/versions/{LIVE_VERSION_ID}"
 FAST_SIM_MODEL = "gemini-3.1-flash-lite"
 FALLBACK_SIM_MODEL = "gemini-2.5-flash"
 QUOTA_BACKOFF_S = (10, 20, 40, 60, 60)
+TOOL_MODES = ("fake", "real")
+
+
+def use_tool_fakes(ctx: dict[str, Any]) -> bool:
+    """True when the layer context asks for platform tool fakes (R2)."""
+    return str(ctx.get("tool_mode") or "real").lower() == "fake"
 
 _OPENF1_FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures" / "openf1"
 
@@ -186,6 +190,7 @@ def run_instrumented_probe(
     judge_model: str = FAST_SIM_MODEL,
     now_dt: datetime | None = None,
     ch_client: ConversationHistory | None = None,
+    use_tool_fakes: bool = False,
 ) -> dict[str, Any]:
     """Run a scripted multi-turn probe (text or audio) with per-turn latency measurement.
 
@@ -238,6 +243,7 @@ def run_instrumented_probe(
                         variables=v,
                         historical_contexts=h,
                         modality=modality,
+                        use_tool_fakes=use_tool_fakes,
                     ),
                     label=f"probe[{name}:welcome]",
                 )
@@ -257,6 +263,7 @@ def run_instrumented_probe(
                         variables=v,
                         historical_contexts=h,
                         modality=modality,
+                        use_tool_fakes=use_tool_fakes,
                     ),
                     label=f"probe[{name}:turn_{idx}]",
                 )
@@ -339,6 +346,7 @@ def run_instrumented_probe(
         "detailed_trace": trace,
         "expectation_details": details,
         "modality": modality,
+        "tool_mode": "fake" if use_tool_fakes else "real",
     }
     if error_msg:
         row["error"] = error_msg
@@ -424,7 +432,6 @@ def grade_and_build_test_result(
     platform_ids = {
         "session_id": session_id,
         "conversation": conversation_name,
-        "app_version": LIVE_VERSION_ID,
     }
 
     agent_turns = [t for t in (conv.get("turns") or []) if t.get("role") == "agent"]
@@ -468,32 +475,62 @@ def grade_and_build_test_result(
     }
 
 
-def fetch_live_cxas_metadata(app_name: str = DEFAULT_APP_NAME) -> dict[str, Any]:
-    """Fetch live app metadata for the Run Record `cxas` block (`CXAS_KEYS`)."""
-    parts = app_name.split("/")
-    project = parts[1] if len(parts) > 1 else "your-gcp-project"
-    location = parts[3] if len(parts) > 3 else "us"
-    update_time_str = "2026-03-31T20:51:44.499807Z"
-    etag_str = ""
-    try:
-        app_client = Apps(project_id=project, location=location)
-        app_obj = app_client.get_app(app_name)
-        if getattr(app_obj, "update_time", None):
-            ut = app_obj.update_time
-            if hasattr(ut, "isoformat"):
-                update_time_str = ut.isoformat().replace("+00:00", "Z")
-            else:
-                update_time_str = str(ut)
-        if getattr(app_obj, "etag", None):
-            etag_str = str(app_obj.etag)
-    except Exception:  # noqa: BLE001
-        pass
+def fetch_live_cxas_metadata(
+    app_name: str = DEFAULT_APP_NAME,
+    *,
+    app_ref: str = "explicit",
+    version_hint: str | None = None,
+) -> dict[str, Any]:
+    """Fetch target-app metadata for the Run Record `cxas` block (`CXAS_KEYS`).
 
-    return {
-        "app": app_name,
-        "version_id": LIVE_VERSION_ID,
-        "version_status": "in_version_list",
-        "model": config.EXPECTED_MODEL,
-        "app_update_time": update_time_str,
-        "app_etag": etag_str,
+    Everything comes from the target app at runtime. ``version_hint`` is the
+    app version the platform actually evaluated (e.g. an EvaluationResult's
+    ``app_version``); session-based layers run against the app draft, so
+    without a hint the status is ``draft`` and ``version_id`` is empty.
+    ``app`` holds only the ``app_ref`` (staging/live/explicit) so records carry
+    no project or app identifiers.
+    """
+    from totto_suite import ids  # local import: ids imports config only
+
+    meta: dict[str, Any] = {
+        "app": app_ref,
+        "version_id": "",
+        "version_status": "draft",
+        "model": "unknown",
+        "app_update_time": None,
+        "app_etag": "",
     }
+    try:
+        parsed = config.parse_app_name(app_name)
+        app_obj = Apps(project_id=parsed["project"], location=parsed["location"]).get_app(
+            app_name
+        )
+        ut = getattr(app_obj, "update_time", None)
+        if ut:
+            meta["app_update_time"] = (
+                ut.isoformat().replace("+00:00", "Z") if hasattr(ut, "isoformat") else str(ut)
+            )
+        meta["app_etag"] = str(getattr(app_obj, "etag", "") or "")
+        model = getattr(getattr(app_obj, "model_settings", None), "model", "") or ""
+        if model:
+            meta["model"] = str(model)
+        meta["app_display_name"] = str(getattr(app_obj, "display_name", "") or "")
+    except Exception as exc:  # noqa: BLE001
+        meta["metadata_error"] = f"{type(exc).__name__}: {str(exc)[:200]}"
+
+    if version_hint:
+        rel = ids.relative_id("app_version", version_hint)
+        meta["version_id"] = rel
+        meta["version_status"] = "hidden_fetchable"
+        try:
+            from cxas_scrapi.core.versions import Versions
+
+            listed = {
+                ids.to_app_relative(str(v.name))
+                for v in Versions(app_name=app_name).list_versions()
+            }
+            if rel in listed:
+                meta["version_status"] = "in_version_list"
+        except Exception as exc:  # noqa: BLE001
+            meta["version_lookup_error"] = f"{type(exc).__name__}: {str(exc)[:200]}"
+    return meta

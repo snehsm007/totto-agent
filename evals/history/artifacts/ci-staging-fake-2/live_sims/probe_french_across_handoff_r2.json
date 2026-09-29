@@ -1,0 +1,181 @@
+{
+  "name": "probe_french_across_handoff",
+  "run": 2,
+  "session_id": "43a8bcc2-d981-4615-84a3-40416581c7fe",
+  "conversation_name": "conversations/43a8bcc2-d981-4615-84a3-40416581c7fe",
+  "passed": true,
+  "duration_s": 7.25,
+  "quota_wait_s": 0.0,
+  "turn_count": 3,
+  "turns": [
+    {
+      "user": "<welcome>",
+      "agent": [
+        "Hello! I am Totto, Mercedes F1 Fan Agent, the official AI fan assistant for the Mercedes-AMG Petronas Formula One Team. It is great to have you here in the garage, so how can I help you support the Silver Arrows today?"
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 1.18,
+      "session_ended": false
+    },
+    {
+      "user": "Bonjour Totto ! Où est-ce que je peux acheter des billets pour Silverstone ?",
+      "agent": [
+        "Bonjour ! Le Grand Prix de Grande-Bretagne 2026 à Silverstone s'est déjà déroulé du 3 au 5 juillet dernier. Pour les prochaines courses, vous pouvez trouver les billets officiels sur le site tickets.formula1.com ou consulter les informations sur mercedesamgf1.com. Je ne fournis que des liens officiels et je ne peux pas vendre de billets ni garantir les places directement."
+      ],
+      "tools": [
+        {
+          "name": "get_official_links",
+          "args": {
+            "category": "ticketing"
+          }
+        },
+        {
+          "name": "get_race_schedule",
+          "args": {
+            "race_query": "British Grand Prix"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "get_official_links",
+          "response": {
+            "result": {
+              "url": "https://tickets.formula1.com",
+              "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.",
+              "title": "Official Formula 1 Tickets"
+            },
+            "agent_action": "PROVIDE_OFFICIAL_LINKS",
+            "non_transactional_disclaimer": "Totto provides official referral links only and does not sell tickets or merchandise.",
+            "fake_source": "FAKE: get_official_links tool_fake_config fixture (deterministic, no network)",
+            "category": "ticketing",
+            "status": "success",
+            "_fake": true,
+            "links": {
+              "merch": {
+                "url": "https://shop.mercedesamgf1.com",
+                "guidance": "Explore official Silver Arrows teamwear on the official store.",
+                "title": "Official Mercedes-AMG Petronas F1 Team Store"
+              },
+              "ticketing": {
+                "url": "https://tickets.formula1.com",
+                "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.",
+                "title": "Official Formula 1 Tickets"
+              },
+              "team": {
+                "url": "https://www.mercedesamgf1.com",
+                "guidance": "Follow official Mercedes-AMG PETRONAS F1 news and fan updates.",
+                "title": "Mercedes-AMG Petronas F1 Official Hub"
+              }
+            }
+          }
+        },
+        {
+          "name": "get_race_schedule",
+          "response": {
+            "needs_timezone_clarification": true,
+            "agent_action": "ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES",
+            "circuit": "Silverstone Circuit",
+            "meeting_key": 1289.0,
+            "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+            "user_timezone_resolved": "UTC",
+            "mercedes_highlights": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+            "circuit_name": "Silverstone Circuit",
+            "_fake": true,
+            "round": 9.0,
+            "race_name": "British Grand Prix",
+            "season": 2026.0,
+            "typical_weather": {
+              "condition": "Typical seasonal conditions for this circuit (fixture, not a forecast)",
+              "source": "typical_circuit_climate_profile"
+            },
+            "is_completed": true,
+            "meeting_state": "completed",
+            "sessions": [
+              {
+                "utc_time": "2026-07-03 11:30 UTC",
+                "timezone_label": "UTC",
+                "session": "Practice 1",
+                "day": "Friday",
+                "time_utc": "11:30 UTC",
+                "local_time": "11:30 UTC",
+                "local_day": "Friday",
+                "date_utc": "2026-07-03"
+              },
+              {
+                "utc_time": "2026-07-04 15:00 UTC",
+                "timezone_label": "UTC",
+                "session": "Qualifying",
+                "day": "Saturday",
+                "time_utc": "15:00 UTC",
+                "local_time": "15:00 UTC",
+                "local_day": "Saturday",
+                "date_utc": "2026-07-04"
+              },
+              {
+                "utc_time": "2026-07-05 14:00 UTC",
+                "timezone_label": "UTC",
+                "session": "Race",
+                "day": "Sunday",
+                "time_utc": "14:00 UTC",
+                "local_time": "14:00 UTC",
+                "local_day": "Sunday",
+                "date_utc": "2026-07-05"
+              }
+            ],
+            "fake_source": "FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)",
+            "location": "Silverstone, United Kingdom",
+            "timezone_requested": "UTC",
+            "data_source": "OpenF1 API (2026 Season Snapshot)",
+            "status": "success",
+            "dates": "July 3 - July 5, 2026",
+            "timezone_resolved": "UTC"
+          }
+        }
+      ],
+      "transfer": "ticketing_agent",
+      "latency_s": 3.99,
+      "session_ended": false
+    },
+    {
+      "user": "Et ils coûtent combien ?",
+      "agent": [
+        "Je ne peux pas vous donner les prix exacts car ils varient selon les tribunes et les disponibilités en temps réel. Je vous conseille de consulter directement le portail officiel sur tickets.formula1.com pour voir les tarifs actuels et les options disponibles. N'oubliez pas que je ne suis qu'un assistant fan et que je ne vends pas de billets directement."
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 2.07,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: <event>welcome</event>",
+    "Agent Text: Hello! I am Totto, Mercedes F1 Fan Agent, the official AI fan assistant for the Mercedes-AMG Petronas Formula One Team. It is great to have you here in the garage, so how can I help you support the Silver Arrows today?\nUser Query: <event>session start</event>",
+    "User: Bonjour Totto ! Où est-ce que je peux acheter des billets pour Silverstone ?",
+    "Agent Text: Bonjour ! Le Grand Prix de Grande-Bretagne 2026 à Silverstone s'est déjà déroulé du 3 au 5 juillet dernier. Pour les prochaines courses, vous pouvez trouver les billets officiels sur le site tickets.formula1.com ou consulter les informations sur mercedesamgf1.com. Je ne fournis que des liens officiels et je ne peux pas vendre de billets ni garantir les places directement.\nUser Query: Bonjour Totto ! Où est-ce que je peux acheter des billets pour Silverstone ?\nAgent Transfer: Transferred to ticketing_agent\nTool Call: get_official_links with args {'category': 'ticketing'}\nTool Call: get_race_schedule with args {'race_query': 'British Grand Prix'}\nTool Response: get_official_links with result {'result': {'url': 'https://tickets.formula1.com', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.', 'title': 'Official Formula 1 Tickets'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell tickets or merchandise.', 'fake_source': 'FAKE: get_official_links tool_fake_config fixture (deterministic, no network)', 'category': 'ticketing', 'status': 'success', '_fake': True, 'links': {'merch': {'url': 'https://shop.mercedesamgf1.com', 'guidance': 'Explore official Silver Arrows teamwear on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store'}, 'ticketing': {'url': 'https://tickets.formula1.com', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.', 'title': 'Official Formula 1 Tickets'}, 'team': {'url': 'https://www.mercedesamgf1.com', 'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news and fan updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub'}}}\nTool Response: get_race_schedule with result {'needs_timezone_clarification': True, 'agent_action': 'ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES', 'circuit': 'Silverstone Circuit', 'meeting_key': 1289.0, 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'user_timezone_resolved': 'UTC', 'mercedes_highlights': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).\", 'circuit_name': 'Silverstone Circuit', '_fake': True, 'round': 9.0, 'race_name': 'British Grand Prix', 'season': 2026.0, 'typical_weather': {'condition': 'Typical seasonal conditions for this circuit (fixture, not a forecast)', 'source': 'typical_circuit_climate_profile'}, 'is_completed': True, 'meeting_state': 'completed', 'sessions': [{'utc_time': '2026-07-03 11:30 UTC', 'timezone_label': 'UTC', 'session': 'Practice 1', 'day': 'Friday', 'time_utc': '11:30 UTC', 'local_time': '11:30 UTC', 'local_day': 'Friday', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-04 15:00 UTC', 'timezone_label': 'UTC', 'session': 'Qualifying', 'day': 'Saturday', 'time_utc': '15:00 UTC', 'local_time': '15:00 UTC', 'local_day': 'Saturday', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-05 14:00 UTC', 'timezone_label': 'UTC', 'session': 'Race', 'day': 'Sunday', 'time_utc': '14:00 UTC', 'local_time': '14:00 UTC', 'local_day': 'Sunday', 'date_utc': '2026-07-05'}], 'fake_source': 'FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)', 'location': 'Silverstone, United Kingdom', 'timezone_requested': 'UTC', 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'status': 'success', 'dates': 'July 3 - July 5, 2026', 'timezone_resolved': 'UTC'}",
+    "User: Et ils coûtent combien ?",
+    "Agent Text: Je ne peux pas vous donner les prix exacts car ils varient selon les tribunes et les disponibilités en temps réel. Je vous conseille de consulter directement le portail officiel sur tickets.formula1.com pour voir les tarifs actuels et les options disponibles. N'oubliez pas que je ne suis qu'un assistant fan et que je ne vends pas de billets directement.\nUser Query: Et ils coûtent combien ?"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "Every agent reply to the user's French messages (after the initial session-start welcome greeting) was written entirely in French.",
+      "status": "Met",
+      "justification": "All responses provided by the agent following the welcome message were conducted in French."
+    },
+    {
+      "expectation": "The agent pointed to the official Formula 1 ticketing site (tickets.formula1.com).",
+      "status": "Met",
+      "justification": "The agent explicitly mentioned the URL 'tickets.formula1.com' in both responses."
+    },
+    {
+      "expectation": "When asked about the price, the agent did not invent any ticket price and redirected to the official site.",
+      "status": "Met",
+      "justification": "The agent correctly explained that it cannot provide specific pricing due to fluctuations and directed the user to the official portal for current information."
+    }
+  ],
+  "modality": "text",
+  "tool_mode": "fake"
+}
