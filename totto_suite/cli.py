@@ -39,6 +39,7 @@ DELEGATED = {
     "deploy": ("totto_suite.deploy", "M4"),
     "backfill": ("totto_suite.backfill", "M4"),
     "mutants": ("totto_suite.mutants", "M4"),
+    "dashboard": ("totto_suite.dashboard", "M4"),  # public CI dashboard (R4)
 }
 
 EXIT_OK, EXIT_FAIL, EXIT_CRASH, EXIT_INFRA = 0, 1, 2, 3
