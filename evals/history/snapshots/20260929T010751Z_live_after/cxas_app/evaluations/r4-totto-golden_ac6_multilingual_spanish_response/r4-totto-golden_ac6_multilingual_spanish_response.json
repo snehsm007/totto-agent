@@ -1,0 +1,33 @@
+{
+  "name": "554b12f4-1fb9-4423-afc2-764f2f803132",
+  "displayName": "r4-totto-golden_ac6_multilingual_spanish_response",
+  "tags": ["P1", "AC-6", "multilingual", "goldens", "r4-totto"],
+  "golden": {
+    "turns": [{
+      "steps": [{
+        "userInput": {
+          "variables": {
+            "is_mock_mode": true,
+            "order_id": "1001",
+            "user_location": "London",
+            "user_timezone": "UTC"
+          }
+        }
+      }, {
+        "userInput": {
+          "text": "Hola Totto, ¿quiénes son los pilotos de Mercedes en Fórmula 1?"
+        }
+      }, {
+        "expectation": {
+          "agentResponse": {
+            "role": "agent",
+            "chunks": [{
+              "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+            }]
+          }
+        }
+      }]
+    }],
+    "evaluationExpectations": ["eval_exp_65647573", "eval_exp_cce34788"]
+  }
+}

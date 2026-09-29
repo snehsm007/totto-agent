@@ -1,0 +1,44 @@
+{
+  "name": "00000000-0000-0000-0000-000000000000",
+  "displayName": "totto-mercedes-f1-fan-agent",
+  "description": "Voice-first, multilingual Formula 1 fan concierge for the Mercedes-AMG PETRONAS Formula One Team.",
+  "rootAgent": "totto_root_agent",
+  "globalInstruction": "global_instruction.txt",
+  "modelSettings": {
+    "model": "gemini-3.0-flash-001"
+  },
+  "variableDeclarations": [
+    {
+      "name": "user_timezone",
+      "description": "User's local timezone (e.g. EST, PST, Europe/London, Asia/Tokyo, Australia/Sydney, UTC).",
+      "schema": {
+        "type": "STRING",
+        "required": []
+      }
+    },
+    {
+      "name": "user_location",
+      "description": "User's city, country, or region.",
+      "schema": {
+        "type": "STRING",
+        "required": []
+      }
+    },
+    {
+      "name": "order_id",
+      "description": "4-digit mock merchandise order number (1001, 1002, 1003, 9999).",
+      "schema": {
+        "type": "STRING",
+        "required": []
+      }
+    },
+    {
+      "name": "is_mock_mode",
+      "description": "Flag indicating simulated demo mode for merchandise support.",
+      "schema": {
+        "type": "BOOLEAN",
+        "required": []
+      }
+    }
+  ]
+}

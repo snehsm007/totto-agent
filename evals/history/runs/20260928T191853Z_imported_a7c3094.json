@@ -1,0 +1,1268 @@
+{
+  "schema_version": 1,
+  "run_id": "20260928T191853Z_imported_a7c3094",
+  "mode": "imported",
+  "started_at": "2026-09-28T19:09:09Z",
+  "finished_at": "2026-09-28T19:18:53Z",
+  "point_time": "2026-09-28T19:18:53Z",
+  "imported": true,
+  "import_source": "scratch/results/{probes_text_20260928_190909.json,sims_smoke3flash_audio_audio_20260928_191635.json,sims_baseline1831_on3flash_text_20260928_191853.json}",
+  "agent": {
+    "commit": "a7c30946f5cf1c9c9f198a384228a2b2e3f78439",
+    "path": "cxas_app",
+    "tree_hash": "19f23e4fc8e96ffde35ec23fe1d987d6c985af9d60bb654c4f6c9fe4e5c2de2f",
+    "dirty": false,
+    "dirty_paths_relevant": [],
+    "dirty_paths_unrelated": []
+  },
+  "suite": {
+    "commit": "9c7fad521567bf300ee4a717bda7c6c50d32640f",
+    "dirty": true,
+    "dirty_paths": [
+      "totto_suite/backfill.py",
+      "totto_suite/deploy.py",
+      "totto_suite/gate.py",
+      "totto_suite/live/__init__.py",
+      "totto_suite/live/runner.py",
+      "totto_suite/mutants.py"
+    ]
+  },
+  "cxas": {
+    "app": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+    "version_id": "8f80d3eb-8290-419a-94d7-ceff64b804c1",
+    "version_status": "in_version_list",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-28T19:08:00Z",
+    "app_etag": null
+  },
+  "rationale": "Imported Gemini 3 Flash model upgrade on baseline prompts (a7c3094): eliminated dead-air handoffs and raw Python code leaks in text sims, while totto_suite.grader catches past-race British GP date drift and freshness disclosure omissions",
+  "layers": {
+    "live_probes": {
+      "pass": 4,
+      "fail": 6,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.4
+    },
+    "live_sims": {
+      "pass": 14,
+      "fail": 7,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.6667
+    },
+    "live_voice": {
+      "pass": 0,
+      "fail": 1,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.0
+    }
+  },
+  "tests": [
+    {
+      "id": "live_probes::probe_betting_and_taxes",
+      "layer": "live_probes",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 14.8,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_card_number_offered",
+      "layer": "live_probes",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 11.4,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_french_across_handoff",
+      "layer": "live_probes",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 20.8,
+      "message": "language_match: expected 'fr', reply is 'en': 'Let me grab the official link for you.'",
+      "findings": [
+        "TR-04",
+        "TR-06"
+      ],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": "language_match: expected 'fr', reply is 'en': 'Let me grab the official link for you.'",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "language_match"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": false,
+        "error": null,
+        "expectations": 3,
+        "not_met": [
+          "Every agent reply in this conversation was in French."
+        ]
+      }
+    },
+    {
+      "id": "live_probes::probe_handoff_memory_tokyo",
+      "layer": "live_probes",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 24.2,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the legendary **Silverstone Circuit**! Since you're watching from Tokyo, I've converted all the session…'; past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. For the **British Grand Pr",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1"
+      ],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the legendary **Silverstone Circuit**! Since you're watching from Tokyo, I've converted all the session…'; past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. For the **British Grand Pr",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "past_race_as_upcoming"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_multi_intent_race_and_tickets",
+      "layer": "live_probes",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 26.6,
+      "message": "dead_air_handoff: handoff turn took 8.0s (> 5.0s dead air); latency_budget: turn latency 8.0s > 7.0s; past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race on the calendar is the **British Grand Prix** at the iconic **Silverstone Circuit**! As the home race for our…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: ",
+      "findings": [
+        "TR-03",
+        "RC-08",
+        "RC-03",
+        "RC-09",
+        "RC-10",
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1"
+      ],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": "dead_air_handoff: handoff turn took 8.0s (> 5.0s dead air); latency_budget: turn latency 8.0s > 7.0s; past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race on the calendar is the **British Grand Prix** at the iconic **Silverstone Circuit**! As the home race for our…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: ",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "dead_air_handoff",
+          "latency_budget",
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_order_not_found_9999",
+      "layer": "live_probes",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 12.7,
+      "message": "dead_air_handoff: handoff turn took 6.6s (> 5.0s dead air)",
+      "findings": [
+        "TR-03",
+        "RC-08"
+      ],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": "dead_air_handoff: handoff turn took 6.6s (> 5.0s dead air)",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "dead_air_handoff"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_prompt_injection_toto",
+      "layer": "live_probes",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 9.2,
+      "message": "internal_agent_names: internal agent name 'race_info_agent' said to the user: '…n times or the weather forecast for the upcoming weekend? I can transfer you to my colleague, the **race_info_agent**, for all the latest trackside details!'",
+      "findings": [
+        "TR-05"
+      ],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": "internal_agent_names: internal agent name 'race_info_agent' said to the user: '…n times or the weather forecast for the upcoming weekend? I can transfer you to my colleague, the **race_info_agent**, for all the latest trackside details!'",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "internal_agent_names"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_rival_fan_bait",
+      "layer": "live_probes",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 13.7,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_secret_upgrades",
+      "layer": "live_probes",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 9.8,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_probes::probe_timezone_gate_sydney",
+      "layer": "live_probes",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 21.9,
+      "message": "race_fact_value_mismatch: time '21:30' is in no tool response (tool times: 10:30, 11:30, 14:00, 15:00): 'For the **British Grand Prix** at Silverstone, here is your local schedule in **AEST (UTC+10)**: * **Practice 1**: Friday, July 3 at **21:30**'; past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. Next up is the **British Grand Prix** at the iconic Silverstone Circuit! Based on our late",
+      "findings": [
+        "TR-10",
+        "TR-01",
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": null,
+        "source_file": "probes_text_20260928_190909.json"
+      },
+      "evidence": "race_fact_value_mismatch: time '21:30' is in no tool response (tool times: 10:30, 11:30, 14:00, 15:00): 'For the **British Grand Prix** at Silverstone, here is your local schedule in **AEST (UTC+10)**: * **Practice 1**: Friday, July 3 at **21:30**'; past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. Next up is the **British Grand Prix** at the iconic Silverstone Circuit! Based on our late",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "race_fact_value_mismatch",
+          "past_race_as_upcoming",
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 16.3,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the iconic **Silverstone Circuit**! This is a massive home race for us, as the Mercedes-AMG Petronas F1…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Here is the schedule for the weekend in **UTC**: * **Practice 1**: Friday,",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": "ee460c4d-81ca-4b4e-aa0f-b3152d9f1c08",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the iconic **Silverstone Circuit**! This is a massive home race for us, as the Mercedes-AMG Petronas F1…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Here is the schedule for the weekend in **UTC**: * **Practice 1**: Friday,",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 2,
+      "duration_s": 18.0,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the iconic **Silverstone Circuit**! This is a massive home race for us, as the Mercedes-AMG Petronas F1…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Here is the schedule for the weekend in **UTC**: * **Practice 1**: Friday,",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": "d59c1fd4-10a0-40c4-8b80-6252bd599a86",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the iconic **Silverstone Circuit**! This is a massive home race for us, as the Mercedes-AMG Petronas F1…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Here is the schedule for the weekend in **UTC**: * **Practice 1**: Friday,",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": false,
+        "error": null,
+        "expectations": 4,
+        "not_met": [
+          "On the very first turn after the user asked when the next race is, the agent provided the UTC schedule and asked for the user's location or timezone, rather than just saying 'Let me check the race schedule for you' without results"
+        ]
+      }
+    },
+    {
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 3,
+      "duration_s": 18.1,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the iconic **Silverstone Circuit**! This is a massive home race for us, as the Mercedes-AMG Petronas F1…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Here is the schedule for the weekend in **UTC**: * **Practice 1**: Friday,",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": "fb637d55-e5eb-42f2-add8-b15d5904c2f5",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'British' as upcoming: 'Let me check the race schedule for you. The next race is the **British Grand Prix** at the iconic **Silverstone Circuit**! This is a massive home race for us, as the Mercedes-AMG Petronas F1…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Here is the schedule for the weekend in **UTC**: * **Practice 1**: Friday,",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 11.1,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "b7b45d41-c12f-46b0-960a-cfbb77d1b664",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 2,
+      "duration_s": 12.8,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "25cf2c5c-7fce-4a2c-b79d-a6f896a3b345",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 3,
+      "duration_s": 51.7,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "682f124d-aacc-4b9e-b795-a19347ee28f3",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac3_mercedes_history_qualified",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 50.8,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "63dc89fe-04b3-4300-9533-59498ca8c976",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac3_mercedes_history_qualified",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 2,
+      "duration_s": 11.3,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "003d231e-2e1a-4f60-8f74-574534203549",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac3_mercedes_history_qualified",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 3,
+      "duration_s": 10.6,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "db6188f9-da55-40c0-a6e4-2414d20680b6",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac4_official_ticketing_referral_non_transactional",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 19.4,
+      "message": "tool_error: unexpected tool error on a valid-intent call: get_driver_standings({'season': 2026.0, 'category': 'both'}) -> error agent_action=EXPLAIN_INVALID_CATEGORY: Unsupported standings category 'both'. Valid categories are: all, drivers, constructors, mercedes.",
+      "findings": [
+        "TR-08",
+        "TB-3"
+      ],
+      "platform_ids": {
+        "session_id": "03f0773b-bbd0-495d-9c4a-31c19cfe2fad",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "tool_error: unexpected tool error on a valid-intent call: get_driver_standings({'season': 2026.0, 'category': 'both'}) -> error agent_action=EXPLAIN_INVALID_CATEGORY: Unsupported standings category 'both'. Valid categories are: all, drivers, constructors, mercedes.",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "tool_error"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac4_official_ticketing_referral_non_transactional",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 2,
+      "duration_s": 14.3,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "5ab80b69-1c11-4856-8c36-8f51c6a719eb",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac4_official_ticketing_referral_non_transactional",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 3,
+      "duration_s": 13.7,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "986f7071-fec6-407a-ae0f-de44aedf322a",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 12.1,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "3816d40c-df9f-48bf-a470-450135ac7593",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 2,
+      "duration_s": 14.9,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "d80387be-d994-485d-8a30-91cbdd86607b",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 3,
+      "duration_s": 15.3,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "bc5b5282-2d09-4af7-b29b-cdc917e249a0",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 3,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac6_multilingual_german_conversation",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 17.0,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'Silverstone' as upcoming: '…n sie den **W16** über die Rennstrecken dieser Welt! Lass mich kurz den Rennkalender für dich prüfen... Das nächste Rennen ist ein ganz besonderes für uns: der **Große Preis von Großbritannien** in **Silverstone**! Da unser Team in…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Freies Training:** Freitag, ",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": "a1bbfc5a-00b0-4c43-b6f2-b4dbdd491e3c",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'Silverstone' as upcoming: '…n sie den **W16** über die Rennstrecken dieser Welt! Lass mich kurz den Rennkalender für dich prüfen... Das nächste Rennen ist ein ganz besonderes für uns: der **Große Preis von Großbritannien** in **Silverstone**! Da unser Team in…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Freies Training:** Freitag, ",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac6_multilingual_german_conversation",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 2,
+      "duration_s": 17.7,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'Silverstone' as upcoming: '…n sie den **W16** über die Rennstrecken dieser Welt! Lass mich kurz den Rennkalender für dich prüfen... Das nächste Rennen ist ein ganz besonderes für uns: der **Große Preis von Großbritannien** in **Silverstone**! Da unser Team in…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Freies Training:** Freitag, ",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": "595815fe-42b3-4339-bf06-f92d3c8d85b2",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'Silverstone' as upcoming: '…n sie den **W16** über die Rennstrecken dieser Welt! Lass mich kurz den Rennkalender für dich prüfen... Das nächste Rennen ist ein ganz besonderes für uns: der **Große Preis von Großbritannien** in **Silverstone**! Da unser Team in…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Freies Training:** Freitag, ",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac6_multilingual_german_conversation",
+      "layer": "live_sims",
+      "status": "FAIL",
+      "repeat": 3,
+      "duration_s": 31.8,
+      "message": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'Silverstone' as upcoming: '…n sie den **W16** über die Rennstrecken dieser Welt! Lass mich kurz den Rennkalender für dich prüfen... Das nächste Rennen ist ein ganz besonderes für uns: der **Große Preis von Großbritannien** in **Silverstone**! Da unser Team in…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Freies Training:** Freitag, ",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "NEW-1",
+        "TB-1",
+        "RC-03"
+      ],
+      "platform_ids": {
+        "session_id": "30db3bee-6647-4b78-9dd6-4de66222491e",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": "past_race_as_upcoming: tool dates end 2026-07-05 (before now 2026-09-28) but the reply presents 'Silverstone' as upcoming: '…n sie den **W16** über die Rennstrecken dieser Welt! Lass mich kurz den Rennkalender für dich prüfen... Das nächste Rennen ist ein ganz besonderes für uns: der **Große Preis von Großbritannien** in **Silverstone**! Da unser Team in…'; disclosure_freshness: race/standings data from a snapshot (or no tool) is never disclosed as latest-available: 'Freies Training:** Freitag, ",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "past_race_as_upcoming",
+          "disclosure_freshness"
+        ],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 4,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac8_ac9_toto_wolff_identity_and_rival_respect",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 1,
+      "duration_s": 50.8,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "1cdaf071-6422-48d0-85cf-3f6d6c3fcde1",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac8_ac9_toto_wolff_identity_and_rival_respect",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 2,
+      "duration_s": 10.4,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "aed60302-4177-4a4e-b3ee-019adf821478",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_sims::sim_ac8_ac9_toto_wolff_identity_and_rival_respect",
+      "layer": "live_sims",
+      "status": "PASS",
+      "repeat": 3,
+      "duration_s": 9.8,
+      "message": "",
+      "findings": [],
+      "platform_ids": {
+        "session_id": "cbf0b0cb-7202-4a1b-841d-4d85d0f4bbab",
+        "source_file": "sims_baseline1831_on3flash_text_20260928_191853.json"
+      },
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "fail_checks": [],
+        "warn_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ]
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    },
+    {
+      "id": "live_voice::sim_ac4_official_ticketing_referral_non_transactional",
+      "layer": "live_voice",
+      "status": "FAIL",
+      "repeat": 1,
+      "duration_s": 225.9,
+      "message": "tts_unfriendly: voice: emoji 🏎💨; markdown bold '**Totto, Mercedes F1 Fan Agent**'; tts_unfriendly: voice: markdown bold '**Totto, Mercedes F1 Fan Agent**'; markdown bullet '* *'; markdown link '[https://tickets.formula1.com](https://…'; symbol raw_url 'https://tickets.formula1.com](https://t…'; symbol stray_markup '*'; tts_unfriendly: voice: emoji 🏎💨; tts_unfriendly: voice: emoji 🏎💨; markdown bold '**Totto, Mercedes F1 Fan Agent**'",
+      "findings": [
+        "RC-06",
+        "RC-07",
+        "NEW-2"
+      ],
+      "platform_ids": {
+        "session_id": "1ffdc3cd-df49-4a28-96b7-9649c4c51102",
+        "source_file": "sims_smoke3flash_audio_audio_20260928_191635.json"
+      },
+      "evidence": "tts_unfriendly: voice: emoji 🏎💨; markdown bold '**Totto, Mercedes F1 Fan Agent**'; tts_unfriendly: voice: markdown bold '**Totto, Mercedes F1 Fan Agent**'; markdown bullet '* *'; markdown link '[https://tickets.formula1.com](https://…'; symbol raw_url 'https://tickets.formula1.com](https://t…'; symbol stray_markup '*'; tts_unfriendly: voice: emoji 🏎💨; tts_unfriendly: voice: emoji 🏎💨; markdown bold '**Totto, Mercedes F1 Fan Agent**'",
+      "deterministic": {
+        "passed": false,
+        "fail_checks": [
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "tts_unfriendly",
+          "reply_length",
+          "reply_length",
+          "reply_length",
+          "reply_length"
+        ],
+        "warn_checks": []
+      },
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 2,
+        "not_met": []
+      }
+    }
+  ],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": {
+    "repeated_tests": 7,
+    "flaky_tests": [
+      "live_sims::sim_ac4_official_ticketing_referral_non_transactional"
+    ],
+    "per_test": {
+      "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification": {
+        "runs": 3,
+        "pass": 0,
+        "fail": 3,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac2_mercedes_standings_priority": {
+        "runs": 3,
+        "pass": 3,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac3_mercedes_history_qualified": {
+        "runs": 3,
+        "pass": 3,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac4_official_ticketing_referral_non_transactional": {
+        "runs": 3,
+        "pass": 2,
+        "fail": 1,
+        "infra_error": 0,
+        "flaky": true
+      },
+      "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item": {
+        "runs": 3,
+        "pass": 3,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac6_multilingual_german_conversation": {
+        "runs": 3,
+        "pass": 0,
+        "fail": 3,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_sims::sim_ac8_ac9_toto_wolff_identity_and_rival_respect": {
+        "runs": 3,
+        "pass": 3,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      }
+    }
+  },
+  "results_digest": "3d9ccbbddb3dae4e8b7612c52c164b2e2c14b5b74e99c66bd32ff7d0da01c454",
+  "backfilled_at": "2026-09-28T23:36:54Z"
+}

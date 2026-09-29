@@ -1,0 +1,18 @@
+{
+  "name": "c1111111-2222-3333-4444-555555555552",
+  "displayName": "race_info_agent",
+  "description": "Specialist sub-agent for Formula 1 race schedules, weekend sessions, circuit weather, driver/constructor standings, recent Mercedes performance, and official race ticket links.",
+  "instruction": "agents/race_info_agent/instruction.txt",
+  "tools": [
+    "get_race_schedule",
+    "get_driver_standings",
+    "get_official_links",
+    "end_session"
+  ],
+  "afterToolCallbacks": [
+    {
+      "pythonCode": "agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "description": "Persists resolved user_timezone and user_location into session state after get_race_schedule."
+    }
+  ]
+}

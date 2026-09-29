@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-09-29T01:10:00Z",
+  "app_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+  "live_before": {
+    "snapshot_dir": "evals/history/snapshots/20260928T215748Z_live_before",
+    "run_id": "20260928T215748Z_snapshot_fa27a68",
+    "captured_at": "2026-09-28T21:57:48Z",
+    "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
+    "version_display_name": "r3-live_before-20260928T215748Z",
+    "version_create_time": "2026-09-28T21:58:11.292847Z",
+    "app_update_time": "2026-09-28T20:55:38.643615Z",
+    "app_etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc=",
+    "model_settings": {
+      "model": "gemini-3.0-flash-001"
+    },
+    "guardrails": [],
+    "root_agent": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/agents/c1111111-2222-3333-4444-555555555551",
+    "variable_declarations": [
+      {
+        "name": "user_timezone",
+        "description": "User's local timezone (e.g. EST, PST, Europe/London, Asia/Tokyo, Australia/Sydney, UTC).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "user_location",
+        "description": "User's city, country, or region.",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "order_id",
+        "description": "4-digit mock merchandise order number (1001, 1002, 1003, 9999).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "is_mock_mode",
+        "description": "Flag indicating simulated demo mode for merchandise support.",
+        "schema": {
+          "type": "BOOLEAN"
+        }
+      }
+    ],
+    "core_normalized_tree_hash": "3dc6b1f0ea01a07eacafb1fa61c53c72ed7d90a61ac2e3ac5d50beb799c452d0",
+    "core_raw_tree_hash": "e0fc9e06d5b04ef9b0f708baac6ad5a9d1b5de29ac4e09b37aae987672266ece"
+  },
+  "live_after": {
+    "snapshot_dir": "evals/history/snapshots/20260929T010751Z_live_after",
+    "run_id": "20260929T010751Z_snapshot_7147f2d",
+    "captured_at": "2026-09-29T01:07:51Z",
+    "version_id": "40170087-a913-495f-b3fb-644dbfdbebd7",
+    "version_display_name": "r3-live_after-20260929T010751Z",
+    "version_create_time": "2026-09-29T01:08:21.248655Z",
+    "app_update_time": "2026-09-28T20:55:38.643615Z",
+    "app_etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc=",
+    "model_settings": {
+      "model": "gemini-3.0-flash-001"
+    },
+    "guardrails": [],
+    "root_agent": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/agents/c1111111-2222-3333-4444-555555555551",
+    "variable_declarations": [
+      {
+        "name": "user_timezone",
+        "description": "User's local timezone (e.g. EST, PST, Europe/London, Asia/Tokyo, Australia/Sydney, UTC).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "user_location",
+        "description": "User's city, country, or region.",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "order_id",
+        "description": "4-digit mock merchandise order number (1001, 1002, 1003, 9999).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "is_mock_mode",
+        "description": "Flag indicating simulated demo mode for merchandise support.",
+        "schema": {
+          "type": "BOOLEAN"
+        }
+      }
+    ],
+    "core_normalized_tree_hash": "3dc6b1f0ea01a07eacafb1fa61c53c72ed7d90a61ac2e3ac5d50beb799c452d0",
+    "core_raw_tree_hash": "e0fc9e06d5b04ef9b0f708baac6ad5a9d1b5de29ac4e09b37aae987672266ece"
+  },
+  "identity_checks": {
+    "app_update_time_identical": true,
+    "app_etag_identical": true,
+    "model_settings_identical": true,
+    "guardrails_identical": true,
+    "variable_declarations_identical": true,
+    "root_agent_identical": true,
+    "logging_settings_identical": true,
+    "core_files_count": 22,
+    "core_files_modified_count": 0,
+    "core_files_removed_count": 0,
+    "core_files_added_count": 0,
+    "core_raw_tree_hash_identical": true,
+    "core_normalized_tree_hash_identical": true,
+    "pre_existing_versions_preserved": true,
+    "all_checks_passed": true
+  },
+  "core_agent_files": [
+    {
+      "path": "agents/merch_support_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+      "size_bytes": 606,
+      "sha256_before": "525205cec7dda3a37e5b8d273ac9591be7e1489267e11a4cf9ff395c01fd7cdb",
+      "sha256_after": "525205cec7dda3a37e5b8d273ac9591be7e1489267e11a4cf9ff395c01fd7cdb",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 606,
+      "bytes_after": 606
+    },
+    {
+      "path": "agents/merch_support_agent/instruction.txt",
+      "size_bytes": 6278,
+      "sha256_before": "c8cd0c16ccd81229b8683780cfce93039a1fbb5198b2b124b2ad67e6c4fbf6da",
+      "sha256_after": "c8cd0c16ccd81229b8683780cfce93039a1fbb5198b2b124b2ad67e6c4fbf6da",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 6278,
+      "bytes_after": 6278
+    },
+    {
+      "path": "agents/merch_support_agent/merch_support_agent.json",
+      "size_bytes": 674,
+      "sha256_before": "ccda6abfac5694f67ae40cd7d8b8e310d4d695cbb6f06b2837fdc54f5f853acc",
+      "sha256_after": "ccda6abfac5694f67ae40cd7d8b8e310d4d695cbb6f06b2837fdc54f5f853acc",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 674,
+      "bytes_after": 674
+    },
+    {
+      "path": "agents/race_info_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+      "size_bytes": 745,
+      "sha256_before": "6f411600faf8c0ee6ae40ae279fad6692e84e32e5ed5e32c6059d8c2cc52de59",
+      "sha256_after": "6f411600faf8c0ee6ae40ae279fad6692e84e32e5ed5e32c6059d8c2cc52de59",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 745,
+      "bytes_after": 745
+    },
+    {
+      "path": "agents/race_info_agent/instruction.txt",
+      "size_bytes": 7699,
+      "sha256_before": "5f792ce070f0156b22c9a9f7df361106ff44d2fcd26ce4aaf6cb406b5d74b9f0",
+      "sha256_after": "5f792ce070f0156b22c9a9f7df361106ff44d2fcd26ce4aaf6cb406b5d74b9f0",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 7699,
+      "bytes_after": 7699
+    },
+    {
+      "path": "agents/race_info_agent/race_info_agent.json",
+      "size_bytes": 691,
+      "sha256_before": "16b10e2d2528dca0000401c654fc9312f2ed485b80beeeb18f868237184c9e93",
+      "sha256_after": "16b10e2d2528dca0000401c654fc9312f2ed485b80beeeb18f868237184c9e93",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 691,
+      "bytes_after": 691
+    },
+    {
+      "path": "agents/ticketing_agent/instruction.txt",
+      "size_bytes": 4474,
+      "sha256_before": "cdae9a2cc3a2e6c7116a7beac02db6605fa484b5435ca01718d96c3bdf0ba6d2",
+      "sha256_after": "cdae9a2cc3a2e6c7116a7beac02db6605fa484b5435ca01718d96c3bdf0ba6d2",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 4474,
+      "bytes_after": 4474
+    },
+    {
+      "path": "agents/ticketing_agent/ticketing_agent.json",
+      "size_bytes": 382,
+      "sha256_before": "716b7a161889359d70570adeb4a93be806d3fc0e8fc788b17fbf1398a2d07413",
+      "sha256_after": "716b7a161889359d70570adeb4a93be806d3fc0e8fc788b17fbf1398a2d07413",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 382,
+      "bytes_after": 382
+    },
+    {
+      "path": "agents/totto_root_agent/before_agent_callbacks/before_agent_callbacks_01/python_code.py",
+      "size_bytes": 1041,
+      "sha256_before": "5f1e60670573ede68f64d2896ea68cf1ef8c49234717355d35eb7cc8581f07de",
+      "sha256_after": "5f1e60670573ede68f64d2896ea68cf1ef8c49234717355d35eb7cc8581f07de",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 1041,
+      "bytes_after": 1041
+    },
+    {
+      "path": "agents/totto_root_agent/instruction.txt",
+      "size_bytes": 9175,
+      "sha256_before": "d6a815b2416de9ff60f7f1f8c88bede5785c22f139a36fab281ac0708777be6f",
+      "sha256_after": "d6a815b2416de9ff60f7f1f8c88bede5785c22f139a36fab281ac0708777be6f",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 9175,
+      "bytes_after": 9175
+    },
+    {
+      "path": "agents/totto_root_agent/totto_root_agent.json",
+      "size_bytes": 784,
+      "sha256_before": "86de1915ab255c7baf4886108c0061f489781663e7c248ccff6630eefbb32602",
+      "sha256_after": "86de1915ab255c7baf4886108c0061f489781663e7c248ccff6630eefbb32602",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 784,
+      "bytes_after": 784
+    },
+    {
+      "path": "app.json",
+      "size_bytes": 1170,
+      "sha256_before": "3463407fa3e9eb7bffbc5fb43abcba12f9bef9c58fba5efa948f0051e2cf5adb",
+      "sha256_after": "3463407fa3e9eb7bffbc5fb43abcba12f9bef9c58fba5efa948f0051e2cf5adb",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 1164,
+      "bytes_after": 1164
+    },
+    {
+      "path": "global_instruction.txt",
+      "size_bytes": 4820,
+      "sha256_before": "597ef927886bea933627b23712b55c60d799058a681a33aeab6f84c925c8126b",
+      "sha256_after": "597ef927886bea933627b23712b55c60d799058a681a33aeab6f84c925c8126b",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 4814,
+      "bytes_after": 4814
+    },
+    {
+      "path": "pythonEnvFiles/pythonEnvFiles.json",
+      "size_bytes": 3,
+      "sha256_before": "8eb95bcbc154530931e15fc418c8b1fe991095671409552099ea1aa596999ede",
+      "sha256_after": "8eb95bcbc154530931e15fc418c8b1fe991095671409552099ea1aa596999ede",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 3,
+      "bytes_after": 3
+    },
+    {
+      "path": "tools/get_driver_standings/get_driver_standings.json",
+      "size_bytes": 716,
+      "sha256_before": "8329afb6b4e99d1013a6df6e9be94f3e432f39c2be720ba731cea5a03a91eaef",
+      "sha256_after": "8329afb6b4e99d1013a6df6e9be94f3e432f39c2be720ba731cea5a03a91eaef",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 716,
+      "bytes_after": 716
+    },
+    {
+      "path": "tools/get_driver_standings/python_function/python_code.py",
+      "size_bytes": 14032,
+      "sha256_before": "2b8ba15a519737a56313755acee7b17eabdeb925a00f18f77bc5682adffef619",
+      "sha256_after": "2b8ba15a519737a56313755acee7b17eabdeb925a00f18f77bc5682adffef619",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 14032,
+      "bytes_after": 14032
+    },
+    {
+      "path": "tools/get_official_links/get_official_links.json",
+      "size_bytes": 595,
+      "sha256_before": "051befb2e629295b8c81153134667ce854b80b38f5a923774a30f24bf0de9ddd",
+      "sha256_after": "051befb2e629295b8c81153134667ce854b80b38f5a923774a30f24bf0de9ddd",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 595,
+      "bytes_after": 595
+    },
+    {
+      "path": "tools/get_official_links/python_function/python_code.py",
+      "size_bytes": 3100,
+      "sha256_before": "f6d0faa1ff758ddec594013058ef7e21e69ee1eb5ea71c80f985708b5e4d8ea4",
+      "sha256_after": "f6d0faa1ff758ddec594013058ef7e21e69ee1eb5ea71c80f985708b5e4d8ea4",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 3100,
+      "bytes_after": 3100
+    },
+    {
+      "path": "tools/get_race_schedule/get_race_schedule.json",
+      "size_bytes": 765,
+      "sha256_before": "a6a40fb6acb93a35996b4fe6449acf26401eb927736fa7626b061827e50c3d56",
+      "sha256_after": "a6a40fb6acb93a35996b4fe6449acf26401eb927736fa7626b061827e50c3d56",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 765,
+      "bytes_after": 765
+    },
+    {
+      "path": "tools/get_race_schedule/python_function/python_code.py",
+      "size_bytes": 40240,
+      "sha256_before": "b9bbd880c44cdf5f9ae856c14eb5022b2ba85a0d0f25663d4c70c903634c094d",
+      "sha256_after": "b9bbd880c44cdf5f9ae856c14eb5022b2ba85a0d0f25663d4c70c903634c094d",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 40240,
+      "bytes_after": 40240
+    },
+    {
+      "path": "tools/lookup_mock_merch_order/lookup_mock_merch_order.json",
+      "size_bytes": 610,
+      "sha256_before": "7317e1732c4990f2b4ad667a3d472e0bfe3e4784ec46b4d8425bfd93817dc9c0",
+      "sha256_after": "7317e1732c4990f2b4ad667a3d472e0bfe3e4784ec46b4d8425bfd93817dc9c0",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 610,
+      "bytes_after": 610
+    },
+    {
+      "path": "tools/lookup_mock_merch_order/python_function/python_code.py",
+      "size_bytes": 4739,
+      "sha256_before": "19538763f206c0c53d87c661564c22ca2defd1fe6eb8a8d5ae94f7190e5b4882",
+      "sha256_after": "19538763f206c0c53d87c661564c22ca2defd1fe6eb8a8d5ae94f7190e5b4882",
+      "identical_raw": true,
+      "identical_normalized": true,
+      "bytes_before": 4739,
+      "bytes_after": 4739
+    }
+  ],
+  "expected_platform_additions": {
+    "evaluation_files_in_export": [
+      {
+        "path": "evaluationExpectations/eval_exp_37741d4a/eval_exp_37741d4a.json",
+        "size_bytes": 206,
+        "sha256_after": "1c2a1d862366b9b447ea1415258ea0af1ea3c72b379b73f35624432da4cabaac"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_4beeec7e/eval_exp_4beeec7e.json",
+        "size_bytes": 233,
+        "sha256_after": "59f88dfa9a0d52bffff508ec8036d17109958a19faf16114ace7cb70b44c5a48"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_51903402/eval_exp_51903402.json",
+        "size_bytes": 248,
+        "sha256_after": "ec9935183e36794df744774fa95e1bdef3ca7020c483e8ae299feaa6ca8f2e8c"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_579dc645/eval_exp_579dc645.json",
+        "size_bytes": 250,
+        "sha256_after": "8e1285570d95464d3383ab7180cb6b74ffe1d0181dd0e6fced57723545c1f5bc"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_65647573/eval_exp_65647573.json",
+        "size_bytes": 204,
+        "sha256_after": "95bdde36c05c628e86f5223946caa2371d5bebcd30ebc2ed80e074698ad38e99"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_9d099b07/eval_exp_9d099b07.json",
+        "size_bytes": 203,
+        "sha256_after": "23eef6a8405e91d3a108c8c1c4bdb539d4ddbd0634781ff5c2dc2c7621dea9b2"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_cce34788/eval_exp_cce34788.json",
+        "size_bytes": 209,
+        "sha256_after": "89df78db60f6e6169cac0d669936c60bc61039e7095fce5c83cbfd479b678589"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_e811eddd/eval_exp_e811eddd.json",
+        "size_bytes": 179,
+        "sha256_after": "79520b2501c0ae9ba40bc6a3cce9d5fdb4b6a297d7de19f2d1bbdce11e4331ee"
+      },
+      {
+        "path": "evaluationExpectations/eval_exp_f3522ff9/eval_exp_f3522ff9.json",
+        "size_bytes": 200,
+        "sha256_after": "f029e545b2a1a0c47a19c7136180fcbc105749f3de390a565b1a6ba341ef8449"
+      },
+      {
+        "path": "evaluations/r4-totto-golden_ac3_mercedes_history_qualified/r4-totto-golden_ac3_mercedes_history_qualified.json",
+        "size_bytes": 1139,
+        "sha256_after": "6eae8f447e1f835b83b05d453f1acc996eaf94e0e3380ddf7bb36cfeec416356"
+      },
+      {
+        "path": "evaluations/r4-totto-golden_ac6_multilingual_spanish_response/r4-totto-golden_ac6_multilingual_spanish_response.json",
+        "size_bytes": 1018,
+        "sha256_after": "3a8101f5a99c85bb2b4a47109bc7d4b5714a4c999f486ae4d2d3d8cb78a294c7"
+      },
+      {
+        "path": "evaluations/r4-totto-golden_ac8_identity_and_non_impersonation/r4-totto-golden_ac8_identity_and_non_impersonation.json",
+        "size_bytes": 1116,
+        "sha256_after": "3c8f28b6af4f7073809f769e183078780da1158d752b3c31f0bf662426c4d2b4"
+      },
+      {
+        "path": "evaluations/r4-totto-golden_ac9_brand_safe_rivalry_humor/r4-totto-golden_ac9_brand_safe_rivalry_humor.json",
+        "size_bytes": 1099,
+        "sha256_after": "14bf5c2bd57447f5aab61745a90773d02d534720fd741e96743620a034a68b46"
+      },
+      {
+        "path": "evaluations/r4-totto-golden_official_mercedes_links/r4-totto-golden_official_mercedes_links.json",
+        "size_bytes": 1433,
+        "sha256_after": "59d99a849d36d1cbb5e2ab182240c651b427558c31427879f26b2e17c8dccbf7"
+      }
+    ],
+    "versions_created_by_team": [
+      {
+        "id": "b11332a0-b304-41e1-baac-57cd0ced05da",
+        "display_name": "r3-live_before-20260928T215748Z",
+        "create_time": "2026-09-28T21:58:11.292847Z",
+        "purpose": "Pre-work baseline snapshot (live_before)"
+      },
+      {
+        "id": "40170087-a913-495f-b3fb-644dbfdbebd7",
+        "display_name": "r3-live_after-20260929T010751Z",
+        "create_time": "2026-09-29T01:08:21.248655Z",
+        "purpose": "Post-work verification snapshot (live_after)"
+      }
+    ],
+    "evaluations_created_count": 5,
+    "evaluations_created": [
+      {
+        "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/554b12f4-1fb9-4423-afc2-764f2f803132",
+        "display_name": "r4-totto-golden_ac6_multilingual_spanish_response"
+      },
+      {
+        "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/f5d84f97-98e7-4a6a-bcc5-02d9bb89d2c9",
+        "display_name": "r4-totto-golden_official_mercedes_links"
+      },
+      {
+        "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/17bba6a2-7c8f-46e6-8626-c13a8dcb9937",
+        "display_name": "r4-totto-golden_ac9_brand_safe_rivalry_humor"
+      },
+      {
+        "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/da0b36dd-a1d3-4255-97b9-babdabb14181",
+        "display_name": "r4-totto-golden_ac3_mercedes_history_qualified"
+      },
+      {
+        "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/f5272a02-7aac-43e7-b2d0-1498e693f428",
+        "display_name": "r4-totto-golden_ac8_identity_and_non_impersonation"
+      }
+    ],
+    "evaluation_runs_delta": 15,
+    "conversations_24h_before": {
+      "LIVE": 191,
+      "SIMULATOR": 3,
+      "EVAL": 36,
+      "AGENT_TOOL": 0
+    },
+    "conversations_24h_after": {
+      "LIVE": 264,
+      "SIMULATOR": 3,
+      "EVAL": 51,
+      "AGENT_TOOL": 0
+    }
+  }
+}

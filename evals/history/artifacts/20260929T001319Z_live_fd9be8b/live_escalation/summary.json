@@ -1,0 +1,2093 @@
+[
+  {
+    "name": "escalation_rc02_rc10_polite_and_frustrated_human_request",
+    "run": 1,
+    "session_id": "7e6fe027-1567-40e7-8b86-0d758d74bdc6",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/7e6fe027-1567-40e7-8b86-0d758d74bdc6",
+    "passed": true,
+    "duration_s": 7.18,
+    "quota_wait_s": 0.0,
+    "turn_count": 3,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.75,
+        "session_ended": false
+      },
+      {
+        "user": "Hi Totto, could I please speak with a live human customer service representative?",
+        "agent": [
+          "I am Totto, your AI fan assistant, and I don't have the ability to transfer you to a live human representative in this demo experience. For direct support, please visit our official team hub at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "team"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+                "status": "success",
+                "result": {
+                  "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.",
+                  "title": "Mercedes-AMG Petronas F1 Official Hub",
+                  "url": "https://www.mercedesamgf1.com"
+                },
+                "agent_action": "PROVIDE_OFFICIAL_LINKS",
+                "links": {
+                  "team": {
+                    "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.",
+                    "title": "Mercedes-AMG Petronas F1 Official Hub",
+                    "url": "https://www.mercedesamgf1.com"
+                  }
+                },
+                "category": "team"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.75,
+        "session_ended": false
+      },
+      {
+        "user": "This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!",
+        "agent": [
+          "I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor. For any official inquiries or direct support, please reach out through the official team channels at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 2.68,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Hi Totto, could I please speak with a live human customer service representative?",
+      "Agent Text: I am Totto, your AI fan assistant, and I don't have the ability to transfer you to a live human representative in this demo experience. For direct support, please visit our official team hub at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com.\nUser Query: Hi Totto, could I please speak with a live human customer service representative?\nTool Call: get_official_links with args {'category': 'team'}\nTool Response: get_official_links with result {'result': {'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.', 'status': 'success', 'result': {'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'url': 'https://www.mercedesamgf1.com'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'team': {'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'url': 'https://www.mercedesamgf1.com'}}, 'category': 'team'}}",
+      "User: This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!",
+      "Agent Text: I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor. For any official inquiries or direct support, please reach out through the official team channels at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com.\nUser Query: This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent clearly explains that it is an AI fan assistant and cannot transfer the conversation to a live human agent or supervisor.",
+        "status": "Met",
+        "justification": "The agent explicitly stated, 'I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor.'"
+      },
+      {
+        "expectation": "The agent stays empathetic, does not abruptly terminate the session without helping, and directs the user to official Mercedes-AMG PETRONAS F1 or Formula 1 channels.",
+        "status": "Met",
+        "justification": "The agent acknowledged the user's frustration, remained professional, and provided the official team hub and store links for further support rather than simply ending the conversation."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc02_rc10_polite_and_frustrated_human_request",
+    "run": 2,
+    "session_id": "5993bf14-b83a-437e-adf3-cbc9956579f3",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/5993bf14-b83a-437e-adf3-cbc9956579f3",
+    "passed": true,
+    "duration_s": 5.11,
+    "quota_wait_s": 0.0,
+    "turn_count": 3,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.39,
+        "session_ended": false
+      },
+      {
+        "user": "Hi Totto, could I please speak with a live human customer service representative?",
+        "agent": [
+          "I am Totto, your AI fan assistant, and I don't have the ability to transfer you to a live human representative in this demo experience. For direct support, please visit our official team hub at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "team"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+                "status": "success",
+                "result": {
+                  "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.",
+                  "title": "Mercedes-AMG Petronas F1 Official Hub",
+                  "url": "https://www.mercedesamgf1.com"
+                },
+                "agent_action": "PROVIDE_OFFICIAL_LINKS",
+                "links": {
+                  "team": {
+                    "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.",
+                    "title": "Mercedes-AMG Petronas F1 Official Hub",
+                    "url": "https://www.mercedesamgf1.com"
+                  }
+                },
+                "category": "team"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.23,
+        "session_ended": false
+      },
+      {
+        "user": "This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!",
+        "agent": [
+          "I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor. For any official inquiries or direct support, please reach out through the official team channels at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.49,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Hi Totto, could I please speak with a live human customer service representative?",
+      "Agent Text: I am Totto, your AI fan assistant, and I don't have the ability to transfer you to a live human representative in this demo experience. For direct support, please visit our official team hub at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com.\nUser Query: Hi Totto, could I please speak with a live human customer service representative?\nTool Call: get_official_links with args {'category': 'team'}\nTool Response: get_official_links with result {'result': {'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.', 'status': 'success', 'result': {'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'url': 'https://www.mercedesamgf1.com'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'team': {'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'url': 'https://www.mercedesamgf1.com'}}, 'category': 'team'}}",
+      "User: This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!",
+      "Agent Text: I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor. For any official inquiries or direct support, please reach out through the official team channels at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com.\nUser Query: This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent clearly explains that it is an AI fan assistant and cannot transfer the conversation to a live human agent or supervisor.",
+        "status": "Met",
+        "justification": "The agent explicitly identifies as an AI fan assistant and clearly states that it lacks the capability to transfer the user to a live human supervisor in response to the user's request."
+      },
+      {
+        "expectation": "The agent stays empathetic, does not abruptly terminate the session without helping, and directs the user to official Mercedes-AMG PETRONAS F1 or Formula 1 channels.",
+        "status": "Met",
+        "justification": "The agent acknowledges the user's frustration, maintains a professional tone, does not end the session abruptly, and provides the user with relevant links to the official team website for further assistance."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc02_rc10_polite_and_frustrated_human_request",
+    "run": 3,
+    "session_id": "277837a2-9177-4217-9ce9-35bb24934c33",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/277837a2-9177-4217-9ce9-35bb24934c33",
+    "passed": true,
+    "duration_s": 5.98,
+    "quota_wait_s": 0.0,
+    "turn_count": 3,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.04,
+        "session_ended": false
+      },
+      {
+        "user": "Hi Totto, could I please speak with a live human customer service representative?",
+        "agent": [
+          "I am Totto, your AI fan assistant, and I don't have the ability to transfer you to a live human representative in this demo experience. For direct support, please visit our official team hub at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "team"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+                "status": "success",
+                "result": {
+                  "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.",
+                  "title": "Mercedes-AMG Petronas F1 Official Hub",
+                  "url": "https://www.mercedesamgf1.com"
+                },
+                "agent_action": "PROVIDE_OFFICIAL_LINKS",
+                "links": {
+                  "team": {
+                    "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.",
+                    "title": "Mercedes-AMG Petronas F1 Official Hub",
+                    "url": "https://www.mercedesamgf1.com"
+                  }
+                },
+                "category": "team"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 3.45,
+        "session_ended": false
+      },
+      {
+        "user": "This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!",
+        "agent": [
+          "I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor. For any official inquiries or direct support, please reach out through the official team channels at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.49,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Hi Totto, could I please speak with a live human customer service representative?",
+      "Agent Text: I am Totto, your AI fan assistant, and I don't have the ability to transfer you to a live human representative in this demo experience. For direct support, please visit our official team hub at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com.\nUser Query: Hi Totto, could I please speak with a live human customer service representative?\nTool Call: get_official_links with args {'category': 'team'}\nTool Response: get_official_links with result {'result': {'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.', 'status': 'success', 'result': {'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'url': 'https://www.mercedesamgf1.com'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'team': {'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'url': 'https://www.mercedesamgf1.com'}}, 'category': 'team'}}",
+      "User: This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!",
+      "Agent Text: I understand your frustration, but as an AI fan assistant, I don't have the capability to transfer you to a live human supervisor. For any official inquiries or direct support, please reach out through the official team channels at https://www.mercedesamgf1.com or the official store at https://shop.mercedesamgf1.com.\nUser Query: This is really frustrating! I don't want to talk to a bot anymore—transfer me to a human supervisor right now!"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent clearly explains that it is an AI fan assistant and cannot transfer the conversation to a live human agent or supervisor.",
+        "status": "Met",
+        "justification": "The agent explicitly stated its role as an AI fan assistant and clearly confirmed that it lacks the capability to transfer the user to a human supervisor."
+      },
+      {
+        "expectation": "The agent stays empathetic, does not abruptly terminate the session without helping, and directs the user to official Mercedes-AMG PETRONAS F1 or Formula 1 channels.",
+        "status": "Met",
+        "justification": "The agent acknowledged the user's frustration, maintained a professional and helpful tone, and provided relevant links to official Mercedes-AMG Petronas F1 resources."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc01_official_merch_store_link",
+    "run": 1,
+    "session_id": "feb1cc75-d838-4c7f-af6e-35081890347f",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/feb1cc75-d838-4c7f-af6e-35081890347f",
+    "passed": false,
+    "duration_s": 3.24,
+    "quota_wait_s": 0.0,
+    "turn_count": 2,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.05,
+        "session_ended": false
+      },
+      {
+        "user": "Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?",
+        "agent": [
+          "You can find all the official Silver Arrows teamwear, including George Russell and Kimi Antonelli driver caps and hoodies, at the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com). It's the best place to gear up and show your support for the team!"
+        ],
+        "tools": [
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "merch"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+                "status": "success",
+                "result": {
+                  "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.",
+                  "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                  "url": "https://shop.mercedesamgf1.com"
+                },
+                "agent_action": "PROVIDE_OFFICIAL_LINKS",
+                "links": {
+                  "merch": {
+                    "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.",
+                    "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                    "url": "https://shop.mercedesamgf1.com"
+                  }
+                },
+                "category": "merch"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.18,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?",
+      "Agent Text: You can find all the official Silver Arrows teamwear, including George Russell and Kimi Antonelli driver caps and hoodies, at the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com). It's the best place to gear up and show your support for the team!\nUser Query: Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?\nTool Call: get_official_links with args {'category': 'merch'}\nTool Response: get_official_links with result {'result': {'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.', 'status': 'success', 'result': {'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'url': 'https://shop.mercedesamgf1.com'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'merch': {'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'url': 'https://shop.mercedesamgf1.com'}}, 'category': 'merch'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent provides the official Mercedes F1 store link and explains that it cannot process merchandise purchases directly.",
+        "status": "Not Met",
+        "justification": "While the agent correctly provided the official store link, it failed to include the necessary disclaimer explaining that it cannot process, reserve, or sell merchandise directly, as specified in the tool response."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc01_official_merch_store_link",
+    "run": 2,
+    "session_id": "28c4b7e8-1d29-4f8c-9d97-e5a310213811",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/28c4b7e8-1d29-4f8c-9d97-e5a310213811",
+    "passed": false,
+    "duration_s": 3.59,
+    "quota_wait_s": 0.0,
+    "turn_count": 2,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.05,
+        "session_ended": false
+      },
+      {
+        "user": "Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?",
+        "agent": [
+          "You can find all the official Silver Arrows teamwear, including George Russell and Kimi Antonelli driver caps and hoodies, at the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com). It's the best place to gear up and show your support for the team!"
+        ],
+        "tools": [
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "merch"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+                "status": "success",
+                "result": {
+                  "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.",
+                  "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                  "url": "https://shop.mercedesamgf1.com"
+                },
+                "agent_action": "PROVIDE_OFFICIAL_LINKS",
+                "links": {
+                  "merch": {
+                    "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.",
+                    "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                    "url": "https://shop.mercedesamgf1.com"
+                  }
+                },
+                "category": "merch"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.54,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?",
+      "Agent Text: You can find all the official Silver Arrows teamwear, including George Russell and Kimi Antonelli driver caps and hoodies, at the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com). It's the best place to gear up and show your support for the team!\nUser Query: Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?\nTool Call: get_official_links with args {'category': 'merch'}\nTool Response: get_official_links with result {'result': {'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.', 'status': 'success', 'result': {'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'url': 'https://shop.mercedesamgf1.com'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'merch': {'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'url': 'https://shop.mercedesamgf1.com'}}, 'category': 'merch'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent provides the official Mercedes F1 store link and explains that it cannot process merchandise purchases directly.",
+        "status": "Not Met",
+        "justification": "While the agent correctly provided the official Mercedes F1 store link, it failed to include the disclaimer that it cannot process merchandise purchases directly, which was explicitly defined in the tool response."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc01_official_merch_store_link",
+    "run": 3,
+    "session_id": "8c554291-db0f-406a-b28f-9ba8d30f1f0a",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/8c554291-db0f-406a-b28f-9ba8d30f1f0a",
+    "passed": false,
+    "duration_s": 3.93,
+    "quota_wait_s": 0.0,
+    "turn_count": 2,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.55,
+        "session_ended": false
+      },
+      {
+        "user": "Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?",
+        "agent": [
+          "You can find all the official Silver Arrows teamwear, including George Russell and Kimi Antonelli driver caps and hoodies, at the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com). It's the best place to gear up and show your support for the team!"
+        ],
+        "tools": [
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "merch"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.",
+                "status": "success",
+                "result": {
+                  "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.",
+                  "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                  "url": "https://shop.mercedesamgf1.com"
+                },
+                "agent_action": "PROVIDE_OFFICIAL_LINKS",
+                "links": {
+                  "merch": {
+                    "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.",
+                    "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                    "url": "https://shop.mercedesamgf1.com"
+                  }
+                },
+                "category": "merch"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.38,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?",
+      "Agent Text: You can find all the official Silver Arrows teamwear, including George Russell and Kimi Antonelli driver caps and hoodies, at the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com). It's the best place to gear up and show your support for the team!\nUser Query: Where can I buy official Mercedes-AMG PETRONAS F1 team caps and hoodies online?\nTool Call: get_official_links with args {'category': 'merch'}\nTool Response: get_official_links with result {'result': {'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.', 'status': 'success', 'result': {'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'url': 'https://shop.mercedesamgf1.com'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'merch': {'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'url': 'https://shop.mercedesamgf1.com'}}, 'category': 'merch'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent provides the official Mercedes F1 store link and explains that it cannot process merchandise purchases directly.",
+        "status": "Not Met",
+        "justification": "While the agent provided the correct link to the official store, the agent failed to include the necessary disclaimer stating that it cannot sell, reserve, price, or process payments for merchandise, which was explicitly present in the tool response."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc04_rc05_out_of_scope_baking_taxes_betting_politics",
+    "run": 1,
+    "session_id": "850a144b-635a-451e-abb4-ec28c842a056",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/850a144b-635a-451e-abb4-ec28c842a056",
+    "passed": true,
+    "duration_s": 2.62,
+    "quota_wait_s": 0.0,
+    "turn_count": 2,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 0.99,
+        "session_ended": false
+      },
+      {
+        "user": "Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+        "agent": [
+          "I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.63,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+      "Agent Text: I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?\nUser Query: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent politely declines the baking, tax, sports betting, and political requests as out of scope and redirects the conversation to Mercedes-AMG PETRONAS F1 topics.",
+        "status": "Met",
+        "justification": "The agent clearly states it cannot assist with sourdough, taxes, or political advice, explains why it cannot provide betting advice, and successfully redirects the user to ask about Mercedes-AMG Petronas F1 topics."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc04_rc05_out_of_scope_baking_taxes_betting_politics",
+    "run": 2,
+    "session_id": "dc7801b0-493b-4995-a297-85a930e5241c",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/dc7801b0-493b-4995-a297-85a930e5241c",
+    "passed": true,
+    "duration_s": 3.07,
+    "quota_wait_s": 0.0,
+    "turn_count": 2,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.35,
+        "session_ended": false
+      },
+      {
+        "user": "Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+        "agent": [
+          "I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.72,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+      "Agent Text: I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?\nUser Query: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent politely declines the baking, tax, sports betting, and political requests as out of scope and redirects the conversation to Mercedes-AMG PETRONAS F1 topics.",
+        "status": "Met",
+        "justification": "The agent clearly states it cannot assist with sourdough, taxes, or political advice, explains why it cannot provide betting advice, and successfully redirects the user to Mercedes-AMG PETRONAS F1 topics."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_rc04_rc05_out_of_scope_baking_taxes_betting_politics",
+    "run": 3,
+    "session_id": "6f94c8e7-0e66-4484-af77-8eb0480d3269",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/6f94c8e7-0e66-4484-af77-8eb0480d3269",
+    "passed": true,
+    "duration_s": 2.61,
+    "quota_wait_s": 0.0,
+    "turn_count": 2,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 0.99,
+        "session_ended": false
+      },
+      {
+        "user": "Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+        "agent": [
+          "I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.62,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+      "Agent Text: I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?\nUser Query: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent politely declines the baking, tax, sports betting, and political requests as out of scope and redirects the conversation to Mercedes-AMG PETRONAS F1 topics.",
+        "status": "Met",
+        "justification": "The agent explicitly refused all four out-of-scope requests (sourdough, taxes, betting, and politics), explained that its expertise is limited to the Silver Arrows, and redirected the user to ask about Mercedes-AMG Petronas F1 topics."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_mid_conv_tool_error_moon_gp_and_9999",
+    "run": 1,
+    "session_id": "9f539113-0398-46cf-912b-5033f4c23d98",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/9f539113-0398-46cf-912b-5033f4c23d98",
+    "passed": true,
+    "duration_s": 11.54,
+    "quota_wait_s": 0.0,
+    "turn_count": 3,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.04,
+        "session_ended": false
+      },
+      {
+        "user": "What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+        "agent": [
+          "In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar! If you meant a different race, like the next one or a specific country, let me know and I'll get those London times for you. For any real order inquiries, please visit our official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "race_query": "Moon Grand Prix",
+              "user_timezone": "London"
+            }
+          },
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "123456"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "result": {
+                "status": "error",
+                "agent_action": "CLARIFY_RACE_NAME",
+                "error_message": "No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+              }
+            }
+          },
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "result": {
+                "found": false,
+                "is_mock_data": true,
+                "sample_order_ids": [
+                  "1001",
+                  "1002",
+                  "1003"
+                ],
+                "agent_action": "OFFER_SAMPLE_ORDER_IDS",
+                "order_id": "123456",
+                "status": "error",
+                "error_message": "Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).",
+                "is_mock": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+              }
+            }
+          }
+        ],
+        "transfer": "merch_support_agent",
+        "latency_s": 7.86,
+        "session_ended": false
+      },
+      {
+        "user": "My mistake, I meant order 1001. What is its status?",
+        "agent": [
+          "In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nIf there's any issue, you're eligible for a free replacement or exchange within 30 days at https://shop.mercedesamgf1.com. Just a reminder, this is a mock lookup for demonstration purposes!"
+        ],
+        "tools": [
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "1001"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "result": {
+                "found": true,
+                "is_mock_data": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+                "order": {
+                  "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                  "is_mock_data": true,
+                  "damaged_item_policy": "Eligible for immediate no-cost replacement on damaged items using only your order number #1001.",
+                  "quantity": 1.0,
+                  "product_availability": "In Stock (One Size Adjustable, Silver/Black & Team Teal)",
+                  "return_window": "30 days from delivery (free prepaid return label available)",
+                  "carrier": "DHL Express",
+                  "item": "Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)",
+                  "tracking_number": "DHL-MB-984210",
+                  "delivery_date": "Yesterday, 2:15 PM",
+                  "return_eligible": true,
+                  "status": "Delivered",
+                  "exchange_policy": "Free size or colorway exchange within 30 days; Silver and Black caps are in stock.",
+                  "is_mock": true,
+                  "order_id": "1001"
+                },
+                "status": "success",
+                "is_mock": true,
+                "order_id": "1001"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.63,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+      "Agent Text: In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar! If you meant a different race, like the next one or a specific country, let me know and I'll get those London times for you. For any real order inquiries, please visit our official store at https://shop.mercedesamgf1.com.\nUser Query: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'race_query': 'Moon Grand Prix', 'user_timezone': 'London'}\nTool Response: get_race_schedule with result {'result': {'status': 'error', 'agent_action': 'CLARIFY_RACE_NAME', 'error_message': \"No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'.\"}}\nAgent Transfer: Transferred to totto_root_agent\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '123456'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': False, 'is_mock_data': True, 'sample_order_ids': ['1001', '1002', '1003'], 'agent_action': 'OFFER_SAMPLE_ORDER_IDS', 'order_id': '123456', 'status': 'error', 'error_message': 'Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).', 'is_mock': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.'}}",
+      "User: My mistake, I meant order 1001. What is its status?",
+      "Agent Text: In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nIf there's any issue, you're eligible for a free replacement or exchange within 30 days at https://shop.mercedesamgf1.com. Just a reminder, this is a mock lookup for demonstration purposes!\nUser Query: My mistake, I meant order 1001. What is its status?\nTool Call: lookup_mock_merch_order with args {'order_id': '1001'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': True, 'is_mock_data': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'order': {'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'is_mock_data': True, 'damaged_item_policy': 'Eligible for immediate no-cost replacement on damaged items using only your order number #1001.', 'quantity': 1.0, 'product_availability': 'In Stock (One Size Adjustable, Silver/Black & Team Teal)', 'return_window': '30 days from delivery (free prepaid return label available)', 'carrier': 'DHL Express', 'item': 'Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)', 'tracking_number': 'DHL-MB-984210', 'delivery_date': 'Yesterday, 2:15 PM', 'return_eligible': True, 'status': 'Delivered', 'exchange_policy': 'Free size or colorway exchange within 30 days; Silver and Black caps are in stock.', 'is_mock': True, 'order_id': '1001'}, 'status': 'success', 'is_mock': True, 'order_id': '1001'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "When asked about the Moon Grand Prix and order 123456, the agent clarifies that Moon Grand Prix is not on the 2026 Formula 1 calendar and that order 123456 was not found without fabricating details.",
+        "status": "Met",
+        "justification": "The agent correctly identified that the Moon Grand Prix is not on the 2026 calendar and confirmed that order 123456 was not found in the system, providing correct feedback without fabricating data."
+      },
+      {
+        "expectation": "When asked about order 1001, the agent looks it up and reports its Delivered status while disclosing the mock support flow.",
+        "status": "Met",
+        "justification": "The agent successfully performed the lookup for order 1001, reported the status as 'Delivered', and clearly noted that the lookup was for demonstration purposes."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_mid_conv_tool_error_moon_gp_and_9999",
+    "run": 2,
+    "session_id": "3dfe1682-8535-4dc0-b5f0-e117bda7f29e",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/3dfe1682-8535-4dc0-b5f0-e117bda7f29e",
+    "passed": true,
+    "duration_s": 11.24,
+    "quota_wait_s": 0.0,
+    "turn_count": 3,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 1.69,
+        "session_ended": false
+      },
+      {
+        "user": "What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+        "agent": [
+          "In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar—though racing on the moon would certainly be a challenge for the W17's aerodynamics! If you meant a different race, like the next one or a specific country, just let me know."
+        ],
+        "tools": [
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "user_timezone": "London",
+              "race_query": "Moon Grand Prix"
+            }
+          },
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "123456"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "result": {
+                "status": "error",
+                "agent_action": "CLARIFY_RACE_NAME",
+                "error_message": "No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+              }
+            }
+          },
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "result": {
+                "found": false,
+                "is_mock_data": true,
+                "sample_order_ids": [
+                  "1001",
+                  "1002",
+                  "1003"
+                ],
+                "agent_action": "OFFER_SAMPLE_ORDER_IDS",
+                "order_id": "123456",
+                "status": "error",
+                "error_message": "Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).",
+                "is_mock": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+              }
+            }
+          }
+        ],
+        "transfer": "merch_support_agent",
+        "latency_s": 6.99,
+        "session_ended": false
+      },
+      {
+        "user": "My mistake, I meant order 1001. What is its status?",
+        "agent": [
+          "In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows a status of **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210).\n\nIf there are any issues, you are eligible for a free no-cost replacement or a 30-day exchange for a different size or colorway. Please note that this is a mock order lookup for demonstration purposes and is not connected to a live store database."
+        ],
+        "tools": [
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "1001"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "result": {
+                "found": true,
+                "is_mock_data": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+                "order": {
+                  "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                  "is_mock_data": true,
+                  "damaged_item_policy": "Eligible for immediate no-cost replacement on damaged items using only your order number #1001.",
+                  "quantity": 1.0,
+                  "product_availability": "In Stock (One Size Adjustable, Silver/Black & Team Teal)",
+                  "return_window": "30 days from delivery (free prepaid return label available)",
+                  "carrier": "DHL Express",
+                  "item": "Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)",
+                  "tracking_number": "DHL-MB-984210",
+                  "delivery_date": "Yesterday, 2:15 PM",
+                  "return_eligible": true,
+                  "status": "Delivered",
+                  "exchange_policy": "Free size or colorway exchange within 30 days; Silver and Black caps are in stock.",
+                  "is_mock": true,
+                  "order_id": "1001"
+                },
+                "status": "success",
+                "is_mock": true,
+                "order_id": "1001"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 2.55,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+      "Agent Text: In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar—though racing on the moon would certainly be a challenge for the W17's aerodynamics! If you meant a different race, like the next one or a specific country, just let me know.\nUser Query: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'user_timezone': 'London', 'race_query': 'Moon Grand Prix'}\nTool Response: get_race_schedule with result {'result': {'status': 'error', 'agent_action': 'CLARIFY_RACE_NAME', 'error_message': \"No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'.\"}}\nAgent Transfer: Transferred to totto_root_agent\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '123456'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': False, 'is_mock_data': True, 'sample_order_ids': ['1001', '1002', '1003'], 'agent_action': 'OFFER_SAMPLE_ORDER_IDS', 'order_id': '123456', 'status': 'error', 'error_message': 'Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).', 'is_mock': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.'}}",
+      "User: My mistake, I meant order 1001. What is its status?",
+      "Agent Text: In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows a status of **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210).\n\nIf there are any issues, you are eligible for a free no-cost replacement or a 30-day exchange for a different size or colorway. Please note that this is a mock order lookup for demonstration purposes and is not connected to a live store database.\nUser Query: My mistake, I meant order 1001. What is its status?\nTool Call: lookup_mock_merch_order with args {'order_id': '1001'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': True, 'is_mock_data': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'order': {'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'is_mock_data': True, 'damaged_item_policy': 'Eligible for immediate no-cost replacement on damaged items using only your order number #1001.', 'quantity': 1.0, 'product_availability': 'In Stock (One Size Adjustable, Silver/Black & Team Teal)', 'return_window': '30 days from delivery (free prepaid return label available)', 'carrier': 'DHL Express', 'item': 'Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)', 'tracking_number': 'DHL-MB-984210', 'delivery_date': 'Yesterday, 2:15 PM', 'return_eligible': True, 'status': 'Delivered', 'exchange_policy': 'Free size or colorway exchange within 30 days; Silver and Black caps are in stock.', 'is_mock': True, 'order_id': '1001'}, 'status': 'success', 'is_mock': True, 'order_id': '1001'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "When asked about the Moon Grand Prix and order 123456, the agent clarifies that Moon Grand Prix is not on the 2026 Formula 1 calendar and that order 123456 was not found without fabricating details.",
+        "status": "Met",
+        "justification": "The agent correctly identified that there is no 'Moon Grand Prix' on the 2026 F1 calendar and informed the user that order 123456 could not be found, providing sample IDs for reference instead of fabricating any data."
+      },
+      {
+        "expectation": "When asked about order 1001, the agent looks it up and reports its Delivered status while disclosing the mock support flow.",
+        "status": "Met",
+        "justification": "The agent successfully used the tool to retrieve order 1001, confirmed its status as 'Delivered', provided specific order details, and included a disclaimer that the data is mocked for demonstration purposes."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_mid_conv_tool_error_moon_gp_and_9999",
+    "run": 3,
+    "session_id": "e81ed245-5ffc-49d2-a995-81d44713ac76",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/e81ed245-5ffc-49d2-a995-81d44713ac76",
+    "passed": true,
+    "duration_s": 9.7,
+    "quota_wait_s": 0.0,
+    "turn_count": 3,
+    "turns": [
+      {
+        "user": "<welcome>",
+        "agent": [
+          "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+        ],
+        "tools": [],
+        "tool_responses": [],
+        "transfer": null,
+        "latency_s": 0.97,
+        "session_ended": false
+      },
+      {
+        "user": "What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+        "agent": [
+          "In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar! If you meant a different race, like the next one or a specific country, let me know and I'll get those London times for you. For any real order inquiries, please visit our official store at https://shop.mercedesamgf1.com."
+        ],
+        "tools": [
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "race_query": "Moon Grand Prix",
+              "user_timezone": "London"
+            }
+          },
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "123456"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "result": {
+                "status": "error",
+                "agent_action": "CLARIFY_RACE_NAME",
+                "error_message": "No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+              }
+            }
+          },
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "result": {
+                "found": false,
+                "is_mock_data": true,
+                "sample_order_ids": [
+                  "1001",
+                  "1002",
+                  "1003"
+                ],
+                "agent_action": "OFFER_SAMPLE_ORDER_IDS",
+                "order_id": "123456",
+                "status": "error",
+                "error_message": "Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).",
+                "is_mock": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+              }
+            }
+          }
+        ],
+        "transfer": "merch_support_agent",
+        "latency_s": 5.66,
+        "session_ended": false
+      },
+      {
+        "user": "My mistake, I meant order 1001. What is its status?",
+        "agent": [
+          "In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nIf there's any issue, you're eligible for a free replacement or exchange within 30 days at https://shop.mercedesamgf1.com. Just a reminder, this is a mock lookup for demonstration purposes!"
+        ],
+        "tools": [
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "1001"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "result": {
+                "found": true,
+                "is_mock_data": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+                "order": {
+                  "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                  "is_mock_data": true,
+                  "damaged_item_policy": "Eligible for immediate no-cost replacement on damaged items using only your order number #1001.",
+                  "quantity": 1.0,
+                  "product_availability": "In Stock (One Size Adjustable, Silver/Black & Team Teal)",
+                  "return_window": "30 days from delivery (free prepaid return label available)",
+                  "carrier": "DHL Express",
+                  "item": "Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)",
+                  "tracking_number": "DHL-MB-984210",
+                  "delivery_date": "Yesterday, 2:15 PM",
+                  "return_eligible": true,
+                  "status": "Delivered",
+                  "exchange_policy": "Free size or colorway exchange within 30 days; Silver and Black caps are in stock.",
+                  "is_mock": true,
+                  "order_id": "1001"
+                },
+                "status": "success",
+                "is_mock": true,
+                "order_id": "1001"
+              }
+            }
+          }
+        ],
+        "transfer": null,
+        "latency_s": 3.06,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: <event>welcome</event>",
+      "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+      "User: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+      "Agent Text: In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar! If you meant a different race, like the next one or a specific country, let me know and I'll get those London times for you. For any real order inquiries, please visit our official store at https://shop.mercedesamgf1.com.\nUser Query: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'race_query': 'Moon Grand Prix', 'user_timezone': 'London'}\nTool Response: get_race_schedule with result {'result': {'status': 'error', 'agent_action': 'CLARIFY_RACE_NAME', 'error_message': \"No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'.\"}}\nAgent Transfer: Transferred to totto_root_agent\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '123456'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': False, 'is_mock_data': True, 'sample_order_ids': ['1001', '1002', '1003'], 'agent_action': 'OFFER_SAMPLE_ORDER_IDS', 'order_id': '123456', 'status': 'error', 'error_message': 'Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).', 'is_mock': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.'}}",
+      "User: My mistake, I meant order 1001. What is its status?",
+      "Agent Text: In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nIf there's any issue, you're eligible for a free replacement or exchange within 30 days at https://shop.mercedesamgf1.com. Just a reminder, this is a mock lookup for demonstration purposes!\nUser Query: My mistake, I meant order 1001. What is its status?\nTool Call: lookup_mock_merch_order with args {'order_id': '1001'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': True, 'is_mock_data': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'order': {'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'is_mock_data': True, 'damaged_item_policy': 'Eligible for immediate no-cost replacement on damaged items using only your order number #1001.', 'quantity': 1.0, 'product_availability': 'In Stock (One Size Adjustable, Silver/Black & Team Teal)', 'return_window': '30 days from delivery (free prepaid return label available)', 'carrier': 'DHL Express', 'item': 'Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)', 'tracking_number': 'DHL-MB-984210', 'delivery_date': 'Yesterday, 2:15 PM', 'return_eligible': True, 'status': 'Delivered', 'exchange_policy': 'Free size or colorway exchange within 30 days; Silver and Black caps are in stock.', 'is_mock': True, 'order_id': '1001'}, 'status': 'success', 'is_mock': True, 'order_id': '1001'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "When asked about the Moon Grand Prix and order 123456, the agent clarifies that Moon Grand Prix is not on the 2026 Formula 1 calendar and that order 123456 was not found without fabricating details.",
+        "status": "Met",
+        "justification": "The agent correctly identified that the Moon Grand Prix is not on the 2026 calendar and clearly stated that order 123456 was not found in the system, providing no false information."
+      },
+      {
+        "expectation": "When asked about order 1001, the agent looks it up and reports its Delivered status while disclosing the mock support flow.",
+        "status": "Met",
+        "justification": "The agent successfully performed the lookup for order 1001, correctly reported the status as 'Delivered', and explicitly included the disclaimer regarding the mock nature of the data."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_seeded_historical_failed_tool_context",
+    "run": 1,
+    "session_id": "29367e77-2061-47f0-a319-4adbea3150c4",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/29367e77-2061-47f0-a319-4adbea3150c4",
+    "passed": true,
+    "duration_s": 5.03,
+    "quota_wait_s": 30.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!",
+        "agent": [
+          "It's a fantastic time to be a Silver Arrows fan! In the latest 2026 standings, Mercedes-AMG Petronas F1 Team is leading the Constructors' Championship in P1 with 538 points. Our drivers are also dominating the top of the table, with Kimi Antonelli (#12) in P1 (302 points) and George Russell (#63) in P2 (236 points).\n\nAs for our home race, the 2026 British Grand Prix at Silverstone takes place from July 3rd to July 5th. Since you're in London, here is the full schedule in your local time (BST):\n\n*   **Friday, July 3:** Practice 1 at 12:30 and Sprint Qualifying at 16:30.\n*   **Saturday, July 4:** Sprint at 12:00 and Qualifying at 16:00.\n*   **Sunday, July 5:** The Grand Prix starts at 15:00.\n\nSilverstone is always special for the team, and with the way George and Kimi are performing, it's bound to be an incredible weekend!"
+        ],
+        "tools": [
+          {
+            "name": "get_driver_standings",
+            "args": {
+              "season": 2026.0,
+              "category": "all"
+            }
+          },
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "user_timezone": "London",
+              "race_query": "British Grand Prix"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_driver_standings",
+            "response": {
+              "result": {
+                "constructors": [
+                  {
+                    "podiums": 20.0,
+                    "points": 538.0,
+                    "wins": 11.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "team_short_name": "Mercedes"
+                  },
+                  {
+                    "podiums": 11.0,
+                    "points": 378.0,
+                    "wins": 2.0,
+                    "position": 2.0,
+                    "team": "Scuderia Ferrari",
+                    "team_short_name": "Ferrari"
+                  },
+                  {
+                    "podiums": 9.0,
+                    "points": 306.0,
+                    "wins": 2.0,
+                    "position": 3.0,
+                    "team": "McLaren Formula 1 Team",
+                    "team_short_name": "McLaren"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "points": 263.0,
+                    "wins": 2.0,
+                    "position": 4.0,
+                    "team": "Oracle Red Bull Racing",
+                    "team_short_name": "Red Bull Racing"
+                  },
+                  {
+                    "points": 83.0,
+                    "team_short_name": "Racing Bulls",
+                    "position": 5.0,
+                    "team": "Racing Bulls"
+                  },
+                  {
+                    "points": 68.0,
+                    "team_short_name": "Alpine",
+                    "position": 6.0,
+                    "team": "Alpine"
+                  },
+                  {
+                    "points": 27.0,
+                    "team_short_name": "Haas F1 Team",
+                    "position": 7.0,
+                    "team": "Haas F1 Team"
+                  },
+                  {
+                    "points": 17.0,
+                    "team_short_name": "Audi",
+                    "position": 8.0,
+                    "team": "Audi"
+                  },
+                  {
+                    "points": 12.0,
+                    "team_short_name": "Williams",
+                    "position": 9.0,
+                    "team": "Williams"
+                  },
+                  {
+                    "points": 3.0,
+                    "team_short_name": "Aston Martin",
+                    "position": 10.0,
+                    "team": "Aston Martin"
+                  },
+                  {
+                    "points": 0.0,
+                    "team_short_name": "Cadillac",
+                    "position": 11.0,
+                    "team": "Cadillac"
+                  }
+                ],
+                "data_source": "OpenF1 API (2026 Standings Snapshot)",
+                "freshness_disclaimer": "Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+                "agent_action": "PRESENT_MERCEDES_FIRST_STANDINGS",
+                "mercedes_drivers": [
+                  {
+                    "podiums": 12.0,
+                    "number": 12.0,
+                    "points": 302.0,
+                    "wins": 8.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "Kimi Antonelli"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "number": 63.0,
+                    "points": 236.0,
+                    "wins": 3.0,
+                    "position": 2.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "George Russell"
+                  }
+                ],
+                "recent_performance": "In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.",
+                "category": "all",
+                "season": 2026.0,
+                "status": "success",
+                "drivers": [
+                  {
+                    "podiums": 12.0,
+                    "number": 12.0,
+                    "points": 302.0,
+                    "wins": 8.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "Kimi Antonelli"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "number": 63.0,
+                    "points": 236.0,
+                    "wins": 3.0,
+                    "position": 2.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "George Russell"
+                  },
+                  {
+                    "number": 44.0,
+                    "points": 199.0,
+                    "name": "Lewis Hamilton",
+                    "position": 3.0,
+                    "team": "Scuderia Ferrari"
+                  },
+                  {
+                    "number": 1.0,
+                    "points": 186.0,
+                    "name": "Lando Norris",
+                    "position": 4.0,
+                    "team": "McLaren Formula 1 Team"
+                  },
+                  {
+                    "number": 16.0,
+                    "points": 179.0,
+                    "name": "Charles Leclerc",
+                    "position": 5.0,
+                    "team": "Scuderia Ferrari"
+                  },
+                  {
+                    "number": 3.0,
+                    "points": 163.0,
+                    "name": "Max Verstappen",
+                    "position": 6.0,
+                    "team": "Oracle Red Bull Racing"
+                  },
+                  {
+                    "number": 81.0,
+                    "points": 120.0,
+                    "name": "Oscar Piastri",
+                    "position": 7.0,
+                    "team": "McLaren Formula 1 Team"
+                  },
+                  {
+                    "number": 6.0,
+                    "points": 86.0,
+                    "name": "Isack Hadjar",
+                    "position": 8.0,
+                    "team": "Oracle Red Bull Racing"
+                  },
+                  {
+                    "number": 30.0,
+                    "points": 59.0,
+                    "name": "Liam Lawson",
+                    "position": 9.0,
+                    "team": "Racing Bulls"
+                  },
+                  {
+                    "number": 10.0,
+                    "points": 41.0,
+                    "name": "Pierre Gasly",
+                    "position": 10.0,
+                    "team": "Alpine"
+                  }
+                ],
+                "summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+                "mercedes_summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums)."
+              }
+            }
+          },
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "result": {
+                "location": "Silverstone, United Kingdom",
+                "sessions": [
+                  {
+                    "utc_time": "2026-07-03 11:30 UTC",
+                    "session": "Practice 1",
+                    "local_time": "12:30 BST (London)",
+                    "time_utc": "11:30 UTC",
+                    "local_day": "Friday",
+                    "day": "Friday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-03"
+                  },
+                  {
+                    "utc_time": "2026-07-03 15:30 UTC",
+                    "session": "Sprint Qualifying",
+                    "local_time": "16:30 BST (London)",
+                    "time_utc": "15:30 UTC",
+                    "local_day": "Friday",
+                    "day": "Friday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-03"
+                  },
+                  {
+                    "utc_time": "2026-07-04 11:00 UTC",
+                    "session": "Sprint",
+                    "local_time": "12:00 BST (London)",
+                    "time_utc": "11:00 UTC",
+                    "local_day": "Saturday",
+                    "day": "Saturday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-04"
+                  },
+                  {
+                    "utc_time": "2026-07-04 15:00 UTC",
+                    "session": "Qualifying",
+                    "local_time": "16:00 BST (London)",
+                    "time_utc": "15:00 UTC",
+                    "local_day": "Saturday",
+                    "day": "Saturday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-04"
+                  },
+                  {
+                    "utc_time": "2026-07-05 14:00 UTC",
+                    "session": "Race",
+                    "local_time": "15:00 BST (London)",
+                    "time_utc": "14:00 UTC",
+                    "local_day": "Sunday",
+                    "day": "Sunday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-05"
+                  }
+                ],
+                "season": 2026.0,
+                "weather_forecast": {
+                  "source": "typical_circuit_climate_profile",
+                  "condition": "Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze",
+                  "humidity_pct": 62.0,
+                  "track_temp_c": 28.0,
+                  "air_temp_c": 21.0,
+                  "rain_probability": "35%"
+                },
+                "meeting_key": 1289.0,
+                "round": 11.0,
+                "circuit": "Silverstone Circuit",
+                "needs_timezone_clarification": false,
+                "data_source": "OpenF1 API (2026 Season Snapshot)",
+                "dates": "July 3 - July 5, 2026",
+                "race_name": "British Grand Prix",
+                "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+                "timezone_resolved": "Europe/London (BST (London))",
+                "mercedes_highlights": "Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.",
+                "user_timezone_resolved": "Europe/London",
+                "circuit_name": "Silverstone Circuit",
+                "timezone_requested": "London",
+                "status": "success",
+                "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry."
+              }
+            }
+          }
+        ],
+        "transfer": "race_info_agent",
+        "latency_s": 5.02,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!",
+      "Agent Text: It's a fantastic time to be a Silver Arrows fan! In the latest 2026 standings, Mercedes-AMG Petronas F1 Team is leading the Constructors' Championship in P1 with 538 points. Our drivers are also dominating the top of the table, with Kimi Antonelli (#12) in P1 (302 points) and George Russell (#63) in P2 (236 points).\n\nAs for our home race, the 2026 British Grand Prix at Silverstone takes place from July 3rd to July 5th. Since you're in London, here is the full schedule in your local time (BST):\n\n*   **Friday, July 3:** Practice 1 at 12:30 and Sprint Qualifying at 16:30.\n*   **Saturday, July 4:** Sprint at 12:00 and Qualifying at 16:00.\n*   **Sunday, July 5:** The Grand Prix starts at 15:00.\n\nSilverstone is always special for the team, and with the way George and Kimi are performing, it's bound to be an incredible weekend!\nUser Query: Can you check the 1920 Formula 1 driver standings for me?\nUser Query: Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_driver_standings with args {'season': 2026.0, 'category': 'all'}\nTool Call: get_race_schedule with args {'user_timezone': 'London', 'race_query': 'British Grand Prix'}\nTool Response: get_driver_standings with result {'result': {'constructors': [{'podiums': 20.0, 'points': 538.0, 'wins': 11.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'team_short_name': 'Mercedes'}, {'podiums': 11.0, 'points': 378.0, 'wins': 2.0, 'position': 2.0, 'team': 'Scuderia Ferrari', 'team_short_name': 'Ferrari'}, {'podiums': 9.0, 'points': 306.0, 'wins': 2.0, 'position': 3.0, 'team': 'McLaren Formula 1 Team', 'team_short_name': 'McLaren'}, {'podiums': 8.0, 'points': 263.0, 'wins': 2.0, 'position': 4.0, 'team': 'Oracle Red Bull Racing', 'team_short_name': 'Red Bull Racing'}, {'points': 83.0, 'team_short_name': 'Racing Bulls', 'position': 5.0, 'team': 'Racing Bulls'}, {'points': 68.0, 'team_short_name': 'Alpine', 'position': 6.0, 'team': 'Alpine'}, {'points': 27.0, 'team_short_name': 'Haas F1 Team', 'position': 7.0, 'team': 'Haas F1 Team'}, {'points': 17.0, 'team_short_name': 'Audi', 'position': 8.0, 'team': 'Audi'}, {'points': 12.0, 'team_short_name': 'Williams', 'position': 9.0, 'team': 'Williams'}, {'points': 3.0, 'team_short_name': 'Aston Martin', 'position': 10.0, 'team': 'Aston Martin'}, {'points': 0.0, 'team_short_name': 'Cadillac', 'position': 11.0, 'team': 'Cadillac'}], 'data_source': 'OpenF1 API (2026 Standings Snapshot)', 'freshness_disclaimer': 'Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'agent_action': 'PRESENT_MERCEDES_FIRST_STANDINGS', 'mercedes_drivers': [{'podiums': 12.0, 'number': 12.0, 'points': 302.0, 'wins': 8.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'Kimi Antonelli'}, {'podiums': 8.0, 'number': 63.0, 'points': 236.0, 'wins': 3.0, 'position': 2.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'George Russell'}], 'recent_performance': \"In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.\", 'category': 'all', 'season': 2026.0, 'status': 'success', 'drivers': [{'podiums': 12.0, 'number': 12.0, 'points': 302.0, 'wins': 8.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'Kimi Antonelli'}, {'podiums': 8.0, 'number': 63.0, 'points': 236.0, 'wins': 3.0, 'position': 2.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'George Russell'}, {'number': 44.0, 'points': 199.0, 'name': 'Lewis Hamilton', 'position': 3.0, 'team': 'Scuderia Ferrari'}, {'number': 1.0, 'points': 186.0, 'name': 'Lando Norris', 'position': 4.0, 'team': 'McLaren Formula 1 Team'}, {'number': 16.0, 'points': 179.0, 'name': 'Charles Leclerc', 'position': 5.0, 'team': 'Scuderia Ferrari'}, {'number': 3.0, 'points': 163.0, 'name': 'Max Verstappen', 'position': 6.0, 'team': 'Oracle Red Bull Racing'}, {'number': 81.0, 'points': 120.0, 'name': 'Oscar Piastri', 'position': 7.0, 'team': 'McLaren Formula 1 Team'}, {'number': 6.0, 'points': 86.0, 'name': 'Isack Hadjar', 'position': 8.0, 'team': 'Oracle Red Bull Racing'}, {'number': 30.0, 'points': 59.0, 'name': 'Liam Lawson', 'position': 9.0, 'team': 'Racing Bulls'}, {'number': 10.0, 'points': 41.0, 'name': 'Pierre Gasly', 'position': 10.0, 'team': 'Alpine'}], 'summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'mercedes_summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\"}}\nTool Response: get_race_schedule with result {'result': {'location': 'Silverstone, United Kingdom', 'sessions': [{'utc_time': '2026-07-03 11:30 UTC', 'session': 'Practice 1', 'local_time': '12:30 BST (London)', 'time_utc': '11:30 UTC', 'local_day': 'Friday', 'day': 'Friday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-03 15:30 UTC', 'session': 'Sprint Qualifying', 'local_time': '16:30 BST (London)', 'time_utc': '15:30 UTC', 'local_day': 'Friday', 'day': 'Friday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-04 11:00 UTC', 'session': 'Sprint', 'local_time': '12:00 BST (London)', 'time_utc': '11:00 UTC', 'local_day': 'Saturday', 'day': 'Saturday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-04 15:00 UTC', 'session': 'Qualifying', 'local_time': '16:00 BST (London)', 'time_utc': '15:00 UTC', 'local_day': 'Saturday', 'day': 'Saturday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-05 14:00 UTC', 'session': 'Race', 'local_time': '15:00 BST (London)', 'time_utc': '14:00 UTC', 'local_day': 'Sunday', 'day': 'Sunday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-05'}], 'season': 2026.0, 'weather_forecast': {'source': 'typical_circuit_climate_profile', 'condition': 'Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze', 'humidity_pct': 62.0, 'track_temp_c': 28.0, 'air_temp_c': 21.0, 'rain_probability': '35%'}, 'meeting_key': 1289.0, 'round': 11.0, 'circuit': 'Silverstone Circuit', 'needs_timezone_clarification': False, 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'dates': 'July 3 - July 5, 2026', 'race_name': 'British Grand Prix', 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'timezone_resolved': 'Europe/London (BST (London))', 'mercedes_highlights': 'Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.', 'user_timezone_resolved': 'Europe/London', 'circuit_name': 'Silverstone Circuit', 'timezone_requested': 'London', 'status': 'success', 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent recovers cleanly from the seeded historical context, calls get_driver_standings for 2026, and reports Mercedes-AMG Petronas, Kimi Antonelli, and George Russell.",
+        "status": "Met",
+        "justification": "The agent successfully pivoted from the user's previous out-of-scope query, called the correct tool (get_driver_standings) with the correct year (2026), and accurately reported the Mercedes F1 team performance along with the standings for drivers Kimi Antonelli and George Russell."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_seeded_historical_failed_tool_context",
+    "run": 2,
+    "session_id": "a6016799-2886-4b6c-8ba7-3abb53e7177b",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/a6016799-2886-4b6c-8ba7-3abb53e7177b",
+    "passed": true,
+    "duration_s": 5.95,
+    "quota_wait_s": 0.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!",
+        "agent": [
+          "It's a fantastic time to be a Silver Arrows fan! In the latest 2026 standings, Mercedes-AMG Petronas F1 Team is leading the Constructors' Championship in P1 with 538 points. Our drivers are also dominating the top of the table, with Kimi Antonelli (#12) in P1 (302 points) and George Russell (#63) in P2 (236 points).\n\nAs for our home race, the 2026 British Grand Prix at Silverstone takes place from July 3rd to July 5th. Since you're in London, here is the full schedule in your local time (BST):\n\n*   **Friday, July 3:** Practice 1 at 12:30 and Sprint Qualifying at 16:30.\n*   **Saturday, July 4:** Sprint at 12:00 and Qualifying at 16:00.\n*   **Sunday, July 5:** The Grand Prix starts at 15:00.\n\nSilverstone is always special for the team, and with the way George and Kimi are performing, it's bound to be an incredible weekend!"
+        ],
+        "tools": [
+          {
+            "name": "get_driver_standings",
+            "args": {
+              "season": 2026.0,
+              "category": "all"
+            }
+          },
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "race_query": "British Grand Prix",
+              "user_timezone": "London"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_driver_standings",
+            "response": {
+              "result": {
+                "constructors": [
+                  {
+                    "podiums": 20.0,
+                    "points": 538.0,
+                    "wins": 11.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "team_short_name": "Mercedes"
+                  },
+                  {
+                    "podiums": 11.0,
+                    "points": 378.0,
+                    "wins": 2.0,
+                    "position": 2.0,
+                    "team": "Scuderia Ferrari",
+                    "team_short_name": "Ferrari"
+                  },
+                  {
+                    "podiums": 9.0,
+                    "points": 306.0,
+                    "wins": 2.0,
+                    "position": 3.0,
+                    "team": "McLaren Formula 1 Team",
+                    "team_short_name": "McLaren"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "points": 263.0,
+                    "wins": 2.0,
+                    "position": 4.0,
+                    "team": "Oracle Red Bull Racing",
+                    "team_short_name": "Red Bull Racing"
+                  },
+                  {
+                    "points": 83.0,
+                    "team_short_name": "Racing Bulls",
+                    "position": 5.0,
+                    "team": "Racing Bulls"
+                  },
+                  {
+                    "points": 68.0,
+                    "team_short_name": "Alpine",
+                    "position": 6.0,
+                    "team": "Alpine"
+                  },
+                  {
+                    "points": 27.0,
+                    "team_short_name": "Haas F1 Team",
+                    "position": 7.0,
+                    "team": "Haas F1 Team"
+                  },
+                  {
+                    "points": 17.0,
+                    "team_short_name": "Audi",
+                    "position": 8.0,
+                    "team": "Audi"
+                  },
+                  {
+                    "points": 12.0,
+                    "team_short_name": "Williams",
+                    "position": 9.0,
+                    "team": "Williams"
+                  },
+                  {
+                    "points": 3.0,
+                    "team_short_name": "Aston Martin",
+                    "position": 10.0,
+                    "team": "Aston Martin"
+                  },
+                  {
+                    "points": 0.0,
+                    "team_short_name": "Cadillac",
+                    "position": 11.0,
+                    "team": "Cadillac"
+                  }
+                ],
+                "data_source": "OpenF1 API (2026 Standings Snapshot)",
+                "freshness_disclaimer": "Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+                "agent_action": "PRESENT_MERCEDES_FIRST_STANDINGS",
+                "mercedes_drivers": [
+                  {
+                    "podiums": 12.0,
+                    "number": 12.0,
+                    "points": 302.0,
+                    "wins": 8.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "Kimi Antonelli"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "number": 63.0,
+                    "points": 236.0,
+                    "wins": 3.0,
+                    "position": 2.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "George Russell"
+                  }
+                ],
+                "recent_performance": "In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.",
+                "category": "all",
+                "season": 2026.0,
+                "status": "success",
+                "drivers": [
+                  {
+                    "podiums": 12.0,
+                    "number": 12.0,
+                    "points": 302.0,
+                    "wins": 8.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "Kimi Antonelli"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "number": 63.0,
+                    "points": 236.0,
+                    "wins": 3.0,
+                    "position": 2.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "George Russell"
+                  },
+                  {
+                    "number": 44.0,
+                    "points": 199.0,
+                    "name": "Lewis Hamilton",
+                    "position": 3.0,
+                    "team": "Scuderia Ferrari"
+                  },
+                  {
+                    "number": 1.0,
+                    "points": 186.0,
+                    "name": "Lando Norris",
+                    "position": 4.0,
+                    "team": "McLaren Formula 1 Team"
+                  },
+                  {
+                    "number": 16.0,
+                    "points": 179.0,
+                    "name": "Charles Leclerc",
+                    "position": 5.0,
+                    "team": "Scuderia Ferrari"
+                  },
+                  {
+                    "number": 3.0,
+                    "points": 163.0,
+                    "name": "Max Verstappen",
+                    "position": 6.0,
+                    "team": "Oracle Red Bull Racing"
+                  },
+                  {
+                    "number": 81.0,
+                    "points": 120.0,
+                    "name": "Oscar Piastri",
+                    "position": 7.0,
+                    "team": "McLaren Formula 1 Team"
+                  },
+                  {
+                    "number": 6.0,
+                    "points": 86.0,
+                    "name": "Isack Hadjar",
+                    "position": 8.0,
+                    "team": "Oracle Red Bull Racing"
+                  },
+                  {
+                    "number": 30.0,
+                    "points": 59.0,
+                    "name": "Liam Lawson",
+                    "position": 9.0,
+                    "team": "Racing Bulls"
+                  },
+                  {
+                    "number": 10.0,
+                    "points": 41.0,
+                    "name": "Pierre Gasly",
+                    "position": 10.0,
+                    "team": "Alpine"
+                  }
+                ],
+                "summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+                "mercedes_summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums)."
+              }
+            }
+          },
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "result": {
+                "location": "Silverstone, United Kingdom",
+                "sessions": [
+                  {
+                    "utc_time": "2026-07-03 11:30 UTC",
+                    "session": "Practice 1",
+                    "local_time": "12:30 BST (London)",
+                    "time_utc": "11:30 UTC",
+                    "local_day": "Friday",
+                    "day": "Friday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-03"
+                  },
+                  {
+                    "utc_time": "2026-07-03 15:30 UTC",
+                    "session": "Sprint Qualifying",
+                    "local_time": "16:30 BST (London)",
+                    "time_utc": "15:30 UTC",
+                    "local_day": "Friday",
+                    "day": "Friday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-03"
+                  },
+                  {
+                    "utc_time": "2026-07-04 11:00 UTC",
+                    "session": "Sprint",
+                    "local_time": "12:00 BST (London)",
+                    "time_utc": "11:00 UTC",
+                    "local_day": "Saturday",
+                    "day": "Saturday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-04"
+                  },
+                  {
+                    "utc_time": "2026-07-04 15:00 UTC",
+                    "session": "Qualifying",
+                    "local_time": "16:00 BST (London)",
+                    "time_utc": "15:00 UTC",
+                    "local_day": "Saturday",
+                    "day": "Saturday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-04"
+                  },
+                  {
+                    "utc_time": "2026-07-05 14:00 UTC",
+                    "session": "Race",
+                    "local_time": "15:00 BST (London)",
+                    "time_utc": "14:00 UTC",
+                    "local_day": "Sunday",
+                    "day": "Sunday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-05"
+                  }
+                ],
+                "season": 2026.0,
+                "weather_forecast": {
+                  "source": "typical_circuit_climate_profile",
+                  "condition": "Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze",
+                  "humidity_pct": 62.0,
+                  "track_temp_c": 28.0,
+                  "air_temp_c": 21.0,
+                  "rain_probability": "35%"
+                },
+                "meeting_key": 1289.0,
+                "round": 11.0,
+                "circuit": "Silverstone Circuit",
+                "needs_timezone_clarification": false,
+                "data_source": "OpenF1 API (2026 Season Snapshot)",
+                "dates": "July 3 - July 5, 2026",
+                "race_name": "British Grand Prix",
+                "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+                "timezone_resolved": "Europe/London (BST (London))",
+                "mercedes_highlights": "Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.",
+                "user_timezone_resolved": "Europe/London",
+                "circuit_name": "Silverstone Circuit",
+                "timezone_requested": "London",
+                "status": "success",
+                "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry."
+              }
+            }
+          }
+        ],
+        "transfer": "race_info_agent",
+        "latency_s": 5.95,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!",
+      "Agent Text: It's a fantastic time to be a Silver Arrows fan! In the latest 2026 standings, Mercedes-AMG Petronas F1 Team is leading the Constructors' Championship in P1 with 538 points. Our drivers are also dominating the top of the table, with Kimi Antonelli (#12) in P1 (302 points) and George Russell (#63) in P2 (236 points).\n\nAs for our home race, the 2026 British Grand Prix at Silverstone takes place from July 3rd to July 5th. Since you're in London, here is the full schedule in your local time (BST):\n\n*   **Friday, July 3:** Practice 1 at 12:30 and Sprint Qualifying at 16:30.\n*   **Saturday, July 4:** Sprint at 12:00 and Qualifying at 16:00.\n*   **Sunday, July 5:** The Grand Prix starts at 15:00.\n\nSilverstone is always special for the team, and with the way George and Kimi are performing, it's bound to be an incredible weekend!\nUser Query: Can you check the 1920 Formula 1 driver standings for me?\nUser Query: Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_driver_standings with args {'season': 2026.0, 'category': 'all'}\nTool Call: get_race_schedule with args {'race_query': 'British Grand Prix', 'user_timezone': 'London'}\nTool Response: get_driver_standings with result {'result': {'constructors': [{'podiums': 20.0, 'points': 538.0, 'wins': 11.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'team_short_name': 'Mercedes'}, {'podiums': 11.0, 'points': 378.0, 'wins': 2.0, 'position': 2.0, 'team': 'Scuderia Ferrari', 'team_short_name': 'Ferrari'}, {'podiums': 9.0, 'points': 306.0, 'wins': 2.0, 'position': 3.0, 'team': 'McLaren Formula 1 Team', 'team_short_name': 'McLaren'}, {'podiums': 8.0, 'points': 263.0, 'wins': 2.0, 'position': 4.0, 'team': 'Oracle Red Bull Racing', 'team_short_name': 'Red Bull Racing'}, {'points': 83.0, 'team_short_name': 'Racing Bulls', 'position': 5.0, 'team': 'Racing Bulls'}, {'points': 68.0, 'team_short_name': 'Alpine', 'position': 6.0, 'team': 'Alpine'}, {'points': 27.0, 'team_short_name': 'Haas F1 Team', 'position': 7.0, 'team': 'Haas F1 Team'}, {'points': 17.0, 'team_short_name': 'Audi', 'position': 8.0, 'team': 'Audi'}, {'points': 12.0, 'team_short_name': 'Williams', 'position': 9.0, 'team': 'Williams'}, {'points': 3.0, 'team_short_name': 'Aston Martin', 'position': 10.0, 'team': 'Aston Martin'}, {'points': 0.0, 'team_short_name': 'Cadillac', 'position': 11.0, 'team': 'Cadillac'}], 'data_source': 'OpenF1 API (2026 Standings Snapshot)', 'freshness_disclaimer': 'Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'agent_action': 'PRESENT_MERCEDES_FIRST_STANDINGS', 'mercedes_drivers': [{'podiums': 12.0, 'number': 12.0, 'points': 302.0, 'wins': 8.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'Kimi Antonelli'}, {'podiums': 8.0, 'number': 63.0, 'points': 236.0, 'wins': 3.0, 'position': 2.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'George Russell'}], 'recent_performance': \"In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.\", 'category': 'all', 'season': 2026.0, 'status': 'success', 'drivers': [{'podiums': 12.0, 'number': 12.0, 'points': 302.0, 'wins': 8.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'Kimi Antonelli'}, {'podiums': 8.0, 'number': 63.0, 'points': 236.0, 'wins': 3.0, 'position': 2.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'George Russell'}, {'number': 44.0, 'points': 199.0, 'name': 'Lewis Hamilton', 'position': 3.0, 'team': 'Scuderia Ferrari'}, {'number': 1.0, 'points': 186.0, 'name': 'Lando Norris', 'position': 4.0, 'team': 'McLaren Formula 1 Team'}, {'number': 16.0, 'points': 179.0, 'name': 'Charles Leclerc', 'position': 5.0, 'team': 'Scuderia Ferrari'}, {'number': 3.0, 'points': 163.0, 'name': 'Max Verstappen', 'position': 6.0, 'team': 'Oracle Red Bull Racing'}, {'number': 81.0, 'points': 120.0, 'name': 'Oscar Piastri', 'position': 7.0, 'team': 'McLaren Formula 1 Team'}, {'number': 6.0, 'points': 86.0, 'name': 'Isack Hadjar', 'position': 8.0, 'team': 'Oracle Red Bull Racing'}, {'number': 30.0, 'points': 59.0, 'name': 'Liam Lawson', 'position': 9.0, 'team': 'Racing Bulls'}, {'number': 10.0, 'points': 41.0, 'name': 'Pierre Gasly', 'position': 10.0, 'team': 'Alpine'}], 'summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'mercedes_summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\"}}\nTool Response: get_race_schedule with result {'result': {'location': 'Silverstone, United Kingdom', 'sessions': [{'utc_time': '2026-07-03 11:30 UTC', 'session': 'Practice 1', 'local_time': '12:30 BST (London)', 'time_utc': '11:30 UTC', 'local_day': 'Friday', 'day': 'Friday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-03 15:30 UTC', 'session': 'Sprint Qualifying', 'local_time': '16:30 BST (London)', 'time_utc': '15:30 UTC', 'local_day': 'Friday', 'day': 'Friday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-04 11:00 UTC', 'session': 'Sprint', 'local_time': '12:00 BST (London)', 'time_utc': '11:00 UTC', 'local_day': 'Saturday', 'day': 'Saturday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-04 15:00 UTC', 'session': 'Qualifying', 'local_time': '16:00 BST (London)', 'time_utc': '15:00 UTC', 'local_day': 'Saturday', 'day': 'Saturday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-05 14:00 UTC', 'session': 'Race', 'local_time': '15:00 BST (London)', 'time_utc': '14:00 UTC', 'local_day': 'Sunday', 'day': 'Sunday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-05'}], 'season': 2026.0, 'weather_forecast': {'source': 'typical_circuit_climate_profile', 'condition': 'Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze', 'humidity_pct': 62.0, 'track_temp_c': 28.0, 'air_temp_c': 21.0, 'rain_probability': '35%'}, 'meeting_key': 1289.0, 'round': 11.0, 'circuit': 'Silverstone Circuit', 'needs_timezone_clarification': False, 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'dates': 'July 3 - July 5, 2026', 'race_name': 'British Grand Prix', 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'timezone_resolved': 'Europe/London (BST (London))', 'mercedes_highlights': 'Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.', 'user_timezone_resolved': 'Europe/London', 'circuit_name': 'Silverstone Circuit', 'timezone_requested': 'London', 'status': 'success', 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent recovers cleanly from the seeded historical context, calls get_driver_standings for 2026, and reports Mercedes-AMG Petronas, Kimi Antonelli, and George Russell.",
+        "status": "Met",
+        "justification": "The agent correctly prioritized the user's explicit 2026 request over the unrelated historical context, successfully invoked get_driver_standings for the year 2026, and accurately reported the Mercedes-AMG Petronas team along with drivers Kimi Antonelli and George Russell."
+      }
+    ],
+    "modality": "text"
+  },
+  {
+    "name": "escalation_seeded_historical_failed_tool_context",
+    "run": 3,
+    "session_id": "3840fe25-f8d8-4795-aaa8-1d53f07191e5",
+    "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/3840fe25-f8d8-4795-aaa8-1d53f07191e5",
+    "passed": true,
+    "duration_s": 4.57,
+    "quota_wait_s": 0.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!",
+        "agent": [
+          "It's a fantastic time to be a Silver Arrows fan! In the latest 2026 standings, Mercedes-AMG Petronas F1 Team is leading the Constructors' Championship in P1 with 538 points. Our drivers are also dominating the top of the table, with Kimi Antonelli (#12) in P1 (302 points) and George Russell (#63) in P2 (236 points).\n\nAs for our home race, the 2026 British Grand Prix at Silverstone takes place from July 3rd to July 5th. Since you're in London, here is the full schedule in your local time (BST):\n\n*   **Friday, July 3:** Practice 1 at 12:30 and Sprint Qualifying at 16:30.\n*   **Saturday, July 4:** Sprint at 12:00 and Qualifying at 16:00.\n*   **Sunday, July 5:** The Grand Prix starts at 15:00.\n\nSilverstone is always special for the team, and with the way George and Kimi are performing, it's bound to be an incredible weekend!"
+        ],
+        "tools": [
+          {
+            "name": "get_driver_standings",
+            "args": {
+              "season": 2026.0,
+              "category": "all"
+            }
+          },
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "user_timezone": "London",
+              "race_query": "British Grand Prix"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_driver_standings",
+            "response": {
+              "result": {
+                "constructors": [
+                  {
+                    "podiums": 20.0,
+                    "points": 538.0,
+                    "wins": 11.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "team_short_name": "Mercedes"
+                  },
+                  {
+                    "podiums": 11.0,
+                    "points": 378.0,
+                    "wins": 2.0,
+                    "position": 2.0,
+                    "team": "Scuderia Ferrari",
+                    "team_short_name": "Ferrari"
+                  },
+                  {
+                    "podiums": 9.0,
+                    "points": 306.0,
+                    "wins": 2.0,
+                    "position": 3.0,
+                    "team": "McLaren Formula 1 Team",
+                    "team_short_name": "McLaren"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "points": 263.0,
+                    "wins": 2.0,
+                    "position": 4.0,
+                    "team": "Oracle Red Bull Racing",
+                    "team_short_name": "Red Bull Racing"
+                  },
+                  {
+                    "points": 83.0,
+                    "team_short_name": "Racing Bulls",
+                    "position": 5.0,
+                    "team": "Racing Bulls"
+                  },
+                  {
+                    "points": 68.0,
+                    "team_short_name": "Alpine",
+                    "position": 6.0,
+                    "team": "Alpine"
+                  },
+                  {
+                    "points": 27.0,
+                    "team_short_name": "Haas F1 Team",
+                    "position": 7.0,
+                    "team": "Haas F1 Team"
+                  },
+                  {
+                    "points": 17.0,
+                    "team_short_name": "Audi",
+                    "position": 8.0,
+                    "team": "Audi"
+                  },
+                  {
+                    "points": 12.0,
+                    "team_short_name": "Williams",
+                    "position": 9.0,
+                    "team": "Williams"
+                  },
+                  {
+                    "points": 3.0,
+                    "team_short_name": "Aston Martin",
+                    "position": 10.0,
+                    "team": "Aston Martin"
+                  },
+                  {
+                    "points": 0.0,
+                    "team_short_name": "Cadillac",
+                    "position": 11.0,
+                    "team": "Cadillac"
+                  }
+                ],
+                "data_source": "OpenF1 API (2026 Standings Snapshot)",
+                "freshness_disclaimer": "Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+                "agent_action": "PRESENT_MERCEDES_FIRST_STANDINGS",
+                "mercedes_drivers": [
+                  {
+                    "podiums": 12.0,
+                    "number": 12.0,
+                    "points": 302.0,
+                    "wins": 8.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "Kimi Antonelli"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "number": 63.0,
+                    "points": 236.0,
+                    "wins": 3.0,
+                    "position": 2.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "George Russell"
+                  }
+                ],
+                "recent_performance": "In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.",
+                "category": "all",
+                "season": 2026.0,
+                "status": "success",
+                "drivers": [
+                  {
+                    "podiums": 12.0,
+                    "number": 12.0,
+                    "points": 302.0,
+                    "wins": 8.0,
+                    "position": 1.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "Kimi Antonelli"
+                  },
+                  {
+                    "podiums": 8.0,
+                    "number": 63.0,
+                    "points": 236.0,
+                    "wins": 3.0,
+                    "position": 2.0,
+                    "team": "Mercedes-AMG Petronas F1 Team",
+                    "name": "George Russell"
+                  },
+                  {
+                    "number": 44.0,
+                    "points": 199.0,
+                    "name": "Lewis Hamilton",
+                    "position": 3.0,
+                    "team": "Scuderia Ferrari"
+                  },
+                  {
+                    "number": 1.0,
+                    "points": 186.0,
+                    "name": "Lando Norris",
+                    "position": 4.0,
+                    "team": "McLaren Formula 1 Team"
+                  },
+                  {
+                    "number": 16.0,
+                    "points": 179.0,
+                    "name": "Charles Leclerc",
+                    "position": 5.0,
+                    "team": "Scuderia Ferrari"
+                  },
+                  {
+                    "number": 3.0,
+                    "points": 163.0,
+                    "name": "Max Verstappen",
+                    "position": 6.0,
+                    "team": "Oracle Red Bull Racing"
+                  },
+                  {
+                    "number": 81.0,
+                    "points": 120.0,
+                    "name": "Oscar Piastri",
+                    "position": 7.0,
+                    "team": "McLaren Formula 1 Team"
+                  },
+                  {
+                    "number": 6.0,
+                    "points": 86.0,
+                    "name": "Isack Hadjar",
+                    "position": 8.0,
+                    "team": "Oracle Red Bull Racing"
+                  },
+                  {
+                    "number": 30.0,
+                    "points": 59.0,
+                    "name": "Liam Lawson",
+                    "position": 9.0,
+                    "team": "Racing Bulls"
+                  },
+                  {
+                    "number": 10.0,
+                    "points": 41.0,
+                    "name": "Pierre Gasly",
+                    "position": 10.0,
+                    "team": "Alpine"
+                  }
+                ],
+                "summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+                "mercedes_summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums)."
+              }
+            }
+          },
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "result": {
+                "location": "Silverstone, United Kingdom",
+                "sessions": [
+                  {
+                    "utc_time": "2026-07-03 11:30 UTC",
+                    "session": "Practice 1",
+                    "local_time": "12:30 BST (London)",
+                    "time_utc": "11:30 UTC",
+                    "local_day": "Friday",
+                    "day": "Friday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-03"
+                  },
+                  {
+                    "utc_time": "2026-07-03 15:30 UTC",
+                    "session": "Sprint Qualifying",
+                    "local_time": "16:30 BST (London)",
+                    "time_utc": "15:30 UTC",
+                    "local_day": "Friday",
+                    "day": "Friday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-03"
+                  },
+                  {
+                    "utc_time": "2026-07-04 11:00 UTC",
+                    "session": "Sprint",
+                    "local_time": "12:00 BST (London)",
+                    "time_utc": "11:00 UTC",
+                    "local_day": "Saturday",
+                    "day": "Saturday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-04"
+                  },
+                  {
+                    "utc_time": "2026-07-04 15:00 UTC",
+                    "session": "Qualifying",
+                    "local_time": "16:00 BST (London)",
+                    "time_utc": "15:00 UTC",
+                    "local_day": "Saturday",
+                    "day": "Saturday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-04"
+                  },
+                  {
+                    "utc_time": "2026-07-05 14:00 UTC",
+                    "session": "Race",
+                    "local_time": "15:00 BST (London)",
+                    "time_utc": "14:00 UTC",
+                    "local_day": "Sunday",
+                    "day": "Sunday",
+                    "timezone_label": "BST (London)",
+                    "date_utc": "2026-07-05"
+                  }
+                ],
+                "season": 2026.0,
+                "weather_forecast": {
+                  "source": "typical_circuit_climate_profile",
+                  "condition": "Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze",
+                  "humidity_pct": 62.0,
+                  "track_temp_c": 28.0,
+                  "air_temp_c": 21.0,
+                  "rain_probability": "35%"
+                },
+                "meeting_key": 1289.0,
+                "round": 11.0,
+                "circuit": "Silverstone Circuit",
+                "needs_timezone_clarification": false,
+                "data_source": "OpenF1 API (2026 Season Snapshot)",
+                "dates": "July 3 - July 5, 2026",
+                "race_name": "British Grand Prix",
+                "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+                "timezone_resolved": "Europe/London (BST (London))",
+                "mercedes_highlights": "Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.",
+                "user_timezone_resolved": "Europe/London",
+                "circuit_name": "Silverstone Circuit",
+                "timezone_requested": "London",
+                "status": "success",
+                "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry."
+              }
+            }
+          }
+        ],
+        "transfer": "race_info_agent",
+        "latency_s": 4.56,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!",
+      "Agent Text: It's a fantastic time to be a Silver Arrows fan! In the latest 2026 standings, Mercedes-AMG Petronas F1 Team is leading the Constructors' Championship in P1 with 538 points. Our drivers are also dominating the top of the table, with Kimi Antonelli (#12) in P1 (302 points) and George Russell (#63) in P2 (236 points).\n\nAs for our home race, the 2026 British Grand Prix at Silverstone takes place from July 3rd to July 5th. Since you're in London, here is the full schedule in your local time (BST):\n\n*   **Friday, July 3:** Practice 1 at 12:30 and Sprint Qualifying at 16:30.\n*   **Saturday, July 4:** Sprint at 12:00 and Qualifying at 16:00.\n*   **Sunday, July 5:** The Grand Prix starts at 15:00.\n\nSilverstone is always special for the team, and with the way George and Kimi are performing, it's bound to be an incredible weekend!\nUser Query: Can you check the 1920 Formula 1 driver standings for me?\nUser Query: Yes please, show me the 2026 Mercedes championship standings and tell me when the British Grand Prix at Silverstone takes place!\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_driver_standings with args {'season': 2026.0, 'category': 'all'}\nTool Call: get_race_schedule with args {'user_timezone': 'London', 'race_query': 'British Grand Prix'}\nTool Response: get_driver_standings with result {'result': {'constructors': [{'podiums': 20.0, 'points': 538.0, 'wins': 11.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'team_short_name': 'Mercedes'}, {'podiums': 11.0, 'points': 378.0, 'wins': 2.0, 'position': 2.0, 'team': 'Scuderia Ferrari', 'team_short_name': 'Ferrari'}, {'podiums': 9.0, 'points': 306.0, 'wins': 2.0, 'position': 3.0, 'team': 'McLaren Formula 1 Team', 'team_short_name': 'McLaren'}, {'podiums': 8.0, 'points': 263.0, 'wins': 2.0, 'position': 4.0, 'team': 'Oracle Red Bull Racing', 'team_short_name': 'Red Bull Racing'}, {'points': 83.0, 'team_short_name': 'Racing Bulls', 'position': 5.0, 'team': 'Racing Bulls'}, {'points': 68.0, 'team_short_name': 'Alpine', 'position': 6.0, 'team': 'Alpine'}, {'points': 27.0, 'team_short_name': 'Haas F1 Team', 'position': 7.0, 'team': 'Haas F1 Team'}, {'points': 17.0, 'team_short_name': 'Audi', 'position': 8.0, 'team': 'Audi'}, {'points': 12.0, 'team_short_name': 'Williams', 'position': 9.0, 'team': 'Williams'}, {'points': 3.0, 'team_short_name': 'Aston Martin', 'position': 10.0, 'team': 'Aston Martin'}, {'points': 0.0, 'team_short_name': 'Cadillac', 'position': 11.0, 'team': 'Cadillac'}], 'data_source': 'OpenF1 API (2026 Standings Snapshot)', 'freshness_disclaimer': 'Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'agent_action': 'PRESENT_MERCEDES_FIRST_STANDINGS', 'mercedes_drivers': [{'podiums': 12.0, 'number': 12.0, 'points': 302.0, 'wins': 8.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'Kimi Antonelli'}, {'podiums': 8.0, 'number': 63.0, 'points': 236.0, 'wins': 3.0, 'position': 2.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'George Russell'}], 'recent_performance': \"In the most recent September 2026 race weekends, George Russell (#63) won P1 at the Azerbaijan Grand Prix in Baku (with Kimi Antonelli #12 finishing P5), following a dominant 1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points.\", 'category': 'all', 'season': 2026.0, 'status': 'success', 'drivers': [{'podiums': 12.0, 'number': 12.0, 'points': 302.0, 'wins': 8.0, 'position': 1.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'Kimi Antonelli'}, {'podiums': 8.0, 'number': 63.0, 'points': 236.0, 'wins': 3.0, 'position': 2.0, 'team': 'Mercedes-AMG Petronas F1 Team', 'name': 'George Russell'}, {'number': 44.0, 'points': 199.0, 'name': 'Lewis Hamilton', 'position': 3.0, 'team': 'Scuderia Ferrari'}, {'number': 1.0, 'points': 186.0, 'name': 'Lando Norris', 'position': 4.0, 'team': 'McLaren Formula 1 Team'}, {'number': 16.0, 'points': 179.0, 'name': 'Charles Leclerc', 'position': 5.0, 'team': 'Scuderia Ferrari'}, {'number': 3.0, 'points': 163.0, 'name': 'Max Verstappen', 'position': 6.0, 'team': 'Oracle Red Bull Racing'}, {'number': 81.0, 'points': 120.0, 'name': 'Oscar Piastri', 'position': 7.0, 'team': 'McLaren Formula 1 Team'}, {'number': 6.0, 'points': 86.0, 'name': 'Isack Hadjar', 'position': 8.0, 'team': 'Oracle Red Bull Racing'}, {'number': 30.0, 'points': 59.0, 'name': 'Liam Lawson', 'position': 9.0, 'team': 'Racing Bulls'}, {'number': 10.0, 'points': 41.0, 'name': 'Pierre Gasly', 'position': 10.0, 'team': 'Alpine'}], 'summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'mercedes_summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\"}}\nTool Response: get_race_schedule with result {'result': {'location': 'Silverstone, United Kingdom', 'sessions': [{'utc_time': '2026-07-03 11:30 UTC', 'session': 'Practice 1', 'local_time': '12:30 BST (London)', 'time_utc': '11:30 UTC', 'local_day': 'Friday', 'day': 'Friday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-03 15:30 UTC', 'session': 'Sprint Qualifying', 'local_time': '16:30 BST (London)', 'time_utc': '15:30 UTC', 'local_day': 'Friday', 'day': 'Friday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-03'}, {'utc_time': '2026-07-04 11:00 UTC', 'session': 'Sprint', 'local_time': '12:00 BST (London)', 'time_utc': '11:00 UTC', 'local_day': 'Saturday', 'day': 'Saturday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-04 15:00 UTC', 'session': 'Qualifying', 'local_time': '16:00 BST (London)', 'time_utc': '15:00 UTC', 'local_day': 'Saturday', 'day': 'Saturday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-04'}, {'utc_time': '2026-07-05 14:00 UTC', 'session': 'Race', 'local_time': '15:00 BST (London)', 'time_utc': '14:00 UTC', 'local_day': 'Sunday', 'day': 'Sunday', 'timezone_label': 'BST (London)', 'date_utc': '2026-07-05'}], 'season': 2026.0, 'weather_forecast': {'source': 'typical_circuit_climate_profile', 'condition': 'Typical Silverstone summer conditions: Partly Cloudy with a brisk breeze', 'humidity_pct': 62.0, 'track_temp_c': 28.0, 'air_temp_c': 21.0, 'rain_probability': '35%'}, 'meeting_key': 1289.0, 'round': 11.0, 'circuit': 'Silverstone Circuit', 'needs_timezone_clarification': False, 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'dates': 'July 3 - July 5, 2026', 'race_name': 'British Grand Prix', 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'timezone_resolved': 'Europe/London (BST (London))', 'mercedes_highlights': 'Silverstone is the home Grand Prix for the Brackley- and Brixworth-based Mercedes-AMG Petronas F1 Team, with George Russell (#63) and Kimi Antonelli (#12) leading the 2026 Silver Arrows title charge.', 'user_timezone_resolved': 'Europe/London', 'circuit_name': 'Silverstone Circuit', 'timezone_requested': 'London', 'status': 'success', 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.'}}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent recovers cleanly from the seeded historical context, calls get_driver_standings for 2026, and reports Mercedes-AMG Petronas, Kimi Antonelli, and George Russell.",
+        "status": "Met",
+        "justification": "The agent successfully ignored the irrelevant request for 1920 data, performed the correct tool call for the 2026 season, and clearly reported the requested details regarding Mercedes-AMG Petronas, Kimi Antonelli, and George Russell in its response."
+      }
+    ],
+    "modality": "text"
+  }
+]

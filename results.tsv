@@ -1,0 +1,6 @@
+iteration	timestamp	mode	tool_tests	public_evals	secret_holdout	overall	status	git_sha	description
+1	2026-09-28T17:14:26Z	offline	8/8 (100.0%)	12/18 (66.7%)	6/16 (37.5%)	26/42 (61.9%)	baseline	0486fb5	Initial 4-agent Totto scaffold and 4 Python tools baseline
+2	2026-09-28T17:21:38Z	offline	8/8 (100.0%)	18/18 (100.0%)	16/16 (100.0%)	42/42 (100.0%)	kept	f6cfd45	Add timezone clarification gate, rival-respect & PCI guardrails, damaged-item flows, and cross-agent topic-switch routing
+3	2026-09-28T17:23:07Z	offline	8/8 (100.0%)	14/18 (77.8%)	12/16 (75.0%)	34/42 (81.0%)	reverted	1a17988	Experimental prompt compaction removing explicit Toto Wolff non-impersonation and mock-order disclosure rules
+4	2026-09-28T18:36:12	7/7	-	-	-	baseline	Iteration 1 (Strict Eval Baseline): Expose German language switch on sub-agent handoff, raw default_api tool text, and category='both' standings error
+5	2026-09-28T18:39:56	7/7	4/7	8/8	-	baseline	Iteration 1 (Strict Eval Baseline): Expose German language switch on sub-agent handoff, raw default_api tool text, and category=both standings error

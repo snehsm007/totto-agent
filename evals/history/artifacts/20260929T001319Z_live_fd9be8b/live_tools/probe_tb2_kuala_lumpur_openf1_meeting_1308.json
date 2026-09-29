@@ -1,0 +1,36 @@
+{
+  "id": "probe_tb2_kuala_lumpur_openf1_meeting_1308",
+  "tool": "get_race_schedule",
+  "tool_resource": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/tools/d1111111-2222-3333-4444-555555555551",
+  "args": {
+    "race_query": "Kuala Lumpur",
+    "user_timezone": "UTC"
+  },
+  "now_utc": "2026-09-29T00:13:19Z",
+  "response": {
+    "tool": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/tools/d1111111-2222-3333-4444-555555555551",
+    "response": {
+      "result": {
+        "status": "error",
+        "agent_action": "CLARIFY_RACE_NAME",
+        "error_message": "No 2026 Formula 1 Grand Prix found matching 'Kuala Lumpur'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+      }
+    },
+    "variables": {
+      "user_location": {},
+      "order_id": {},
+      "is_mock_mode": {},
+      "user_timezone": {}
+    }
+  },
+  "unwrapped": {
+    "status": "error",
+    "agent_action": "CLARIFY_RACE_NAME",
+    "error_message": "No 2026 Formula 1 Grand Prix found matching 'Kuala Lumpur'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+  },
+  "passed": false,
+  "findings": [
+    "[TB-2] 'Kuala Lumpur' query returned status='error', agent_action='CLARIFY_RACE_NAME' instead of OpenF1 meeting 1308 (hardcoded 1279..1302 filter drops meeting 1308)"
+  ],
+  "duration_ms": 642.53
+}

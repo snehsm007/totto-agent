@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "run_id": "20260928T215748Z_snapshot_fa27a68",
+  "mode": "snapshot",
+  "started_at": "2026-09-28T21:57:48Z",
+  "finished_at": "2026-09-28T21:58:15Z",
+  "point_time": "2026-09-28T20:55:38Z",
+  "imported": false,
+  "import_source": null,
+  "agent": {
+    "commit": "fa27a68b2f05014e5fcfd41fef27807f844d7d51",
+    "path": "evals/history/snapshots/20260928T215748Z_live_before/cxas_app",
+    "tree_hash": "3dc6b1f0ea01a07eacafb1fa61c53c72ed7d90a61ac2e3ac5d50beb799c452d0",
+    "dirty": false,
+    "dirty_paths_relevant": [],
+    "dirty_paths_unrelated": [
+      "ORIGINAL_REQUEST.md",
+      "PROJECT.md",
+      "environments/dev-totto-gecx/gecx-config.json",
+      "eval-reports/combined_report_2026-09-28_1833.html",
+      "eval-reports/combined_report_2026-09-28_2024.html",
+      "eval-reports/iteration1-summary.json",
+      "eval-reports/iterations/iteration_1/report.html",
+      "eval-reports/iterations/iteration_1/results.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/merch_support_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/merch_support_agent/merch_support_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/race_info_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/race_info_agent/race_info_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/ticketing_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/ticketing_agent/ticketing_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/totto_root_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/totto_root_agent/totto_root_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/app.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_driver_standings/get_driver_standings.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_driver_standings/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_official_links/get_official_links.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_official_links/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_race_schedule/get_race_schedule.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_race_schedule/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/lookup_mock_merch_order/lookup_mock_merch_order.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/lookup_mock_merch_order/python_function/python_code.py",
+      "eval-reports/sim_results_2026-09-28_1835.json",
+      "eval-reports/tool_test_results.json",
+      "experiment_log.md",
+      "gecx-config.json",
+      "pyproject.toml",
+      "results.tsv",
+      "tests/callbacks/test_state_callbacks.py",
+      "tests/config/test_agent_instructions_and_contracts.py",
+      "tests/conftest.py",
+      "tests/fixtures/openf1/capture.py",
+      "tests/fixtures/openf1/championship_drivers_latest.json",
+      "tests/fixtures/openf1/championship_teams_latest.json",
+      "tests/fixtures/openf1/drivers_latest.json",
+      "tests/fixtures/openf1/meetings_2026.json",
+      "tests/fixtures/openf1/metadata.json",
+      "tests/fixtures/openf1/sessions_2026.json",
+      "tests/fixtures/openf1/weather_meeting_1279_race_session_11234.json",
+      "tests/fixtures/openf1/weather_meeting_1295_race_session_11377.json",
+      "tests/legacy/test_hill_climb_harness.py",
+      "tests/legacy/test_transcript_analyzer.py",
+      "tests/tools/test_merch_and_links.py",
+      "tests/tools/test_openf1_faults.py",
+      "tests/tools/test_race_schedule_defects.py",
+      "tests/tools/test_timezones_dst.py",
+      "tests/tools/test_tools.py",
+      "totto_suite/grader/adapters.py",
+      "totto_suite/grader/model.py",
+      "totto_suite/grader/text.py",
+      "totto_suite/oracle.py"
+    ],
+    "nearest_source_commit": "f073e02cd3466ad25fe7b2322ac7edf8baebacda",
+    "identical_source_commits": [
+      "b48bd745c7b5025a60e97429ca3c71e9e5d730f3",
+      "f073e02cd3466ad25fe7b2322ac7edf8baebacda"
+    ],
+    "diff_vs_nearest_source": {
+      "identical_normalized": true,
+      "differing_files": [],
+      "only_in_commit": [],
+      "only_in_live": [],
+      "raw": {
+        "only_left": [
+          "agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+          "agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+          "agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py"
+        ],
+        "only_right": [
+          "agents/merch_support_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+          "agents/race_info_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+          "agents/totto_root_agent/before_agent_callbacks/before_agent_callbacks_01/python_code.py",
+          "pythonEnvFiles/pythonEnvFiles.json"
+        ],
+        "differing": [
+          "agents/merch_support_agent/merch_support_agent.json",
+          "agents/race_info_agent/race_info_agent.json",
+          "agents/ticketing_agent/ticketing_agent.json",
+          "agents/totto_root_agent/totto_root_agent.json",
+          "app.json",
+          "tools/get_driver_standings/get_driver_standings.json",
+          "tools/get_official_links/get_official_links.json",
+          "tools/get_race_schedule/get_race_schedule.json",
+          "tools/lookup_mock_merch_order/lookup_mock_merch_order.json"
+        ]
+      },
+      "server_managed_live": {
+        "loggingSettings": {
+          "conversationLoggingSettings": {
+            "retentionWindow": "31536000s"
+          }
+        }
+      },
+      "details": "evals/history/snapshots/20260928T215748Z_live_before/diff_vs_commits.md"
+    },
+    "nearest_source_rule": "fewest differing files after normalization; among the newest such commits, the oldest commit of the contiguous run with the same normalized cxas_app (the commit that introduced this content)"
+  },
+  "suite": {
+    "commit": "b48bd745c7b5025a60e97429ca3c71e9e5d730f3",
+    "dirty": true,
+    "dirty_paths": [
+      "tests/callbacks/test_state_callbacks.py",
+      "tests/config/test_agent_instructions_and_contracts.py",
+      "tests/conftest.py",
+      "tests/fixtures/openf1/capture.py",
+      "tests/fixtures/openf1/championship_drivers_latest.json",
+      "tests/fixtures/openf1/championship_teams_latest.json",
+      "tests/fixtures/openf1/drivers_latest.json",
+      "tests/fixtures/openf1/meetings_2026.json",
+      "tests/fixtures/openf1/metadata.json",
+      "tests/fixtures/openf1/sessions_2026.json",
+      "tests/fixtures/openf1/weather_meeting_1279_race_session_11234.json",
+      "tests/fixtures/openf1/weather_meeting_1295_race_session_11377.json",
+      "tests/legacy/test_hill_climb_harness.py",
+      "tests/legacy/test_transcript_analyzer.py",
+      "tests/tools/test_merch_and_links.py",
+      "tests/tools/test_openf1_faults.py",
+      "tests/tools/test_race_schedule_defects.py",
+      "tests/tools/test_timezones_dst.py",
+      "tests/tools/test_tools.py",
+      "totto_suite/grader/adapters.py",
+      "totto_suite/grader/model.py",
+      "totto_suite/grader/text.py",
+      "totto_suite/oracle.py"
+    ]
+  },
+  "cxas": {
+    "app": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+    "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
+    "version_status": "in_version_list",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-28T20:55:38.643615Z",
+    "app_etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+  },
+  "rationale": "Team 3 start: snapshot of the live app as found (last updated by team 2); first point of the history; no tests run yet",
+  "layers": {},
+  "tests": [],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": null,
+  "results_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "snapshot": {
+    "dir": "evals/history/snapshots/20260928T215748Z_live_before",
+    "inventory": "evals/history/snapshots/20260928T215748Z_live_before/inventory.json",
+    "version_evidence": "evals/history/snapshots/20260928T215748Z_live_before/version.json",
+    "export_zip_sha256": "c4874dc0fd328f27d5c5ffb2175dd11e52c13a693b9fec1a820a84d1e4daf78e",
+    "version_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/versions/b11332a0-b304-41e1-baac-57cd0ced05da",
+    "version_display_name": "r3-live_before-20260928T215748Z",
+    "version_create_time": "2026-09-28T21:58:11.292847Z",
+    "returned_existing_version": false,
+    "get_version_ok": true,
+    "app_state_before": {
+      "update_time": "2026-09-28T20:55:38.643615Z",
+      "etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+    },
+    "app_state_after": {
+      "update_time": "2026-09-28T20:55:38.643615Z",
+      "etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+    },
+    "app_unchanged": true
+  },
+  "corrections": [
+    {
+      "at": "2026-09-28T21:59:43Z",
+      "field": "agent.nearest_source_commit",
+      "from": "b48bd745c7b5025a60e97429ca3c71e9e5d730f3",
+      "to": "f073e02cd3466ad25fe7b2322ac7edf8baebacda",
+      "reason": "first run picked the newest commit with identical normalized cxas_app (b48bd74, a suite-only commit that did not touch cxas_app); the rule now picks the commit that introduced the content. identical_source_commits and diff_vs_commits.json in commit S are unchanged."
+    }
+  ]
+}

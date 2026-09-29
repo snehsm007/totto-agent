@@ -1,0 +1,15 @@
+{
+  "name": "d1111111-2222-3333-4444-555555555552",
+  "pythonFunction": {
+    "name": "get_driver_standings",
+    "pythonCode": "tools/get_driver_standings/python_function/python_code.py",
+    "description": "Retrieves Formula 1 Constructor and Driver Championship standings with Mercedes context first.\n\nArgs:\n    season: Championship year (default 2026, valid range 1950-2030).\n    category: Standings filter (\u0027all\u0027, \u0027both\u0027, \u0027drivers\u0027, \u0027constructors\u0027, or \u0027mercedes\u0027).\n\nReturns:\n    Dictionary containing Mercedes-first constructor and driver standings and recent performance."
+  },
+  "executionType": "SYNCHRONOUS",
+  "displayName": "get_driver_standings",
+  "toolFakeConfig": {
+    "codeBlock": {
+      "pythonCode": "tools/get_driver_standings/tool_fake_config/code_block/python_code.py"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# Virtual environments & Python caches
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Teamwork agent state & internal scratch files (kept on disk, excluded from git commits)
+.agents/
+ORIGINAL_REQUEST.md
+eval-reports/
+
+# CXAS local environment & deployment configs (never commit GCP project IDs or app UUIDs)
+.cxas-last-pushed/
+.active-project
+gecx-config.json
+cxas_app/gecx-config.json
+cxas_app/environment.json
+environments/**/gecx-config.json
+environments/**/environment.json
+environments/local*/
+evals/history/snapshots/**/export.zip

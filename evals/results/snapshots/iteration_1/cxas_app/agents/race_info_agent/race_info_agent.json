@@ -1,0 +1,11 @@
+{
+  "name": "race_info_agent",
+  "displayName": "race_info_agent",
+  "description": "Specialist sub-agent for Formula 1 race schedules, weekend sessions, circuit weather, driver/constructor standings, and recent Mercedes performance.",
+  "instruction": "agents/race_info_agent/instruction.txt",
+  "tools": [
+    "get_race_schedule",
+    "get_driver_standings",
+    "end_session"
+  ]
+}

@@ -1,0 +1,5409 @@
+{
+  "schema_version": 1,
+  "run_id": "20260929T014650Z_offline_2ed1c25",
+  "mode": "offline",
+  "started_at": "2026-09-29T01:46:50Z",
+  "finished_at": "2026-09-29T01:47:03Z",
+  "point_time": "2026-09-29T01:46:08Z",
+  "imported": false,
+  "import_source": null,
+  "agent": {
+    "commit": "2ed1c25d8b689faa4896ef027f4fbf3fe8a6bb52",
+    "path": "cxas_app",
+    "tree_hash": "3dc6b1f0ea01a07eacafb1fa61c53c72ed7d90a61ac2e3ac5d50beb799c452d0",
+    "dirty": false,
+    "dirty_paths_relevant": [],
+    "dirty_paths_unrelated": [
+      "ORIGINAL_REQUEST.md",
+      "PROJECT.md",
+      "environments/dev-totto-gecx/gecx-config.json",
+      "eval-reports/combined_report_2026-09-28_1833.html",
+      "eval-reports/combined_report_2026-09-28_2024.html",
+      "eval-reports/iteration1-summary.json",
+      "eval-reports/iterations/iteration_1/report.html",
+      "eval-reports/iterations/iteration_1/results.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/merch_support_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/merch_support_agent/merch_support_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/race_info_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/race_info_agent/race_info_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/ticketing_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/ticketing_agent/ticketing_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/totto_root_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/totto_root_agent/totto_root_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/app.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_driver_standings/get_driver_standings.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_driver_standings/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_official_links/get_official_links.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_official_links/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_race_schedule/get_race_schedule.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_race_schedule/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/lookup_mock_merch_order/lookup_mock_merch_order.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/lookup_mock_merch_order/python_function/python_code.py",
+      "eval-reports/sim_results_2026-09-28_1835.json",
+      "eval-reports/tool_test_results.json",
+      "evals/history/TREND.md",
+      "evals/history/index.json",
+      "evals/history/runs/20260929T014616Z_offline_2ed1c25.json",
+      "evals/history/trend.html",
+      "experiment_log.md",
+      "gecx-config.json",
+      "results.tsv"
+    ]
+  },
+  "suite": {
+    "commit": "2ed1c25d8b689faa4896ef027f4fbf3fe8a6bb52",
+    "dirty": false,
+    "dirty_paths": []
+  },
+  "cxas": {
+    "app": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+    "version_id": "b11332a0-b304-41e1-baac-57cd0ced05da",
+    "version_status": "in_version_list",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-28T20:55:38.643615Z",
+    "app_etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+  },
+  "rationale": "M5 final verification run 2",
+  "layers": {
+    "callbacks": {
+      "pass": 28,
+      "fail": 4,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.875
+    },
+    "config": {
+      "pass": 7,
+      "fail": 3,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.7
+    },
+    "dates": {
+      "pass": 20,
+      "fail": 6,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.7692
+    },
+    "grader": {
+      "pass": 30,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "lint": {
+      "pass": 2,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "regrade": {
+      "pass": 5,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "selftest": {
+      "pass": 75,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "tools": {
+      "pass": 116,
+      "fail": 16,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.8788
+    }
+  },
+  "tests": [
+    {
+      "repeat": 1,
+      "duration_s": 0.196292,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::merch_support_agent::test_sync_order_state_persists_order_id_and_mock_flag",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.196292,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::race_info_agent::test_sync_race_state_persists_timezone_and_location",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.196292,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::race_info_agent::test_sync_race_state_preserves_existing_timezone_when_utc_queried",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.196292,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::totto_root_agent::test_init_session_state_defaults",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.196292,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::totto_root_agent::test_init_session_state_extracts_order_id_from_user_event",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000919,
+      "message": "AssertionError: 'Go #SilverArrows, when is the next race?' -> invented order_id='SilverArrows'",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Go #SilverArrows, when is the next race?' -> invented order_id='SilverArrows'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[Go #SilverArrows, when is the next race?]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000694,
+      "message": "",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[In what order do the sessions run at Monza?]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000783,
+      "message": "",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[Is George Russell the #1 driver this year?]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000771,
+      "message": "",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[Who is P1 in the standings, #63 or #12?]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000662,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Bestellung 1002 ist nicht angekommen-1002]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001037,
+      "message": "AssertionError: 'Can you check order number 1001?' -> order_id='number'",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Can you check order number 1001?' -> order_id='number'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Can you check order number 1001?-1001]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000938,
+      "message": "AssertionError: 'Meine Bestellnummer ist 1003' -> order_id=''",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Meine Bestellnummer ist 1003' -> order_id=''",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Meine Bestellnummer ist 1003-1003]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000639,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[O\\xf9 en est ma commande 1003 ?-1003]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00065,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido #1001?-1001]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001033,
+      "message": "AssertionError: '¿Dónde está mi pedido número 1002?' -> order_id=''",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: '¿Dónde está mi pedido número 1002?' -> order_id=''",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido n\\xfamero 1002?-1002]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000775,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_keeps_known_order_and_updates_on_new_one",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000908,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_preserves_existing_session_parameters_and_extracts_order_id",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001516,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_sets_defaults_when_missing",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000612,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_tolerates_missing_transcript[   ]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000617,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_tolerates_missing_transcript[None]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000615,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_tolerates_missing_transcript[]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000592,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_error_paths[tool_input0-tool_response0-1002]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000579,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_error_paths[tool_input1-tool_response1-9999]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000576,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_error_paths[tool_input2-tool_response2-1001]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000673,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_persists_normalized_order_id_and_mock_flag",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000607,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[None]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000701,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[UNKNOWN]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000615,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000589,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[utc]",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000694,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_ignores_utc_clarification_response",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000718,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_persists_resolved_timezone",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000758,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_tolerates_error_response_and_missing_keys",
+      "layer": "callbacks",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001721,
+      "message": "AssertionError: global_instruction.txt and specialist agents ['race_info_agent', 'merch_support_agent', 'ticketing_agent'] lack live human escalation handling instructions (RC-01, RC-02, RC-10)",
+      "findings": [
+        "RC-01",
+        "RC-02",
+        "RC-10"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: global_instruction.txt and specialist agents ['race_info_agent', 'merch_support_agent', 'ticketing_agent'] lack live human escalation handling instructions (RC-01, RC-02, RC-10)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_all_agents_cover_no_live_human_escalation_policy",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002048,
+      "message": "",
+      "findings": [
+        "TR-01",
+        "TR-02",
+        "TR-05"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000787,
+      "message": "",
+      "findings": [
+        "TR-01",
+        "TR-02",
+        "TR-03",
+        "TR-04",
+        "TR-05",
+        "TR-06"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.05788,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_callbacks_synced_with_shared_imports",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001749,
+      "message": "AssertionError: global_instruction.txt lacks explicit TTS/voice constraints forbidding emojis and markdown formatting (causes RC-06/RC-07 voice TTS artifacts)",
+      "findings": [
+        "RC-06",
+        "RC-07",
+        "NEW-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: global_instruction.txt lacks explicit TTS/voice constraints forbidding emojis and markdown formatting (causes RC-06/RC-07 voice TTS artifacts)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_global_instruction_forbids_emojis_and_markdown_for_tts",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00108,
+      "message": "AssertionError: Neither global_instruction.txt nor totto_root_agent/instruction.txt contains a credit-card / PCI refusal constraint (NEW-3)",
+      "findings": [
+        "NEW-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: Neither global_instruction.txt nor totto_root_agent/instruction.txt contains a credit-card / PCI refusal constraint (NEW-3)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_global_or_root_instruction_enforces_pci_credit_card_refusal",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001212,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "TR-09",
+        "NEW-2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_instruction_mock_freshness_and_conciseness_rules",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.015765,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_no_test_prompts_hardcoded_in_instruction_examples",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.026008,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_public_evals_cover_all_9_prd_acceptance_criteria",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.038128,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_secret_holdout_has_at_least_12_scenarios_across_4_buckets",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.0058,
+      "message": "AssertionError: 2026-04-01 (payload): tool says success Bahrain Grand Prix (meeting 1282, April 10 - April 12, 2026, Sakhir, Bahrain); oracle (OpenF1) says Miami Grand Prix in Miami Gardens (meeting 1284, 2026-05-01..2026-05-03)",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-5"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 2026-04-01 (payload): tool says success Bahrain Grand Prix (meeting 1282, April 10 - April 12, 2026, Sakhir, Bahrain); oracle (OpenF1) says Miami Grand Prix in Miami Gardens (meeting 1284, 2026-05-01..2026-05-03)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-04-01-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003764,
+      "message": "AssertionError: 2026-04-01 (snapshot): tool says success Bahrain Grand Prix (meeting 1282, April 10 - April 12, 2026, Sakhir, Bahrain); oracle (OpenF1) says Miami Grand Prix in Miami Gardens (meeting 1284, 2026-05-01..2026-05-03)",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-5"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 2026-04-01 (snapshot): tool says success Bahrain Grand Prix (meeting 1282, April 10 - April 12, 2026, Sakhir, Bahrain); oracle (OpenF1) says Miami Grand Prix in Miami Gardens (meeting 1284, 2026-05-01..2026-05-03)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-04-01-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003501,
+      "message": "",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-07-01-payload]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002301,
+      "message": "",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-07-01-snapshot]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003778,
+      "message": "AssertionError: 2026-09-28 (payload): tool says success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore); oracle (OpenF1) says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "TB-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 2026-09-28 (payload): tool says success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore); oracle (OpenF1) says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002473,
+      "message": "AssertionError: 2026-09-28 (snapshot): tool says success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore); oracle (OpenF1) says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "TB-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 2026-09-28 (snapshot): tool says success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore); oracle (OpenF1) says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003502,
+      "message": "",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-10-05-payload]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002208,
+      "message": "",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-10-05-snapshot]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.004774,
+      "message": "AssertionError: 2026-12-31 (payload): the 2026 season is over per OpenF1 (last race ended 2026-12-06), but the tool presents success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore) as the next race",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 2026-12-31 (payload): the 2026 season is over per OpenF1 (last race ended 2026-12-06), but the tool presents success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore) as the next race",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-12-31-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00258,
+      "message": "AssertionError: 2026-12-31 (snapshot): the 2026 season is over per OpenF1 (last race ended 2026-12-06), but the tool presents success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore) as the next race",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 2026-12-31 (snapshot): the 2026 season is over per OpenF1 (last race ended 2026-12-06), but the tool presents success Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026, Marina Bay, Singapore) as the next race",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-12-31-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000431,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_meeting_status_and_naive_datetime_rejected",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000834,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-02-15T00:00:00-meeting-1279]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000713,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-03-08T05:59:59-meeting-1279]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000702,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-03-08T06:00:01-meeting-1280]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000701,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-04-01T00:00:00-meeting-1284]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000849,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-07-01T12:00:00-meeting-1289]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000724,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-09-28T12:00:00-meeting-1308]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.0008,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-10-04T08:59:59-meeting-1308]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000786,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-10-04T09:00:01-meeting-1296]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000778,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-10-05T12:00:00-meeting-1296]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000811,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-12-06T14:59:59-meeting-1302]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000817,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-12-06T15:00:01-meeting-None]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000807,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-12-31T12:00:00-meeting-None]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000328,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_boundary_is_inclusive_at_date_end",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000336,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_rules_exclude_testing_and_cancelled_and_order_by_start",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000322,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_sessions_define_race_meetings_when_given",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00087,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestAdaptersAndCombine::test_all_four_adapters_produce_valid_conversations",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000349,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestAdaptersAndCombine::test_combine_d3_rules",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000433,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCatalogueCompleteness::test_all_17_checks_registered",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000728,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCodeLeak::test_clean_prose_passes",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000857,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCodeLeak::test_detects_code_leaks[Let me check.\\n```python\\nprint(default_api.get_race_schedule(race_query='next'))\\n```]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000649,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCodeLeak::test_detects_code_leaks[end_session(session_escalated=True)]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000658,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCodeLeak::test_detects_code_leaks[get_driver_standings(season=2026)]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00064,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCodeLeak::test_detects_code_leaks[lookup_merch_order(order_id='1001')]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000777,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestCodeLeak::test_detects_code_leaks[transfer_to_agent(agent_name='merch_order_support_agent')]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001209,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestDeadAirHandoff::test_handoff_that_also_calls_tool_passes",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001799,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestDeadAirHandoff::test_short_text_handoff_without_tool_fails",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000765,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestInternalAgentNames::test_detects_snake_case_and_humanized_agent_names[I will hand you over to the Merch Support Agent.]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00124,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestInternalAgentNames::test_detects_snake_case_and_humanized_agent_names[Ich verbinde dich mit unserem Race Info Agenten.]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00078,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestInternalAgentNames::test_detects_snake_case_and_humanized_agent_names[Let me transfer you to our race_info_agent right away.]",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002108,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestLatencyPciAndLanguage::test_german_utc_schedule_bullets_not_misclassified_as_portuguese",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001069,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestLatencyPciAndLanguage::test_language_match_detects_english_handoff_in_german_conversation",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000859,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestLatencyPciAndLanguage::test_latency_budget_skips_when_unmeasured_and_fails_when_exceeded",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000997,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestLatencyPciAndLanguage::test_pci_echo_detects_card_number_echo",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000962,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestOrderFactsGrounding::test_order_fact_value_mismatch_detects_wrong_tracking_number",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000897,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestOrderFactsGrounding::test_ungrounded_arbitrary_order_id_fails",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001523,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestPastRaceAndDisclosuresAndEscalation::test_missing_mock_and_freshness_disclosures_fail",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001551,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestPastRaceAndDisclosuresAndEscalation::test_past_race_presented_as_upcoming_fails",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000782,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestPastRaceAndDisclosuresAndEscalation::test_session_end_without_answer_detects_missing_human_escalation_path",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001864,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestRaceFactsGrounding::test_merch_delivery_timestamp_with_grand_prix_mention_does_not_false_positive",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00131,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestRaceFactsGrounding::test_race_fact_value_mismatch_detects_hallucinated_time_conversion",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001222,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestRaceFactsGrounding::test_ungrounded_race_schedule_times_fail",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001033,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestToolError::test_expected_user_supplied_invalid_order_9999_passes",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000925,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestToolError::test_unexpected_invalid_category_error_fails",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001501,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestTtsAndReplyLength::test_emoji_and_markdown_warn_in_text_and_fail_in_voice",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.006893,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "grader::test_grader.py::TestTtsAndReplyLength::test_long_reply_warns_in_text_and_fails_in_voice",
+      "layer": "grader",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.058711,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "lint::bundle_shared_imports",
+      "layer": "lint",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 2.909532,
+      "message": "",
+      "findings": [
+        "TR-01",
+        "TR-02",
+        "TR-05"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "issue_count": 0
+      },
+      "judge": null,
+      "id": "lint::cxas_lint",
+      "layer": "lint",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.158219,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "regrade::test_regrade.py::TestRecordedRegrade::test_25flash_sims_regrade_catches_all_known_failure_classes",
+      "layer": "regrade",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.25464,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "regrade::test_regrade.py::TestRecordedRegrade::test_30flash_sims_regrade_catches_tool_error_and_deterministic_defects",
+      "layer": "regrade",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.011163,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "regrade::test_regrade.py::TestRecordedRegrade::test_audio_sims_judge_override_on_code_leak",
+      "layer": "regrade",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.37783,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "regrade::test_regrade.py::TestRecordedRegrade::test_false_positive_elimination_vs_analyze_py",
+      "layer": "regrade",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.042725,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "regrade::test_regrade.py::TestRecordedRegrade::test_regrade_artifacts_generated_and_match",
+      "layer": "regrade",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001004,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_layers.py::test_discover_offline_finds_all_eight_offline_layers",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.007077,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_layers.py::test_run_layer_and_contract_validation_with_temp_package",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.060385,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_deploy_enforces_r5_no_push_and_records_version_snapshot",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001562,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_gate_decision_d2_blocks_regression_and_allows_clean",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000459,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_makefile_safe_targets",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.264693,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_mutant_specs_catalogue_and_temp_isolation",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001217,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_mutants_report_artifacts_and_100_percent_kill_rate",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000557,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_precommit_hook_and_gate_demo_log",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.040558,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_m4_gate_deploy_mutants.py::test_real_deploy_and_backfilled_records_exist_and_validate",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000396,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_build_record_has_every_schema_field_and_derived_values",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000309,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_digest_changes_when_status_or_message_changes",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000372,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_digest_ignores_durations_and_other_fields",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000287,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_digest_is_independent_of_result_order",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000356,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_flakiness_reports_mixed_repeats",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000263,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_layer_summary_scores_exclude_infra_and_skipped",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000288,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_make_run_id_format",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000412,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-commit]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000487,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-invalid status]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000471,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-misses keys]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000426,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-mode]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000576,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-model]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000673,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-rationale]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000438,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-results_digest]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000417,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_validate_rejects_schema_violations[<lambda>-version_id]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003002,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_records.py::test_write_load_index_roundtrip",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000338,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc0-auth]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000336,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc1-auth]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000247,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc10-quota]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000342,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc11-unavailable]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000233,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc12-judge]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000397,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc2-network]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000383,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc3-timeout]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000426,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc4-timeout]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000396,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc5-network]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000342,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc6-network]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000332,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc7-network]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000422,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc8-network]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000361,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_auth_network_timeout_and_judge_errors[exc9-timeout]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000368,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_cause_chain_is_followed",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000312,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[-None]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000298,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[401 Unauthenticated-auth]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000312,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[429 RESOURCE_EXHAUSTED: token quota-quota]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000462,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[503 Service Unavailable-unavailable]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000339,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[Agent said the wrong race-None]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000332,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[Connection refused-network]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000314,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[DEADLINE_EXCEEDED while waiting-deadline]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000316,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[None-None]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000309,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_classify_error_text[Read timed out-timeout]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000468,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_genai_client_error_429_is_quota",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00029,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc0-quota-429]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000282,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc1-quota-429]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00034,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc10-cancelled-499]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000336,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc2-unavailable-503]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000259,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc3-server_error-500]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000267,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc4-server_error-502]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000339,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc5-deadline-504]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00042,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc6-deadline-504]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000354,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc7-permission-403]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000365,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc8-quota-403]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000352,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_google_api_core_errors[exc9-auth-401]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000262,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_http_404_via_urllib_is_not_infra",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.0004,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_non_infra_errors_are_not_classified[exc0]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000339,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_non_infra_errors_are_not_classified[exc1]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000345,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_non_infra_errors_are_not_classified[exc2]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000338,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_non_infra_errors_are_not_classified[exc3]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000347,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_non_infra_errors_are_not_classified[exc4]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000479,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_non_infra_errors_are_not_classified[exc5]",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000459,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_scrapi_bidi_session_error_quota_and_other",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000306,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_status_values",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000338,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_taxonomy.py::test_summarize_infra_counts_by_kind",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000535,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_trend.py::test_comparison_skips_points_without_the_layer",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000395,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_trend.py::test_flaky_repeat_after_pass_is_flagged",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003965,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_trend.py::test_generate_writes_ordered_markdown_and_static_html",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000483,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_trend.py::test_improvement_and_infra_errors_are_not_regressions",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000549,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "selftest::test_trend.py::test_layer_score_drop_and_pass_to_fail_are_flagged",
+      "layer": "selftest",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001057,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001521,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000915,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[all]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000951,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[both]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000995,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[1001]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001069,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[1002]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001065,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[1003]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001004,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[123456]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001116,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[9999]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001019,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001047,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000815,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[  1002  -True-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000983,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[#-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001029,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[1001; DROP TABLE orders-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000841,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[1002-True-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000705,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[123456-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000894,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[ABCD-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001439,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[Order #1001-True-Delivered]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000951,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[order 1003-True-Return In Progress]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001046,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[SHOP]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000941,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[Store ]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000952,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merch]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000995,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merchandise]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000952,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[shop]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001118,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[store]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000926,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "PRD-L161"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_ticket_link_guidance_claims_no_availability_or_price",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002689,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-empty]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001681,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http429]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001759,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http500]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002264,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-malformed]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002442,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-non_list]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001865,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-timeout]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001086,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-empty]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002143,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-http429]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001385,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-http500]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001201,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-malformed]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001099,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-non_list]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00157,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-timeout]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002247,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults0]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002515,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults1]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00137,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[standings-faults2]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001582,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[standings-faults3]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001301,
+      "message": "AssertionError: season=2019 -> status=success, season=2019, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 538 pts)",
+      "findings": [
+        "NEW-4",
+        "PRD-L152",
+        "PRD-L153"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: season=2019 -> status=success, season=2019, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 538 pts)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_standings_for_other_season_never_returns_2026_data_as_that_season[2019]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001527,
+      "message": "AssertionError: season=2025 -> status=success, season=2025, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 538 pts)",
+      "findings": [
+        "NEW-4",
+        "PRD-L152",
+        "PRD-L153"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: season=2025 -> status=success, season=2025, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 538 pts)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_standings_for_other_season_never_returns_2026_data_as_that_season[2025]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002297,
+      "message": "",
+      "findings": [
+        "TB-1",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_standings_from_openf1_payload_match_captured_tables",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001851,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_next-hang]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.0034,
+      "message": "AssertionError: get_race_schedule({'race_query': 'next', 'user_timezone': 'UTC'}) can block 10.0s before answering (budget 7.0s): sequential OpenF1 requests [('meetings', 5), ('sessions', 5)]",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_race_schedule({'race_query': 'next', 'user_timezone': 'UTC'}) can block 10.0s before answering (budget 7.0s): sequential OpenF1 requests [('meetings', 5), ('sessions', 5)]",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_next-slow]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002065,
+      "message": "AssertionError: get_race_schedule({'race_query': 'Azerbaijan Grand Prix', 'user_timezone': 'UTC'}) can block 10.0s before answering (budget 7.0s): sequential OpenF1 requests [('meetings', 5), ('weather', 5)]",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_race_schedule({'race_query': 'Azerbaijan Grand Prix', 'user_timezone': 'UTC'}) can block 10.0s before answering (budget 7.0s): sequential OpenF1 requests [('meetings', 5), ('weather', 5)]",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_past_race-hang]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.005013,
+      "message": "AssertionError: get_race_schedule({'race_query': 'Azerbaijan Grand Prix', 'user_timezone': 'UTC'}) can block 15.0s before answering (budget 7.0s): sequential OpenF1 requests [('meetings', 5), ('sessions', 5), ('weather', 5)]",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_race_schedule({'race_query': 'Azerbaijan Grand Prix', 'user_timezone': 'UTC'}) can block 15.0s before answering (budget 7.0s): sequential OpenF1 requests [('meetings', 5), ('sessions', 5), ('weather', 5)]",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_past_race-slow]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00105,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[standings-hang]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002145,
+      "message": "AssertionError: get_driver_standings({'season': 2026, 'category': 'all'}) can block 15.0s before answering (budget 7.0s): sequential OpenF1 requests [('championship_teams', 5), ('championship_drivers', 5), ('drivers', 5)]",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_driver_standings({'season': 2026, 'category': 'all'}) can block 15.0s before answering (budget 7.0s): sequential OpenF1 requests [('championship_teams', 5), ('championship_drivers', 5), ('drivers', 5)]",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[standings-slow]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001696,
+      "message": "",
+      "findings": [
+        "TB-4",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_future_meeting_weather_is_labelled_typical_climatology",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00205,
+      "message": "AssertionError: fixed climatology profile is returned under key 'weather_forecast': {'condition': 'Typical Marina Bay night conditions: Tropical Evening (High Humidity)', 'air_temp_c': 29, 'track_temp_c': 33, 'humidity_pct': 78, 'rain_probability': '40%', 'source': 'typical_circuit_climate_profile'}; the model reads it as a forecast",
+      "findings": [
+        "TB-4",
+        "PRD-L152",
+        "PRD-L153"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fixed climatology profile is returned under key 'weather_forecast': {'condition': 'Typical Marina Bay night conditions: Tropical Evening (High Humidity)', 'air_temp_c': 29, 'track_temp_c': 33, 'humidity_pct': 78, 'rain_probability': '40%', 'source': 'typical_circuit_climate_profile'}; the model reads it as a forecast",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_future_meeting_weather_is_never_presented_as_a_forecast",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.004717,
+      "message": "AssertionError: 'Kuala Lumpur' -> error CLARIFY_RACE_NAME None; OpenF1 has meeting 1308 Bahrain Grand Prix (2026-10-02)",
+      "findings": [
+        "TB-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Kuala Lumpur' -> error CLARIFY_RACE_NAME None; OpenF1 has meeting 1308 Bahrain Grand Prix (2026-10-02)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_kuala_lumpur_query_resolves_to_openf1_meeting",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001926,
+      "message": "",
+      "findings": [
+        "TB-1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_live_label_only_when_openf1_payload_was_served[get_driver_standings-kwargs1]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003087,
+      "message": "",
+      "findings": [
+        "TB-1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_live_label_only_when_openf1_payload_was_served[get_race_schedule-kwargs0]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.004644,
+      "message": "AssertionError: next race at 2026-09-28: tool=Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026) but OpenF1 says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "findings": [
+        "TB-2",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: next race at 2026-09-28: tool=Singapore Grand Prix (meeting 1296, October 9 - October 11, 2026) but OpenF1 says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_next_race_includes_kuala_lumpur_when_openf1_payload_contains_it",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.005139,
+      "message": "",
+      "findings": [
+        "TB-4"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_past_meeting_weather_comes_from_openf1_payload",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002621,
+      "message": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'meeting_key', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'user_timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'meeting_key', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'user_timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_past_race_is_flagged_as_completed[British Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002379,
+      "message": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'meeting_key', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'user_timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'meeting_key', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'user_timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_past_race_is_flagged_as_completed[Silverstone]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00105,
+      "message": "",
+      "findings": [
+        "TB-1",
+        "TR-09",
+        "PRD-L114"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_snapshot_data_is_labelled_snapshot_with_freshness_disclaimer[get_driver_standings-kwargs1]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001787,
+      "message": "",
+      "findings": [
+        "TB-1",
+        "TR-09",
+        "PRD-L114"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_snapshot_data_is_labelled_snapshot_with_freshness_disclaimer[get_race_schedule-kwargs0]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.035463,
+      "message": "AssertionError: 'Grand Prix in Spain' -> Belgian Grand Prix in Spa-Francorchamps, Belgium",
+      "findings": [
+        "TB-3",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Grand Prix in Spain' -> Belgian Grand Prix in Spa-Francorchamps, Belgium",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_spain_query_never_returns_a_race_in_another_country[Grand Prix in Spain]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.035032,
+      "message": "AssertionError: 'Spain Grand Prix' -> Belgian Grand Prix in Spa-Francorchamps, Belgium",
+      "findings": [
+        "TB-3",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Spain Grand Prix' -> Belgian Grand Prix in Spa-Francorchamps, Belgium",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_spain_query_never_returns_a_race_in_another_country[Spain Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.038029,
+      "message": "AssertionError: 'Spain' -> Belgian Grand Prix in Spa-Francorchamps, Belgium",
+      "findings": [
+        "TB-3",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Spain' -> Belgian Grand Prix in Spa-Francorchamps, Belgium",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_spain_query_never_returns_a_race_in_another_country[Spain]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003652,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-payload]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001988,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-snapshot]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003684,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-payload]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001918,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-snapshot]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003444,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-payload]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001864,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-snapshot]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002064,
+      "message": "",
+      "findings": [
+        "TB-5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_upcoming_race_is_not_flagged_as_completed",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.043086,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[British Grand Prix-Silverstone-Sydney-Qualifying-2026-07-04T15:00-01:00-AEST-Sunday]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.033336,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Qualifying-2026-10-31T21:00-17:00-EDT-Saturday]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.034065,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Race-2026-11-01T20:00-15:00-EST-Sunday]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.035417,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Singapore Grand Prix-Marina Bay-Sydney-Race-2026-10-11T12:00-23:00-AEDT-Sunday]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.033356,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Qualifying-2026-10-24T21:00-22:00-BST-Saturday]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.033563,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Race-2026-10-25T20:00-20:00-GMT-Sunday]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.034066,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Honolulu-Pacific/Honolulu-03:00]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.033218,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Kathmandu-Asia/Kathmandu-18:45]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.034506,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Nairobi-Africa/Nairobi-16:00]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.032422,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Reykjavik-Atlantic/Reykjavik-13:00]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.038846,
+      "message": "AssertionError: KL weekend (2026-10-03) not served: CLARIFY_RACE_NAME",
+      "findings": [
+        "TR-10",
+        "TB-2",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: KL weekend (2026-10-03) not served: CLARIFY_RACE_NAME",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.037478,
+      "message": "AssertionError: KL weekend (2026-10-04) not served: CLARIFY_RACE_NAME",
+      "findings": [
+        "TR-10",
+        "TB-2",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: KL weekend (2026-10-04) not served: CLARIFY_RACE_NAME",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001272,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_error_cases",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001253,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[all]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001272,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[both]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001248,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[constructors]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001317,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[drivers]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001456,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[standings]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001339,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[wcc]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001465,
+      "message": "",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[wdc]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00071,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_invalid_category",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000832,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[all-https://tickets.formula1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000787,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[merch-https://shop.mercedesamgf1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000844,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[store-https://shop.mercedesamgf1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000835,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[team-https://www.mercedesamgf1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000777,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[ticketing-https://tickets.formula1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000761,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[tickets-https://tickets.formula1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002453,
+      "message": "",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_empty_and_unknown_query_error",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001599,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[America/New_York-09:00 EDT (New York)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001971,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Australia/Sydney-00:00 AEDT (Sydney)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.035981,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Berlin, Germany-15:00 CEST (Berlin)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00161,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[EST-09:00 EDT (New York)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001825,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Europe/London-14:00 BST (London)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.038528,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[I'm watching from New York, Eastern Time-09:00 EDT (New York)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00197,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[JST-22:00 JST (Tokyo)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.036422,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney, Australia-00:00 AEDT (Sydney)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.033632,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney-00:00 AEDT (Sydney)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.041879,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Tokyo, Japan-22:00 JST (Tokyo)-False]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001736,
+      "message": "",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[UTC-13:00 UTC-True]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.049326,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[British Grand Prix-Sydney, Australia-British Grand Prix]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.035119,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[Interlagos-S\\xe3o Paulo-S\\xe3o Paulo Grand Prix]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002913,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[Las Vegas Grand Prix-PST-Las Vegas Grand Prix]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.046439,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[Suzuka-Tokyo-Japanese Grand Prix]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003109,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[United States Grand Prix-CDT-United States Grand Prix]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.032367,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Auckland-Pacific/Auckland-NZDT (Auckland)]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.005063,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Mumbai-Asia/Kolkata-IST (Mumbai)]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.032548,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[S\\xe3o Paulo-America/Sao_Paulo-BRT (Sao Paulo)]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.032226,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Toronto-America/Toronto-EDT (Toronto)]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.037983,
+      "message": "",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Vienna-Europe/Vienna-CEST (Vienna)]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001769,
+      "message": "",
+      "findings": [
+        "TR-09",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_without_timezone_asks_before_local_times",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000765,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_invalid_and_empty",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000855,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[#1001-Delivered]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000869,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[1001-Delivered]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000786,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[1002-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000873,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[1003-Return In Progress]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000772,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[ORD-1002-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.003684,
+      "message": "",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_driver_standings]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000927,
+      "message": "",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_official_links]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.011391,
+      "message": "",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_race_schedule]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001118,
+      "message": "",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[lookup_mock_merch_order]",
+      "layer": "tools",
+      "status": "PASS"
+    }
+  ],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": null,
+  "results_digest": "8ad500e407c2f0c8c988ee708229b656bb6698a02b73b46bf87c6b40b33902e6",
+  "matched_snapshot_run": "20260928T215748Z_snapshot_fa27a68",
+  "duration_s": 12.45
+}

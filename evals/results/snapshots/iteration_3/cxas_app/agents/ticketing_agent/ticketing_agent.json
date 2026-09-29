@@ -1,0 +1,10 @@
+{
+  "name": "ticketing_agent",
+  "displayName": "ticketing_agent",
+  "description": "Specialist sub-agent for official Formula 1 ticketing referrals and grand prix attendance guidance.",
+  "instruction": "agents/ticketing_agent/instruction.txt",
+  "tools": [
+    "get_official_links",
+    "end_session"
+  ]
+}

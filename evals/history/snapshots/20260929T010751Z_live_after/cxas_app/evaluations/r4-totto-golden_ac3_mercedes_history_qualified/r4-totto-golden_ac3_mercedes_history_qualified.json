@@ -1,0 +1,33 @@
+{
+  "name": "da0b36dd-a1d3-4255-97b9-babdabb14181",
+  "displayName": "r4-totto-golden_ac3_mercedes_history_qualified",
+  "tags": ["P0", "AC-3", "history", "general_knowledge", "goldens", "r4-totto"],
+  "golden": {
+    "turns": [{
+      "steps": [{
+        "userInput": {
+          "variables": {
+            "is_mock_mode": true,
+            "order_id": "1001",
+            "user_location": "London",
+            "user_timezone": "UTC"
+          }
+        }
+      }, {
+        "userInput": {
+          "text": "Tell me about Mercedes history in Formula 1 and their championship era."
+        }
+      }, {
+        "expectation": {
+          "agentResponse": {
+            "role": "agent",
+            "chunks": [{
+              "text": "Based on general Formula 1 knowledge rather than live race data, the Silver Arrows have a legendary history—from Juan Manuel Fangio\u0027s titles in 1954 and 1955 to winning eight consecutive Constructors\u0027 Championships from 2014 to 2021 in the turbo-hybrid era!"
+            }]
+          }
+        }
+      }]
+    }],
+    "evaluationExpectations": ["eval_exp_f3522ff9", "eval_exp_4beeec7e"]
+  }
+}

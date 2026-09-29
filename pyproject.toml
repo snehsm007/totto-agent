@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "totto-mercedes-f1-fan-agent"
+version = "1.0.0"
+description = "Totto, the Mercedes F1 Fan Agent (totto-mercedes-f1-fan-agent) for Google Cloud Customer Engagement Suite (GECX)"
+readme = "prd.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml>=6.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.pytest.ini_options]
+# Layer = directory name: tests/{tools,callbacks,config,dates,grader,regrade}/
+# are the offline agent layers (run via `python -m totto_suite offline`);
+# tests/selftest/ tests the suite itself; tests/legacy/ holds tests of the
+# superseded hill-climb harness and is only run when named explicitly.
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+norecursedirs = ["legacy", "fixtures", "__pycache__", ".*"]
+addopts = "--import-mode=importlib -p no:cacheprovider"
+markers = [
+    "finding(*ids): finding IDs (TR-xx, TB-x, RC-xx, NEW-x, PRD-ACx) a test covers",
+]

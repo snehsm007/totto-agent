@@ -1,0 +1,36 @@
+name: Deploy & Evaluate on GECX — Totto Mercedes F1 Fan Agent
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force_overwrite:
+        description: "Allow overwriting cloud console drift"
+        required: false
+        default: "0"
+
+jobs:
+  deploy-and-eval:
+    name: Diff-Check, Lint & Evaluate Totto Agent
+    runs-on: ubuntu-latest
+    env:
+      ENV: dev-totto-gecx
+      MODE: offline
+      FORCE_OVERWRITE: ${{ github.event.inputs.force_overwrite || '0' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pre-Push Pull-Diff Guard
+        run: python3 scripts/diff_check.py --mode offline
+
+      - name: Run Local Unit & Holdout Verification Gate
+        run: |
+          pytest -q
+          python3 scripts/local_eval_runner.py --output evals/results/summary.json

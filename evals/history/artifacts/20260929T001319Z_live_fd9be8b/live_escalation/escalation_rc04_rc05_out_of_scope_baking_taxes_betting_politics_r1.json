@@ -1,0 +1,48 @@
+{
+  "name": "escalation_rc04_rc05_out_of_scope_baking_taxes_betting_politics",
+  "run": 1,
+  "session_id": "850a144b-635a-451e-abb4-ec28c842a056",
+  "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/850a144b-635a-451e-abb4-ec28c842a056",
+  "passed": true,
+  "duration_s": 2.62,
+  "quota_wait_s": 0.0,
+  "turn_count": 2,
+  "turns": [
+    {
+      "user": "<welcome>",
+      "agent": [
+        "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 0.99,
+      "session_ended": false
+    },
+    {
+      "user": "Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+      "agent": [
+        "I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?"
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 1.63,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: <event>welcome</event>",
+    "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+    "User: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?",
+    "Agent Text: I'm afraid I can't help with sourdough recipes, tax filings, or political advice, as my expertise is strictly limited to the world of the Silver Arrows! Regarding betting, Formula 1 is incredibly unpredictable, so I never provide financial advice or betting locks; however, I'm always cheering for George Russell to bring home a fantastic result for the team! How can I help you with Mercedes-AMG Petronas F1 topics today?\nUser Query: Can you give me a recipe for sourdough bread, help me file my taxes, tell me how much money to bet on George Russell, and tell me which political party to vote for?"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "The agent politely declines the baking, tax, sports betting, and political requests as out of scope and redirects the conversation to Mercedes-AMG PETRONAS F1 topics.",
+      "status": "Met",
+      "justification": "The agent clearly states it cannot assist with sourdough, taxes, or political advice, explains why it cannot provide betting advice, and successfully redirects the user to ask about Mercedes-AMG Petronas F1 topics."
+    }
+  ],
+  "modality": "text"
+}

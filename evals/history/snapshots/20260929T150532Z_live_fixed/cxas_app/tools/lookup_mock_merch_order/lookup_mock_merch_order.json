@@ -1,0 +1,15 @@
+{
+  "name": "d1111111-2222-3333-4444-555555555553",
+  "pythonFunction": {
+    "name": "lookup_mock_merch_order",
+    "pythonCode": "tools/lookup_mock_merch_order/python_function/python_code.py",
+    "description": "Looks up a mocked Mercedes F1 merchandise order by order number.\n\nArgs:\n    order_id: 4-digit mock order number (e.g. \u00271001\u0027, \u00271002\u0027, \u00271003\u0027, or \u00279999\u0027).\n\nReturns:\n    Dictionary with mocked order status, return/exchange/damaged-item policies, and mock disclosure."
+  },
+  "executionType": "SYNCHRONOUS",
+  "displayName": "lookup_mock_merch_order",
+  "toolFakeConfig": {
+    "codeBlock": {
+      "pythonCode": "tools/lookup_mock_merch_order/tool_fake_config/code_block/python_code.py"
+    }
+  }
+}

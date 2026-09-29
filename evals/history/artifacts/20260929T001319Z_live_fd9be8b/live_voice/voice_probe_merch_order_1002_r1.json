@@ -1,0 +1,113 @@
+{
+  "name": "voice_probe_merch_order_1002",
+  "run": 1,
+  "session_id": "9e9ae90c-1fa0-4872-85c5-7da1c455877f",
+  "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/9e9ae90c-1fa0-4872-85c5-7da1c455877f",
+  "passed": true,
+  "duration_s": 73.06,
+  "quota_wait_s": 0.0,
+  "turn_count": 1,
+  "turns": [
+    {
+      "user": "Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+      "agent": [
+        "Hello! In our simulated demo system, your order #1002 for the Mercedes F1 W17 Kimi Antonelli #12 Graphic T-Shirt is currently **In Transit** via FedEx Ground (tracking: FX-MB-771923) and should arrive within 2 business days.\n\nTo pick up another official team cap, you can head straight to the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com), and for British Grand Prix tickets, please visit the [Official Formula 1 Tickets](https://tickets.formula1.com) portal for the latest availability. Just a reminder that this order data is mocked for our demonstration, and I provide official links for your convenience as I don't process real transactions!"
+      ],
+      "tools": [
+        {
+          "name": "lookup_mock_merch_order",
+          "args": {
+            "order_id": "1002"
+          }
+        },
+        {
+          "name": "get_official_links",
+          "args": {
+            "category": "all"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "lookup_mock_merch_order",
+          "response": {
+            "result": {
+              "found": true,
+              "is_mock_data": true,
+              "order_id": "1002",
+              "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+              "order": {
+                "order_id": "1002",
+                "is_mock_data": true,
+                "estimated_delivery": "Within 2 business days",
+                "damaged_item_policy": "If the item arrives damaged, report order #1002 for an instant mocked replacement dispatch.",
+                "quantity": 2.0,
+                "product_availability": "In Stock across sizes S, M, L, XL, XXL",
+                "return_window": "30 days after delivery",
+                "carrier": "FedEx Ground",
+                "tracking_number": "FX-MB-771923",
+                "item": "Mercedes F1 W17 Kimi Antonelli #12 Graphic T-Shirt (Size L)",
+                "return_eligible": true,
+                "status": "In Transit",
+                "exchange_policy": "Size exchanges (S, M, L, XL, XXL) can be initiated as soon as the parcel arrives.",
+                "is_mock": true,
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+              },
+              "status": "success",
+              "is_mock": true,
+              "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+            }
+          }
+        },
+        {
+          "name": "get_official_links",
+          "response": {
+            "result": {
+              "category": "all",
+              "status": "success",
+              "result": {
+                "url": "https://tickets.formula1.com",
+                "title": "Official Formula 1 Tickets",
+                "guidance": "Visit the official Formula 1 ticketing portal for live seat availability, grandstand pricing, general admission, and hospitality packages. Totto cannot check live seat inventory, quote prices, or book tickets directly."
+              },
+              "agent_action": "PROVIDE_OFFICIAL_LINKS",
+              "links": {
+                "merch": {
+                  "url": "https://shop.mercedesamgf1.com",
+                  "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                  "guidance": "Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store."
+                },
+                "ticketing": {
+                  "url": "https://tickets.formula1.com",
+                  "title": "Official Formula 1 Tickets",
+                  "guidance": "Visit the official Formula 1 ticketing portal for live seat availability, grandstand pricing, general admission, and hospitality packages. Totto cannot check live seat inventory, quote prices, or book tickets directly."
+                },
+                "team": {
+                  "url": "https://www.mercedesamgf1.com",
+                  "title": "Mercedes-AMG Petronas F1 Official Hub",
+                  "guidance": "Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates."
+                }
+              },
+              "non_transactional_disclaimer": "Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise."
+            }
+          }
+        }
+      ],
+      "transfer": "merch_support_agent",
+      "latency_s": 73.05,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+    "Agent Text: Hello! In our simulated demo system, your order #1002 for the Mercedes F1 W17 Kimi Antonelli #12 Graphic T-Shirt is currently **In Transit** via FedEx Ground (tracking: FX-MB-771923) and should arrive within 2 business days.\n\nTo pick up another official team cap, you can head straight to the [Official Mercedes-AMG Petronas F1 Team Store](https://shop.mercedesamgf1.com), and for British Grand Prix tickets, please visit the [Official Formula 1 Tickets](https://tickets.formula1.com) portal for the latest availability. Just a reminder that this order data is mocked for our demonstration, and I provide official links for your convenience as I don't process real transactions!\nUser Query: Hi Toto can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1002'}\nTool Call: get_official_links with args {'category': 'all'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': True, 'is_mock_data': True, 'order_id': '1002', 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'order': {'order_id': '1002', 'is_mock_data': True, 'estimated_delivery': 'Within 2 business days', 'damaged_item_policy': 'If the item arrives damaged, report order #1002 for an instant mocked replacement dispatch.', 'quantity': 2.0, 'product_availability': 'In Stock across sizes S, M, L, XL, XXL', 'return_window': '30 days after delivery', 'carrier': 'FedEx Ground', 'tracking_number': 'FX-MB-771923', 'item': 'Mercedes F1 W17 Kimi Antonelli #12 Graphic T-Shirt (Size L)', 'return_eligible': True, 'status': 'In Transit', 'exchange_policy': 'Size exchanges (S, M, L, XL, XXL) can be initiated as soon as the parcel arrives.', 'is_mock': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.'}, 'status': 'success', 'is_mock': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.'}}\nTool Response: get_official_links with result {'result': {'category': 'all', 'status': 'success', 'result': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability, grandstand pricing, general admission, and hospitality packages. Totto cannot check live seat inventory, quote prices, or book tickets directly.'}, 'agent_action': 'PROVIDE_OFFICIAL_LINKS', 'links': {'merch': {'url': 'https://shop.mercedesamgf1.com', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'guidance': 'Explore official Silver Arrows teamwear, George Russell #63 and Kimi Antonelli #12 driver caps, hoodies, and collectibles on the official store.'}, 'ticketing': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability, grandstand pricing, general admission, and hospitality packages. Totto cannot check live seat inventory, quote prices, or book tickets directly.'}, 'team': {'url': 'https://www.mercedesamgf1.com', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news, race debriefs, and fan club updates.'}}, 'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell, reserve, price, or process payments for tickets or merchandise.'}}"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "The agent checks order 1002 (In Transit), discloses it is a mock demo, and mentions the official store or ticketing links.",
+      "status": "Met",
+      "justification": "The agent successfully retrieved order 1002, confirmed its status as 'In Transit', clearly stated that the data was mocked for demonstration purposes, and provided direct links to both the official Mercedes-AMG Petronas F1 Team Store and the Formula 1 ticket portal."
+    }
+  ],
+  "modality": "audio"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "f5d84f97-98e7-4a6a-bcc5-02d9bb89d2c9",
+  "displayName": "r4-totto-golden_official_mercedes_links",
+  "tags": ["P0", "links", "official_guidance", "goldens", "r4-totto"],
+  "golden": {
+    "turns": [{
+      "steps": [{
+        "userInput": {
+          "variables": {
+            "is_mock_mode": true,
+            "order_id": "1001",
+            "user_location": "London",
+            "user_timezone": "UTC"
+          }
+        }
+      }, {
+        "userInput": {
+          "text": "Where can I find the official Mercedes F1 team website and official merch store?"
+        }
+      }, {
+        "expectation": {
+          "agentResponse": {
+            "role": "agent",
+            "chunks": [{
+              "text": "You can visit the official Mercedes-AMG PETRONAS F1 Team portal at https://www.mercedesamgf1.com and shop official team gear at https://shop.mercedesamgf1.com!"
+            }]
+          }
+        }
+      }, {
+        "expectation": {
+          "toolCall": {
+            "id": "adk-4f85f41c-3bf6-4860-a1cd-64ff28e8e462",
+            "tool": "get_official_links",
+            "args": {
+              "category": {
+                "$matchType": "ignore",
+                "$matchValue": "all",
+                "$originalValue": "all"
+              }
+            },
+            "displayName": "get_official_links"
+          }
+        }
+      }]
+    }],
+    "evaluationExpectations": ["eval_exp_37741d4a"]
+  }
+}

@@ -1,0 +1,24 @@
+probes:
+  - name: "voice_probe_next_race_and_standings"
+    description: "Voice caller asks for next race and championship standings; response must be concise, spoken-friendly, and free of emojis/markdown."
+    variables:
+      user_timezone: "UTC"
+      user_location: "London"
+      is_mock_mode: true
+    turns:
+      - "Hey Totto, I am driving right now. When is the next Formula 1 race and how are George Russell and Kimi Antonelli doing in the championship standings?"
+    expectations:
+      - "The agent answers when the next Formula 1 race is and summarizes the Mercedes standings clearly for a voice listener."
+
+  - name: "voice_probe_merch_order_1002"
+    description: "Voice caller asks for status of order 1002 and official store link; response should be brief and natural when read aloud."
+    variables:
+      user_timezone: "UTC"
+      user_location: "London"
+      order_id: "1002"
+      is_mock_mode: true
+    turns:
+      - "Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?"
+    expectations:
+      - "The agent checks order 1002 (In Transit), discloses it is a mock demo, and mentions the official store or ticketing links."
+

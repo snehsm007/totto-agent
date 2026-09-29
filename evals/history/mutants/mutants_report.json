@@ -1,0 +1,1263 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-29T14:48:40Z",
+  "source_app_dir": "cxas_app",
+  "baseline_summary": {
+    "layers": [
+      "tools",
+      "callbacks",
+      "config",
+      "lint"
+    ],
+    "total_scenarios": 177,
+    "passed": 177,
+    "failed": 0,
+    "duration_sec": 8.486
+  },
+  "summary": {
+    "total_mutants": 11,
+    "killed": 11,
+    "survived": 0,
+    "kill_rate": 1.0,
+    "by_category": {
+      "tools": {
+        "total": 5,
+        "killed": 5,
+        "survived": 0
+      },
+      "callbacks": {
+        "total": 2,
+        "killed": 2,
+        "survived": 0
+      },
+      "config": {
+        "total": 4,
+        "killed": 4,
+        "survived": 0
+      }
+    }
+  },
+  "mutants": [
+    {
+      "mutant_id": "mutant_tr08_standings_both_alias",
+      "category": "tools",
+      "taxonomy_ids": [
+        "TR-08"
+      ],
+      "target_files": [
+        "tools/get_driver_standings/python_function/python_code.py"
+      ],
+      "layers_checked": [
+        "tools"
+      ],
+      "description": "Remove 'both' -> 'all' category alias from get_driver_standings so category='both' raises an invalid category error.",
+      "killed": true,
+      "killed_by_count": 1,
+      "killed_by_scenarios": [
+        "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[both]"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[both]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'error' == 'success'",
+          "findings": [
+            "TR-08",
+            "PRD-AC2"
+          ]
+        }
+      ],
+      "duration_sec": 1.944
+    },
+    {
+      "mutant_id": "mutant_tb03_unknown_race_fallback",
+      "category": "tools",
+      "taxonomy_ids": [
+        "TB-3"
+      ],
+      "target_files": [
+        "tools/get_race_schedule/python_function/python_code.py"
+      ],
+      "layers_checked": [
+        "tools"
+      ],
+      "description": "Fall back to meetings[0] (Australian GP) when _select_meeting receives an unknown race query instead of returning None/UNKNOWN_RACE.",
+      "killed": true,
+      "killed_by_count": 7,
+      "killed_by_scenarios": [
+        "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-payload]",
+        "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-snapshot]",
+        "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-payload]",
+        "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-snapshot]",
+        "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-payload]",
+        "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-snapshot]",
+        "tools::test_tools.py::test_get_race_schedule_empty_and_unknown_query_error"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-payload]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Atlantis Grand Prix' -> success Australian Grand Prix",
+          "findings": [
+            "TB-3"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-snapshot]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Atlantis Grand Prix' -> success Australian Grand Prix",
+          "findings": [
+            "TB-3"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-payload]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Moon Grand Prix' -> success Australian Grand Prix",
+          "findings": [
+            "TB-3"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-snapshot]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Moon Grand Prix' -> success Australian Grand Prix",
+          "findings": [
+            "TB-3"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-payload]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Portuguese Grand Prix' -> success Australian Grand Prix",
+          "findings": [
+            "TB-3"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-snapshot]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Portuguese Grand Prix' -> success Australian Grand Prix",
+          "findings": [
+            "TB-3"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_empty_and_unknown_query_error",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'success' == 'error'",
+          "findings": [
+            "TB-3"
+          ]
+        }
+      ],
+      "duration_sec": 1.824
+    },
+    {
+      "mutant_id": "mutant_tr10_broken_timezone_dst",
+      "category": "tools",
+      "taxonomy_ids": [
+        "TR-10"
+      ],
+      "target_files": [
+        "tools/get_race_schedule/python_function/python_code.py"
+      ],
+      "layers_checked": [
+        "tools"
+      ],
+      "description": "Bypass dt_utc.astimezone(tz_obj) in get_race_schedule so local_start stays in UTC across DST and timezone conversions.",
+      "killed": true,
+      "killed_by_count": 27,
+      "killed_by_scenarios": [
+        "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[British Grand Prix-Silverstone-Sydney-Qualifying-2026-07-04T15:00-01:00-AEST-Sunday]",
+        "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Qualifying-2026-10-31T21:00-17:00-EDT-Saturday]",
+        "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Race-2026-11-01T20:00-15:00-EST-Sunday]",
+        "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Singapore Grand Prix-Marina Bay-Sydney-Race-2026-10-11T12:00-23:00-AEDT-Sunday]",
+        "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Qualifying-2026-10-24T21:00-22:00-BST-Saturday]",
+        "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Race-2026-10-25T20:00-20:00-GMT-Sunday]",
+        "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Honolulu-Pacific/Honolulu-03:00]",
+        "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Kathmandu-Asia/Kathmandu-18:45]",
+        "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Nairobi-Africa/Nairobi-16:00]",
+        "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
+        "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[America/New_York-09:00 EDT (New York)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Australia/Sydney-00:00 AEDT (Sydney)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Berlin, Germany-15:00 CEST (Berlin)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[EST-09:00 EDT (New York)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Europe/London-14:00 BST (London)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[I'm watching from New York, Eastern Time-09:00 EDT (New York)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[JST-22:00 JST (Tokyo)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney, Australia-00:00 AEDT (Sydney)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney-00:00 AEDT (Sydney)-False]",
+        "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Tokyo, Japan-22:00 JST (Tokyo)-False]",
+        "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[British Grand Prix-Sydney, Australia-British Grand Prix]",
+        "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Auckland-Pacific/Auckland-NZDT (Auckland)]",
+        "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Mumbai-Asia/Kolkata-IST (Mumbai)]",
+        "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[S\\xe3o Paulo-America/Sao_Paulo-BRT (Sao Paulo)]",
+        "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Toronto-America/Toronto-EDT (Toronto)]",
+        "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Vienna-Europe/Vienna-CEST (Vienna)]"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[British Grand Prix-Silverstone-Sydney-Qualifying-2026-07-04T15:00-01:00-AEST-Sunday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: Qualifying 2026-07-04T15:00Z in Sydney: 15:00 UTC (Sydney)",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Qualifying-2026-10-31T21:00-17:00-EDT-Saturday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: Qualifying 2026-10-31T21:00Z in New York: 21:00 UTC (New York)",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Race-2026-11-01T20:00-15:00-EST-Sunday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: Race 2026-11-01T20:00Z in New York: 20:00 UTC (New York)",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Singapore Grand Prix-Marina Bay-Sydney-Race-2026-10-11T12:00-23:00-AEDT-Sunday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: Race 2026-10-11T12:00Z in Sydney: 12:00 UTC (Sydney)",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Qualifying-2026-10-24T21:00-22:00-BST-Saturday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: Qualifying 2026-10-24T21:00Z in London: 21:00 UTC (London)",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Race-2026-10-25T20:00-20:00-GMT-Sunday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: Race 2026-10-25T20:00Z in London: 20:00 UTC (London)",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Honolulu-Pacific/Honolulu-03:00]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert False",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Kathmandu-Asia/Kathmandu-18:45]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert False",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Nairobi-Africa/Nairobi-16:00]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert False",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: {'session': 'Qualifying', 'day': 'Saturday', 'local_day': 'Saturday', 'date_utc': '2026-10-03', ...}",
+          "findings": [
+            "TR-10",
+            "TB-2",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Sunday', 'local_day': 'Sunday', 'date_utc': '2026-10-04', ...}",
+          "findings": [
+            "TR-10",
+            "TB-2",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[America/New_York-09:00 EDT (New York)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (New York)' == '09:00 EDT (New York)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Australia/Sydney-00:00 AEDT (Sydney)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (Sydney)' == '00:00 AEDT (Sydney)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Berlin, Germany-15:00 CEST (Berlin)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (Berlin)' == '15:00 CEST (Berlin)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[EST-09:00 EDT (New York)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (New York)' == '09:00 EDT (New York)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Europe/London-14:00 BST (London)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (London)' == '14:00 BST (London)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[I'm watching from New York, Eastern Time-09:00 EDT (New York)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (New York)' == '09:00 EDT (New York)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[JST-22:00 JST (Tokyo)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (Tokyo)' == '22:00 JST (Tokyo)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney, Australia-00:00 AEDT (Sydney)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (Sydney)' == '00:00 AEDT (Sydney)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney-00:00 AEDT (Sydney)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (Sydney)' == '00:00 AEDT (Sydney)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Tokyo, Japan-22:00 JST (Tokyo)-False]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '13:00 UTC (Tokyo)' == '22:00 JST (Tokyo)'",
+          "findings": [
+            "TR-10",
+            "PRD-AC7"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[British Grand Prix-Sydney, Australia-British Grand Prix]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'AEST (Sydney)' in '15:00 UTC (Sydney)'",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Auckland-Pacific/Auckland-NZDT (Auckland)]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'NZDT (Auckland)' in 'Pacific/Auckland (UTC (Auckland))'",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Mumbai-Asia/Kolkata-IST (Mumbai)]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'IST (Mumbai)' in 'Asia/Kolkata (UTC (Mumbai))'",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[S\\xe3o Paulo-America/Sao_Paulo-BRT (Sao Paulo)]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'BRT (Sao Paulo)' in 'America/Sao_Paulo (UTC (Sao Paulo))'",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Toronto-America/Toronto-EDT (Toronto)]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'EDT (Toronto)' in 'America/Toronto (UTC (Toronto))'",
+          "findings": [
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Vienna-Europe/Vienna-CEST (Vienna)]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'CEST (Vienna)' in 'Europe/Vienna (UTC (Vienna))'",
+          "findings": [
+            "TR-10"
+          ]
+        }
+      ],
+      "duration_sec": 1.929
+    },
+    {
+      "mutant_id": "mutant_rc01_missing_merch_store_link",
+      "category": "tools",
+      "taxonomy_ids": [
+        "RC-01"
+      ],
+      "target_files": [
+        "tools/get_official_links/python_function/python_code.py"
+      ],
+      "layers_checked": [
+        "tools"
+      ],
+      "description": "Replace official https://shop.mercedesamgf1.com URL with broken URL and remove 'store'/'shop' aliases in get_official_links.",
+      "killed": true,
+      "killed_by_count": 12,
+      "killed_by_scenarios": [
+        "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[None]",
+        "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[]",
+        "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[all]",
+        "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[both]",
+        "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[SHOP]",
+        "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[Store ]",
+        "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merch]",
+        "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merchandise]",
+        "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[shop]",
+        "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[store]",
+        "tools::test_tools.py::test_get_official_links_valid_categories[merch-https://shop.mercedesamgf1.com]",
+        "tools::test_tools.py::test_get_official_links_valid_categories[store-https://shop.mercedesamgf1.com]"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[None]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert {'https://sho...desamgf1.com'} <= {'https://inv...desamgf1.com'}",
+          "findings": [
+            "RC-01",
+            "PRD-AC4",
+            "PRD-L31",
+            "PRD-L158"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert {'https://sho...desamgf1.com'} <= {'https://inv...desamgf1.com'}",
+          "findings": [
+            "RC-01",
+            "PRD-AC4",
+            "PRD-L31",
+            "PRD-L158"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[all]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert {'https://sho...desamgf1.com'} <= {'https://inv...desamgf1.com'}",
+          "findings": [
+            "RC-01",
+            "PRD-AC4",
+            "PRD-L31",
+            "PRD-L158"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[both]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert {'https://sho...desamgf1.com'} <= {'https://inv...desamgf1.com'}",
+          "findings": [
+            "RC-01",
+            "PRD-AC4",
+            "PRD-L31",
+            "PRD-L158"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[SHOP]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: {'status': 'error', 'agent_action': 'EXPLAIN_INVALID_CATEGORY', 'error_message': \"Unknown link category 'SHOP'. Valid categories are: ticketing, merch, team, all.\"}",
+          "findings": [
+            "RC-01",
+            "PRD-L132"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[Store ]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: {'status': 'error', 'agent_action': 'EXPLAIN_INVALID_CATEGORY', 'error_message': \"Unknown link category 'Store '. Valid categories are: ticketing, merch, team, all.\"}",
+          "findings": [
+            "RC-01",
+            "PRD-L132"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merch]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'https://inva...n-merch-store' == 'https://shop...edesamgf1.com'",
+          "findings": [
+            "RC-01",
+            "PRD-L132"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merchandise]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'https://inva...n-merch-store' == 'https://shop...edesamgf1.com'",
+          "findings": [
+            "RC-01",
+            "PRD-L132"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[shop]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: {'status': 'error', 'agent_action': 'EXPLAIN_INVALID_CATEGORY', 'error_message': \"Unknown link category 'shop'. Valid categories are: ticketing, merch, team, all.\"}",
+          "findings": [
+            "RC-01",
+            "PRD-L132"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[store]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: {'status': 'error', 'agent_action': 'EXPLAIN_INVALID_CATEGORY', 'error_message': \"Unknown link category 'store'. Valid categories are: ticketing, merch, team, all.\"}",
+          "findings": [
+            "RC-01",
+            "PRD-L132"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_official_links_valid_categories[merch-https://shop.mercedesamgf1.com]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'https://inva...n-merch-store' == 'https://shop...edesamgf1.com'",
+          "findings": [
+            "PRD-AC4",
+            "RC-01"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_official_links_valid_categories[store-https://shop.mercedesamgf1.com]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'error' == 'success'",
+          "findings": [
+            "PRD-AC4",
+            "RC-01"
+          ]
+        }
+      ],
+      "duration_sec": 1.797
+    },
+    {
+      "mutant_id": "mutant_tr09_missing_freshness_disclaimer",
+      "category": "tools",
+      "taxonomy_ids": [
+        "TR-09",
+        "TB-1"
+      ],
+      "target_files": [
+        "tools/get_race_schedule/python_function/python_code.py"
+      ],
+      "layers_checked": [
+        "tools"
+      ],
+      "description": "Remove freshness_disclaimer text and overwrite data_source provenance in get_race_schedule responses.",
+      "killed": true,
+      "killed_by_count": 11,
+      "killed_by_scenarios": [
+        "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-empty]",
+        "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http429]",
+        "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http500]",
+        "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-malformed]",
+        "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-non_list]",
+        "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-timeout]",
+        "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults0]",
+        "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults1]",
+        "tools::test_race_schedule_defects.py::test_live_label_only_when_openf1_payload_was_served[get_race_schedule-kwargs0]",
+        "tools::test_race_schedule_defects.py::test_snapshot_data_is_labelled_snapshot_with_freshness_disclaimer[get_race_schedule-kwargs0]",
+        "tools::test_tools.py::test_get_race_schedule_without_timezone_asks_before_local_times"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-empty]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http429]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http500]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-malformed]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-non_list]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-timeout]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults0]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert ''",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults1]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert ''",
+          "findings": [
+            "RC-03",
+            "RC-09",
+            "TB-1"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_live_label_only_when_openf1_payload_was_served[get_race_schedule-kwargs0]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "TB-1",
+            "TR-09"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_race_schedule_defects.py::test_snapshot_data_is_labelled_snapshot_with_freshness_disclaimer[get_race_schedule-kwargs0]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: unknown",
+          "findings": [
+            "TB-1",
+            "TR-09",
+            "PRD-L114"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_get_race_schedule_without_timezone_asks_before_local_times",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'latest available' in ''",
+          "findings": [
+            "TR-09",
+            "PRD-AC7"
+          ]
+        }
+      ],
+      "duration_sec": 1.825
+    },
+    {
+      "mutant_id": "mutant_cb_order_id_regex",
+      "category": "callbacks",
+      "taxonomy_ids": [
+        "TR-01",
+        "PRD-AC5"
+      ],
+      "target_files": [
+        "agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py"
+      ],
+      "layers_checked": [
+        "callbacks"
+      ],
+      "description": "Break ORDER_ID_PATTERN regex in init_session_state so order IDs (ORD-xxxx, 1001-1005) are never extracted into session state.",
+      "killed": true,
+      "killed_by_count": 9,
+      "killed_by_scenarios": [
+        "callbacks::scrapi::totto_root_agent::test_init_session_state_extracts_order_id_from_user_event",
+        "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Bestellung 1002 ist nicht angekommen-1002]",
+        "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Can you check order number 1001?-1001]",
+        "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Meine Bestellnummer ist 1003-1003]",
+        "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[O\\xf9 en est ma commande 1003 ?-1003]",
+        "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido #1001?-1001]",
+        "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido n\\xfamero 1002?-1002]",
+        "callbacks::test_state_callbacks.py::test_init_session_state_keeps_known_order_and_updates_on_new_one",
+        "callbacks::test_state_callbacks.py::test_init_session_state_preserves_existing_session_parameters_and_extracts_order_id"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "callbacks::scrapi::totto_root_agent::test_init_session_state_extracts_order_id_from_user_event",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '' == '1002'",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC7",
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Bestellung 1002 ist nicht angekommen-1002]",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Bestellung 1002 ist nicht angekommen' -> order_id=''",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC6",
+            "PRD-L137"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Can you check order number 1001?-1001]",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Can you check order number 1001?' -> order_id=''",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC6",
+            "PRD-L137"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Meine Bestellnummer ist 1003-1003]",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'Meine Bestellnummer ist 1003' -> order_id=''",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC6",
+            "PRD-L137"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[O\\xf9 en est ma commande 1003 ?-1003]",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: 'O\u00f9 en est ma commande 1003 ?' -> order_id=''",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC6",
+            "PRD-L137"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido #1001?-1001]",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: '\u00bfD\u00f3nde est\u00e1 mi pedido #1001?' -> order_id=''",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC6",
+            "PRD-L137"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido n\\xfamero 1002?-1002]",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: '\u00bfD\u00f3nde est\u00e1 mi pedido n\u00famero 1002?' -> order_id=''",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC6",
+            "PRD-L137"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_keeps_known_order_and_updates_on_new_one",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '1002' == '1003'",
+          "findings": []
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_init_session_state_preserves_existing_session_parameters_and_extracts_order_id",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '' == '1002'",
+          "findings": []
+        }
+      ],
+      "duration_sec": 1.521
+    },
+    {
+      "mutant_id": "mutant_cb_sync_race_state_noop",
+      "category": "callbacks",
+      "taxonomy_ids": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "target_files": [
+        "agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py"
+      ],
+      "layers_checked": [
+        "callbacks"
+      ],
+      "description": "Short-circuit sync_race_state after_tool_callback to return None without persisting resolved user_timezone or last_queried_race.",
+      "killed": true,
+      "killed_by_count": 2,
+      "killed_by_scenarios": [
+        "callbacks::scrapi::race_info_agent::test_sync_race_state_persists_timezone_and_location",
+        "callbacks::test_state_callbacks.py::test_sync_race_state_persists_resolved_timezone"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "callbacks::scrapi::race_info_agent::test_sync_race_state_persists_timezone_and_location",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "KeyError: 'user_timezone'",
+          "findings": [
+            "PRD-AC5",
+            "PRD-AC7",
+            "TR-10"
+          ]
+        },
+        {
+          "scenario_id": "callbacks::test_state_callbacks.py::test_sync_race_state_persists_resolved_timezone",
+          "layer": "callbacks",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert '' == 'Australia/Sy...EDT (Sydney))'",
+          "findings": []
+        }
+      ],
+      "duration_sec": 1.833
+    },
+    {
+      "mutant_id": "mutant_tr01_prompt_stuffed_example",
+      "category": "config",
+      "taxonomy_ids": [
+        "TR-01"
+      ],
+      "target_files": [
+        "agents/merch_support_agent/instruction.txt"
+      ],
+      "layers_checked": [
+        "config"
+      ],
+      "description": "Inject hardcoded tracking number DHL-9928174 and literal eval probe user prompt into merch_support_agent <examples>.",
+      "killed": true,
+      "killed_by_count": 2,
+      "killed_by_scenarios": [
+        "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+        "config::test_agent_instructions_and_contracts.py::test_no_test_prompts_hardcoded_in_instruction_examples"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: merch_support_agent <examples> contains literal tracking number DHL-9928174 that causes hallucination",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-05"
+          ]
+        },
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_no_test_prompts_hardcoded_in_instruction_examples",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: instruction.txt contains literal test prompt: \"my cap from order 1001 arrived damaged. here's my card number 4111 1111 1111 1111 so you can charge express shipping on the replacement.\"",
+          "findings": []
+        }
+      ],
+      "duration_sec": 0.575
+    },
+    {
+      "mutant_id": "mutant_tr02_speak_phrase_in_tool_desc",
+      "category": "config",
+      "taxonomy_ids": [
+        "TR-02",
+        "TR-03"
+      ],
+      "target_files": [
+        "tools/get_race_schedule/get_race_schedule.json",
+        "tools/get_race_schedule/python_function/python_code.py",
+        "global_instruction.txt"
+      ],
+      "layers_checked": [
+        "config",
+        "tools"
+      ],
+      "description": "Add 'Speak a conversational pacing phrase before calling' to get_race_schedule description/docstring and drop Zero Raw Code rule.",
+      "killed": true,
+      "killed_by_count": 2,
+      "killed_by_scenarios": [
+        "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+        "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_race_schedule]"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "assert 'zero raw code in responses' in '<role>\\nglobal system instructions for all agents in **totto, mercedes f1 fan agent** (`developer-[your-gcp-project]-totto-a...e>\"\\n  **agent**: \"<response_written_100_percent_in_the_user_language_using_only_grounded_tool_output>\"\\n</examples>\\n'",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-03",
+            "TR-04",
+            "TR-05",
+            "TR-06"
+          ]
+        },
+        {
+          "scenario_id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_race_schedule]",
+          "layer": "tools",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: get_race_schedule docstring contains pacing phrase",
+          "findings": [
+            "TR-02",
+            "TR-03"
+          ]
+        }
+      ],
+      "duration_sec": 2.263
+    },
+    {
+      "mutant_id": "mutant_rc02_toto_impersonation_and_drop",
+      "category": "config",
+      "taxonomy_ids": [
+        "RC-02",
+        "RC-10",
+        "TR-04"
+      ],
+      "target_files": [
+        "agents/totto_root_agent/instruction.txt",
+        "agents/merch_support_agent/instruction.txt",
+        "global_instruction.txt"
+      ],
+      "layers_checked": [
+        "config"
+      ],
+      "description": "Overlay iteration_3 instruction regression (dropping Toto Wolff non-impersonation, live human escalation, and mock order disclosure) and remove Multilingual Continuity.",
+      "killed": true,
+      "killed_by_count": 4,
+      "killed_by_scenarios": [
+        "config::test_agent_instructions_and_contracts.py::test_all_agents_cover_no_live_human_escalation_policy",
+        "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+        "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+        "config::test_agent_instructions_and_contracts.py::test_instruction_mock_freshness_and_conciseness_rules"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_all_agents_cover_no_live_human_escalation_policy",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: global_instruction.txt and specialist agents ['merch_support_agent'] lack live human escalation handling instructions (RC-01, RC-02, RC-10)",
+          "findings": [
+            "RC-01",
+            "RC-02",
+            "RC-10"
+          ]
+        },
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: merch_support_agent <examples> contains literal tracking number DHL-9928174 that causes hallucination",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-05"
+          ]
+        },
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "assert 'multilingual continuity' in '<role>\\nglobal system instructions for all agents in **totto, mercedes f1 fan agent** (`developer-[your-gcp-project]-totto-a...e>\"\\n  **agent**: \"<response_written_100_percent_in_the_user_language_using_only_grounded_tool_output>\"\\n</examples>\\n'",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-03",
+            "TR-04",
+            "TR-05",
+            "TR-06"
+          ]
+        },
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_instruction_mock_freshness_and_conciseness_rules",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "assert ('simulated' in '<role>\\nyou are the **merchandise support specialist** (`merch_support_agent`) for **totto, mercedes f1 fan agent**, ...ice portal at `https://shop.mercedesamgf1.com`\u2014no **personal** or **credit card** details needed here!\"\\n</examples>\\n')",
+          "findings": [
+            "PRD-AC5",
+            "TR-09",
+            "NEW-2"
+          ]
+        }
+      ],
+      "duration_sec": 0.549
+    },
+    {
+      "mutant_id": "mutant_rc11_invalid_app_schema",
+      "category": "config",
+      "taxonomy_ids": [
+        "RC-11"
+      ],
+      "target_files": [
+        "app.json",
+        "agents/totto_root_agent/instruction.txt"
+      ],
+      "layers_checked": [
+        "lint",
+        "config"
+      ],
+      "description": "Add unknownInvalidSchemaField and broken rootAgent to app.json and reference nonexistent_ghost_tool in totto_root_agent instruction.",
+      "killed": true,
+      "killed_by_count": 3,
+      "killed_by_scenarios": [
+        "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+        "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+        "lint::cxas_lint"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: totto_root_agent references tools not in JSON: {'nonexistent_ghost_tool'}",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-05"
+          ]
+        },
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: assert 'nonexistent_root_agent' == 'totto_root_agent'",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-03",
+            "TR-04",
+            "TR-05",
+            "TR-06"
+          ]
+        },
+        {
+          "scenario_id": "lint::cxas_lint",
+          "layer": "lint",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "I009: {@TOOL: nonexistent_ghost_tool} references non-existent tool; I013: Instruction references {@TOOL: nonexistent_ghost_tool} but agent config does not list it; A006: rootAgent 'nonexistent_root_agent' specified in app.json does not exist under the agents/ directory; S002: Instruction references tool 'nonexistent_ghost_tool' but it's not in the agent's tool list.; V001: Proto schema validation failed: Message type \"google.cloud.ces.v1beta.App\" has no field named \"unknownInvalidSchemaField\" at \"App\".\n Available Fields(except extensions): \"['name', 'displayName', 'description', 'pinned', 'roo",
+          "findings": [
+            "TR-01",
+            "TR-02",
+            "TR-05"
+          ]
+        }
+      ],
+      "duration_sec": 3.694
+    }
+  ]
+}

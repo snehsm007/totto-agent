@@ -1,0 +1,55 @@
+{
+  "name": "turn_eval_race_info_schedule_and_standings",
+  "repeat": 1,
+  "session_id": "turn_eval_134bd06d",
+  "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/turn_eval_134bd06d",
+  "status": "PASS",
+  "duration_ms": 7433.67,
+  "rows": [
+    {
+      "test_name": "turn_eval_race_info_schedule_and_standings",
+      "turn": "turn_1_next_race",
+      "user": "When is the next Formula 1 race?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "race_info_agent",
+      "actual": "race_info_agent",
+      "session_id": "turn_eval_134bd06d",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_race_info_schedule_and_standings",
+      "turn": "turn_1_next_race",
+      "user": "When is the next Formula 1 race?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "get_race_schedule",
+      "actual": "['transfer_to_agent', 'get_race_schedule']",
+      "session_id": "turn_eval_134bd06d",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_race_info_schedule_and_standings",
+      "turn": "turn_2_driver_standings",
+      "user": "And how are the 2026 driver and constructor standings looking for Mercedes?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "get_driver_standings",
+      "actual": "['get_driver_standings']",
+      "session_id": "turn_eval_134bd06d",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_race_info_schedule_and_standings",
+      "turn": "turn_2_driver_standings",
+      "user": "And how are the 2026 driver and constructor standings looking for Mercedes?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "Mercedes",
+      "actual": "The Silver Arrows are absolutely flying in the latest 2026 standings! **Mercedes-AMG Petronas** leads the Constructors' Championship in **P1** with 538 points, following a brilliant win by George Russell in Baku and a dominant 1-2 finish at Monza.\n\nIn the Drivers' Championship, it's a Mercedes 1-2 at the top:\n*   **P1: Kimi Antonelli (#12)** leads with 302 points, including 8 wins and 12 podiums.\n*   **P2: George Russell (#63)** follows with 236 points, having secured 3 wins and 8 podiums so far.\n\nWe are currently ahead of Ferrari (378 pts) and McLaren (306 pts) as we head into the final stretch of the season!",
+      "session_id": "turn_eval_134bd06d",
+      "llm_results": ""
+    }
+  ],
+  "findings": []
+}

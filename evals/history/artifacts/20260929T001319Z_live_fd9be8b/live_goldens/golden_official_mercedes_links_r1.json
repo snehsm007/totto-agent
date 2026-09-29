@@ -1,0 +1,184 @@
+{
+  "display_name": "r4-totto-golden_official_mercedes_links",
+  "original_name": "golden_official_mercedes_links",
+  "repeat": 1,
+  "evaluation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/f5d84f97-98e7-4a6a-bcc5-02d9bb89d2c9",
+  "evaluation_run": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationRuns/37d19804-9ab4-416d-9224-839946df9ae2",
+  "evaluation_result": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/f5d84f97-98e7-4a6a-bcc5-02d9bb89d2c9/results/d5be4af2-df69-475f-ac14-244a0cf106c6",
+  "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/evaluation-25db8a4a-9ba7-42b5-a685-503b33cc8039",
+  "app_version": "b11332a0-b304-41e1-baac-57cd0ced05da",
+  "status": "PASS",
+  "findings": [],
+  "raw_result": {
+    "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/f5d84f97-98e7-4a6a-bcc5-02d9bb89d2c9/results/d5be4af2-df69-475f-ac14-244a0cf106c6",
+    "display_name": "Result 1 - 2026-09-29-00-20-05 - d5be4af2-df69-475f-ac14-244a0cf106c6",
+    "evaluation_status": 1,
+    "create_time": "2026-09-29T00:20:06.697620Z",
+    "evaluation_run": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationRuns/37d19804-9ab4-416d-9224-839946df9ae2",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/evaluation-25db8a4a-9ba7-42b5-a685-503b33cc8039",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "tool_call": {
+                  "id": "adk-4f85f41c-3bf6-4860-a1cd-64ff28e8e462",
+                  "tool": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/tools/d1111111-2222-3333-4444-555555555554",
+                  "args": {
+                    "category": {
+                      "$originalValue": "all",
+                      "$matchValue": "all",
+                      "$matchType": "ignore"
+                    }
+                  },
+                  "display_name": "get_official_links"
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_tool_call": {
+                "id": "adk-f0e2b8ce-7b36-47bb-b567-5d954501e388",
+                "tool": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/tools/d1111111-2222-3333-4444-555555555554",
+                "args": {
+                  "category": "all"
+                },
+                "display_name": "get_official_links"
+              },
+              "outcome": 1,
+              "tool_invocation_result": {
+                "parameter_correctness_score": 1.0,
+                "outcome": 1,
+                "explanation": "All parameters are ignored."
+              }
+            },
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "You can visit the official Mercedes-AMG PETRONAS F1 Team portal at https://www.mercedesamgf1.com and shop official team gear at https://shop.mercedesamgf1.com!"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "You can find the official Mercedes-AMG Petronas F1 Team hub at https://www.mercedesamgf1.com for all the latest news and race debriefs. For official teamwear, driver caps, and collectibles, head over to the official store at https://shop.mercedesamgf1.com."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": 1,
+            "label": "Justified",
+            "explanation": "\n\nJustification:\nAll the factual claims in the agent's response are directly supported by the output of the `get_official_links` tool.\n\n1.  **Team Website URL and Description**: The agent states the official hub is at `https://www.mercedesamgf1.com` for \"news and race debriefs.\" The tool output confirms this URL under `links.team.url` and the description in `links.team.guidance`.\n2.  **Merch Store URL and Description**: The agent states the official store is at `https://shop.mercedesamgf1.com` for \"official teamwear, driver caps, and collectibles.\" The tool output confirms this URL under `links.merch.url` and the description in `links.merch.guidance`.\n\nThe agent accurately summarizes the information provided by the tool without adding any unverified facts."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "3.226s",
+          "tool_call_latencies": [
+            {
+              "tool": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/tools/d1111111-2222-3333-4444-555555555554",
+              "display_name": "get_official_links",
+              "start_time": "2026-09-29T00:20:09.985245Z",
+              "end_time": "2026-09-29T00:20:09.999933Z",
+              "execution_latency": "0.014688s"
+            }
+          ],
+          "semantic_similarity_result": {
+            "score": 4,
+            "label": "Fully Consistent",
+            "explanation": "The agent's actual response fully addresses the user's request for the official Mercedes F1 team website and merch store. Both responses provide the same two core pieces of information (main website and merch store) with their respective URLs. The actual response includes slightly more descriptive details about what can be found on each site, but this is an addition of detail rather than an omission or structural change, maintaining full consistency with the primary intent.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "overall_tool_invocation_result": {
+            "tool_invocation_score": 1.0,
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 1,
+              "resource": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/tools/d1111111-2222-3333-4444-555555555554",
+              "start_time": "2026-09-29T00:20:09.985245Z",
+              "end_time": "2026-09-29T00:20:09.999933Z",
+              "execution_latency": "0.014688s",
+              "display_name": "get_official_links"
+            },
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T00:20:09.338138Z",
+              "end_time": "2026-09-29T00:20:09.360520Z",
+              "execution_latency": "0.022382s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T00:20:09.361264Z",
+              "end_time": "2026-09-29T00:20:09.983314Z",
+              "execution_latency": "0.622050s",
+              "display_name": ""
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T00:20:10.000705Z",
+              "end_time": "2026-09-29T00:20:12.423332Z",
+              "execution_latency": "2.422627s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T00:20:12.424917Z",
+              "end_time": "2026-09-29T00:20:12.424979Z",
+              "execution_latency": "0.000062s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationExpectations/26693cf5-8402-4aa1-94db-5f1a066d9d31",
+          "prompt": "The agent provided the official Mercedes F1 website and official store URLs",
+          "outcome": 1,
+          "explanation": "The agent successfully provided both the official Mercedes F1 website URL (https://www.mercedesamgf1.com) and the official store URL (https://shop.mercedesamgf1.com) as requested by the user. The tool call also retrieved these specific links, which were then presented in the agent's final response."
+        }
+      ]
+    },
+    "initiated_by": "developer@example.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "golden_run_method": 2,
+    "changelog": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/changelogs/bd209dcf-9bd7-484e-aed0-1597ba1495b0",
+    "changelog_create_time": "2026-09-29T00:20:05.511501Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

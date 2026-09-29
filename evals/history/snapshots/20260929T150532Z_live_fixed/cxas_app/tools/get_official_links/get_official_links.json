@@ -1,0 +1,15 @@
+{
+  "name": "d1111111-2222-3333-4444-555555555554",
+  "pythonFunction": {
+    "name": "get_official_links",
+    "pythonCode": "tools/get_official_links/python_function/python_code.py",
+    "description": "Retrieves verified official links for Formula 1 ticketing, Mercedes F1 store, and team channels.\n\nArgs:\n    category: Link category (\u0027ticketing\u0027, \u0027merch\u0027, \u0027team\u0027, or \u0027all\u0027).\n\nReturns:\n    Dictionary containing verified official URLs and non-transactional guidance."
+  },
+  "executionType": "SYNCHRONOUS",
+  "displayName": "get_official_links",
+  "toolFakeConfig": {
+    "codeBlock": {
+      "pythonCode": "tools/get_official_links/tool_fake_config/code_block/python_code.py"
+    }
+  }
+}

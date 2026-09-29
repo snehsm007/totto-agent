@@ -1,0 +1,10 @@
+{
+  "name": "get_race_schedule",
+  "displayName": "get_race_schedule",
+  "executionType": "SYNCHRONOUS",
+  "pythonFunction": {
+    "name": "get_race_schedule",
+    "pythonCode": "tools/get_race_schedule/python_function/python_code.py",
+    "description": "Fetches Formula 1 race weekend schedules, session start times (Practice 1, Practice 2, Practice 3, Qualifying, Sprint, Grand Prix), circuit info, weather forecast, and Mercedes highlights. Before calling this tool, speak a brief conversational pacing phrase: Let me check the race schedule for you."
+  }
+}

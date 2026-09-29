@@ -1,0 +1,65 @@
+tests:
+  - name: "turn_eval_root_greeting_and_identity"
+    tags: ["root", "persona", "AC-8"]
+    user: "Hi there! Are you Toto Wolff, or who are you?"
+    variables:
+      user_timezone: "UTC"
+      user_location: "London"
+      is_mock_mode: true
+    expectations:
+      - type: contains
+        value: "Totto"
+      - type: no_tools_called
+
+  - name: "turn_eval_race_info_schedule_and_standings"
+    tags: ["race_info_agent", "AC-1", "AC-2"]
+    variables:
+      user_timezone: "UTC"
+      user_location: "London"
+      is_mock_mode: true
+    turns:
+      - turn: "turn_1_next_race"
+        user: "When is the next Formula 1 race?"
+        expectations:
+          - type: agent_transfer
+            value: "race_info_agent"
+          - type: tool_called
+            value: "get_race_schedule"
+      - turn: "turn_2_driver_standings"
+        user: "And how are the 2026 driver and constructor standings looking for Mercedes?"
+        expectations:
+          - type: tool_called
+            value: "get_driver_standings"
+          - type: contains
+            value: "Mercedes"
+
+  - name: "turn_eval_merch_support_order_1001"
+    tags: ["merch_support_agent", "AC-5"]
+    user: "Can you check the status of my merchandise order 1001?"
+    variables:
+      user_timezone: "UTC"
+      user_location: "Austin"
+      order_id: "1001"
+      is_mock_mode: true
+    expectations:
+      - type: agent_transfer
+        value: "merch_support_agent"
+      - type: tool_called
+        value: "lookup_mock_merch_order"
+      - type: contains
+        value: "Delivered"
+
+  - name: "turn_eval_ticketing_official_referral"
+    tags: ["ticketing_agent", "AC-4"]
+    user: "Where can I buy official Formula 1 tickets for the British Grand Prix at Silverstone?"
+    variables:
+      user_timezone: "UTC"
+      user_location: "Silverstone"
+      is_mock_mode: true
+    expectations:
+      - type: agent_transfer
+        value: "ticketing_agent"
+      - type: tool_called
+        value: "get_official_links"
+      - type: contains
+        value: "tickets.formula1.com"

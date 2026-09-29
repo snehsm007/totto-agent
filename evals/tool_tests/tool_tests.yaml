@@ -1,0 +1,213 @@
+tests:
+  - name: "test_get_race_schedule_default_utc"
+    tool: "get_race_schedule"
+    args:
+      race_query: "next"
+      user_timezone: "UTC"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.race_name"
+          operator: contains
+          value: "Singapore Grand Prix"
+        - path: "$.result.circuit_name"
+          operator: contains
+          value: "Marina Bay"
+        - path: "$.result.season"
+          operator: equals
+          value: 2026
+        - path: "$.result.needs_timezone_clarification"
+          operator: equals
+          value: true
+
+  - name: "test_get_race_schedule_localized_est"
+    tool: "get_race_schedule"
+    args:
+      race_query: "British Grand Prix"
+      user_timezone: "EST"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.race_name"
+          operator: contains
+          value: "British Grand Prix"
+        - path: "$.result.needs_timezone_clarification"
+          operator: equals
+          value: false
+        - path: "$.result.timezone_resolved"
+          operator: contains
+          value: "New York"
+        - path: "$.result.agent_action"
+          operator: equals
+          value: "SHARE_LOCALIZED_RACE_SCHEDULE"
+
+  - name: "test_get_race_schedule_sydney_aedt"
+    tool: "get_race_schedule"
+    args:
+      race_query: "Singapore Grand Prix"
+      user_timezone: "Sydney, Australia"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.needs_timezone_clarification"
+          operator: equals
+          value: false
+        - path: "$.result.timezone_resolved"
+          operator: contains
+          value: "Australia/Sydney"
+        - path: "$.result.agent_action"
+          operator: equals
+          value: "SHARE_LOCALIZED_RACE_SCHEDULE"
+
+  - name: "test_get_race_schedule_unseen_city_toronto"
+    tool: "get_race_schedule"
+    args:
+      race_query: "next"
+      user_timezone: "Toronto"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.user_timezone_resolved"
+          operator: equals
+          value: "America/Toronto"
+        - path: "$.result.needs_timezone_clarification"
+          operator: equals
+          value: false
+
+  - name: "test_get_driver_standings_mercedes_lead"
+    tool: "get_driver_standings"
+    args:
+      season: 2026
+      category: "all"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.constructors[0].team"
+          operator: contains
+          value: "Mercedes-AMG Petronas"
+        - path: "$.result.constructors[0].points"
+          operator: equals
+          value: 538
+        - path: "$.result.mercedes_drivers[0].name"
+          operator: equals
+          value: "Kimi Antonelli"
+        - path: "$.result.mercedes_drivers[1].name"
+          operator: equals
+          value: "George Russell"
+
+  - name: "test_get_driver_standings_category_both"
+    tool: "get_driver_standings"
+    args:
+      season: 2026
+      category: "both"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.constructors[0].team"
+          operator: contains
+          value: "Mercedes-AMG Petronas"
+        - path: "$.result.constructors[0].points"
+          operator: equals
+          value: 538
+
+  - name: "test_get_driver_standings_invalid_season"
+    tool: "get_driver_standings"
+    args:
+      season: 1920
+      category: "all"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "error"
+        - path: "$.result.agent_action"
+          operator: equals
+          value: "EXPLAIN_INVALID_SEASON"
+
+  - name: "test_lookup_mock_merch_order_delivered_1001"
+    tool: "lookup_mock_merch_order"
+    args:
+      order_id: "1001"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.found"
+          operator: equals
+          value: true
+        - path: "$.result.order.status"
+          operator: equals
+          value: "Delivered"
+        - path: "$.result.order.is_mock_data"
+          operator: equals
+          value: true
+        - path: "$.result.is_mock"
+          operator: equals
+          value: true
+
+  - name: "test_lookup_mock_merch_order_in_transit_1002"
+    tool: "lookup_mock_merch_order"
+    args:
+      order_id: "#1002"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.found"
+          operator: equals
+          value: true
+        - path: "$.result.order.status"
+          operator: equals
+          value: "In Transit"
+        - path: "$.result.is_mock_data"
+          operator: equals
+          value: true
+
+  - name: "test_lookup_mock_merch_order_not_found_9999"
+    tool: "lookup_mock_merch_order"
+    args:
+      order_id: "9999"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "error"
+        - path: "$.result.agent_action"
+          operator: equals
+          value: "OFFER_SAMPLE_ORDER_IDS"
+        - path: "$.result.found"
+          operator: equals
+          value: false
+        - path: "$.result.is_mock_data"
+          operator: equals
+          value: true
+
+  - name: "test_get_official_links_ticketing"
+    tool: "get_official_links"
+    args:
+      category: "ticketing"
+    expectations:
+      response:
+        - path: "$.result.status"
+          operator: equals
+          value: "success"
+        - path: "$.result.result.url"
+          operator: contains
+          value: "tickets.formula1.com"
+        - path: "$.result.agent_action"
+          operator: equals
+          value: "PROVIDE_OFFICIAL_LINKS"

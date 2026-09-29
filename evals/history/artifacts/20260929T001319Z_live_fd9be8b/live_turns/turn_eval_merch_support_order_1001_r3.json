@@ -1,0 +1,44 @@
+{
+  "name": "turn_eval_merch_support_order_1001",
+  "repeat": 3,
+  "session_id": "turn_eval_c30962df",
+  "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/turn_eval_c30962df",
+  "status": "PASS",
+  "duration_ms": 5348.07,
+  "rows": [
+    {
+      "test_name": "turn_eval_merch_support_order_1001",
+      "turn": "",
+      "user": "Can you check the status of my merchandise order 1001?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "merch_support_agent",
+      "actual": "merch_support_agent",
+      "session_id": "turn_eval_c30962df",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_merch_support_order_1001",
+      "turn": "",
+      "user": "Can you check the status of my merchandise order 1001?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "lookup_mock_merch_order",
+      "actual": "['transfer_to_agent', 'lookup_mock_merch_order']",
+      "session_id": "turn_eval_c30962df",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_merch_support_order_1001",
+      "turn": "",
+      "user": "Can you check the status of my merchandise order 1001?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "Delivered",
+      "actual": "In our simulated demo system, your order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nPlease note that this is a mock order lookup for demonstration purposes. If you need to make a return or exchange, you have a 30-day window for a free replacement or size exchange at the official store!",
+      "session_id": "turn_eval_c30962df",
+      "llm_results": ""
+    }
+  ],
+  "findings": []
+}

@@ -1,0 +1,12 @@
+{
+  "name": "c1111111-2222-3333-4444-555555555551",
+  "displayName": "totto_root_agent",
+  "description": "Root concierge for Totto, Mercedes F1 Fan Agent. Handles greetings, F1/Mercedes history, brand guardrails, official link referrals, multilingual responses, and silent specialist routing.",
+  "instruction": "agents/totto_root_agent/instruction.txt",
+  "tools": ["end_session", "get_official_links"],
+  "childAgents": ["merch_support_agent", "race_info_agent", "ticketing_agent"],
+  "beforeAgentCallbacks": [{
+    "pythonCode": "agents/totto_root_agent/before_agent_callbacks/before_agent_callbacks_01/python_code.py",
+    "description": "Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extracts order_id from user messages."
+  }]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "c1111111-2222-3333-4444-555555555553",
+  "displayName": "merch_support_agent",
+  "description": "Specialist sub-agent for mocked Mercedes F1 merchandise order lookups, returns, exchanges, product availability, and damaged-item support.",
+  "instruction": "agents/merch_support_agent/instruction.txt",
+  "tools": ["end_session", "get_official_links", "get_race_schedule", "lookup_mock_merch_order"],
+  "afterToolCallbacks": [{
+    "pythonCode": "agents/merch_support_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+    "description": "Persists looked-up order_id and is_mock_mode flag into session state after lookup_mock_merch_order."
+  }]
+}

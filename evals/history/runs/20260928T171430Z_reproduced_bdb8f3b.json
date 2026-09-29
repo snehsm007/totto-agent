@@ -1,0 +1,3670 @@
+{
+  "schema_version": 1,
+  "run_id": "20260928T171430Z_reproduced_bdb8f3b",
+  "mode": "reproduced",
+  "started_at": "2026-09-28T23:36:40Z",
+  "finished_at": "2026-09-28T23:36:40Z",
+  "point_time": "2026-09-28T17:14:30Z",
+  "imported": false,
+  "import_source": "git archive bdb8f3b:cxas_app + evals/results/state.json#iteration_1",
+  "agent": {
+    "commit": "bdb8f3b3cdf19e37853f287b2632ed90e39634a9",
+    "path": "cxas_app",
+    "tree_hash": "d5e9f4da2d9a35270f72cda10631e3e588fb81028be30978e9bfc2ad749d2f80",
+    "dirty": false,
+    "dirty_paths_relevant": [],
+    "dirty_paths_unrelated": []
+  },
+  "suite": {
+    "commit": "9c7fad521567bf300ee4a717bda7c6c50d32640f",
+    "dirty": true,
+    "dirty_paths": [
+      "totto_suite/backfill.py",
+      "totto_suite/deploy.py",
+      "totto_suite/gate.py",
+      "totto_suite/live/__init__.py",
+      "totto_suite/live/runner.py",
+      "totto_suite/mutants.py"
+    ]
+  },
+  "cxas": {
+    "app": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+    "version_id": null,
+    "version_status": "not_deployed",
+    "model": "gemini-2.5-flash",
+    "app_update_time": null,
+    "app_etag": null
+  },
+  "rationale": "Initial commit bdb8f3b: baseline multi-agent Totto scaffolding before PIF XML rewrite and OpenF1/Mercedes standings tools (reproduced offline + iteration 1 static checks 26/42)",
+  "layers": {
+    "callbacks": {
+      "pass": 0,
+      "fail": 30,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.0
+    },
+    "config": {
+      "pass": 4,
+      "fail": 6,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.4
+    },
+    "dates": {
+      "pass": 16,
+      "fail": 10,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.6154
+    },
+    "lint": {
+      "pass": 2,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "tools": {
+      "pass": 50,
+      "fail": 82,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.3788
+    }
+  },
+  "tests": [
+    {
+      "repeat": 1,
+      "duration_s": 0.455068,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py'",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::merch_support_agent::collection_error",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.455068,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py'",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::race_info_agent::collection_error",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.455068,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py'",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC7",
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::scrapi::totto_root_agent::collection_error",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000418,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[Go #SilverArrows, when is the next race?]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000696,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[In what order do the sessions run at Monza?]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000572,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[Is George Russell the #1 driver this year?]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000758,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-L137",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_does_not_invent_order_id_from_non_order_text[Who is P1 in the standings, #63 or #12?]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00057,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Bestellung 1002 ist nicht angekommen-1002]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000551,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Can you check order number 1001?-1001]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000584,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[Meine Bestellnummer ist 1003-1003]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00058,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[O\\xf9 en est ma commande 1003 ?-1003]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001499,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido #1001?-1001]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000649,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [
+        "PRD-AC5",
+        "PRD-AC6",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_extracts_order_id_from_multilingual_phrases[\\xbfD\\xf3nde est\\xe1 mi pedido n\\xfamero 1002?-1002]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000455,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_keeps_known_order_and_updates_on_new_one",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000472,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_preserves_existing_session_parameters_and_extracts_order_id",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000883,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_sets_defaults_when_missing",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000639,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_tolerates_missing_transcript[   ]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000445,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_tolerates_missing_transcript[None]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000425,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_init_session_state_tolerates_missing_transcript[]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000472,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_error_paths[tool_input0-tool_response0-1002]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000476,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_error_paths[tool_input1-tool_response1-9999]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000489,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_error_paths[tool_input2-tool_response2-1001]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00072,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_order_state_persists_normalized_order_id_and_mock_flag",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000473,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[None]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000506,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[UNKNOWN]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000617,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00066,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_does_not_overwrite_known_timezone_with_unknown[utc]",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000553,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_ignores_utc_clarification_response",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000464,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_persists_resolved_timezone",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000462,
+      "message": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: agent file missing in TOTTO_APP_DIR: <APP_DIR>/agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "callbacks::test_state_callbacks.py::test_sync_race_state_tolerates_error_response_and_missing_keys",
+      "layer": "callbacks",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000421,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "findings": [
+        "RC-01",
+        "RC-02",
+        "RC-10"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_all_agents_cover_no_live_human_escalation_policy",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002324,
+      "message": "",
+      "findings": [
+        "TR-01",
+        "TR-02",
+        "TR-05"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000749,
+      "message": "AssertionError: assert None == 'global_instruction.txt'",
+      "findings": [
+        "TR-01",
+        "TR-02",
+        "TR-03",
+        "TR-04",
+        "TR-05",
+        "TR-06"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert None == 'global_instruction.txt'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.058777,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_callbacks_synced_with_shared_imports",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000378,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "findings": [
+        "RC-06",
+        "RC-07",
+        "NEW-2"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_global_instruction_forbids_emojis_and_markdown_for_tts",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000375,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "findings": [
+        "NEW-3"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_global_or_root_instruction_enforces_pci_credit_card_refusal",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000491,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "findings": [
+        "PRD-AC5",
+        "TR-09",
+        "NEW-2"
+      ],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_instruction_mock_freshness_and_conciseness_rules",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.014892,
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": "FileNotFoundError: [Errno 2] No such file or directory: '<APP_DIR>/global_instruction.txt'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_no_test_prompts_hardcoded_in_instruction_examples",
+      "layer": "config",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.023565,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_public_evals_cover_all_9_prd_acceptance_criteria",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.037017,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "config::test_agent_instructions_and_contracts.py::test_secret_holdout_has_at_least_12_scenarios_across_4_buckets",
+      "layer": "config",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001386,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-5"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-04-01-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001466,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-5"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-04-01-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001448,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-07-01-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001656,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-07-01-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001487,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "TB-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001338,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "TB-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001544,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-10-05-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001518,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-10-05-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001331,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-12-31-payload]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001473,
+      "message": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "findings": [
+        "PRD-AC1",
+        "TR-09",
+        "NEW-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool has no datetime seam to freeze; test would depend on the real date",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-12-31-snapshot]",
+      "layer": "dates",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00029,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_meeting_status_and_naive_datetime_rejected",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000701,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-02-15T00:00:00-meeting-1279]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000724,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-03-08T05:59:59-meeting-1279]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000702,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-03-08T06:00:01-meeting-1280]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000684,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-04-01T00:00:00-meeting-1284]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000718,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-07-01T12:00:00-meeting-1289]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000729,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-09-28T12:00:00-meeting-1308]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000703,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-10-04T08:59:59-meeting-1308]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000719,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-10-04T09:00:01-meeting-1296]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000702,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-10-05T12:00:00-meeting-1296]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000721,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-12-06T14:59:59-meeting-1302]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000715,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-12-06T15:00:01-meeting-None]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000699,
+      "message": "",
+      "findings": [
+        "TB-2",
+        "NEW-1",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_at_hand_verified_instants[2026-12-31T12:00:00-meeting-None]",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000253,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_next_race_boundary_is_inclusive_at_date_end",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000283,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_rules_exclude_testing_and_cancelled_and_order_by_start",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000256,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "dates::test_oracle.py::test_sessions_define_race_meetings_when_given",
+      "layer": "dates",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.054494,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "lint::bundle_shared_imports",
+      "layer": "lint",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 2.609656,
+      "message": "",
+      "findings": [
+        "TR-01",
+        "TR-02",
+        "TR-05"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true,
+        "issue_count": 0
+      },
+      "judge": null,
+      "id": "lint::cxas_lint",
+      "layer": "lint",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00084,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000906,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00088,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[all]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001244,
+      "message": "AssertionError: assert 'error' == 'success'",
+      "findings": [
+        "RC-01",
+        "PRD-AC4",
+        "PRD-L31",
+        "PRD-L158"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'error' == 'success'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_all_links_include_every_official_destination_and_non_transactional_notice[both]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000914,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[1001]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000877,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[1002]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000833,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[1003]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00093,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[123456]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000867,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[9999]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001008,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000814,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L35",
+        "PRD-L162"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_every_merch_response_discloses_mock_data[]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000747,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[  1002  -True-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000759,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[#-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000675,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[1001; DROP TABLE orders-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000674,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[1002-True-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000812,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[123456-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00067,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[ABCD-False-None]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00283,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[Order #1001-True-Delivered]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000779,
+      "message": "",
+      "findings": [
+        "PRD-AC5",
+        "PRD-L137"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_lookup_mock_merch_order_arbitrary_inputs[order 1003-True-Return In Progress]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000737,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[SHOP]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000684,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[Store ]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00244,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merch]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000833,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[merchandise]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000645,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[shop]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000715,
+      "message": "",
+      "findings": [
+        "RC-01",
+        "PRD-L132"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_merch_store_aliases_return_official_store[store]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00096,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "PRD-L161"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_merch_and_links.py::test_ticket_link_guidance_claims_no_availability_or_price",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001228,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-empty]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001056,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http429]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001046,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-http500]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001035,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-malformed]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000969,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-non_list]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00291,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[schedule_next-timeout]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001135,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-empty]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001221,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-http429]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001112,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-http500]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001062,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-malformed]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001001,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-non_list]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.002683,
+      "message": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fault was never exercised: the tool made no OpenF1 request",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_openf1_fault_falls_back_to_labelled_snapshot[standings-timeout]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000892,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults0]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000906,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[schedule_next-faults1]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000753,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[standings-faults2]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000733,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "TB-1"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_partial_openf1_failure_never_mixes_live_label_with_fallback[standings-faults3]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001342,
+      "message": "AssertionError: season=2019 -> status=success, season=2019, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 285 pts)",
+      "findings": [
+        "NEW-4",
+        "PRD-L152",
+        "PRD-L153"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: season=2019 -> status=success, season=2019, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 285 pts)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_standings_for_other_season_never_returns_2026_data_as_that_season[2019]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001092,
+      "message": "AssertionError: season=2025 -> status=success, season=2025, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 285 pts)",
+      "findings": [
+        "NEW-4",
+        "PRD-L152",
+        "PRD-L153"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: season=2025 -> status=success, season=2025, but constructors are the 2026 table (P1 Mercedes-AMG Petronas F1 Team 285 pts)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_standings_for_other_season_never_returns_2026_data_as_that_season[2025]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001215,
+      "message": "KeyError: 'team_short_name'",
+      "findings": [
+        "TB-1",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'team_short_name'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_standings_from_openf1_payload_match_captured_tables",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000732,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_next-hang]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000726,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_next-slow]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000709,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_past_race-hang]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000948,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[schedule_past_race-slow]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000723,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[standings-hang]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000683,
+      "message": "",
+      "findings": [
+        "RC-03",
+        "RC-09",
+        "RC-08",
+        "PRD-L21"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_openf1_faults.py::test_worst_case_latency_with_hanging_openf1_stays_within_voice_budget[standings-slow]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000932,
+      "message": "AssertionError: weather not labelled typical: {'condition': 'Partly Cloudy with cool breeze', 'air_temp_c': 21, 'track_temp_c': 28, 'rain_probability': '35%'}",
+      "findings": [
+        "TB-4",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: weather not labelled typical: {'condition': 'Partly Cloudy with cool breeze', 'air_temp_c': 21, 'track_temp_c': 28, 'rain_probability': '35%'}",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_future_meeting_weather_is_labelled_typical_climatology",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001132,
+      "message": "AssertionError: fixed climatology profile is returned under key 'weather_forecast': {'condition': 'Partly Cloudy with cool breeze', 'air_temp_c': 21, 'track_temp_c': 28, 'rain_probability': '35%'}; the model reads it as a forecast",
+      "findings": [
+        "TB-4",
+        "PRD-L152",
+        "PRD-L153"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: fixed climatology profile is returned under key 'weather_forecast': {'condition': 'Partly Cloudy with cool breeze', 'air_temp_c': 21, 'track_temp_c': 28, 'rain_probability': '35%'}; the model reads it as a forecast",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_future_meeting_weather_is_never_presented_as_a_forecast",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00129,
+      "message": "AssertionError: 'Kuala Lumpur' -> success ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES British Grand Prix; OpenF1 has meeting 1308 Bahrain Grand Prix (2026-10-02)",
+      "findings": [
+        "TB-2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Kuala Lumpur' -> success ASK_USER_TIMEZONE_BEFORE_LOCAL_TIMES British Grand Prix; OpenF1 has meeting 1308 Bahrain Grand Prix (2026-10-02)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_kuala_lumpur_query_resolves_to_openf1_meeting",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000824,
+      "message": "AssertionError: tool never requested OpenF1",
+      "findings": [
+        "TB-1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool never requested OpenF1",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_live_label_only_when_openf1_payload_was_served[get_driver_standings-kwargs1]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000864,
+      "message": "AssertionError: tool never requested OpenF1",
+      "findings": [
+        "TB-1",
+        "TR-09"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: tool never requested OpenF1",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_live_label_only_when_openf1_payload_was_served[get_race_schedule-kwargs0]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001948,
+      "message": "AssertionError: next race at 2026-09-28: tool=British Grand Prix (meeting None, July 3 - July 5, 2026) but OpenF1 says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "findings": [
+        "TB-2",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: next race at 2026-09-28: tool=British Grand Prix (meeting None, July 3 - July 5, 2026) but OpenF1 says Bahrain Grand Prix in Kuala Lumpur (meeting 1308, 2026-10-02..2026-10-04)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_next_race_includes_kuala_lumpur_when_openf1_payload_contains_it",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001825,
+      "message": "AssertionError: {'condition': 'Partly Cloudy with cool breeze', 'air_temp_c': 21, 'track_temp_c': 28, 'rain_probability': '35%'}",
+      "findings": [
+        "TB-4"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: {'condition': 'Partly Cloudy with cool breeze', 'air_temp_c': 21, 'track_temp_c': 28, 'rain_probability': '35%'}",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_past_meeting_weather_comes_from_openf1_payload",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001784,
+      "message": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_past_race_is_flagged_as_completed[British Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001157,
+      "message": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "findings": [
+        "TB-5",
+        "TR-09",
+        "PRD-AC1"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: British Grand Prix (July 3 - July 5, 2026) ended 2026-07-05, before now=2026-09-28, but the result has no past/completed flag (keys: ['agent_action', 'circuit', 'circuit_name', 'data_source', 'dates', 'freshness_disclaimer', 'location', 'mercedes_highlights', 'needs_timezone_clarification', 'race_name', 'round', 'season', 'sessions', 'status', 'timezone_requested', 'timezone_resolved', 'weather_forecast']); the agent can present it as upcoming",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_past_race_is_flagged_as_completed[Silverstone]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000846,
+      "message": "AssertionError: OpenF1 Standings Feed (Sandbox Fixture)",
+      "findings": [
+        "TB-1",
+        "TR-09",
+        "PRD-L114"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: OpenF1 Standings Feed (Sandbox Fixture)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_snapshot_data_is_labelled_snapshot_with_freshness_disclaimer[get_driver_standings-kwargs1]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00096,
+      "message": "AssertionError: OpenF1 API (Cached/Simulated for Sandbox)",
+      "findings": [
+        "TB-1",
+        "TR-09",
+        "PRD-L114"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: OpenF1 API (Cached/Simulated for Sandbox)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_snapshot_data_is_labelled_snapshot_with_freshness_disclaimer[get_race_schedule-kwargs0]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001118,
+      "message": "AssertionError: 'Grand Prix in Spain' -> British Grand Prix in Silverstone, United Kingdom",
+      "findings": [
+        "TB-3",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Grand Prix in Spain' -> British Grand Prix in Silverstone, United Kingdom",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_spain_query_never_returns_a_race_in_another_country[Grand Prix in Spain]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001232,
+      "message": "AssertionError: 'Spain Grand Prix' -> British Grand Prix in Silverstone, United Kingdom",
+      "findings": [
+        "TB-3",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Spain Grand Prix' -> British Grand Prix in Silverstone, United Kingdom",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_spain_query_never_returns_a_race_in_another_country[Spain Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001222,
+      "message": "AssertionError: 'Spain' -> British Grand Prix in Silverstone, United Kingdom",
+      "findings": [
+        "TB-3",
+        "PRD-L152"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Spain' -> British Grand Prix in Silverstone, United Kingdom",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_spain_query_never_returns_a_race_in_another_country[Spain]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001271,
+      "message": "AssertionError: 'Atlantis Grand Prix' -> success British Grand Prix",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Atlantis Grand Prix' -> success British Grand Prix",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-payload]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001179,
+      "message": "AssertionError: 'Atlantis Grand Prix' -> success British Grand Prix",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Atlantis Grand Prix' -> success British Grand Prix",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Atlantis Grand Prix-snapshot]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001209,
+      "message": "AssertionError: 'Moon Grand Prix' -> success British Grand Prix",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Moon Grand Prix' -> success British Grand Prix",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-payload]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001119,
+      "message": "AssertionError: 'Moon Grand Prix' -> success British Grand Prix",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Moon Grand Prix' -> success British Grand Prix",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Moon Grand Prix-snapshot]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001363,
+      "message": "AssertionError: 'Portuguese Grand Prix' -> success British Grand Prix",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Portuguese Grand Prix' -> success British Grand Prix",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-payload]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001176,
+      "message": "AssertionError: 'Portuguese Grand Prix' -> success British Grand Prix",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: 'Portuguese Grand Prix' -> success British Grand Prix",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_unknown_race_returns_error_without_race_data[Portuguese Grand Prix-snapshot]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001,
+      "message": "",
+      "findings": [
+        "TB-5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_race_schedule_defects.py::test_upcoming_race_is_not_flagged_as_completed",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001006,
+      "message": "AssertionError: Qualifying 2026-07-04T15:00Z in Sydney: 14:00 UTC",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: Qualifying 2026-07-04T15:00Z in Sydney: 14:00 UTC",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[British Grand Prix-Silverstone-Sydney-Qualifying-2026-07-04T15:00-01:00-AEST-Sunday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001097,
+      "message": "AssertionError: Qualifying 2026-10-31T21:00Z in New York: 10:00 EDT (New York)",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: Qualifying 2026-10-31T21:00Z in New York: 10:00 EDT (New York)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Qualifying-2026-10-31T21:00-17:00-EDT-Saturday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000962,
+      "message": "StopIteration",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "StopIteration",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Mexico City Grand Prix-Mexico City-New York-Race-2026-11-01T20:00-15:00-EST-Sunday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000926,
+      "message": "StopIteration",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "StopIteration",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[Singapore Grand Prix-Marina Bay-Sydney-Race-2026-10-11T12:00-23:00-AEDT-Sunday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001129,
+      "message": "AssertionError: Qualifying 2026-10-24T21:00Z in London: 15:00 BST (London)",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: Qualifying 2026-10-24T21:00Z in London: 15:00 BST (London)",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Qualifying-2026-10-24T21:00-22:00-BST-Saturday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001043,
+      "message": "StopIteration",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "StopIteration",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_local_times_follow_dst_boundaries[United States Grand Prix-Austin-London-Race-2026-10-25T20:00-20:00-GMT-Sunday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001051,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Honolulu-Pacific/Honolulu-03:00]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000953,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Kathmandu-Asia/Kathmandu-18:45]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000935,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Nairobi-Africa/Nairobi-16:00]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00094,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Reykjavik-Atlantic/Reykjavik-13:00]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001057,
+      "message": "AssertionError: {'session': 'Qualifying', 'day': 'Saturday', 'time_utc': '14:00 UTC', 'local_time': '14:00 UTC', ...}",
+      "findings": [
+        "TR-10",
+        "TB-2",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: {'session': 'Qualifying', 'day': 'Saturday', 'time_utc': '14:00 UTC', 'local_time': '14:00 UTC', ...}",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000987,
+      "message": "StopIteration",
+      "findings": [
+        "TR-10",
+        "TB-2",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "StopIteration",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000891,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_error_cases",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001276,
+      "message": "assert 285 == 538.0",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "assert 285 == 538.0",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[all]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001373,
+      "message": "AssertionError: assert 'error' == 'success'",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'error' == 'success'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[both]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001268,
+      "message": "assert 285 == 538.0",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "assert 285 == 538.0",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[constructors]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001367,
+      "message": "assert 285 == 538.0",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "assert 285 == 538.0",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[drivers]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001294,
+      "message": "AssertionError: assert 'error' == 'success'",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'error' == 'success'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[standings]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001349,
+      "message": "AssertionError: assert 'error' == 'success'",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'error' == 'success'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[wcc]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001423,
+      "message": "AssertionError: assert 'error' == 'success'",
+      "findings": [
+        "TR-08",
+        "PRD-AC2"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'error' == 'success'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[wdc]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000709,
+      "message": "",
+      "findings": [],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_invalid_category",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000749,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[all-https://tickets.formula1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000903,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[merch-https://shop.mercedesamgf1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000845,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[store-https://shop.mercedesamgf1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000798,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[team-https://www.mercedesamgf1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000904,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[ticketing-https://tickets.formula1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000901,
+      "message": "",
+      "findings": [
+        "PRD-AC4",
+        "RC-01"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_official_links_valid_categories[tickets-https://tickets.formula1.com]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001133,
+      "message": "AssertionError: assert 'success' == 'error'",
+      "findings": [
+        "TB-3"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'success' == 'error'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_empty_and_unknown_query_error",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001462,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[America/New_York-09:00 EDT (New York)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001308,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Australia/Sydney-00:00 AEDT (Sydney)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001454,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Berlin, Germany-15:00 CEST (Berlin)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001427,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[EST-09:00 EDT (New York)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00152,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Europe/London-14:00 BST (London)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001452,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[I'm watching from New York, Eastern Time-09:00 EDT (New York)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001546,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[JST-22:00 JST (Tokyo)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001349,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney, Australia-00:00 AEDT (Sydney)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001353,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Sydney-00:00 AEDT (Sydney)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001442,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Tokyo, Japan-22:00 JST (Tokyo)-False]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001289,
+      "message": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "findings": [
+        "TR-10",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '13:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[UTC-13:00 UTC-True]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001429,
+      "message": "AssertionError: assert '14:00 UTC' == '15:00 UTC'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert '14:00 UTC' == '15:00 UTC'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[British Grand Prix-Sydney, Australia-British Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001012,
+      "message": "AssertionError: assert 'São Paulo Grand Prix' in 'British Grand Prix'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'São Paulo Grand Prix' in 'British Grand Prix'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[Interlagos-S\\xe3o Paulo-S\\xe3o Paulo Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001023,
+      "message": "AssertionError: assert 'Las Vegas Grand Prix' in 'British Grand Prix'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'Las Vegas Grand Prix' in 'British Grand Prix'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[Las Vegas Grand Prix-PST-Las Vegas Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000997,
+      "message": "AssertionError: assert 'Japanese Grand Prix' in 'British Grand Prix'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'Japanese Grand Prix' in 'British Grand Prix'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[Suzuka-Tokyo-Japanese Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000994,
+      "message": "AssertionError: assert 'United States Grand Prix' in 'British Grand Prix'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'United States Grand Prix' in 'British Grand Prix'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_specific_2026_races_and_seasonal_dst[United States Grand Prix-CDT-United States Grand Prix]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000959,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Auckland-Pacific/Auckland-NZDT (Auckland)]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00086,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Mumbai-Asia/Kolkata-IST (Mumbai)]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000906,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[S\\xe3o Paulo-America/Sao_Paulo-BRT (Sao Paulo)]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000866,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Toronto-America/Toronto-EDT (Toronto)]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000836,
+      "message": "KeyError: 'user_timezone_resolved'",
+      "findings": [
+        "TR-10"
+      ],
+      "platform_ids": {},
+      "evidence": "KeyError: 'user_timezone_resolved'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_unseen_world_cities_dynamic_zoneinfo[Vienna-Europe/Vienna-CEST (Vienna)]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001122,
+      "message": "AssertionError: assert 'Singapore Grand Prix' in 'British Grand Prix'",
+      "findings": [
+        "TR-09",
+        "PRD-AC7"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: assert 'Singapore Grand Prix' in 'British Grand Prix'",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_get_race_schedule_without_timezone_asks_before_local_times",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000841,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_invalid_and_empty",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00081,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[#1001-Delivered]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000824,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[1001-Delivered]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000783,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[1002-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000855,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[1003-Return In Progress]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.000784,
+      "message": "",
+      "findings": [
+        "PRD-AC5"
+      ],
+      "platform_ids": {},
+      "evidence": null,
+      "deterministic": {
+        "passed": true
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_lookup_mock_merch_order_valid_ids[ORD-1002-In Transit]",
+      "layer": "tools",
+      "status": "PASS"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001233,
+      "message": "AssertionError: get_driver_standings docstring contains pacing phrase",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_driver_standings docstring contains pacing phrase",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_driver_standings]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001319,
+      "message": "AssertionError: get_official_links docstring contains pacing phrase",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_official_links docstring contains pacing phrase",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_official_links]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.00134,
+      "message": "AssertionError: get_race_schedule docstring contains pacing phrase",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: get_race_schedule docstring contains pacing phrase",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[get_race_schedule]",
+      "layer": "tools",
+      "status": "FAIL"
+    },
+    {
+      "repeat": 1,
+      "duration_s": 0.001143,
+      "message": "AssertionError: lookup_mock_merch_order docstring contains pacing phrase",
+      "findings": [
+        "TR-02",
+        "TR-03"
+      ],
+      "platform_ids": {},
+      "evidence": "AssertionError: lookup_mock_merch_order docstring contains pacing phrase",
+      "deterministic": {
+        "passed": false
+      },
+      "judge": null,
+      "id": "tools::test_tools.py::test_tool_obeys_cxas_static_contracts_and_no_code_leak_phrases[lookup_mock_merch_order]",
+      "layer": "tools",
+      "status": "FAIL"
+    }
+  ],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": null,
+  "results_digest": "1358d0483380a88214806e1053c69f1246f650cf6caf47a6c3d1cea6e7701f3c"
+}

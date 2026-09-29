@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "run_id": "20260929T010751Z_snapshot_7147f2d",
+  "mode": "snapshot",
+  "started_at": "2026-09-29T01:07:51Z",
+  "finished_at": "2026-09-29T01:08:25Z",
+  "point_time": "2026-09-28T20:55:38Z",
+  "imported": false,
+  "import_source": null,
+  "agent": {
+    "commit": "7147f2d8dc4d1fba05344c57afccdf465f5114c7",
+    "path": "evals/history/snapshots/20260929T010751Z_live_after/cxas_app",
+    "tree_hash": "a3e121f3043afeb99ca87c20ec92913a71802ea808ca1fe2d189b5d51a3ba560",
+    "dirty": false,
+    "dirty_paths_relevant": [],
+    "dirty_paths_unrelated": [
+      "ORIGINAL_REQUEST.md",
+      "PROJECT.md",
+      "environments/dev-totto-gecx/gecx-config.json",
+      "eval-reports/combined_report_2026-09-28_1833.html",
+      "eval-reports/combined_report_2026-09-28_2024.html",
+      "eval-reports/iteration1-summary.json",
+      "eval-reports/iterations/iteration_1/report.html",
+      "eval-reports/iterations/iteration_1/results.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/merch_support_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/merch_support_agent/merch_support_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/race_info_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/race_info_agent/race_info_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/ticketing_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/ticketing_agent/ticketing_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/agents/totto_root_agent/instruction.txt",
+      "eval-reports/iterations/iteration_1/snapshot/agents/totto_root_agent/totto_root_agent.json",
+      "eval-reports/iterations/iteration_1/snapshot/app.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_driver_standings/get_driver_standings.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_driver_standings/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_official_links/get_official_links.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_official_links/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_race_schedule/get_race_schedule.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/get_race_schedule/python_function/python_code.py",
+      "eval-reports/iterations/iteration_1/snapshot/tools/lookup_mock_merch_order/lookup_mock_merch_order.json",
+      "eval-reports/iterations/iteration_1/snapshot/tools/lookup_mock_merch_order/python_function/python_code.py",
+      "eval-reports/sim_results_2026-09-28_1835.json",
+      "eval-reports/tool_test_results.json",
+      "experiment_log.md",
+      "gecx-config.json",
+      "results.tsv"
+    ],
+    "nearest_source_commit": "f073e02cd3466ad25fe7b2322ac7edf8baebacda",
+    "identical_source_commits": [],
+    "diff_vs_nearest_source": {
+      "identical_normalized": false,
+      "differing_files": [],
+      "only_in_commit": [],
+      "only_in_live": [
+        "evaluationExpectations/eval_exp_37741d4a/eval_exp_37741d4a.json",
+        "evaluationExpectations/eval_exp_4beeec7e/eval_exp_4beeec7e.json",
+        "evaluationExpectations/eval_exp_51903402/eval_exp_51903402.json",
+        "evaluationExpectations/eval_exp_579dc645/eval_exp_579dc645.json",
+        "evaluationExpectations/eval_exp_65647573/eval_exp_65647573.json",
+        "evaluationExpectations/eval_exp_9d099b07/eval_exp_9d099b07.json",
+        "evaluationExpectations/eval_exp_cce34788/eval_exp_cce34788.json",
+        "evaluationExpectations/eval_exp_e811eddd/eval_exp_e811eddd.json",
+        "evaluationExpectations/eval_exp_f3522ff9/eval_exp_f3522ff9.json",
+        "evaluations/r4-totto-golden_ac3_mercedes_history_qualified/r4-totto-golden_ac3_mercedes_history_qualified.json",
+        "evaluations/r4-totto-golden_ac6_multilingual_spanish_response/r4-totto-golden_ac6_multilingual_spanish_response.json",
+        "evaluations/r4-totto-golden_ac8_identity_and_non_impersonation/r4-totto-golden_ac8_identity_and_non_impersonation.json",
+        "evaluations/r4-totto-golden_ac9_brand_safe_rivalry_humor/r4-totto-golden_ac9_brand_safe_rivalry_humor.json",
+        "evaluations/r4-totto-golden_official_mercedes_links/r4-totto-golden_official_mercedes_links.json"
+      ],
+      "raw": {
+        "only_left": [
+          "agents/merch_support_agent/after_tool_callbacks/sync_order_state/python_code.py",
+          "agents/race_info_agent/after_tool_callbacks/sync_race_state/python_code.py",
+          "agents/totto_root_agent/before_agent_callbacks/init_session_state/python_code.py"
+        ],
+        "only_right": [
+          "agents/merch_support_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+          "agents/race_info_agent/after_tool_callbacks/after_tool_callbacks_01/python_code.py",
+          "agents/totto_root_agent/before_agent_callbacks/before_agent_callbacks_01/python_code.py",
+          "evaluationExpectations/eval_exp_37741d4a/eval_exp_37741d4a.json",
+          "evaluationExpectations/eval_exp_4beeec7e/eval_exp_4beeec7e.json",
+          "evaluationExpectations/eval_exp_51903402/eval_exp_51903402.json",
+          "evaluationExpectations/eval_exp_579dc645/eval_exp_579dc645.json",
+          "evaluationExpectations/eval_exp_65647573/eval_exp_65647573.json",
+          "evaluationExpectations/eval_exp_9d099b07/eval_exp_9d099b07.json",
+          "evaluationExpectations/eval_exp_cce34788/eval_exp_cce34788.json",
+          "evaluationExpectations/eval_exp_e811eddd/eval_exp_e811eddd.json",
+          "evaluationExpectations/eval_exp_f3522ff9/eval_exp_f3522ff9.json",
+          "evaluations/r4-totto-golden_ac3_mercedes_history_qualified/r4-totto-golden_ac3_mercedes_history_qualified.json",
+          "evaluations/r4-totto-golden_ac6_multilingual_spanish_response/r4-totto-golden_ac6_multilingual_spanish_response.json",
+          "evaluations/r4-totto-golden_ac8_identity_and_non_impersonation/r4-totto-golden_ac8_identity_and_non_impersonation.json",
+          "evaluations/r4-totto-golden_ac9_brand_safe_rivalry_humor/r4-totto-golden_ac9_brand_safe_rivalry_humor.json",
+          "evaluations/r4-totto-golden_official_mercedes_links/r4-totto-golden_official_mercedes_links.json",
+          "pythonEnvFiles/pythonEnvFiles.json"
+        ],
+        "differing": [
+          "agents/merch_support_agent/merch_support_agent.json",
+          "agents/race_info_agent/race_info_agent.json",
+          "agents/ticketing_agent/ticketing_agent.json",
+          "agents/totto_root_agent/totto_root_agent.json",
+          "app.json",
+          "tools/get_driver_standings/get_driver_standings.json",
+          "tools/get_official_links/get_official_links.json",
+          "tools/get_race_schedule/get_race_schedule.json",
+          "tools/lookup_mock_merch_order/lookup_mock_merch_order.json"
+        ]
+      },
+      "server_managed_live": {
+        "loggingSettings": {
+          "conversationLoggingSettings": {
+            "retentionWindow": "31536000s"
+          }
+        }
+      },
+      "details": "evals/history/snapshots/20260929T010751Z_live_after/diff_vs_commits.md"
+    }
+  },
+  "suite": {
+    "commit": "0f0f0287b0b6a74d8daa1842e2823f6d08aef5e7",
+    "dirty": false,
+    "dirty_paths": []
+  },
+  "cxas": {
+    "app": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+    "version_id": "40170087-a913-495f-b3fb-644dbfdbebd7",
+    "version_status": "in_version_list",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-28T20:55:38.643615Z",
+    "app_etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+  },
+  "rationale": "Post-live-suite snapshot proving live app agents, tools, callbacks, instructions, guardrails, and model settings are identical before and after",
+  "layers": {},
+  "tests": [],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": null,
+  "results_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "snapshot": {
+    "dir": "evals/history/snapshots/20260929T010751Z_live_after",
+    "inventory": "evals/history/snapshots/20260929T010751Z_live_after/inventory.json",
+    "version_evidence": "evals/history/snapshots/20260929T010751Z_live_after/version.json",
+    "export_zip_sha256": "d24219647e72207d9d3a6206678bb47b3c845c51da1e4495be0330ce24fa14d1",
+    "version_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/versions/40170087-a913-495f-b3fb-644dbfdbebd7",
+    "version_display_name": "r3-live_after-20260929T010751Z",
+    "version_create_time": "2026-09-29T01:08:21.248655Z",
+    "returned_existing_version": false,
+    "get_version_ok": true,
+    "app_state_before": {
+      "update_time": "2026-09-28T20:55:38.643615Z",
+      "etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+    },
+    "app_state_after": {
+      "update_time": "2026-09-28T20:55:38.643615Z",
+      "etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc="
+    },
+    "app_unchanged": true
+  }
+}

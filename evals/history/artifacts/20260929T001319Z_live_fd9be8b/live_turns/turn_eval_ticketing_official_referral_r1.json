@@ -1,0 +1,44 @@
+{
+  "name": "turn_eval_ticketing_official_referral",
+  "repeat": 1,
+  "session_id": "turn_eval_8446ef69",
+  "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/turn_eval_8446ef69",
+  "status": "PASS",
+  "duration_ms": 4967.93,
+  "rows": [
+    {
+      "test_name": "turn_eval_ticketing_official_referral",
+      "turn": "",
+      "user": "Where can I buy official Formula 1 tickets for the British Grand Prix at Silverstone?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "ticketing_agent",
+      "actual": "ticketing_agent",
+      "session_id": "turn_eval_8446ef69",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_ticketing_official_referral",
+      "turn": "",
+      "user": "Where can I buy official Formula 1 tickets for the British Grand Prix at Silverstone?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "get_official_links",
+      "actual": "['transfer_to_agent', 'get_official_links', 'get_race_schedule']",
+      "session_id": "turn_eval_8446ef69",
+      "llm_results": ""
+    },
+    {
+      "test_name": "turn_eval_ticketing_official_referral",
+      "turn": "",
+      "user": "Where can I buy official Formula 1 tickets for the British Grand Prix at Silverstone?",
+      "status": "SUCCESS",
+      "errors": "",
+      "expected": "tickets.formula1.com",
+      "actual": "For official tickets to the British Grand Prix at Silverstone, you should visit the official Formula 1 ticketing portal at [tickets.formula1.com](https://tickets.formula1.com). As an AI fan assistant, I provide official referral links only and cannot check live seat inventory, quote prices, or process payments directly.\n\nThe 2026 British Grand Prix is scheduled for July 3–5, 2026, at the Silverstone Circuit. It is always a special weekend for the Silver Arrows as our home race, with George Russell and Kimi Antonelli leading the charge!",
+      "session_id": "turn_eval_8446ef69",
+      "llm_results": ""
+    }
+  ],
+  "findings": []
+}

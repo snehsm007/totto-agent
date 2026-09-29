@@ -1,0 +1,150 @@
+{
+  "name": "escalation_mid_conv_tool_error_moon_gp_and_9999",
+  "run": 1,
+  "session_id": "9f539113-0398-46cf-912b-5033f4c23d98",
+  "conversation_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/9f539113-0398-46cf-912b-5033f4c23d98",
+  "passed": true,
+  "duration_s": 11.54,
+  "quota_wait_s": 0.0,
+  "turn_count": 3,
+  "turns": [
+    {
+      "user": "<welcome>",
+      "agent": [
+        "Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?"
+      ],
+      "tools": [],
+      "tool_responses": [],
+      "transfer": null,
+      "latency_s": 1.04,
+      "session_ended": false
+    },
+    {
+      "user": "What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+      "agent": [
+        "In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar! If you meant a different race, like the next one or a specific country, let me know and I'll get those London times for you. For any real order inquiries, please visit our official store at https://shop.mercedesamgf1.com."
+      ],
+      "tools": [
+        {
+          "name": "get_race_schedule",
+          "args": {
+            "race_query": "Moon Grand Prix",
+            "user_timezone": "London"
+          }
+        },
+        {
+          "name": "lookup_mock_merch_order",
+          "args": {
+            "order_id": "123456"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "get_race_schedule",
+          "response": {
+            "result": {
+              "status": "error",
+              "agent_action": "CLARIFY_RACE_NAME",
+              "error_message": "No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'."
+            }
+          }
+        },
+        {
+          "name": "lookup_mock_merch_order",
+          "response": {
+            "result": {
+              "found": false,
+              "is_mock_data": true,
+              "sample_order_ids": [
+                "1001",
+                "1002",
+                "1003"
+              ],
+              "agent_action": "OFFER_SAMPLE_ORDER_IDS",
+              "order_id": "123456",
+              "status": "error",
+              "error_message": "Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).",
+              "is_mock": true,
+              "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed."
+            }
+          }
+        }
+      ],
+      "transfer": "merch_support_agent",
+      "latency_s": 7.86,
+      "session_ended": false
+    },
+    {
+      "user": "My mistake, I meant order 1001. What is its status?",
+      "agent": [
+        "In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nIf there's any issue, you're eligible for a free replacement or exchange within 30 days at https://shop.mercedesamgf1.com. Just a reminder, this is a mock lookup for demonstration purposes!"
+      ],
+      "tools": [
+        {
+          "name": "lookup_mock_merch_order",
+          "args": {
+            "order_id": "1001"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "lookup_mock_merch_order",
+          "response": {
+            "result": {
+              "found": true,
+              "is_mock_data": true,
+              "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+              "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+              "order": {
+                "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.",
+                "is_mock_data": true,
+                "damaged_item_policy": "Eligible for immediate no-cost replacement on damaged items using only your order number #1001.",
+                "quantity": 1.0,
+                "product_availability": "In Stock (One Size Adjustable, Silver/Black & Team Teal)",
+                "return_window": "30 days from delivery (free prepaid return label available)",
+                "carrier": "DHL Express",
+                "item": "Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)",
+                "tracking_number": "DHL-MB-984210",
+                "delivery_date": "Yesterday, 2:15 PM",
+                "return_eligible": true,
+                "status": "Delivered",
+                "exchange_policy": "Free size or colorway exchange within 30 days; Silver and Black caps are in stock.",
+                "is_mock": true,
+                "order_id": "1001"
+              },
+              "status": "success",
+              "is_mock": true,
+              "order_id": "1001"
+            }
+          }
+        }
+      ],
+      "transfer": null,
+      "latency_s": 2.63,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: <event>welcome</event>",
+    "Agent Text: Hallo! Ich bin Totto, Mercedes F1 Fan Agent, dein KI-Fan-Assistent für das Mercedes-AMG Petronas F1 Team. Wie kann ich dir heute bei den Silberpfeilen helfen?\nUser Query: <event>session start</event>",
+    "User: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?",
+    "Agent Text: In our simulated demo system, order #123456 was not found. For this demonstration, you can try looking up sample orders #1001, #1002, or #1003.\n\nRegarding the \"Moon Grand Prix,\" there isn't a race by that name on the 2026 Formula 1 calendar! If you meant a different race, like the next one or a specific country, let me know and I'll get those London times for you. For any real order inquiries, please visit our official store at https://shop.mercedesamgf1.com.\nUser Query: What time does the Moon Grand Prix start, and can you check my merchandise order 123456?\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'race_query': 'Moon Grand Prix', 'user_timezone': 'London'}\nTool Response: get_race_schedule with result {'result': {'status': 'error', 'agent_action': 'CLARIFY_RACE_NAME', 'error_message': \"No 2026 Formula 1 Grand Prix found matching 'Moon Grand Prix'. Please specify a valid 2026 Grand Prix, circuit, country, or 'next'.\"}}\nAgent Transfer: Transferred to totto_root_agent\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '123456'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': False, 'is_mock_data': True, 'sample_order_ids': ['1001', '1002', '1003'], 'agent_action': 'OFFER_SAMPLE_ORDER_IDS', 'order_id': '123456', 'status': 'error', 'error_message': 'Order #123456 was not found in the demo system. Try sample orders #1001 (Delivered), #1002 (In Transit), or #1003 (Return In Progress).', 'is_mock': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.'}}",
+    "User: My mistake, I meant order 1001. What is its status?",
+    "Agent Text: In our simulated demo system, Order #1001 for the Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black) shows as **Delivered** as of yesterday at 2:15 PM via DHL Express (Tracking: DHL-MB-984210). \n\nIf there's any issue, you're eligible for a free replacement or exchange within 30 days at https://shop.mercedesamgf1.com. Just a reminder, this is a mock lookup for demonstration purposes!\nUser Query: My mistake, I meant order 1001. What is its status?\nTool Call: lookup_mock_merch_order with args {'order_id': '1001'}\nTool Response: lookup_mock_merch_order with result {'result': {'found': True, 'is_mock_data': True, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', 'order': {'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only. No real orders, payments, or personal data are processed.', 'is_mock_data': True, 'damaged_item_policy': 'Eligible for immediate no-cost replacement on damaged items using only your order number #1001.', 'quantity': 1.0, 'product_availability': 'In Stock (One Size Adjustable, Silver/Black & Team Teal)', 'return_window': '30 days from delivery (free prepaid return label available)', 'carrier': 'DHL Express', 'item': 'Mercedes-AMG Petronas F1 2026 George Russell #63 Team Cap (Silver/Black)', 'tracking_number': 'DHL-MB-984210', 'delivery_date': 'Yesterday, 2:15 PM', 'return_eligible': True, 'status': 'Delivered', 'exchange_policy': 'Free size or colorway exchange within 30 days; Silver and Black caps are in stock.', 'is_mock': True, 'order_id': '1001'}, 'status': 'success', 'is_mock': True, 'order_id': '1001'}}"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "When asked about the Moon Grand Prix and order 123456, the agent clarifies that Moon Grand Prix is not on the 2026 Formula 1 calendar and that order 123456 was not found without fabricating details.",
+      "status": "Met",
+      "justification": "The agent correctly identified that the Moon Grand Prix is not on the 2026 calendar and confirmed that order 123456 was not found in the system, providing correct feedback without fabricating data."
+    },
+    {
+      "expectation": "When asked about order 1001, the agent looks it up and reports its Delivered status while disclosing the mock support flow.",
+      "status": "Met",
+      "justification": "The agent successfully performed the lookup for order 1001, reported the status as 'Delivered', and clearly noted that the lookup was for demonstration purposes."
+    }
+  ],
+  "modality": "text"
+}

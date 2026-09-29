@@ -1,0 +1,70 @@
+{
+  "capture_script": "tests/fixtures/openf1/capture.py",
+  "captured_at_utc": "2026-09-28T21:46:36Z",
+  "description": "Raw OpenF1 API payloads captured once for the offline Totto test suite. Tests load these files instead of the network.",
+  "files": {
+    "championship_drivers_latest": {
+      "fetched_at_utc": "2026-09-28T21:46:40Z",
+      "file": "championship_drivers_latest.json",
+      "http_status": 200,
+      "items": 23,
+      "raw_response_bytes": 3287,
+      "sha256_of_file": "0e8febb88094d7939d043477810f06671dfb73bf47797574800728fc521188ff",
+      "url": "https://api.openf1.org/v1/championship_drivers?session_key=latest"
+    },
+    "championship_teams_latest": {
+      "fetched_at_utc": "2026-09-28T21:46:42Z",
+      "file": "championship_teams_latest.json",
+      "http_status": 200,
+      "items": 11,
+      "raw_response_bytes": 1626,
+      "sha256_of_file": "9051ab80ed62a12bf481a892c61dc8ab3ee376a19c5cbab63f2e9cb93d6c42c2",
+      "url": "https://api.openf1.org/v1/championship_teams?session_key=latest"
+    },
+    "drivers_latest": {
+      "fetched_at_utc": "2026-09-28T21:46:44Z",
+      "file": "drivers_latest.json",
+      "http_status": 200,
+      "items": 22,
+      "raw_response_bytes": 9166,
+      "sha256_of_file": "48232c9298f1f731e7a3150d3e6d4bdec45a6f50ed10b82cedff7dce9a00b63b",
+      "url": "https://api.openf1.org/v1/drivers?session_key=latest"
+    },
+    "meetings_2026": {
+      "fetched_at_utc": "2026-09-28T21:46:36Z",
+      "file": "meetings_2026.json",
+      "http_status": 200,
+      "items": 27,
+      "raw_response_bytes": 20544,
+      "sha256_of_file": "2e753d6a2eeec6cb1775fbbfbe7d5ca4f3a38b47be2b40e71f1db16a4f3f455f",
+      "url": "https://api.openf1.org/v1/meetings?year=2026"
+    },
+    "sessions_2026": {
+      "fetched_at_utc": "2026-09-28T21:46:38Z",
+      "file": "sessions_2026.json",
+      "http_status": 200,
+      "items": 131,
+      "raw_response_bytes": 48130,
+      "sha256_of_file": "6d3ba0c11bd93ff4382d36d9c90ab88a6da93e0a4c09519644859b73483e2e2a",
+      "url": "https://api.openf1.org/v1/sessions?year=2026"
+    },
+    "weather_meeting_1279_race_session_11234": {
+      "fetched_at_utc": "2026-09-28T21:46:46Z",
+      "file": "weather_meeting_1279_race_session_11234.json",
+      "http_status": 200,
+      "items": 148,
+      "raw_response_bytes": 31949,
+      "sha256_of_file": "f228a1a2de0b82a09b62c7863f1b4ed2b46b59b9e22b9c07bc06259d148208be",
+      "url": "https://api.openf1.org/v1/weather?session_key=11234"
+    },
+    "weather_meeting_1295_race_session_11377": {
+      "fetched_at_utc": "2026-09-28T21:46:48Z",
+      "file": "weather_meeting_1295_race_session_11377.json",
+      "http_status": 200,
+      "items": 168,
+      "raw_response_bytes": 36197,
+      "sha256_of_file": "3379339a0a50db4f2de387ee9825c8ac7a4bb2febc00fab74d204d5409f2a48f",
+      "url": "https://api.openf1.org/v1/weather?session_key=11377"
+    }
+  }
+}

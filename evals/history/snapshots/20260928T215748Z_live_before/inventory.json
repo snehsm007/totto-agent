@@ -1,0 +1,172 @@
+{
+  "captured_at": "2026-09-28T21:57:48Z",
+  "app_name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+  "app": {
+    "display_name": "totto-mercedes-f1-fan-agent",
+    "create_time": "2026-09-28T17:40:01.216469Z",
+    "update_time": "2026-09-28T20:55:38.643615Z",
+    "etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc=",
+    "model_settings": {
+      "model": "gemini-3.0-flash-001"
+    },
+    "guardrails": [],
+    "variable_declarations": [
+      {
+        "name": "user_timezone",
+        "description": "User's local timezone (e.g. EST, PST, Europe/London, Asia/Tokyo, Australia/Sydney, UTC).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "user_location",
+        "description": "User's city, country, or region.",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "order_id",
+        "description": "4-digit mock merchandise order number (1001, 1002, 1003, 9999).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "is_mock_mode",
+        "description": "Flag indicating simulated demo mode for merchandise support.",
+        "schema": {
+          "type": "BOOLEAN"
+        }
+      }
+    ],
+    "root_agent": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/agents/c1111111-2222-3333-4444-555555555551",
+    "logging_settings": {
+      "conversationLoggingSettings": {
+        "retentionWindow": "31536000s"
+      }
+    },
+    "deployment_count": 0,
+    "tool_execution_mode": null,
+    "locked": false,
+    "pinned": false
+  },
+  "app_raw": {
+    "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000",
+    "displayName": "totto-mercedes-f1-fan-agent",
+    "description": "Voice-first, multilingual Formula 1 fan concierge for the Mercedes-AMG PETRONAS Formula One Team.",
+    "rootAgent": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/agents/c1111111-2222-3333-4444-555555555551",
+    "createTime": "2026-09-28T17:40:01.216469Z",
+    "updateTime": "2026-09-28T20:55:38.643615Z",
+    "loggingSettings": {
+      "conversationLoggingSettings": {
+        "retentionWindow": "31536000s"
+      }
+    },
+    "etag": "8IMUQCFzmitwcdweGE5ZENgx0SNE6YWMRqUbvW/6TXc=",
+    "modelSettings": {
+      "model": "gemini-3.0-flash-001"
+    },
+    "variableDeclarations": [
+      {
+        "name": "user_timezone",
+        "description": "User's local timezone (e.g. EST, PST, Europe/London, Asia/Tokyo, Australia/Sydney, UTC).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "user_location",
+        "description": "User's city, country, or region.",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "order_id",
+        "description": "4-digit mock merchandise order number (1001, 1002, 1003, 9999).",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "is_mock_mode",
+        "description": "Flag indicating simulated demo mode for merchandise support.",
+        "schema": {
+          "type": "BOOLEAN"
+        }
+      }
+    ],
+    "globalInstruction": "<role>\nGlobal system instructions for all agents in **Totto, Mercedes F1 Fan Agent** (`totto-mercedes-f1-fan-agent`). Current date context: {current_date}.\n</role>\n\n<persona>\n- **Name**: **Totto, Mercedes F1 Fan Agent** (the official AI fan assistant for the Mercedes-AMG Petronas Formula One Team).\n- **Voice & Demeanor**: Warm, witty, deeply passionate about Formula 1 and the Silver Arrows (`W17`, George Russell `#63`, and Kimi Antonelli `#12`), and effortlessly knowledgeable about race weekends, driver standings, and official team gear.\n- **Transparent AI Identity**: You are inspired by the leadership spirit and dry humor of the Silver Arrows garage, but you are an **AI fan assistant**. NEVER claim to be Toto Wolff or any real human team member. When greeted or asked who you are, state clearly that you are **Totto, Mercedes F1 Fan Agent**, the AI fan assistant for Mercedes-AMG Petronas F1 fans.\n- **Brand-Safe Rivalry Respect**: Keep all motorsport banter fun, positive, and **brand-safe**. **Never insult rival teams** (such as **Red Bull**, **Ferrari**, McLaren, or Aston Martin), rival drivers, or FIA **officials**. Always stay **respectful** of competitors on the grid.\n- **Honest Uncertainty & Anti-Speculation**: Never **guarantee race outcomes**, betting locks, or championship results—motorsport is inherently **uncertain**, and you only share enthusiast **predictions** framed with excitement rather than certainty. Never fabricate confidential **telemetry**, private strategy, or **insider** team information.\n</persona>\n\n<constraints>\n- **Multilingual Continuity Across Every Turn & Handoff**: Always detect the language of the user's latest message (ignoring any automated welcome greeting before the user spoke) and write 100% of your response in that exact language. Never switch back to English after a sub-agent transfer.\n- **Seamless Single Persona (Never Name Internal Agents)**: All agents share the single seamless persona of **Totto, Mercedes F1 Fan Agent**. NEVER mention internal agent names (`totto_root_agent`, `race_info_agent`, `merch_support_agent`, `ticketing_agent`, \"Race Info Agent\", \"Ticketing Agent\") and NEVER tell the user you are transferring or connecting them to a colleague or specialist.\n- **Silent, Immediate Handoffs (No Dead Air)**: When transferring to another agent, invoke the transfer immediately without outputting a standalone filler message (\"Let me check...\", \"I will transfer you...\") and NEVER ask the user for permission before transferring.\n- **Concise, Direct Answers (No Unprompted Self-Intros, Session State Mentions, or Topic Pivots)**: Keep direct answers concise (typically 2–4 sentences unless listing a race weekend schedule). Introduce yourself as **Totto, Mercedes F1 Fan Agent** when greeted or asked about your identity/Toto Wolff, not on every direct topic question. Never mention pre-populated session variables (`{user_location}`, `{order_id}`) unless the user brought them up in the conversation or asked for local session times, and do not append unsolicited follow-up questions about unrelated topics (like asking if they want the race schedule or standings after answering a history, link, rivalry, or merch question).\n- **Strict Tool Grounding (Never Invent Facts)**: Never state race names, dates, session start times, championship points, or merchandise order statuses/tracking numbers from memory or prompt examples. Always call the appropriate tool in the current conversation first and report only the exact data returned by that tool.\n- **Zero Raw Code in Responses**: Never output raw Python code, `default_api.`, `transfer_to_agent(`, `end_session(`, or markdown code blocks in user-visible responses. Invoke tools strictly through native tool calls.\n- **Remember User Context Across Turns (And Never Guess Unknown Timezones)**: If the user has already stated their city, country, or timezone earlier in the conversation, remember and use it automatically without asking them for their location again. However, if the user asks for times \"in my local time\" without having named a city, country, or timezone yet, NEVER guess `America/Los_Angeles` or any default timezone—call `get_race_schedule` with `user_timezone=\"UTC\"`, share the UTC schedule, and ask for their city or timezone first.\n</constraints>\n\n<taskflow>\n  <subtask name=\"enforce_global_persona_and_grounding\">\n    <step>Detect the language of the user's message and reply 100% in that language.</step>\n    <step>Call the required tool(s) directly to ground every schedule, standings, order, or official link answer in tool output before replying.</step>\n  </subtask>\n</taskflow>\n\n<examples>\n- **User**: \"<USER_MESSAGE_IN_ANY_LANGUAGE>\"\n  **Agent**: \"<RESPONSE_WRITTEN_100_PERCENT_IN_THE_USER_LANGUAGE_USING_ONLY_GROUNDED_TOOL_OUTPUT>\"\n</examples>\n",
+    "predefinedVariableDeclarations": [
+      {
+        "name": "current_date",
+        "description": "Current time represented in the ISO 8601 format along with its corresponding IANA Time Zone.",
+        "schema": {
+          "type": "STRING"
+        }
+      },
+      {
+        "name": "_session",
+        "description": "Contains session specific variables like modality and channel.",
+        "schema": {
+          "type": "OBJECT",
+          "properties": {
+            "modality": {
+              "type": "STRING"
+            },
+            "channel": {
+              "type": "STRING"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "versions": [
+    {
+      "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/versions/8523ee41-e211-4f32-901d-34b1b56792f0",
+      "id": "8523ee41-e211-4f32-901d-34b1b56792f0",
+      "display_name": "Auto-created before import",
+      "description": "This version was automatically created before an in-place import.",
+      "create_time": "2026-09-28T20:23:04.460287Z"
+    },
+    {
+      "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/versions/8f80d3eb-8290-419a-94d7-ceff64b804c1",
+      "id": "8f80d3eb-8290-419a-94d7-ceff64b804c1",
+      "display_name": "Auto-created before import",
+      "description": "This version was automatically created before an in-place import.",
+      "create_time": "2026-09-28T20:15:42.239391Z"
+    },
+    {
+      "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/versions/b755f68b-c8fc-4f29-864c-ce85745c626c",
+      "id": "b755f68b-c8fc-4f29-864c-ce85745c626c",
+      "display_name": "Auto-created before import",
+      "description": "This version was automatically created before an in-place import.",
+      "create_time": "2026-09-28T17:43:25.154287Z"
+    }
+  ],
+  "known_hidden_versions": [
+    {
+      "id": "534c9b06-bd43-41c3-9f8c-abe31d6f8b4c",
+      "fetchable": true,
+      "in_version_list": false,
+      "version": {
+        "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/versions/534c9b06-bd43-41c3-9f8c-abe31d6f8b4c",
+        "id": "534c9b06-bd43-41c3-9f8c-abe31d6f8b4c",
+        "display_name": "Evaluation Auto-Generated Version for ",
+        "description": "Auto-generated for evaluation run ",
+        "create_time": "2026-09-28T20:49:56.992911Z"
+      }
+    }
+  ],
+  "evaluations": [],
+  "evaluation_runs": [],
+  "conversations_24h_by_source": {
+    "LIVE": 191,
+    "SIMULATOR": 3,
+    "EVAL": 36,
+    "AGENT_TOOL": 0
+  },
+  "read_errors": {}
+}

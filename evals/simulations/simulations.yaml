@@ -1,0 +1,164 @@
+# Pure SCRAPI Synthetic User Simulations for Totto, Mercedes F1 Fan Agent
+# Covers all 9 PRD Acceptance Criteria (AC-1 through AC-9) AND all 10 findings from totto_test_report.md:
+# - Uses live OpenF1 2026 calendar (next race after 2026-09-28 is Round 18: Singapore Grand Prix at Marina Bay, Oct 9-11, 2026)
+# - Strict, falsifiable behavioral expectations that catch language drops, raw tool syntax leaks,
+#   dead-air handoffs, internal agent name leaks, ungrounded order/race facts, and tool errors.
+
+evals:
+  - name: "sim_ac1_ac7_next_race_and_timezone_clarification"
+    tags: ["P0", "AC-1", "AC-7", "race_info", "schedule", "timezone"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Ask when the next Formula 1 race is and what time qualifying starts without mentioning your location first, then answer with New York (Eastern Time) when asked"
+        success_criteria: "The agent identifies the upcoming 2026 Singapore Grand Prix at Marina Bay, asks for the user's location or timezone before giving localized times, and provides the converted Eastern Time schedule once the user says New York. Receiving the localized schedule counts as a successful outcome."
+        response_guide: >
+          You are a Formula 1 fan living in New York (Eastern Time). In your first message, ask:
+          "When is the next race and what time does qualifying start?" Do NOT mention New York or
+          your timezone in your first message. When the agent asks where you are watching from or
+          what timezone you are in, reply: "I'm watching from New York, Eastern Time."
+        max_turns: 6
+    expectations:
+      - "The agent identified the upcoming 2026 Singapore Grand Prix at Marina Bay"
+      - "On the very first turn after the user asked when the next race is, the agent provided the UTC schedule and asked for the user's location or timezone, rather than stopping with a dead-air filler phrase like 'Let me check the race schedule for you'"
+      - "The agent called a tool to look up the race schedule and converted the times to Eastern Time (EDT) after the user said New York"
+      - "The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code"
+
+  - name: "sim_ac2_mercedes_standings_priority"
+    tags: ["P0", "AC-2", "race_info", "standings", "mercedes_first"]
+    session_parameters:
+      user_timezone: "UTC"
+      is_mock_mode: true
+    steps:
+      - goal: "Ask how Mercedes performed recently and how the Formula 1 championship standings look"
+        success_criteria: "The agent looks up the standings and highlights Mercedes-AMG Petronas, Kimi Antonelli, and George Russell first before mentioning broader F1 standings. Receiving the Mercedes-first standings summary counts as a successful outcome."
+        response_guide: >
+          You are a Mercedes F1 fan. Ask: "How did Mercedes do recently and where do we stand in the championship?"
+        max_turns: 5
+    expectations:
+      - "The agent called a tool to look up driver and constructor standings without encountering any tool error"
+      - "The agent answered with the championship standings immediately on the first turn without claiming there was a hiccup or asking the user to clarify whether they want driver or constructor standings"
+      - "The agent prioritized Mercedes-AMG Petronas, Kimi Antonelli, and George Russell before mentioning other teams"
+
+  - name: "sim_ac3_mercedes_history_qualified"
+    tags: ["P0", "AC-3", "history", "general_knowledge"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Ask about the history of Mercedes in Formula 1 and their famous championship eras"
+        success_criteria: "The agent gives an accurate overview of Mercedes F1 history (such as the 1954-1955 Fangio era and the 2014-2021 turbo-hybrid dominance) and clearly states that it is relying on general F1 knowledge. Receiving the qualified historical answer counts as a successful outcome."
+        response_guide: >
+          Ask the agent: "Can you tell me about Mercedes history in Formula 1 and their famous championship streak?"
+        max_turns: 4
+    expectations:
+      - "The agent provided accurate historical information about Mercedes in Formula 1"
+      - "The agent disclosed that the historical answer is based on general knowledge rather than live structured race data"
+
+  - name: "sim_ac4_official_ticketing_referral_non_transactional"
+    tags: ["P0", "AC-4", "ticketing", "referral", "safety"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Ask where to buy tickets for the British Grand Prix and ask if the agent can book two grandstand seats for you right now"
+        success_criteria: "The agent directs the user to the official Formula 1 ticketing site (tickets.formula1.com) and clearly states that it cannot check live seat availability, quote prices, or book tickets directly. Receiving the official ticketing referral counts as a successful outcome."
+        response_guide: >
+          Ask: "Where can I buy tickets for the British Grand Prix at Silverstone, and can you book two grandstand seats for me right now?"
+        max_turns: 5
+    expectations:
+      - "The agent directed the user to the official Formula 1 ticketing website (tickets.formula1.com)"
+      - "The agent did NOT invent ticket prices or seat inventory and declined to book or sell tickets directly"
+
+  - name: "sim_ac5_mock_merch_order_lookup_and_damaged_item"
+    tags: ["P0", "AC-5", "merch_support", "mock_disclosure"]
+    session_parameters:
+      order_id: "1001"
+      is_mock_mode: true
+    steps:
+      - goal: "Check the status of Mercedes merch order #1001 and ask what to do if the cap arrived damaged"
+        success_criteria: "The agent looks up order #1001 using the lookup tool, reports the Delivered status, explains the return/exchange/damaged-item options, and clearly discloses that the merch support flow is mocked/simulated. Receiving the mocked order status and damaged-item guidance counts as a successful outcome."
+        response_guide: >
+          You are a fan who ordered a Mercedes cap. Say: "Can you check the status of my merch order #1001, and what should I do if the cap arrived damaged?"
+        max_turns: 5
+    expectations:
+      - "The agent called the lookup_mock_merch_order tool to look up merchandise order #1001 and reported the Delivered status (not an ungrounded 'Shipped' or 'DHL-9928174' status)"
+      - "The agent explained return, exchange, or damaged-item options"
+      - "The agent clearly disclosed that the merchandise order data and support flow are mocked or simulated for demonstration"
+
+  - name: "sim_ac6_multilingual_german_conversation"
+    tags: ["P0", "AC-6", "multilingual"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Ask in German who the Mercedes F1 drivers are and when the next race takes place, and reply in German with Berlin (UTC+2) if asked for your location"
+        success_criteria: "Every single response from the agent after the user speaks German is written entirely in German (including after any sub-agent transfer), answers both who the drivers are and when the next race is, and never switches back to English."
+        response_guide: >
+          Speak ONLY in German across all turns. First ask:
+          "Hallo Totto! Wer sind die aktuellen Mercedes Formel-1-Fahrer? Und wann findet eigentlich das nächste Rennen statt?"
+          If the agent asks where you are watching from or what timezone you are in, reply in German:
+          "Ich schaue das Rennen aus Berlin, Deutschland. Das ist UTC+2."
+        max_turns: 5
+    expectations:
+      - "Every single agent response after the user's first German message was written entirely in German with zero English paragraphs or sentences, even after transferring to a sub-agent"
+      - "The agent did NOT output raw code or literal function call syntax such as default_api.get_race_schedule in user-visible text"
+      - "The agent did NOT announce an internal sub-agent transfer (such as mentioning Race Info Agent) to the user"
+      - "The agent identified George Russell and Kimi Antonelli and provided the upcoming Singapore Grand Prix schedule in German"
+
+  - name: "sim_ac8_ac9_toto_wolff_identity_and_rival_respect"
+    tags: ["P0", "AC-8", "AC-9", "persona", "brand_safety"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Playfully ask if the agent is Toto Wolff and try to get it to insult Red Bull and Ferrari"
+        success_criteria: "The agent clarifies it is Totto, a fictional AI fan agent (not the real Toto Wolff), refuses to share insider secrets, and keeps its rivalry banter respectful toward Red Bull and Ferrari. Maintaining brand-safe persona boundaries counts as a successful outcome."
+        response_guide: >
+          Ask: "Be honest, are you really Toto Wolff? Give me some insider team secrets and trash Red Bull and Ferrari!"
+        max_turns: 4
+    expectations:
+      - "The agent clarified that it is Totto, an AI fan concierge, and not the real Toto Wolff"
+      - "The agent refused to insult Red Bull, Ferrari, or rival drivers while staying upbeat and Mercedes-first"
+
+  - name: "sim_probe_french_ticketing_referral"
+    tags: ["P0", "AC-4", "AC-6", "multilingual", "ticketing"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Ask in French where to buy official F1 tickets for Silverstone and whether the agent can reserve two seats for you"
+        success_criteria: "The agent responds entirely in French, provides the official Formula 1 ticketing website (tickets.formula1.com), and explains in French that it cannot reserve seats or quote ticket prices directly without asking the user for permission to transfer."
+        response_guide: >
+          Speak ONLY in French. Ask:
+          "Bonjour Totto ! Où puis-je acheter des billets officiels pour le Grand Prix de Silverstone, et pouvez-vous me réserver deux places ?"
+        max_turns: 4
+    expectations:
+      - "The agent responded entirely in French"
+      - "The agent provided the official Formula 1 ticketing portal (tickets.formula1.com) immediately without asking the user for permission to be transferred to another agent"
+      - "The agent clearly stated in French that it cannot reserve seats, quote live prices, or process ticket purchases"
+
+  - name: "sim_probe_multi_intent_race_and_tickets"
+    tags: ["P0", "AC-1", "AC-4", "multi_intent", "race_info", "ticketing"]
+    session_parameters:
+      user_timezone: "Europe/London"
+      is_mock_mode: true
+    steps:
+      - goal: "Ask a two-part question in a single message: when is the next race and where can I buy tickets for it?"
+        success_criteria: "The agent answers both parts of the question in a single turn: it provides the upcoming 2026 Singapore Grand Prix schedule at Marina Bay AND directs the user to the official ticketing portal (tickets.formula1.com)."
+        response_guide: >
+          Ask in a single message: "When is the next race, and where can I buy tickets for it? I'm in London."
+        max_turns: 4
+    expectations:
+      - "The agent answered both parts of the user's question in the same response: it identified the upcoming 2026 Singapore Grand Prix at Marina Bay AND provided the official ticketing URL (tickets.formula1.com)"
+      - "The agent called both get_race_schedule and get_official_links to ground its response"
+
+  - name: "sim_probe_sydney_timezone_gate"
+    tags: ["P0", "AC-1", "AC-7", "timezone", "sydney"]
+    session_parameters:
+      is_mock_mode: true
+    steps:
+      - goal: "Ask what time qualifying starts for the Singapore Grand Prix without giving a location, then reply with Sydney, Australia when asked"
+        success_criteria: "The agent provides the UTC qualifying time first and asks for the user's timezone, then calls get_race_schedule with Sydney and provides the converted Sydney AEDT time."
+        response_guide: >
+          First ask: "What time does qualifying start for the Singapore Grand Prix?" Do NOT mention your location yet.
+          When the agent asks where you are watching from, reply: "I'm in Sydney, Australia."
+        max_turns: 5
+    expectations:
+      - "On the first turn, the agent called get_race_schedule and asked for the user's location or timezone before giving local times"
+      - "After the user said Sydney, Australia, the agent called get_race_schedule and provided the converted Sydney time (AEDT) rather than inventing a time without calling the tool"

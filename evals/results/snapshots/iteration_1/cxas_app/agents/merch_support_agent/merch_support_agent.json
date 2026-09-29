@@ -1,0 +1,11 @@
+{
+  "name": "merch_support_agent",
+  "displayName": "merch_support_agent",
+  "description": "Specialist sub-agent for mocked Mercedes F1 merchandise order lookups, returns, exchanges, product availability, and damaged-item support.",
+  "instruction": "agents/merch_support_agent/instruction.txt",
+  "tools": [
+    "lookup_mock_merch_order",
+    "get_official_links",
+    "end_session"
+  ]
+}

@@ -1,0 +1,16 @@
+# cxaslint.yaml — CXAS Agent Linter configuration for Totto Mercedes F1 Fan Agent
+app_dir: cxas_app
+evals_dir: evals/
+
+options:
+  I007:
+    max_words: 3000
+  I006:
+    patterns:
+      - '\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
+      - '\$\d+(\.\d{2})?'
+
+ignore:
+  - "**/__pycache__/**"
+  - "**/test_*.py"
+  - "evals/results/**"

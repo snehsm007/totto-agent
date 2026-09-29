@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Automatic pre-commit regression gate for Totto CXAS Agent (Decision D2).
+# Install in a repo via: git config core.hooksPath hooks
+set -euo pipefail
+
+if [[ "${TOTTO_SKIP_GATE:-0}" == "1" ]]; then
+  echo "[pre-commit] TOTTO_SKIP_GATE=1 set; skipping offline gate."
+  exit 0
+fi
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+DEFAULT_SHARED_VENV="<REPO_ROOT>/.venv/bin/python"
+
+if [[ -n "${TOTTO_PYTHON:-}" && -x "${TOTTO_PYTHON}" ]]; then
+  PYTHON_BIN="${TOTTO_PYTHON}"
+elif [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
+  PYTHON_BIN="${REPO_ROOT}/.venv/bin/python"
+elif [[ -x "${DEFAULT_SHARED_VENV}" ]]; then
+  PYTHON_BIN="${DEFAULT_SHARED_VENV}"
+else
+  PYTHON_BIN="$(command -v python3)"
+fi
+
+echo "[pre-commit] Running Totto offline regression gate on ${REPO_ROOT}/cxas_app ..."
+export PYTHONPATH="${REPO_ROOT}:${PYTHONPATH:-}"
+exec "${PYTHON_BIN}" -m totto_suite gate --repo-root "${REPO_ROOT}" --app-dir "${REPO_ROOT}/cxas_app"

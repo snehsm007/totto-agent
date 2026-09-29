@@ -1,0 +1,77 @@
+================================================================================
+Totto CXAS Pre-Commit Regression Gate — End-to-End Isolated Clone Demonstration
+Generated at: 2026-09-28T23:33:13Z
+================================================================================
+
+$ git clone <REPO_ROOT> /tmp/totto_gate_demo_repo
+Cloning into '/tmp/totto_gate_demo_repo'...
+done.
+
+$ git config core.hooksPath hooks
+core.hooksPath=hooks
+
+--------------------------------------------------------------------------------
+STEP 1: Attempt git commit with broken agent changes (tool bug + prompt leak)
+--------------------------------------------------------------------------------
+Injected TR-08 standings alias removal + TR-01 prompt-stuffed tracking ID into demo clone cxas_app/
+$ git status -s cxas_app
+ M cxas_app/agents/merch_support_agent/instruction.txt
+ M cxas_app/tools/get_driver_standings/python_function/python_code.py
+
+$ git commit -m "demo: broken commit with TR-08 and TR-01 regressions"
+[pre-commit] Running Totto offline regression gate on /tmp/totto_gate_demo_repo/cxas_app ...
+[gate] Candidate: cxas_app | Baseline: HEAD(9c7fad5) via record 20260928T230043Z_offline_6a4d0d2 | Wall: 11.40s
+layer              pass   fail  infra    score
+----------------------------------------------
+callbacks            28      4      0    87.5%
+config                5      5      0    50.0%
+dates                20      6      0    76.9%
+grader               30      0      0   100.0%
+lint                  2      0      0   100.0%
+regrade               5      0      0   100.0%
+selftest             68      0      0   100.0%
+tools               115     17      0    87.1%
+[gate] Pre-existing frozen-agent diagnostic findings (FAIL -> FAIL, non-regression per D2): 29
+
+[gate] REGRESSIONS (PASS -> FAIL vs HEAD(9c7fad5) via record 20260928T230043Z_offline_6a4d0d2): 3
+  - config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps [PASS -> FAIL]: AssertionError: merch_support_agent <examples> contains literal tracking number DHL-9928174 that causes hallucination
+  - config::test_agent_instructions_and_contracts.py::test_no_test_prompts_hardcoded_in_instruction_examples [PASS -> FAIL]: AssertionError: instruction.txt contains literal test prompt: "my cap from order 1001 arrived damaged. here's my card number 4111 1111 1111 
+  - tools::test_tools.py::test_get_driver_standings_mercedes_first_and_category_aliases[both] [PASS -> FAIL]: AssertionError: assert 'error' == 'success'
+
+[gate] RESULT: BLOCKED — 3 scenario(s) regressed PASS -> FAIL vs HEAD(9c7fad5) via record 20260928T230043Z_offline_6a4d0d2
+
+[demo] git commit exit code on broken change: 1 (expected: 1 — BLOCKED)
+$ git log -1 --oneline
+9c7fad5 totto_suite: complete M1+M2a+M2b offline suite, date oracle, deterministic grader, and recorded regrading
+
+--------------------------------------------------------------------------------
+STEP 2: Restore clean cxas_app and run git commit on a clean change
+--------------------------------------------------------------------------------
+$ git checkout HEAD -- cxas_app
+$ git status -s cxas_app
+
+$ git commit -m "demo: clean commit passes pre-commit gate" -- hooks/pre-commit totto_suite/gate.py
+[pre-commit] Running Totto offline regression gate on /tmp/totto_gate_demo_repo/cxas_app ...
+[gate] Candidate: cxas_app | Baseline: HEAD(9c7fad5) via record 20260928T230043Z_offline_6a4d0d2 | Wall: 11.34s
+layer              pass   fail  infra    score
+----------------------------------------------
+callbacks            28      4      0    87.5%
+config                7      3      0    70.0%
+dates                20      6      0    76.9%
+grader               30      0      0   100.0%
+lint                  2      0      0   100.0%
+regrade               5      0      0   100.0%
+selftest             68      0      0   100.0%
+tools               116     16      0    87.9%
+[gate] Pre-existing frozen-agent diagnostic findings (FAIL -> FAIL, non-regression per D2): 29
+
+[gate] RESULT: PASSED (305 checks evaluated, 0 PASS->FAIL regressions, 0 lint errors, 0 selftest errors)
+[main 8f73fb3] demo: clean commit passes pre-commit gate
+ 2 files changed, 465 insertions(+)
+ create mode 100755 hooks/pre-commit
+ create mode 100644 totto_suite/gate.py
+
+[demo] git commit exit code on clean change: 0 (expected: 0 — ALLOWED)
+$ git log -2 --oneline
+8f73fb3 demo: clean commit passes pre-commit gate
+9c7fad5 totto_suite: complete M1+M2a+M2b offline suite, date oracle, deterministic grader, and recorded regrading

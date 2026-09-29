@@ -1,0 +1,129 @@
+{
+  "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+  "original_name": "golden_ac6_multilingual_spanish_response",
+  "repeat": 2,
+  "evaluation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/554b12f4-1fb9-4423-afc2-764f2f803132",
+  "evaluation_run": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationRuns/53e5681c-349c-46e1-9222-42ffc993d383",
+  "evaluation_result": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/554b12f4-1fb9-4423-afc2-764f2f803132/results/b5877ba2-4b2e-42d3-8a98-0360b0060f89",
+  "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/evaluation-a676b8d1-0db8-45e0-a6e7-8e5c55e4fa3a",
+  "app_version": "b11332a0-b304-41e1-baac-57cd0ced05da",
+  "status": "PASS",
+  "findings": [],
+  "raw_result": {
+    "name": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluations/554b12f4-1fb9-4423-afc2-764f2f803132/results/b5877ba2-4b2e-42d3-8a98-0360b0060f89",
+    "display_name": "Result 1 - 2026-09-29-00-21-59 - b5877ba2-4b2e-42d3-8a98-0360b0060f89",
+    "evaluation_status": 1,
+    "create_time": "2026-09-29T00:21:59.899789Z",
+    "evaluation_run": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationRuns/53e5681c-349c-46e1-9222-42ffc993d383",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/conversations/evaluation-a676b8d1-0db8-45e0-a6e7-8e5c55e4fa3a",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "¡Hola! Soy Totto, Mercedes F1 Fan Agent, tu asistente virtual de los Silver Arrows. Para la temporada 2026, nuestros pilotos oficiales son George Russell en el monoplaza #63 y Kimi Antonelli en el #12."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "1.611s",
+          "semantic_similarity_result": {
+            "score": 3,
+            "label": "Mostly Consistent",
+            "explanation": "The agent's response captures the primary intent of identifying the Mercedes F1 drivers, and both responses start with a similar greeting and self-identification. However, the actual response makes two notable changes compared to the reference: it adds specific details about the \"temporada 2026\" and car numbers (#63, #12), which are not present in the reference. Additionally, the actual response omits the polite closing question (\"¿En qué más te puedo ayudar hoy?\") that is present in the reference. According to the rubric, a \"Hard Close\" (Actual) vs. a \"Courtesy Check\" (Reference) is considered a Minor Deviation, leading to a Score 3.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-29T00:22:02.492321Z",
+              "end_time": "2026-09-29T00:22:02.512579Z",
+              "execution_latency": "0.020258s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-29T00:22:02.513285Z",
+              "end_time": "2026-09-29T00:22:03.947454Z",
+              "execution_latency": "1.434169s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-29T00:22:03.949041Z",
+              "end_time": "2026-09-29T00:22:03.949120Z",
+              "execution_latency": "0.000079s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationExpectations/1fd6ffb0-c515-4e24-81f1-173586aa1b6b",
+          "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+          "outcome": 1,
+          "explanation": "The agent explicitly stated: 'Para la temporada 2026, nuestros pilotos oficiales son George Russell en el monoplaza #63 y Kimi Antonelli en el #12.' This directly identifies George Russell and Kimi Antonelli as the Mercedes drivers, thus meeting the custom expectation."
+        },
+        {
+          "evaluation_expectation": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/evaluationExpectations/2fa22adb-425a-4975-8245-a269bde13b73",
+          "prompt": "The agent responded fluently in Spanish matching the user's language",
+          "outcome": 1,
+          "explanation": "The user initiated the conversation in Spanish. The agent responded entirely in fluent Spanish, matching the user's language. The response is grammatically correct and natural."
+        }
+      ]
+    },
+    "initiated_by": "developer@example.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "golden_run_method": 2,
+    "changelog": "projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000/changelogs/e36a1c56-8388-435e-96bb-992472bda18b",
+    "changelog_create_time": "2026-09-29T00:21:37.211186Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}
