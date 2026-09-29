@@ -168,6 +168,38 @@ def test_deploy_record_version_is_shown_app_relative(tmp_path):
     assert FAKE_PROJECT not in index and "projects/" not in index
 
 
+def test_deploy_live_record_shape_version_phone_and_failure(tmp_path):
+    """Shape written by scripts/ci/deploy_live.py (version dict + phone_deployments entries)."""
+    g = write(tmp_path / "gate.json", gate_summary())
+    ok = {
+        "schema": "totto-deploy/v1",
+        "commit": SHA_A,
+        "status": "SUCCESS",
+        "version": {"id": "versions/v-123", "display_name": "git-aaaaaaa", "verified": True},
+        "phone_deployments": [
+            {
+                "deployment": "deployments/gtp-1",
+                "previous_version": "versions/v-100",
+                "new_version": "versions/v-123",
+                "verified": True,
+            }
+        ],
+    }
+    rc, site = build(tmp_path, "ok", "--gate-summary", str(g), "--deploy-record", str(write(tmp_path / "d.json", ok)))
+    assert rc == 0
+    latest = json.loads((site / "data/latest.json").read_text())
+    assert latest["deploy"]["version"] == "versions/v-123"
+    assert latest["deploy"]["phone_deployments"] == ["deployments/gtp-1"]
+    assert "git-aaaaaaa" in (site / "index.html").read_text()
+
+    failed = {"commit": SHA_A, "status": "FAILED", "failed_step": "push", "version": None, "phone_deployments": []}
+    rc, site = build(
+        tmp_path, "bad", "--gate-summary", str(g), "--deploy-record", str(write(tmp_path / "f.json", failed))
+    )
+    index = (site / "index.html").read_text()
+    assert "no live deploy recorded" in index and ">FAILED<" in index and "at step push" in index
+
+
 def test_history_appends_across_builds_and_rerun_replaces(tmp_path):
     rc, a = build(tmp_path, "a", "--gate-summary", str(write(tmp_path / "g1.json", gate_summary())))
     assert rc == 0

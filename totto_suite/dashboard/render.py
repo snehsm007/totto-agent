@@ -206,6 +206,10 @@ def summary_kv(latest: dict) -> str:
         version_html = f"<code>{e(version)}</code>"
     else:
         version_html = "<em>no live deploy recorded for this commit</em>"
+    status = dep.get("status")
+    if status and str(status).upper() != "SUCCESS":
+        step = f" at step {e(dep['failed_step'])}" if dep.get("failed_step") else ""
+        version_html += f" — live deploy {pill(str(status).upper())}{step}"
     fv = latest.get("fake_verified")
     mode = e(latest.get("tool_mode") or "n/a")
     if fv is not None:

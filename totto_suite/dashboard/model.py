@@ -177,14 +177,17 @@ def normalize_deploy(deploy: Any) -> dict | None:
     if isinstance(version, str) and "/" not in version and version:
         version = f"versions/{version}"
     phones = get_path(deploy, "phone_deployments", "telephony", "deployments", "gtp_deployments")
+    # deploy_live.py entries also carry previous/new version names; show only the deployments.
+    phone_ids = [p for p in platform_ids(phones) if p.startswith("deployments/")] if phones else []
     return {
         "version": version,
         "version_display_name": display,
         "commit": get_path(deploy, "commit", "git_commit", "agent.commit"),
         "status": get_path(deploy, "status", "result"),
+        "failed_step": get_path(deploy, "failed_step"),
         "deployed_at": get_path(deploy, "deployed_at", "finished_at", "created_at", "timestamp"),
         "run_url": get_path(deploy, "run_url"),
-        "phone_deployments": platform_ids(phones) if phones else [],
+        "phone_deployments": phone_ids,
     }
 
 
