@@ -1,6 +1,7 @@
 """Push-disabled deployment & version-snapshot workflow (`totto_suite deploy`).
 
-Enforces R5 (`--no-push` is mandatory; `--push` is hard-blocked):
+Never pushes (`--no-push` is mandatory; `--push` is refused because the live
+app is changed only by the gated CI deploy-live job, scripts/ci/deploy_live.py):
 1. Runs the offline regression gate (`totto_suite.gate.evaluate_gate`) on `cxas_app`.
 2. If the gate passes, snapshots the live CXAS app version via `cxasapi`
    (`get_app`, `create_version`, `get_version`, `list_versions`) without pushing
@@ -59,9 +60,10 @@ def run_deploy(
             "ok": False,
             "exit_code": EXIT_DEPLOY_BLOCKED,
             "error": (
-                "R5 Safety Violation: --push is hard-blocked on the shared live CXAS app "
-                "(projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000). "
-                "Only --no-push (default) is permitted."
+                "--push is not available from `totto_suite deploy`: the live CXAS app is "
+                "changed only by the gated deploy-live job in .github/workflows/ci.yml "
+                "(scripts/ci/deploy_live.py, refs/heads/main after the staging eval gate "
+                "passes). Use --no-push (default) for a version snapshot."
             ),
             "push_performed": False,
         }
@@ -241,13 +243,13 @@ def main(argv: list[str] | None = None) -> int:
         "--no-push",
         action="store_true",
         default=True,
-        help="Record CXAS version snapshot without pushing local cxas_app to the live app (default, enforced by R5).",
+        help="Record CXAS version snapshot without pushing local cxas_app to the live app (default).",
     )
     parser.add_argument(
         "--push",
         action="store_true",
         default=False,
-        help="Attempt to push to the live CXAS app (HARD-BLOCKED by R5 safety rule).",
+        help="Refused: live pushes happen only in the gated CI deploy-live job on main.",
     )
     parser.add_argument(
         "--app-dir",

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Automatic pre-commit regression gate for Totto CXAS Agent (Decision D2).
-# Install in a repo via: git config core.hooksPath hooks
+# Activated by `make setup` (or `make hooks`): git config core.hooksPath hooks
 set -euo pipefail
 
 if [[ "${TOTTO_SKIP_GATE:-0}" == "1" ]]; then
@@ -9,15 +9,13 @@ if [[ "${TOTTO_SKIP_GATE:-0}" == "1" ]]; then
 fi
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-DEFAULT_SHARED_VENV="<REPO_ROOT>/.venv/bin/python"
 
 if [[ -n "${TOTTO_PYTHON:-}" && -x "${TOTTO_PYTHON}" ]]; then
   PYTHON_BIN="${TOTTO_PYTHON}"
 elif [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
   PYTHON_BIN="${REPO_ROOT}/.venv/bin/python"
-elif [[ -x "${DEFAULT_SHARED_VENV}" ]]; then
-  PYTHON_BIN="${DEFAULT_SHARED_VENV}"
 else
+  echo "[pre-commit] no .venv found; run 'make setup'. Falling back to python3." >&2
   PYTHON_BIN="$(command -v python3)"
 fi
 

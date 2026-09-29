@@ -8,11 +8,20 @@ version = "1.0.0"
 description = "Totto, the Mercedes F1 Fan Agent (totto-mercedes-f1-fan-agent) for Google Cloud Customer Engagement Suite (GECX)"
 readme = "prd.md"
 requires-python = ">=3.11"
+# cxas-scrapi (SCRAPI SDK + `cxas` CLI) and google-cloud-ces are pinned to the
+# versions the suite is tested with; CI installs exactly these.
 dependencies = [
     "pyyaml>=6.0",
     "pytest>=8.0.0",
     "pytest-cov>=5.0.0",
+    "cxas-scrapi==1.9.1",
+    "google-cloud-ces==0.7.1",
 ]
+
+[tool.setuptools.packages.find]
+# Flat repo layout: only the test suite is a Python package. cxas_app/, lib/,
+# scripts/ and tests/ are data or entry points, not installable packages.
+include = ["totto_suite*"]
 
 [tool.pytest.ini_options]
 # Layer = directory name: tests/{tools,callbacks,config,dates,grader,regrade}/

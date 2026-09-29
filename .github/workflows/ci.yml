@@ -1,0 +1,312 @@
+# CI/CD for Totto (Mercedes F1 Fan Agent) on CX Agent Studio (CXAS).
+#
+#   offline ────────────────┐
+#                           ├─> deploy-live (main push only) ─┐
+#   staging-gate ───────────┘                                 ├─> publish-dashboard (main push, always)
+#     (runs in parallel with offline, so a prompt-only        │
+#      regression fails on the "CXAS eval gate" step)  ───────┘
+#
+# Google Cloud auth is keyless: Workload Identity Federation via
+# google-github-actions/auth. All identifiers come from repository Actions
+# variables (Settings -> Secrets and variables -> Actions -> Variables):
+#   GCP_WIF_PROVIDER, GCP_CI_SERVICE_ACCOUNT, CXAS_LIVE_APP_ID, CXAS_STAGING_APP_ID
+# (optional: CXAS_EVAL_AUDIO_BUCKET for audio evals). Nothing is committed back
+# to any branch except the `dashboard` branch.
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.12"
+  CXAS_LOCATION: us
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  offline:
+    name: Offline checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install (pip install -e .)
+        run: python -m pip install -e .
+
+      - name: Shared-code bundle check
+        run: python scripts/bundle_shared_imports.py --check
+
+      - name: cxas lint
+        run: cxas lint --app-dir cxas_app
+
+      - name: pytest
+        run: python -m pytest -q
+
+      - name: Offline suite
+        run: python -m totto_suite offline --no-record
+
+      - name: Mutants
+        run: python -m totto_suite mutants
+
+  staging-gate:
+    name: Staging eval gate
+    # Same-repo pull requests are already gated by their push event.
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      id-token: write
+    concurrency:
+      # One staging app and one LLM quota: never run two gates at once.
+      group: cxas-staging
+      cancel-in-progress: false
+    outputs:
+      verdict: ${{ steps.gate.outputs.verdict }}
+      run_id: ${{ steps.gate.outputs.run_id }}
+    env:
+      GATE_RUN_ID: ci-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check repo variables
+        env:
+          WIF_PROVIDER: ${{ vars.GCP_WIF_PROVIDER }}
+          CI_SA: ${{ vars.GCP_CI_SERVICE_ACCOUNT }}
+          LIVE_APP_ID: ${{ vars.CXAS_LIVE_APP_ID }}
+          STAGING_APP_ID: ${{ vars.CXAS_STAGING_APP_ID }}
+        run: bash scripts/ci/check_repo_vars.sh
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install (pip install -e .)
+        run: python -m pip install -e .
+
+      - name: Authenticate to Google Cloud (WIF, no key)
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_CI_SERVICE_ACCOUNT }}
+
+      - name: Deploy to staging
+        env:
+          CXAS_EVAL_AUDIO_BUCKET: ${{ vars.CXAS_EVAL_AUDIO_BUCKET }}
+        run: python scripts/ci/push_app.py --target staging --json-out staging_push.json
+
+      - name: Fetch main baseline (dashboard branch)
+        run: |
+          if git fetch --quiet origin dashboard 2>/dev/null && git show FETCH_HEAD:data/baseline.json > baseline.json 2>/dev/null; then
+            echo "baseline: $(python -c 'import json;d=json.load(open("baseline.json"));print(d.get("commit","?")[:7], d.get("pass_rate"))')"
+          else
+            rm -f baseline.json
+            echo "no baseline yet (first gated main run): absolute floors only"
+          fi
+
+      - name: CXAS eval gate
+        id: gate
+        run: |
+          set +e
+          args=()
+          [ -f baseline.json ] && args+=(--baseline baseline.json)
+          python -m totto_suite ci-gate --target staging --app-name "$STAGING_APP_NAME" \
+            --run-id "$GATE_RUN_ID" --tool-mode fake "${args[@]}" --out gate_summary.json
+          rc=$?
+          verdict="$(python -c 'import json;print(json.load(open("gate_summary.json"))["verdict"])' 2>/dev/null || echo MISSING)"
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          echo "run_id=$GATE_RUN_ID" >> "$GITHUB_OUTPUT"
+          case "$rc" in
+            0) echo "CXAS eval gate PASSED (verdict $verdict)" ;;
+            1) echo "::error title=CXAS eval gate::quality regression on staging (verdict $verdict); see gate_summary.json" ;;
+            3) echo "::error title=CXAS eval gate::INCONCLUSIVE (too many 429/503/504 infra errors); re-run the job" ;;
+            *) echo "::error title=CXAS eval gate::gate crashed or bad config (exit $rc)" ;;
+          esac
+          exit "$rc"
+
+      - name: Verify platform IDs
+        if: ${{ !cancelled() && contains(fromJSON('["PASS","FAIL","INCONCLUSIVE"]'), steps.gate.outputs.verdict) }}
+        run: python -m totto_suite verify-ids --app-name "$STAGING_APP_NAME" --run-id "$GATE_RUN_ID"
+
+      - name: Platform IDs (app-relative)
+        if: ${{ !cancelled() && hashFiles('gate_summary.json') != '' }}
+        run: python scripts/ci/print_gate_ids.py gate_summary.json | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload gate summary
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: gate-summary
+          path: gate_summary.json
+          if-no-files-found: warn
+
+      - name: Upload gate records
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: gate-records
+          path: |
+            staging_push.json
+            baseline.json
+            evals/history/runs/${{ env.GATE_RUN_ID }}.json
+            evals/history/artifacts/${{ env.GATE_RUN_ID }}/
+          if-no-files-found: warn
+
+  deploy-live:
+    name: Deploy to live
+    # Live changes only from main, and only after both gates passed.
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: [offline, staging-gate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
+    concurrency:
+      group: cxas-live
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check repo variables
+        env:
+          WIF_PROVIDER: ${{ vars.GCP_WIF_PROVIDER }}
+          CI_SA: ${{ vars.GCP_CI_SERVICE_ACCOUNT }}
+          LIVE_APP_ID: ${{ vars.CXAS_LIVE_APP_ID }}
+          STAGING_APP_ID: ${{ vars.CXAS_STAGING_APP_ID }}
+        run: bash scripts/ci/check_repo_vars.sh
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install (pip install -e .)
+        run: python -m pip install -e .
+
+      - name: Authenticate to Google Cloud (WIF, no key)
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_CI_SERVICE_ACCOUNT }}
+
+      - name: Deploy to live (version, snapshots, phone)
+        env:
+          CXAS_EVAL_AUDIO_BUCKET: ${{ vars.CXAS_EVAL_AUDIO_BUCKET }}
+          GATE_RUN_ID: ${{ needs.staging-gate.outputs.run_id }}
+          GATE_VERDICT: ${{ needs.staging-gate.outputs.verdict }}
+        run: |
+          python scripts/ci/deploy_live.py --out-dir deploy_out \
+            --gate-run-id "$GATE_RUN_ID" --gate-verdict "$GATE_VERDICT"
+
+      - name: Upload deploy record
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: deploy-record
+          path: |
+            deploy_out/deploy.json
+            deploy_out/diff.md
+          if-no-files-found: warn
+
+      - name: Upload live snapshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: live-snapshots
+          path: deploy_out/
+          if-no-files-found: warn
+
+  publish-dashboard:
+    name: Publish dashboard
+    # Runs after the gate on every push to main, whether the gate passed or
+    # failed, so the dashboard always shows the latest main commit + result.
+    if: ${{ always() && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: [staging-gate, deploy-live]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write          # push the `dashboard` branch with GITHUB_TOKEN
+    concurrency:
+      group: dashboard
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0             # full history; publish script also fetches `dashboard` itself
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Download gate summary
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        continue-on-error: true      # gate may have failed before writing it
+        with:
+          name: gate-summary
+          path: dashboard-inputs/gate
+
+      - name: Download deploy record
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        continue-on-error: true      # deploy-live is skipped when the gate fails
+        with:
+          name: deploy-record
+          path: dashboard-inputs/deploy
+
+      - name: Build dashboard
+        env:
+          GATE_RESULT: ${{ needs.staging-gate.result }}
+          DEPLOY_RESULT: ${{ needs.deploy-live.result }}
+          DASHBOARD_DENY: ${{ vars.CXAS_LIVE_APP_ID }},${{ vars.CXAS_STAGING_APP_ID }}
+        run: |
+          set -euo pipefail
+          args=()
+          gate="$(find dashboard-inputs/gate -name gate_summary.json -print -quit 2>/dev/null || true)"
+          deploy="$(find dashboard-inputs/deploy -name deploy.json -print -quit 2>/dev/null || true)"
+          [ -n "$gate" ] && args+=(--gate-summary "$gate")
+          [ -n "$deploy" ] && args+=(--deploy-record "$deploy")
+          python -m totto_suite dashboard build --out _site "${args[@]}" \
+            --commit "$GITHUB_SHA" \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --missing-gate-label "NO GATE RESULT (staging-gate job: $GATE_RESULT)"
+
+      - name: Publish dashboard branch
+        env:
+          # Baseline moves only when the main gate passed (the script also
+          # re-checks that the verdict in gate_summary.json is PASS).
+          DASHBOARD_UPDATE_BASELINE: ${{ needs.staging-gate.result == 'success' && '1' || '0' }}
+          DASHBOARD_DENY: ${{ vars.CXAS_LIVE_APP_ID }},${{ vars.CXAS_STAGING_APP_ID }}
+        run: bash scripts/publish_dashboard.sh _site
+
+      - name: Dashboard URL
+        run: |
+          echo "Dashboard: https://raw.githack.com/${GITHUB_REPOSITORY}/dashboard/index.html" | tee -a "$GITHUB_STEP_SUMMARY"

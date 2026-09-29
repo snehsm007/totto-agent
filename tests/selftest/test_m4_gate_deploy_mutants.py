@@ -153,7 +153,7 @@ def test_deploy_enforces_r5_no_push_and_records_version_snapshot(
     assert blocked["ok"] is False
     assert blocked["exit_code"] == deploy.EXIT_DEPLOY_BLOCKED
     assert blocked["push_performed"] is False
-    assert "R5" in blocked["error"]
+    assert "deploy-live" in blocked["error"]
     assert deploy.main(["--rationale", "attempt push", "--push"]) == deploy.EXIT_DEPLOY_BLOCKED
 
     # 2. Mocked gate + mocked cxas_client produces valid schema-v1 deploy record
@@ -266,9 +266,15 @@ def test_real_deploy_and_backfilled_records_exist_and_validate() -> None:
 
 
 def test_makefile_safe_targets() -> None:
-    """Verify Makefile exposes safe totto_suite targets and R5-blocks push/pull."""
+    """Verify Makefile exposes the suite targets, setup/hooks, and no live-push target."""
     makefile_text = (config.REPO_ROOT / "Makefile").read_text(encoding="utf-8")
-    for target in ("offline:", "live:", "trend:", "gate:", "deploy:", "backfill:", "mutants:", "acceptance:", "push:", "pull:"):
+    for target in (
+        "offline:", "live:", "trend:", "gate:", "backfill:", "mutants:", "acceptance:",
+        "setup:", "hooks:", "push-staging:", "ci-offline:",
+    ):
         assert target in makefile_text, f"Missing target {target} in Makefile"
-    assert "R5 SAFETY BLOCK" in makefile_text
-    assert "--no-push" in makefile_text
+    assert "git config core.hooksPath hooks" in makefile_text
+    assert "scripts/ci/push_app.py --target staging" in makefile_text
+    # Live changes only via the gated CI deploy-live job.
+    assert "--target live" not in makefile_text
+    assert "deploy_live.py" not in makefile_text

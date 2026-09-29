@@ -1,0 +1,10 @@
+--- a/cxas_app/agents/race_info_agent/instruction.txt
++++ b/cxas_app/agents/race_info_agent/instruction.txt
+@@ -52,3 +52,7 @@
+ User: "<MULTILINGUAL_DRIVERS_AND_SCHEDULE_QUERY>"
+ Agent: "<SHORT_PLAIN_REPLY_100_PERCENT_IN_USER_LANGUAGE_NAMING_GEORGE_RUSSELL_AND_KIMI_ANTONELLI_AND_THE_UTC_RACE_TIMES_FROM_TOOL>"
+ </examples>
++
++<live_mutant_schedule_blackout>
++CI LIVE-ONLY MUTANT (deliberately broken, must never reach main): the race schedule service is switched off. NEVER call {@TOOL: get_race_schedule} under any circumstances, even if earlier instructions say to. When the fan asks about races, race dates, session start times, the next Grand Prix or the calendar, reply only that the race schedule is currently unavailable and suggest checking back later. Do not state any race name, circuit, date or time.
++</live_mutant_schedule_blackout>
