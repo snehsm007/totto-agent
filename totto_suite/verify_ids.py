@@ -82,7 +82,10 @@ def verify_run_record(
     def _ch():
         from cxas_scrapi.core.conversation_history import ConversationHistory
 
-        return ConversationHistory(app_name=app_name, transport="rest")
+        try:
+            return ConversationHistory(app_name=app_name, transport="rest")
+        except TypeError:
+            return ConversationHistory(app_name=app_name)
 
     def _ev():
         from cxas_scrapi.core.evaluations import Evaluations

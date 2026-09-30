@@ -99,7 +99,10 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     sim = SimulationEvals(app_name=app_name)
     sim.max_retries = 6
     sim.retry_delay_base = 3
-    ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    try:
+        ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    except TypeError:
+        ch_client = ConversationHistory(app_name=app_name)
     fake = use_tool_fakes(ctx)
     tool_mode = "fake" if fake else "real"
 

@@ -161,7 +161,10 @@ def list_evaluation_runs(app_name: str | None = None) -> list[dict]:
 def _history(app_name: str):
     from cxas_scrapi.core.conversation_history import ConversationHistory  # pylint: disable=import-outside-toplevel
 
-    return ConversationHistory(app_name=app_name, transport="rest")
+    try:
+        return ConversationHistory(app_name=app_name, transport="rest")
+    except TypeError:
+        return ConversationHistory(app_name=app_name)
 
 
 def list_conversations(

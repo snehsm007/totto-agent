@@ -212,7 +212,10 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     now_dt = resolve_now(ctx)
 
     sim = SimulationEvals(app_name=app_name)
-    ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    try:
+        ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    except TypeError:
+        ch_client = ConversationHistory(app_name=app_name)
 
     results: list[dict[str, Any]] = []
     all_artifacts: list[dict[str, Any]] = []

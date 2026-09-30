@@ -32,10 +32,10 @@ To keep Google Cloud project IDs and app UUIDs out of git while preserving a ver
 When you (or the `staging-gate` CI job) run:
 ```bash
 .venv/bin/python -m totto_suite verify-ids \
-  --target staging \
-  --run-id "<RUN_ID>"
+  --app-name "$STAGING_APP_NAME" \
+  --run-id "$GATE_RUN_ID"
 ```
-[`totto_suite/verify_ids.py`](../totto_suite/verify_ids.py) combines the target app's full resource path (`projects/<PROJECT>/locations/us/apps/<APP_UUID>`) with each app-relative ID (`evaluationRuns/<uuid>`, `conversations/<uuid>`, `versions/<uuid>`) and queries the CXAS API to verify the resource exists on the server:
+[`totto_suite/verify_ids.py`](../totto_suite/verify_ids.py) combines `--app-name` (`projects/<PROJECT>/locations/us/apps/<APP_UUID>`, or the default app from local config if `--app-name` is omitted) with each app-relative ID (`evaluationRuns/<uuid>`, `conversations/<uuid>`, `versions/<uuid>`) and queries the CXAS API to verify the resource exists on the server:
 - **Cloud Live & Staging Runs (`verified`)**: Every recorded `evaluationRuns/<uuid>`, `conversations/<uuid>`, and `versions/<uuid>` is confirmed live on the server and recorded in `evals/history/artifacts/<run_id>/verify_ids.json`.
 - **Pre-R5 Legacy / Offline Runs (`legacy_unverifiable`)**: Historical imported or offline runs that do not reference live cloud `evaluationRuns/<uuid>` resources are explicitly classified as `legacy_unverifiable` so the dashboard distinguishes verified cloud runs from older local captures.
 

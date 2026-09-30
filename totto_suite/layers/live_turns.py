@@ -27,7 +27,10 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
     repeats = max(1, int(ctx.get("repeats") or 3))
 
     turn_evals = TurnEvals(app_name=app_name)
-    ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    try:
+        ch_client = ConversationHistory(app_name=app_name, transport="rest")
+    except TypeError:
+        ch_client = ConversationHistory(app_name=app_name)
     cases = turn_evals.load_turn_test_cases_from_file(str(TURN_EVALS_YAML))
     fake = use_tool_fakes(ctx)
     for tc in cases:

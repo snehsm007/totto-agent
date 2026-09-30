@@ -457,15 +457,14 @@ def test_ac_handover_1_plain_english_readme_and_clean_cxas_app() -> None:
 def test_ac_handover_2_docs_claims_links_and_zero_leaked_identifiers() -> None:
     """AC Handover 2: README.md and docs/*.md contain zero leaked identifiers, zero broken relative links, and accurate R5 claims."""
     import re
+    from totto_suite.dashboard import scrub
 
     docs = [config.REPO_ROOT / "README.md"] + sorted((config.REPO_ROOT / "docs").glob("*.md"))
     assert len(docs) >= 10
 
+    deny = scrub.default_deny_list()
     forbidden_patterns = (
-        r"sneh-antigravity-test",
-        r"657382588801",
-        r"f941971a-",
-        r"ab82b3dc-",
+        r"(?<![0-9a-fA-F-])(?!0{12})\d{12}(?![0-9a-fA-F-])",  # 12-digit GCP project numbers
         r"altostrat",
         r"snehsm(?!007)",
         r"sync_merch_state",
@@ -475,10 +474,13 @@ def test_ac_handover_2_docs_claims_links_and_zero_leaked_identifiers() -> None:
     md_link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
     for doc in docs:
+        rel_doc = str(doc.relative_to(config.REPO_ROOT))
         text = doc.read_text(encoding="utf-8")
+        leaks = scrub.find_leaks(text, where=rel_doc, deny=deny)
+        assert not leaks, f"Identifier leak(s) in {rel_doc}: {[str(f) for f in leaks]}"
         for pat in forbidden_patterns:
             match = re.search(pat, text)
-            assert match is None, f"Forbidden pattern '{pat}' found in {doc}: {match.group(0)}"
+            assert match is None, f"Forbidden pattern '{pat}' found in {rel_doc}: {match.group(0)}"
         for m in md_link_re.finditer(text):
             target = m.group(1).strip()
             if target.startswith(("http://", "https://", "tel:", "mailto:", "#")):
@@ -487,5 +489,6 @@ def test_ac_handover_2_docs_claims_links_and_zero_leaked_identifiers() -> None:
             if not target_path:
                 continue
             resolved = (doc.parent / target_path).resolve()
-            assert resolved.exists(), f"Broken relative link '{target}' in {doc}"
+            assert resolved.exists(), f"Broken relative link '{target}' in {rel_doc}"
+
 

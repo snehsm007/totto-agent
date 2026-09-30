@@ -162,6 +162,14 @@ def save_layer_artifact(
     return config.repo_relative(target)
 
 
+def make_conversation_history(app_name: str) -> ConversationHistory:
+    """Create ConversationHistory, falling back when PyPI cxas-scrapi rejects transport=."""
+    try:
+        return ConversationHistory(app_name=app_name, transport="rest")
+    except TypeError:
+        return ConversationHistory(app_name=app_name)
+
+
 def resolve_conversation_resource(
     app_name: str,
     session_id: str,
@@ -171,7 +179,7 @@ def resolve_conversation_resource(
     canonical = f"{app_name}/conversations/{session_id}"
     if not session_id:
         return ""
-    client = ch_client or ConversationHistory(app_name=app_name, transport="rest")
+    client = ch_client or make_conversation_history(app_name)
     try:
         conv_obj = client.get_conversation(session_id)
         if conv_obj and getattr(conv_obj, "name", ""):

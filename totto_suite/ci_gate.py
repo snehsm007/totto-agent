@@ -444,7 +444,10 @@ def _gate(
         from cxas_scrapi.core.tools import Tools
 
         tool_names = {str(t.display_name) for t in Tools(app_name=app_name).list_tools()}
-        ch_client = ConversationHistory(app_name=app_name, transport="rest")
+        try:
+            ch_client = ConversationHistory(app_name=app_name, transport="rest")
+        except TypeError:
+            ch_client = ConversationHistory(app_name=app_name)
     except Exception as exc:  # noqa: BLE001
         print(f"ci-gate: warning: cannot load tools/conversations: {ids.redact_text(str(exc), app_name)}")
     tests: list[dict[str, Any]] = []
