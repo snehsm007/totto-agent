@@ -1,50 +1,39 @@
 {
   "app_version": null,
-  "baseline_pass_rate": 1.0,
-  "commit": "f340a2a49c17dca85658a5acca5c207d86a2ab73",
-  "deploy": {
-    "commit": "f340a2a49c17dca85658a5acca5c207d86a2ab73",
-    "deployed_at": "2026-09-30T17:47:58Z",
-    "failed_step": null,
-    "phone_deployments": [
-      "deployments/0ba8f03a-11db-4539-93f2-7e4a1893ea85"
-    ],
-    "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36752635788",
-    "status": "SUCCESS",
-    "version": "versions/19c7d7d4-8c5c-40f8-b8d8-a53531f5d6d7",
-    "version_display_name": "git-f340a2a"
-  },
-  "detail_page": "runs/ci-36752635788-1.html",
-  "duration_s": 516.57,
+  "baseline_pass_rate": 0.9512,
+  "commit": "93dd1bbb2b16a71a056d005c5735426ade8438b3",
+  "deploy": null,
+  "detail_page": "runs/ci-36757855588-1.html",
+  "duration_s": 503.05,
   "fake_verified": true,
-  "finished_at": "2026-09-30T17:46:24Z",
+  "finished_at": "2026-09-30T18:29:39Z",
   "gate_error": null,
   "gate_present": true,
   "gate_summary": {
     "app_version": null,
-    "baseline_pass_rate": 1.0,
-    "commit": "f340a2a49c17dca85658a5acca5c207d86a2ab73",
+    "baseline_pass_rate": 0.9512,
+    "commit": "93dd1bbb2b16a71a056d005c5735426ade8438b3",
     "counts": {
-      "FAIL": 2,
+      "FAIL": 7,
       "INFRA_ERROR": 0,
-      "PASS": 39,
+      "PASS": 34,
       "SKIPPED": 1
     },
-    "duration_s": 516.57,
+    "duration_s": 503.05,
     "fake_verified": true,
-    "finished_at": "2026-09-30T17:46:24Z",
+    "finished_at": "2026-09-30T18:29:39Z",
     "infra_ratio": 0.0,
     "layer_durations_s": {
-      "live_goldens": 53.92,
-      "live_sims": 425.55,
-      "live_tools": 23.38
+      "live_goldens": 18.96,
+      "live_sims": 454.82,
+      "live_tools": 18.38
     },
     "layers": {
       "live_goldens": {
-        "fail": 0,
+        "fail": 5,
         "infra_error": 0,
-        "pass": 5,
-        "pass_rate": 1.0,
+        "pass": 0,
+        "pass_rate": 0.0,
         "skipped": 0
       },
       "live_sims": {
@@ -63,17 +52,26 @@
       }
     },
     "model": "gemini-3.1-flash-live",
-    "new_failures_vs_baseline": [],
-    "pass_rate": 0.9512,
+    "new_failures_vs_baseline": [
+      "live_goldens::golden_ac3_mercedes_history_qualified",
+      "live_goldens::golden_ac6_multilingual_spanish_response",
+      "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "live_goldens::golden_official_mercedes_links"
+    ],
+    "pass_rate": 0.8293,
     "reasons": [
-      "baseline run ci-36730327263-1 (5e9a9546119c18b152ee4b8526484680f7bd8998)",
-      "all floors met and no regression vs baseline"
+      "baseline run ci-36752635788-1 (f340a2a49c17dca85658a5acca5c207d86a2ab73)",
+      "5 test(s) passed in baseline but fail now (max 1): live_goldens::golden_ac3_mercedes_history_qualified, live_goldens::golden_ac6_multilingual_spanish_response, live_goldens::golden_ac8_identity_and_non_impersonation, live_goldens::golden_ac9_brand_safe_rivalry_humor, live_goldens::golden_official_mercedes_links",
+      "overall pass rate 82.9% < floor 95.0%",
+      "live_goldens pass rate 0.0% < floor 80.0%",
+      "overall pass rate 82.9% < baseline 95.1% - 10pp"
     ],
     "repeats": 2,
-    "run_id": "ci-36752635788-1",
-    "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36752635788",
+    "run_id": "ci-36757855588-1",
+    "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36757855588",
     "schema": "totto-gate-summary/v1",
-    "started_at": "2026-09-30T17:37:47Z",
+    "started_at": "2026-09-30T18:21:16Z",
     "target": "staging",
     "tests": [
       {
@@ -88,7 +86,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.573,
+            "duration_s": 0.435,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -114,7 +112,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.727,
+            "duration_s": 0.401,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -140,7 +138,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.513,
+            "duration_s": 0.465,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -166,7 +164,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.541,
+            "duration_s": 0.403,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -192,7 +190,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.441,
+            "duration_s": 0.477,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -218,7 +216,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.507,
+            "duration_s": 0.376,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -270,7 +268,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 1.036,
+            "duration_s": 0.455,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -296,7 +294,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.732,
+            "duration_s": 0.615,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -322,7 +320,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.895,
+            "duration_s": 0.675,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -348,7 +346,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.892,
+            "duration_s": 0.49,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -374,7 +372,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.659,
+            "duration_s": 0.638,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -400,7 +398,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.662,
+            "duration_s": 0.486,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -426,7 +424,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.877,
+            "duration_s": 0.674,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -452,7 +450,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.578,
+            "duration_s": 0.554,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -478,7 +476,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.679,
+            "duration_s": 0.481,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -504,7 +502,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.662,
+            "duration_s": 0.636,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -530,7 +528,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.686,
+            "duration_s": 0.621,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -556,7 +554,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.864,
+            "duration_s": 0.676,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -582,7 +580,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.743,
+            "duration_s": 0.503,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -608,7 +606,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.666,
+            "duration_s": 0.446,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -634,7 +632,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.856,
+            "duration_s": 0.805,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -660,7 +658,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.657,
+            "duration_s": 0.42,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -686,7 +684,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 1.465,
+            "duration_s": 1.077,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -712,7 +710,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.845,
+            "duration_s": 0.541,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -738,7 +736,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.931,
+            "duration_s": 0.744,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -764,7 +762,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 1.104,
+            "duration_s": 0.747,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -790,7 +788,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.564,
+            "duration_s": 0.471,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -816,7 +814,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.776,
+            "duration_s": 0.494,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -842,7 +840,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.715,
+            "duration_s": 0.674,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -861,49 +859,37 @@
         "id": "live_goldens::golden_ac3_mercedes_history_qualified",
         "layer": "live_goldens",
         "platform_ids": {
-          "conversation": "conversations/evaluation-43a9175b-b753-4aa1-b9b4-e491e4745bc0",
-          "evaluation": "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47",
-          "evaluation_result": "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47/results/d4f04426-fda0-4bd9-aff2-3d7ea2799301",
-          "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-          "session_id": "sessions/evaluation-43a9175b-b753-4aa1-b9b4-e491e4745bc0"
+          "evaluation": "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
         },
         "repeat_statuses": [
-          "PASS",
-          "PASS"
+          "FAIL",
+          "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-43a9175b-b753-4aa1-b9b4-e491e4745bc0",
-              "evaluation": "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47",
-              "evaluation_result": "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47/results/d4f04426-fda0-4bd9-aff2-3d7ea2799301",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-43a9175b-b753-4aa1-b9b4-e491e4745bc0"
+              "evaluation": "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
             },
             "repeat": 1,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-1983be14-8ec2-49fa-8aef-4e07bd3179ea",
-              "evaluation": "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47",
-              "evaluation_result": "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47/results/dc3a9924-d66b-46fd-a2e7-0e318ab2ff1f",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-1983be14-8ec2-49fa-8aef-4e07bd3179ea"
+              "evaluation": "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
             },
             "repeat": 2,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           }
         ],
-        "status": "PASS",
+        "status": "FAIL",
         "tool_mode": "fake"
       },
       {
@@ -911,49 +897,37 @@
         "id": "live_goldens::golden_ac6_multilingual_spanish_response",
         "layer": "live_goldens",
         "platform_ids": {
-          "conversation": "conversations/evaluation-91fcddfc-53ed-4649-aa02-117d3a8d307b",
-          "evaluation": "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae",
-          "evaluation_result": "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae/results/4f1d152e-6526-464b-96c8-f8fdc61c4a5a",
-          "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-          "session_id": "sessions/evaluation-91fcddfc-53ed-4649-aa02-117d3a8d307b"
+          "evaluation": "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
         },
         "repeat_statuses": [
-          "PASS",
-          "PASS"
+          "FAIL",
+          "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-91fcddfc-53ed-4649-aa02-117d3a8d307b",
-              "evaluation": "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae",
-              "evaluation_result": "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae/results/4f1d152e-6526-464b-96c8-f8fdc61c4a5a",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-91fcddfc-53ed-4649-aa02-117d3a8d307b"
+              "evaluation": "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
             },
             "repeat": 1,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-ebe1d97d-9deb-4346-990c-0b102b5535f0",
-              "evaluation": "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae",
-              "evaluation_result": "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae/results/908aef94-854a-47b0-ac96-4527a4e09541",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-ebe1d97d-9deb-4346-990c-0b102b5535f0"
+              "evaluation": "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
             },
             "repeat": 2,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           }
         ],
-        "status": "PASS",
+        "status": "FAIL",
         "tool_mode": "fake"
       },
       {
@@ -961,49 +935,37 @@
         "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
         "layer": "live_goldens",
         "platform_ids": {
-          "conversation": "conversations/evaluation-4e99844c-d99d-4930-aa63-4fe4ce82ce72",
-          "evaluation": "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854",
-          "evaluation_result": "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854/results/db6f134f-3b9e-4a55-b262-08f8db343ced",
-          "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-          "session_id": "sessions/evaluation-4e99844c-d99d-4930-aa63-4fe4ce82ce72"
+          "evaluation": "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
         },
         "repeat_statuses": [
-          "PASS",
-          "PASS"
+          "FAIL",
+          "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-4e99844c-d99d-4930-aa63-4fe4ce82ce72",
-              "evaluation": "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854",
-              "evaluation_result": "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854/results/db6f134f-3b9e-4a55-b262-08f8db343ced",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-4e99844c-d99d-4930-aa63-4fe4ce82ce72"
+              "evaluation": "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
             },
             "repeat": 1,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-b4c047e5-7a7c-48d0-af35-939a5eea3fd1",
-              "evaluation": "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854",
-              "evaluation_result": "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854/results/f9ecf582-1c85-4435-bd8f-0222374f26f4",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-b4c047e5-7a7c-48d0-af35-939a5eea3fd1"
+              "evaluation": "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
             },
             "repeat": 2,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           }
         ],
-        "status": "PASS",
+        "status": "FAIL",
         "tool_mode": "fake"
       },
       {
@@ -1011,99 +973,75 @@
         "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
         "layer": "live_goldens",
         "platform_ids": {
-          "conversation": "conversations/evaluation-f512fddb-e51a-4bd8-a21c-647c5050f477",
-          "evaluation": "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1",
-          "evaluation_result": "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1/results/c61d6863-cad6-471d-9c2b-e321a3a943c0",
-          "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-          "session_id": "sessions/evaluation-f512fddb-e51a-4bd8-a21c-647c5050f477"
+          "evaluation": "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
         },
         "repeat_statuses": [
-          "PASS",
-          "PASS"
+          "FAIL",
+          "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-f512fddb-e51a-4bd8-a21c-647c5050f477",
-              "evaluation": "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1",
-              "evaluation_result": "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1/results/c61d6863-cad6-471d-9c2b-e321a3a943c0",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-f512fddb-e51a-4bd8-a21c-647c5050f477"
+              "evaluation": "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
             },
             "repeat": 1,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 46.97,
+            "duration_s": 12.27,
             "fake_verified": null,
-            "message": "ok",
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-2741b841-0616-4d38-b0a9-3d320d9f47a6",
-              "evaluation": "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1",
-              "evaluation_result": "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1/results/8c07d2d3-2211-4e88-9b32-ef15586a44bc",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-2741b841-0616-4d38-b0a9-3d320d9f47a6"
+              "evaluation": "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
             },
             "repeat": 2,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           }
         ],
-        "status": "PASS",
+        "status": "FAIL",
         "tool_mode": "fake"
       },
       {
-        "fake_verified": true,
+        "fake_verified": null,
         "id": "live_goldens::golden_official_mercedes_links",
         "layer": "live_goldens",
         "platform_ids": {
-          "conversation": "conversations/evaluation-6b5a1332-bee1-40f7-ac9c-c1ce9b28daf2",
-          "evaluation": "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca",
-          "evaluation_result": "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca/results/5ae4c67d-19f3-47d2-bbca-dc9fee274d38",
-          "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-          "session_id": "sessions/evaluation-6b5a1332-bee1-40f7-ac9c-c1ce9b28daf2"
+          "evaluation": "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
         },
         "repeat_statuses": [
-          "PASS",
-          "PASS"
+          "FAIL",
+          "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 46.97,
-            "fake_verified": true,
-            "message": "ok",
+            "duration_s": 12.27,
+            "fake_verified": null,
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-6b5a1332-bee1-40f7-ac9c-c1ce9b28daf2",
-              "evaluation": "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca",
-              "evaluation_result": "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca/results/5ae4c67d-19f3-47d2-bbca-dc9fee274d38",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-6b5a1332-bee1-40f7-ac9c-c1ce9b28daf2"
+              "evaluation": "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
             },
             "repeat": 1,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 46.97,
-            "fake_verified": true,
-            "message": "ok",
+            "duration_s": 12.27,
+            "fake_verified": null,
+            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
             "platform_ids": {
-              "conversation": "conversations/evaluation-08150688-79e1-421d-9af9-f6c555bf2010",
-              "evaluation": "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca",
-              "evaluation_result": "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca/results/b358c9f7-c560-45e8-b5f2-3bc30bbcb1a1",
-              "evaluation_run": "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-              "session_id": "sessions/evaluation-08150688-79e1-421d-9af9-f6c555bf2010"
+              "evaluation": "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
             },
             "repeat": 2,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           }
         ],
-        "status": "PASS",
+        "status": "FAIL",
         "tool_mode": "fake"
       },
       {
@@ -1111,8 +1049,8 @@
         "id": "live_sims::probe_french_across_handoff",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/4d1d6a75-60fb-49f5-aba1-7739eb84971a",
-          "session_id": "sessions/4d1d6a75-60fb-49f5-aba1-7739eb84971a"
+          "conversation": "conversations/d371473d-9fd4-4208-958c-a660ff0afe7c",
+          "session_id": "sessions/d371473d-9fd4-4208-958c-a660ff0afe7c"
         },
         "repeat_statuses": [
           "PASS",
@@ -1120,24 +1058,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 5.75,
-            "fake_verified": null,
+            "duration_s": 6.25,
+            "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/4d1d6a75-60fb-49f5-aba1-7739eb84971a",
-              "session_id": "sessions/4d1d6a75-60fb-49f5-aba1-7739eb84971a"
+              "conversation": "conversations/d371473d-9fd4-4208-958c-a660ff0afe7c",
+              "session_id": "sessions/d371473d-9fd4-4208-958c-a660ff0afe7c"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 5.18,
+            "duration_s": 5.73,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/0d972969-bb3d-4ca9-aaaa-29c1ee927992",
-              "session_id": "sessions/0d972969-bb3d-4ca9-aaaa-29c1ee927992"
+              "conversation": "conversations/d855719d-e67a-4b94-8fbd-04cbcfaea043",
+              "session_id": "sessions/d855719d-e67a-4b94-8fbd-04cbcfaea043"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1152,8 +1090,8 @@
         "id": "live_sims::probe_handoff_memory_tokyo",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/d39b65cf-e6f6-4c12-851d-a14adad17b5f",
-          "session_id": "sessions/d39b65cf-e6f6-4c12-851d-a14adad17b5f"
+          "conversation": "conversations/7caf22a3-0a4b-4420-8093-16b531c6cac9",
+          "session_id": "sessions/7caf22a3-0a4b-4420-8093-16b531c6cac9"
         },
         "repeat_statuses": [
           "PASS",
@@ -1161,24 +1099,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 11.5,
+            "duration_s": 10.69,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/d39b65cf-e6f6-4c12-851d-a14adad17b5f",
-              "session_id": "sessions/d39b65cf-e6f6-4c12-851d-a14adad17b5f"
+              "conversation": "conversations/7caf22a3-0a4b-4420-8093-16b531c6cac9",
+              "session_id": "sessions/7caf22a3-0a4b-4420-8093-16b531c6cac9"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 10.81,
+            "duration_s": 10.37,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/8803849b-cbbc-4017-a334-38a231c6c61a",
-              "session_id": "sessions/8803849b-cbbc-4017-a334-38a231c6c61a"
+              "conversation": "conversations/ccc1d73c-2533-4845-9ede-6c6e6ac25fbf",
+              "session_id": "sessions/ccc1d73c-2533-4845-9ede-6c6e6ac25fbf"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1193,8 +1131,8 @@
         "id": "live_sims::probe_timezone_gate_sydney",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/22a26ad2-c0c7-4456-ba55-54c70e743609",
-          "session_id": "sessions/22a26ad2-c0c7-4456-ba55-54c70e743609"
+          "conversation": "conversations/fdf513dd-06d7-4a29-b4c0-817149e6075b",
+          "session_id": "sessions/fdf513dd-06d7-4a29-b4c0-817149e6075b"
         },
         "repeat_statuses": [
           "PASS",
@@ -1202,24 +1140,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 5.72,
+            "duration_s": 5.91,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/22a26ad2-c0c7-4456-ba55-54c70e743609",
-              "session_id": "sessions/22a26ad2-c0c7-4456-ba55-54c70e743609"
+              "conversation": "conversations/fdf513dd-06d7-4a29-b4c0-817149e6075b",
+              "session_id": "sessions/fdf513dd-06d7-4a29-b4c0-817149e6075b"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 5.76,
+            "duration_s": 6.22,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/3282ee0d-99e1-445a-86ef-2e5a22c25bd3",
-              "session_id": "sessions/3282ee0d-99e1-445a-86ef-2e5a22c25bd3"
+              "conversation": "conversations/73c9a88a-7231-4f3e-8d41-73f58ad52788",
+              "session_id": "sessions/73c9a88a-7231-4f3e-8d41-73f58ad52788"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1234,8 +1172,8 @@
         "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/17bc2cef-3e5e-4868-aa4c-54c7d7e4b235",
-          "session_id": "sessions/17bc2cef-3e5e-4868-aa4c-54c7d7e4b235"
+          "conversation": "conversations/c0583a48-9ba2-4d30-ad4d-6c32341655ee",
+          "session_id": "sessions/c0583a48-9ba2-4d30-ad4d-6c32341655ee"
         },
         "repeat_statuses": [
           "FAIL",
@@ -1243,24 +1181,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 4.35,
+            "duration_s": 4.16,
             "fake_verified": true,
-            "message": "[race_fact_value_mismatch:TR-10, TR-01] time '3 PM.' is in no tool response (tool times: 03:30, 07:00, 08:00, 08:30, 12:00, 13:00): 'For your friend in Edinburgh, qualifying starts on Saturday at 1 PM UTC, and for you in Vienna, it will be at 3 PM.'; [judge] NOT MET: The agent provided the qualifyin",
+            "message": "[race_fact_value_mismatch:TR-10, TR-01] time '10 AM' is in no tool response (tool times: 02:00, 03:00, 04:30, 07:00, 08:00, 23:30): 'For the Bahrain Grand Prix, qualifying starts on Saturday at 10 AM Vienna time.'",
             "platform_ids": {
-              "conversation": "conversations/17bc2cef-3e5e-4868-aa4c-54c7d7e4b235",
-              "session_id": "sessions/17bc2cef-3e5e-4868-aa4c-54c7d7e4b235"
+              "conversation": "conversations/c0583a48-9ba2-4d30-ad4d-6c32341655ee",
+              "session_id": "sessions/c0583a48-9ba2-4d30-ad4d-6c32341655ee"
             },
             "repeat": 1,
             "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 4.1,
+            "duration_s": 4.28,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/152f1bfb-c84a-4c6c-8f78-cad41272bdf3",
-              "session_id": "sessions/152f1bfb-c84a-4c6c-8f78-cad41272bdf3"
+              "conversation": "conversations/3f168e35-cda3-47fe-999b-d8ac801c7033",
+              "session_id": "sessions/3f168e35-cda3-47fe-999b-d8ac801c7033"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1275,33 +1213,33 @@
         "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/76464313-e92f-48ad-a5fb-bda618dff592",
-          "session_id": "sessions/76464313-e92f-48ad-a5fb-bda618dff592"
+          "conversation": "conversations/baab042f-2ed7-41a6-b893-1862fb824013",
+          "session_id": "sessions/baab042f-2ed7-41a6-b893-1862fb824013"
         },
         "repeat_statuses": [
-          "PASS",
+          "FAIL",
           "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 72.1,
+            "duration_s": 56.6,
             "fake_verified": true,
-            "message": "ok",
+            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the agent did not leak internal agent names or raw code, it also did not explicitly disclose to the user that the race schedule i",
             "platform_ids": {
-              "conversation": "conversations/76464313-e92f-48ad-a5fb-bda618dff592",
-              "session_id": "sessions/76464313-e92f-48ad-a5fb-bda618dff592"
+              "conversation": "conversations/baab042f-2ed7-41a6-b893-1862fb824013",
+              "session_id": "sessions/baab042f-2ed7-41a6-b893-1862fb824013"
             },
             "repeat": 1,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 42.9,
+            "duration_s": 59.5,
             "fake_verified": true,
-            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the tool response contained a 'freshness_disclaimer' about the data source, the agent's spoken text did not include this disclosu",
+            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the tool response contained a `freshness_disclaimer` stating 'Race schedule, session times, and weather reflect the latest availa",
             "platform_ids": {
-              "conversation": "conversations/58141c9f-d86c-4522-ba14-8fe50c7c332f",
-              "session_id": "sessions/58141c9f-d86c-4522-ba14-8fe50c7c332f"
+              "conversation": "conversations/3bc65640-dc00-4b56-a39c-d3be8f7d3c1b",
+              "session_id": "sessions/3bc65640-dc00-4b56-a39c-d3be8f7d3c1b"
             },
             "repeat": 2,
             "status": "FAIL",
@@ -1316,8 +1254,8 @@
         "id": "live_sims::sim_ac2_mercedes_standings_priority",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/17f2ed62-b983-4198-8383-dff4be918f40",
-          "session_id": "sessions/17f2ed62-b983-4198-8383-dff4be918f40"
+          "conversation": "conversations/79c7b1cd-779b-4c32-ba94-301b7795524b",
+          "session_id": "sessions/79c7b1cd-779b-4c32-ba94-301b7795524b"
         },
         "repeat_statuses": [
           "PASS",
@@ -1325,24 +1263,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 40.9,
+            "duration_s": 62.9,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/17f2ed62-b983-4198-8383-dff4be918f40",
-              "session_id": "sessions/17f2ed62-b983-4198-8383-dff4be918f40"
+              "conversation": "conversations/79c7b1cd-779b-4c32-ba94-301b7795524b",
+              "session_id": "sessions/79c7b1cd-779b-4c32-ba94-301b7795524b"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 35.9,
+            "duration_s": 28.9,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/f646692f-2ce8-404f-8d28-a4ba31ebc4a4",
-              "session_id": "sessions/f646692f-2ce8-404f-8d28-a4ba31ebc4a4"
+              "conversation": "conversations/dccb03ee-0363-41ab-8f97-f119303c81b5",
+              "session_id": "sessions/dccb03ee-0363-41ab-8f97-f119303c81b5"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1357,8 +1295,8 @@
         "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/261f4fd1-00c8-4048-bdfd-5fa444f87def",
-          "session_id": "sessions/261f4fd1-00c8-4048-bdfd-5fa444f87def"
+          "conversation": "conversations/a88f561b-d22b-4614-8802-dd8a4c5d3d49",
+          "session_id": "sessions/a88f561b-d22b-4614-8802-dd8a4c5d3d49"
         },
         "repeat_statuses": [
           "PASS",
@@ -1366,24 +1304,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 35.2,
+            "duration_s": 38.7,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/261f4fd1-00c8-4048-bdfd-5fa444f87def",
-              "session_id": "sessions/261f4fd1-00c8-4048-bdfd-5fa444f87def"
+              "conversation": "conversations/a88f561b-d22b-4614-8802-dd8a4c5d3d49",
+              "session_id": "sessions/a88f561b-d22b-4614-8802-dd8a4c5d3d49"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 43.8,
+            "duration_s": 32.7,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/35921681-afa9-4c68-b7eb-32c8a9dc5716",
-              "session_id": "sessions/35921681-afa9-4c68-b7eb-32c8a9dc5716"
+              "conversation": "conversations/11400de9-6b65-4e0a-a7b0-725e36cafdee",
+              "session_id": "sessions/11400de9-6b65-4e0a-a7b0-725e36cafdee"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1407,16 +1345,16 @@
       "overall_floor": 0.95
     },
     "tool_mode": "fake",
-    "verdict": "PASS"
+    "verdict": "FAIL"
   },
-  "generated_at": "2026-09-30T17:48:13Z",
-  "key": "ci-36752635788-1",
+  "generated_at": "2026-09-30T18:30:30Z",
+  "key": "ci-36757855588-1",
   "layers": {
     "live_goldens": {
-      "fail": 0,
+      "fail": 5,
       "infra_error": 0,
-      "pass": 5,
-      "pass_rate": 1.0,
+      "pass": 0,
+      "pass_rate": 0.0,
       "skipped": 0
     },
     "live_sims": {
@@ -1434,17 +1372,20 @@
       "skipped": 1
     }
   },
-  "pass_rate": 0.9512,
+  "pass_rate": 0.8293,
   "reasons": [
-    "baseline run ci-36730327263-1 (5e9a9546119c18b152ee4b8526484680f7bd8998)",
-    "all floors met and no regression vs baseline"
+    "baseline run ci-36752635788-1 (f340a2a49c17dca85658a5acca5c207d86a2ab73)",
+    "5 test(s) passed in baseline but fail now (max 1): live_goldens::golden_ac3_mercedes_history_qualified, live_goldens::golden_ac6_multilingual_spanish_response, live_goldens::golden_ac8_identity_and_non_impersonation, live_goldens::golden_ac9_brand_safe_rivalry_humor, live_goldens::golden_official_mercedes_links",
+    "overall pass rate 82.9% < floor 95.0%",
+    "live_goldens pass rate 0.0% < floor 80.0%",
+    "overall pass rate 82.9% < baseline 95.1% - 10pp"
   ],
   "repo_url": "https://github.com/snehsm007/totto-agent",
-  "run_id": "ci-36752635788-1",
-  "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36752635788",
+  "run_id": "ci-36757855588-1",
+  "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36757855588",
   "schema": "totto-dashboard/v1",
   "source": "ci-gate",
-  "started_at": "2026-09-30T17:37:47Z",
+  "started_at": "2026-09-30T18:21:16Z",
   "target": "staging",
   "tests": [
     {
@@ -1873,17 +1814,13 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47",
-        "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-        "evaluations/f44ec8c3-20c0-4f78-aa8d-c257a80b4b47/results/d4f04426-fda0-4bd9-aff2-3d7ea2799301",
-        "conversations/evaluation-43a9175b-b753-4aa1-b9b4-e491e4745bc0",
-        "sessions/evaluation-43a9175b-b753-4aa1-b9b4-e491e4745bc0"
+        "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
       ],
       "repeats": [
-        "PASS",
-        "PASS"
+        "FAIL",
+        "FAIL"
       ],
-      "status": "PASS",
+      "status": "FAIL",
       "tool_mode": "fake"
     },
     {
@@ -1892,17 +1829,13 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae",
-        "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-        "evaluations/73cf0e89-02b7-4a09-b7c1-7f37a863f6ae/results/4f1d152e-6526-464b-96c8-f8fdc61c4a5a",
-        "conversations/evaluation-91fcddfc-53ed-4649-aa02-117d3a8d307b",
-        "sessions/evaluation-91fcddfc-53ed-4649-aa02-117d3a8d307b"
+        "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
       ],
       "repeats": [
-        "PASS",
-        "PASS"
+        "FAIL",
+        "FAIL"
       ],
-      "status": "PASS",
+      "status": "FAIL",
       "tool_mode": "fake"
     },
     {
@@ -1911,17 +1844,13 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854",
-        "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-        "evaluations/fb0fea8b-bf1e-4c19-ac26-e2b471b74854/results/db6f134f-3b9e-4a55-b262-08f8db343ced",
-        "conversations/evaluation-4e99844c-d99d-4930-aa63-4fe4ce82ce72",
-        "sessions/evaluation-4e99844c-d99d-4930-aa63-4fe4ce82ce72"
+        "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
       ],
       "repeats": [
-        "PASS",
-        "PASS"
+        "FAIL",
+        "FAIL"
       ],
-      "status": "PASS",
+      "status": "FAIL",
       "tool_mode": "fake"
     },
     {
@@ -1930,36 +1859,28 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1",
-        "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-        "evaluations/51912015-9efa-44b0-827c-81d39df3a3d1/results/c61d6863-cad6-471d-9c2b-e321a3a943c0",
-        "conversations/evaluation-f512fddb-e51a-4bd8-a21c-647c5050f477",
-        "sessions/evaluation-f512fddb-e51a-4bd8-a21c-647c5050f477"
+        "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
       ],
       "repeats": [
-        "PASS",
-        "PASS"
+        "FAIL",
+        "FAIL"
       ],
-      "status": "PASS",
+      "status": "FAIL",
       "tool_mode": "fake"
     },
     {
-      "fake_verified": true,
+      "fake_verified": null,
       "id": "live_goldens::golden_official_mercedes_links",
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca",
-        "evaluationRuns/da7df990-befc-47bc-9e60-71100ad3c12a",
-        "evaluations/dbb3022c-1db1-4913-858d-78e70dcd04ca/results/5ae4c67d-19f3-47d2-bbca-dc9fee274d38",
-        "conversations/evaluation-6b5a1332-bee1-40f7-ac9c-c1ce9b28daf2",
-        "sessions/evaluation-6b5a1332-bee1-40f7-ac9c-c1ce9b28daf2"
+        "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
       ],
       "repeats": [
-        "PASS",
-        "PASS"
+        "FAIL",
+        "FAIL"
       ],
-      "status": "PASS",
+      "status": "FAIL",
       "tool_mode": "fake"
     },
     {
@@ -1968,8 +1889,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/4d1d6a75-60fb-49f5-aba1-7739eb84971a",
-        "conversations/4d1d6a75-60fb-49f5-aba1-7739eb84971a"
+        "sessions/d371473d-9fd4-4208-958c-a660ff0afe7c",
+        "conversations/d371473d-9fd4-4208-958c-a660ff0afe7c"
       ],
       "repeats": [
         "PASS",
@@ -1984,8 +1905,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/d39b65cf-e6f6-4c12-851d-a14adad17b5f",
-        "conversations/d39b65cf-e6f6-4c12-851d-a14adad17b5f"
+        "sessions/7caf22a3-0a4b-4420-8093-16b531c6cac9",
+        "conversations/7caf22a3-0a4b-4420-8093-16b531c6cac9"
       ],
       "repeats": [
         "PASS",
@@ -2000,8 +1921,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/22a26ad2-c0c7-4456-ba55-54c70e743609",
-        "conversations/22a26ad2-c0c7-4456-ba55-54c70e743609"
+        "sessions/fdf513dd-06d7-4a29-b4c0-817149e6075b",
+        "conversations/fdf513dd-06d7-4a29-b4c0-817149e6075b"
       ],
       "repeats": [
         "PASS",
@@ -2016,8 +1937,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/17bc2cef-3e5e-4868-aa4c-54c7d7e4b235",
-        "conversations/17bc2cef-3e5e-4868-aa4c-54c7d7e4b235"
+        "sessions/c0583a48-9ba2-4d30-ad4d-6c32341655ee",
+        "conversations/c0583a48-9ba2-4d30-ad4d-6c32341655ee"
       ],
       "repeats": [
         "FAIL",
@@ -2032,11 +1953,11 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/76464313-e92f-48ad-a5fb-bda618dff592",
-        "conversations/76464313-e92f-48ad-a5fb-bda618dff592"
+        "sessions/baab042f-2ed7-41a6-b893-1862fb824013",
+        "conversations/baab042f-2ed7-41a6-b893-1862fb824013"
       ],
       "repeats": [
-        "PASS",
+        "FAIL",
         "FAIL"
       ],
       "status": "FAIL",
@@ -2048,8 +1969,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/17f2ed62-b983-4198-8383-dff4be918f40",
-        "conversations/17f2ed62-b983-4198-8383-dff4be918f40"
+        "sessions/79c7b1cd-779b-4c32-ba94-301b7795524b",
+        "conversations/79c7b1cd-779b-4c32-ba94-301b7795524b"
       ],
       "repeats": [
         "PASS",
@@ -2064,8 +1985,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/261f4fd1-00c8-4048-bdfd-5fa444f87def",
-        "conversations/261f4fd1-00c8-4048-bdfd-5fa444f87def"
+        "sessions/a88f561b-d22b-4614-8802-dd8a4c5d3d49",
+        "conversations/a88f561b-d22b-4614-8802-dd8a4c5d3d49"
       ],
       "repeats": [
         "PASS",
@@ -2075,7 +1996,7 @@
       "tool_mode": "fake"
     }
   ],
-  "tests_passed": 39,
+  "tests_passed": 34,
   "tests_total": 42,
   "thresholds": {
     "aggregation": "strict majority of decided repeats (ties FAIL; INFRA_ERROR/SKIPPED repeats ignored)",
@@ -2090,5 +2011,5 @@
     "overall_floor": 0.95
   },
   "tool_mode": "fake",
-  "verdict": "PASS"
+  "verdict": "FAIL"
 }
