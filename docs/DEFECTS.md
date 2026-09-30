@@ -67,11 +67,11 @@
 ---
 
 ### `TB-2` — Mislabeled OpenF1 Meeting `1308` (`Bahrain Grand Prix` at `Kuala Lumpur` / `Sepang`, Oct 2–4, 2026)
-- **Severity**: High (Corrupted Upstream OpenF1 Placeholder Entry)
+- **Severity**: High (Relocated Round Dropped by Hardcoded Key Filter)
 - **Failing Tests**:
   - Live: `live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308`
-  - Offline: `tools::test_race_schedule_defects.py::test_next_race_excludes_mislabeled_kuala_lumpur_1308_placeholder`
-  - Offline: `tools::test_race_schedule_defects.py::test_kuala_lumpur_query_returns_error_not_mislabeled_bahrain`
+  - Offline: `tools::test_race_schedule_defects.py::test_next_race_includes_kuala_lumpur_when_openf1_payload_contains_it`
+  - Offline: `tools::test_race_schedule_defects.py::test_kuala_lumpur_query_resolves_to_openf1_meeting`
   - Offline: `dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-payload]`
   - Offline: `dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-snapshot]`
 - **Platform ID**:
@@ -85,7 +85,7 @@
     "agent_action": "CLARIFY_RACE_NAME"
   }
   ```
-- **Root Cause & Resolution**: OpenF1 `/v1/meetings?year=2026` contains a corrupted placeholder record `meeting_key=1308` labeled `meeting_name="Bahrain Grand Prix"` with `location="Kuala Lumpur"`, `country_name="Malaysia"`, and `circuit_short_name="Sepang"` for Oct 2–4, 2026 (while the real 2026 Bahrain GP `1282` was cancelled and Malaysia is not on the 2026 F1 calendar). Including `1308` caused the agent to tell fans on `2026-09-28`–`2026-10-04` that the next race was *"the Bahrain Grand Prix at Sepang International Circuit in Kuala Lumpur"*. At `HEAD`, both `get_race_schedule` (real + fake) and `totto_suite/oracle.py` (`is_mislabeled_placeholder`) explicitly filter out `meeting_key == 1308` (and any `"Bahrain"` meeting located at `"Sepang"`/`"Kuala Lumpur"`), yielding a clean 22-round 2026 calendar where the next race after Round 15 Azerbaijan GP (`1295`, Sep 24–26) is Round 16 **`Singapore Grand Prix`** (`1296`, Oct 9–11, 2026).
+- **Root Cause & Resolution**: OpenF1 `/v1/meetings?year=2026` lists `meeting_key=1308` as `meeting_name="Bahrain Grand Prix"` with `location="Kuala Lumpur"`, `country_name="Malaysia"` and `circuit_short_name="Sepang"` for Oct 2–4, 2026. This is a real, officially rescheduled round: the April Bahrain GP (`1282`) was cancelled and Formula 1 relocated the event to the Sepang International Circuit while keeping the Bahrain Grand Prix name. The original tool used a hardcoded `1279..1302` key filter that silently dropped `1308`, and a later change (commit `f340a2a`) wrongly treated it as a mislabeled placeholder and excluded it, which made the agent deny the Oct 4 race on a live phone call. At `HEAD`, `get_race_schedule` (real + fake) and `totto_suite/oracle.py` keep `1308` in the 23-round calendar, return a `relocation_note` explaining the Sepang move, and `race_info_agent` must call `get_race_schedule` before answering any race-date challenge.
 
 ---
 

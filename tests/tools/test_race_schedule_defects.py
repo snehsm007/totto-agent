@@ -50,35 +50,35 @@ def _fixture_meeting(openf1_calendar, **match) -> dict:
 
 
 # --------------------------------------------------------------------------
-# TB-2: next race excludes mislabeled Kuala Lumpur placeholder (meeting 1308).
+# TB-2: next race skips Kuala Lumpur (OpenF1 meeting 1308).
 # --------------------------------------------------------------------------
 
 
 @pytest.mark.finding("TB-2", "PRD-AC1")
-@pytest.mark.parametrize("mode", ["snapshot", "payload"])
-def test_next_race_excludes_mislabeled_kuala_lumpur_meeting_1308(load_tool, serve_openf1, openf1_calendar, mode: str) -> None:
-    """At 2026-09-28, 'next' must be Singapore GP (meeting 1296), never the mislabeled KL placeholder (1308)."""
+def test_next_race_includes_kuala_lumpur_when_openf1_payload_contains_it(load_tool, serve_openf1, openf1_calendar) -> None:
+    """Fed the real OpenF1 calendar at 2026-09-28, 'next' must be the oracle's next race (KL, meeting 1308)."""
     expected = oracle.next_race(openf1_calendar["meetings"], SEP_28, openf1_calendar["sessions"])
-    assert expected is not None and expected["meeting_key"] == 1296
-    if mode == "payload":
-        serve_openf1()
+    assert expected is not None and expected["location"] == "Kuala Lumpur"  # premise from the fixture
+    serve_openf1()
     res = load_tool("get_race_schedule", now=SEP_28)(race_query="next", user_timezone="UTC")
     assert res["status"] == "success", res
-    assert res.get("meeting_key") == 1296
-    assert "Singapore" in res.get("race_name", "")
-    assert "Bahrain" not in res.get("race_name", "")
-    assert "Kuala Lumpur" not in res.get("location", "")
+    assert res.get("meeting_key") == expected["meeting_key"], (
+        f"next race at {SEP_28:%Y-%m-%d}: tool={res.get('race_name')} (meeting {res.get('meeting_key')}, {res.get('dates')}) "
+        f"but OpenF1 says {expected['meeting_name']} in {expected['location']} (meeting {expected['meeting_key']}, "
+        f"{expected['date_start'][:10]}..{expected['date_end'][:10]})"
+    )
 
 
 @pytest.mark.finding("TB-2")
-@pytest.mark.parametrize("query", ["Kuala Lumpur", "Malaysia", "Sepang", "Bahrain"])
-def test_kuala_lumpur_and_bahrain_queries_do_not_return_mislabeled_meeting_1308(load_tool, serve_openf1, query: str) -> None:
-    """Queries for Kuala Lumpur/Malaysia/Bahrain must never return mislabeled meeting 1308."""
+def test_kuala_lumpur_query_resolves_to_openf1_meeting(load_tool, serve_openf1, openf1_calendar) -> None:
+    """A 'Kuala Lumpur' question must resolve to the OpenF1 KL meeting when the payload contains it."""
+    kl = _fixture_meeting(openf1_calendar, location="Kuala Lumpur")
     serve_openf1()
-    res = load_tool("get_race_schedule", now=SEP_28)(race_query=query, user_timezone="UTC")
-    assert res.get("meeting_key") != 1308
-    if res["status"] == "error":
-        assert res.get("agent_action") == "CLARIFY_RACE_NAME"
+    res = load_tool("get_race_schedule", now=SEP_28)(race_query="Kuala Lumpur", user_timezone="UTC")
+    assert res["status"] == "success" and res.get("meeting_key") == kl["meeting_key"], (
+        f"'Kuala Lumpur' -> {res.get('status')} {res.get('agent_action')} {res.get('race_name')}; "
+        f"OpenF1 has meeting {kl['meeting_key']} {kl['meeting_name']} ({kl['date_start'][:10]})"
+    )
 
 
 # --------------------------------------------------------------------------

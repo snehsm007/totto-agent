@@ -198,12 +198,10 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
             "tool": "get_race_schedule",
             "args": {"race_query": "Kuala Lumpur", "user_timezone": "UTC"},
             "check": lambda r: (
-                r.get("status") == "error"
-                and r.get("agent_action") == "CLARIFY_RACE_NAME"
-                and r.get("meeting_key") != 1308,
+                r.get("status") == "success" and r.get("meeting_key") == 1308,
                 f"[TB-2] 'Kuala Lumpur' query returned status={r.get('status')!r}, "
-                f"meeting_key={r.get('meeting_key')!r} instead of CLARIFY_RACE_NAME "
-                "(mislabeled OpenF1 meeting 1308 'Bahrain Grand Prix' at Kuala Lumpur must be excluded)",
+                f"agent_action={r.get('agent_action')!r} instead of OpenF1 meeting 1308 "
+                "(the relocated 2026 Bahrain Grand Prix at Sepang, Oct 2-4)",
             ),
         },
         {

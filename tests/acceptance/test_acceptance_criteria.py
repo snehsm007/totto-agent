@@ -70,14 +70,14 @@ def test_ac_coverage_2_dynamic_next_race_oracle_and_multi_date_tests() -> None:
     # Verify oracle returns different next meetings at different instants of the 2026 season
     m_apr = oracle.next_race(meetings, oracle.parse_utc("2026-04-01T12:00:00Z"), sessions)
     m_jul = oracle.next_race(meetings, oracle.parse_utc("2026-07-01T12:00:00Z"), sessions)
-    m_sep = oracle.next_race(meetings, oracle.parse_utc("2026-09-20T12:00:00Z"), sessions)
-    m_oct = oracle.next_race(meetings, oracle.parse_utc("2026-09-28T12:00:00Z"), sessions)
+    m_sep = oracle.next_race(meetings, oracle.parse_utc("2026-09-28T12:00:00Z"), sessions)
+    m_oct = oracle.next_race(meetings, oracle.parse_utc("2026-10-05T12:00:00Z"), sessions)
     m_dec = oracle.next_race(meetings, oracle.parse_utc("2026-12-31T12:00:00Z"), sessions)
 
     assert m_apr is not None and int(m_apr["meeting_key"]) == 1284  # Miami
     assert m_jul is not None and int(m_jul["meeting_key"]) == 1289  # British GP
-    assert m_sep is not None and int(m_sep["meeting_key"]) == 1295  # Azerbaijan GP
-    assert m_oct is not None and int(m_oct["meeting_key"]) == 1296  # Singapore GP (mislabeled 1308 excluded)
+    assert m_sep is not None and int(m_sep["meeting_key"]) == 1308  # Kuala Lumpur
+    assert m_oct is not None and int(m_oct["meeting_key"]) == 1296  # Singapore GP
     assert m_dec is None  # Post-season
 
     # Verify offline run record executes test_next_race_matches_oracle across >= 5 simulated dates

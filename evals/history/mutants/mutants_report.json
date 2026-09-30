@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T17:31:07Z",
+  "generated_at": "2026-09-30T18:16:53Z",
   "source_app_dir": "cxas_app",
   "baseline_summary": {
     "layers": [
@@ -9,10 +9,10 @@
       "config",
       "lint"
     ],
-    "total_scenarios": 220,
-    "passed": 220,
+    "total_scenarios": 217,
+    "passed": 217,
     "failed": 0,
-    "duration_sec": 9.517
+    "duration_sec": 9.954
   },
   "summary": {
     "total_mutants": 16,
@@ -69,7 +69,7 @@
           ]
         }
       ],
-      "duration_sec": 1.995
+      "duration_sec": 2.193
     },
     {
       "mutant_id": "mutant_tb03_unknown_race_fallback",
@@ -167,7 +167,7 @@
           ]
         }
       ],
-      "duration_sec": 1.819
+      "duration_sec": 2.053
     },
     {
       "mutant_id": "mutant_tr10_broken_timezone_dst",
@@ -194,8 +194,8 @@
         "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Honolulu-Pacific/Honolulu-03:00]",
         "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Kathmandu-Asia/Kathmandu-18:45]",
         "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Nairobi-Africa/Nairobi-16:00]",
-        "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Azerbaijan Grand Prix-Race-21:00-AEST-Saturday]",
-        "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Singapore Grand Prix-Race-23:00-AEDT-Sunday]",
+        "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
+        "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
         "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[America/New_York-09:00 EDT (New York)-False]",
         "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Australia/Sydney-00:00 AEDT (Sydney)-False]",
         "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Berlin, Germany-15:00 CEST (Berlin)-False]",
@@ -311,11 +311,11 @@
           ]
         },
         {
-          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Azerbaijan Grand Prix-Race-21:00-AEST-Saturday]",
+          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
           "layer": "tools",
           "baseline_verdict": "PASS",
           "mutant_verdict": "FAIL",
-          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Saturday', 'local_day': 'Saturday', 'date_utc': '2026-09-26', ...}",
+          "failure_reason": "AssertionError: {'session': 'Qualifying', 'day': 'Saturday', 'local_day': 'Saturday', 'date_utc': '2026-10-03', ...}",
           "findings": [
             "TR-10",
             "TB-2",
@@ -323,11 +323,11 @@
           ]
         },
         {
-          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Singapore Grand Prix-Race-23:00-AEDT-Sunday]",
+          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
           "layer": "tools",
           "baseline_verdict": "PASS",
           "mutant_verdict": "FAIL",
-          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Sunday', 'local_day': 'Sunday', 'date_utc': '2026-10-11', ...}",
+          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Sunday', 'local_day': 'Sunday', 'date_utc': '2026-10-04', ...}",
           "findings": [
             "TR-10",
             "TB-2",
@@ -505,7 +505,7 @@
           ]
         }
       ],
-      "duration_sec": 1.939
+      "duration_sec": 2.396
     },
     {
       "mutant_id": "mutant_rc01_missing_merch_store_link",
@@ -678,7 +678,7 @@
           ]
         }
       ],
-      "duration_sec": 1.958
+      "duration_sec": 1.982
     },
     {
       "mutant_id": "mutant_tr09_missing_freshness_disclaimer",
@@ -841,7 +841,7 @@
           ]
         }
       ],
-      "duration_sec": 2.055
+      "duration_sec": 1.993
     },
     {
       "mutant_id": "mutant_cb_order_id_regex",
@@ -972,7 +972,7 @@
           "findings": []
         }
       ],
-      "duration_sec": 1.689
+      "duration_sec": 1.543
     },
     {
       "mutant_id": "mutant_cb_sync_race_state_noop",
@@ -1016,7 +1016,7 @@
           "findings": []
         }
       ],
-      "duration_sec": 1.552
+      "duration_sec": 1.532
     },
     {
       "mutant_id": "mutant_tr01_prompt_stuffed_example",
@@ -1059,7 +1059,7 @@
           "findings": []
         }
       ],
-      "duration_sec": 0.779
+      "duration_sec": 0.811
     },
     {
       "mutant_id": "mutant_tr02_speak_phrase_in_tool_desc",
@@ -1112,7 +1112,7 @@
           ]
         }
       ],
-      "duration_sec": 2.577
+      "duration_sec": 2.735
     },
     {
       "mutant_id": "mutant_rc02_toto_impersonation_and_drop",
@@ -1132,13 +1132,14 @@
       ],
       "description": "Overlay iteration_3 instruction regression (dropping Toto Wolff non-impersonation, live human escalation, and mock order disclosure) and remove Multilingual Continuity.",
       "killed": true,
-      "killed_by_count": 5,
+      "killed_by_count": 6,
       "killed_by_scenarios": [
         "config::test_agent_instructions_and_contracts.py::test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps",
         "config::test_agent_instructions_and_contracts.py::test_app_json_and_global_instruction_configuration",
         "config::test_agent_instructions_and_contracts.py::test_instruction_files_are_plain_prose_without_markdown_or_raw_urls",
         "config::test_agent_instructions_and_contracts.py::test_instruction_mock_freshness_and_conciseness_rules",
-        "config::test_agent_instructions_and_contracts.py::test_shared_regions_in_sync_with_lib"
+        "config::test_agent_instructions_and_contracts.py::test_shared_regions_in_sync_with_lib",
+        "config::test_agent_instructions_and_contracts.py::test_unsupported_language_policy_configured"
       ],
       "failure_details": [
         {
@@ -1202,9 +1203,17 @@
             "TR-02",
             "TR-05"
           ]
+        },
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_unsupported_language_policy_configured",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "assert 'unsupported language policy' in '<role>\\nyou are **totto, mercedes f1 fan agent** (`totto_root_agent`), the root orchestrator and primary ai fan conci...rixworth is purely on pushing the w16 with george russell and kimi antonelli to the front of the grid.\"\\n</examples>\\n'",
+          "findings": []
         }
       ],
-      "duration_sec": 0.809
+      "duration_sec": 0.812
     },
     {
       "mutant_id": "mutant_rc11_invalid_app_schema",
@@ -1269,7 +1278,7 @@
           ]
         }
       ],
-      "duration_sec": 4.021
+      "duration_sec": 4.016
     },
     {
       "mutant_id": "mutant_bundle_persona_drift",
@@ -1315,7 +1324,7 @@
           ]
         }
       ],
-      "duration_sec": 0.812
+      "duration_sec": 0.833
     },
     {
       "mutant_id": "mutant_bundle_openf1_helper_drift",
@@ -1378,7 +1387,7 @@
           ]
         }
       ],
-      "duration_sec": 2.555
+      "duration_sec": 3.021
     },
     {
       "mutant_id": "mutant_voice_guidelines_dropped",
@@ -1415,7 +1424,7 @@
           ]
         }
       ],
-      "duration_sec": 0.787
+      "duration_sec": 0.907
     },
     {
       "mutant_id": "mutant_voice_sanitizer_noop",
@@ -1473,7 +1482,7 @@
           ]
         }
       ],
-      "duration_sec": 2.43
+      "duration_sec": 2.367
     },
     {
       "mutant_id": "mutant_repetitive_boilerplate_mantra",
@@ -1507,7 +1516,7 @@
           ]
         }
       ],
-      "duration_sec": 0.843
+      "duration_sec": 0.846
     }
   ]
 }

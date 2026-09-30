@@ -35,13 +35,14 @@ FAKE_CALENDAR_2026 = (
     (1293, 13, "Italian Grand Prix", "Monza", "Italy", "Autodromo Nazionale Monza", "2026-09-04T10:30", "2026-09-05T14:00", "2026-09-06T13:00"),
     (1294, 14, "Spanish Grand Prix", "Madrid", "Spain", "Madring Street Circuit", "2026-09-11T11:30", "2026-09-12T14:00", "2026-09-13T13:00"),
     (1295, 15, "Azerbaijan Grand Prix", "Baku", "Azerbaijan", "Baku City Circuit", "2026-09-24T08:30", "2026-09-25T12:00", "2026-09-26T11:00"),
-    (1296, 16, "Singapore Grand Prix", "Marina Bay", "Singapore", "Marina Bay Street Circuit", "2026-10-09T08:30", "2026-10-10T13:00", "2026-10-11T12:00"),
-    (1297, 17, "United States Grand Prix", "Austin", "United States", "Circuit of the Americas", "2026-10-23T17:30", "2026-10-24T21:00", "2026-10-25T20:00"),
-    (1298, 18, "Mexico City Grand Prix", "Mexico City", "Mexico", "Autodromo Hermanos Rodriguez", "2026-10-30T18:30", "2026-10-31T21:00", "2026-11-01T20:00"),
-    (1299, 19, "Sao Paulo Grand Prix", "Sao Paulo", "Brazil", "Autodromo Jose Carlos Pace (Interlagos)", "2026-11-06T15:30", "2026-11-07T18:00", "2026-11-08T17:00"),
-    (1300, 20, "Las Vegas Grand Prix", "Las Vegas", "United States", "Las Vegas Strip Circuit", "2026-11-20T00:30", "2026-11-21T04:00", "2026-11-22T04:00"),
-    (1301, 21, "Qatar Grand Prix", "Lusail", "Qatar", "Lusail International Circuit", "2026-11-27T13:30", "2026-11-28T18:00", "2026-11-29T16:00"),
-    (1302, 22, "Abu Dhabi Grand Prix", "Yas Marina", "United Arab Emirates", "Yas Marina Circuit", "2026-12-04T09:30", "2026-12-05T14:00", "2026-12-06T13:00"),
+    (1308, 16, "Bahrain Grand Prix", "Kuala Lumpur", "Bahrain", "Sepang International Circuit", "2026-10-02T04:30", "2026-10-03T08:00", "2026-10-04T07:00"),
+    (1296, 17, "Singapore Grand Prix", "Marina Bay", "Singapore", "Marina Bay Street Circuit", "2026-10-09T08:30", "2026-10-10T13:00", "2026-10-11T12:00"),
+    (1297, 18, "United States Grand Prix", "Austin", "United States", "Circuit of the Americas", "2026-10-23T17:30", "2026-10-24T21:00", "2026-10-25T20:00"),
+    (1298, 19, "Mexico City Grand Prix", "Mexico City", "Mexico", "Autodromo Hermanos Rodriguez", "2026-10-30T18:30", "2026-10-31T21:00", "2026-11-01T20:00"),
+    (1299, 20, "Sao Paulo Grand Prix", "Sao Paulo", "Brazil", "Autodromo Jose Carlos Pace (Interlagos)", "2026-11-06T15:30", "2026-11-07T18:00", "2026-11-08T17:00"),
+    (1300, 21, "Las Vegas Grand Prix", "Las Vegas", "United States", "Las Vegas Strip Circuit", "2026-11-20T00:30", "2026-11-21T04:00", "2026-11-22T04:00"),
+    (1301, 22, "Qatar Grand Prix", "Lusail", "Qatar", "Lusail International Circuit", "2026-11-27T13:30", "2026-11-28T18:00", "2026-11-29T16:00"),
+    (1302, 23, "Abu Dhabi Grand Prix", "Yas Marina", "United Arab Emirates", "Yas Marina Circuit", "2026-12-04T09:30", "2026-12-05T14:00", "2026-12-06T13:00"),
 )
 
 # Extra query keywords (normalized ASCII) per meeting key.
@@ -61,6 +62,7 @@ FAKE_RACE_KEYWORDS = {
     1293: ("italy", "italian", "monza"),
     1294: ("spain", "spanish", "madrid", "madring"),
     1295: ("azerbaijan", "baku"),
+    1308: ("bahrain", "kuala lumpur", "malaysia", "sepang"),
     1296: ("singapore", "marina bay"),
     1297: ("united states grand prix", "usgp", "austin", "cota", "americas"),
     1298: ("mexico", "mexican", "mexico city"),
@@ -255,6 +257,12 @@ def _fake_payload(input: Any, now_utc: datetime) -> dict[str, Any]:
             "with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts)."
         ),
         "source": "fallback",
+        "relocation_note": (
+            "The 2026 Bahrain Grand Prix was relocated from Sakhir to the Sepang International "
+            "Circuit in Malaysia and keeps the Bahrain Grand Prix name."
+            if m_key == 1308
+            else ""
+        ),
         "data_source": "OpenF1 API (2026 Season Snapshot)",
         "freshness_disclaimer": (
             "Race schedule, session times, and weather reflect the latest available structured "

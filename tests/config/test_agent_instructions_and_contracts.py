@@ -380,3 +380,13 @@ def test_instructions_forbid_repetitive_boilerplate_and_examples_pass_grader(age
     assert "fail" not in rep_statuses, f"race_info_agent <examples> failed repetitive_boilerplate: {res['checks']}"
 
 
+
+def test_unsupported_language_policy_configured(agent_dir: Path) -> None:
+    """Totto officially supports exactly 5 languages: English, German, French, Spanish, Italian.
+    Any unsupported language (like Hindi) must be politely declined and supported languages listed."""
+    global_inst = (agent_dir / "global_instruction.txt").read_text(encoding="utf-8").lower()
+    assert "unsupported language policy" in global_inst
+    assert "english, german, french, spanish, and italian" in global_inst
+    for a in EXPECTED_AGENTS:
+        text = (agent_dir / "agents" / a / "instruction.txt").read_text(encoding="utf-8").lower()
+        assert "unsupported language policy" in text
