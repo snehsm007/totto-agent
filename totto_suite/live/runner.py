@@ -20,7 +20,7 @@ from totto_suite import oracle
 
 REPO_ROOT = config.REPO_ROOT
 DEFAULT_APP_NAME = config.DEFAULT_APP_NAME
-FAST_SIM_MODEL = "gemini-3.1-flash-lite"
+FAST_SIM_MODEL = "gemini-2.5-flash"
 FALLBACK_SIM_MODEL = "gemini-2.5-flash"
 QUOTA_BACKOFF_S = (10, 20, 40, 60, 60)
 TOOL_MODES = ("fake", "real")
@@ -326,6 +326,14 @@ def run_instrumented_probe(
                 label=f"judge[{name}]",
             )
             quota_wait += waited
+            if not judged and judge_model != FALLBACK_SIM_MODEL:
+                judged, waited2 = with_quota_retry(
+                    lambda: evaluate_expectations(
+                        sim.genai_client, FALLBACK_SIM_MODEL, trace, expectations
+                    ),
+                    label=f"judge_fallback[{name}]",
+                )
+                quota_wait += waited2
             details = [
                 {
                     "expectation": j.expectation,

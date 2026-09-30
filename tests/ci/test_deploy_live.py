@@ -279,6 +279,32 @@ def test_phone_already_on_new_version_is_verified_without_patch(apps, tmp_path: 
     assert record["phone_deployments"][0]["verified"] is True
 
 
+def test_phone_repoint_matches_project_number_vs_project_id_version_prefix(apps, tmp_path: Path) -> None:
+    before, repo = apps
+    backend = FakeBackend(before, _deps()[:1])
+    orig_set = backend.set_deployment_version
+
+    def _set_normalize_to_project_id(name: str, version: str) -> dict:
+        ver_id = version.rsplit("/", 1)[-1]
+        return orig_set(name, f"projects/{PROJECT}/locations/us/apps/live-app-uuid/versions/{ver_id}")
+
+    orig_push = backend.push
+
+    def _push_returns_project_number(src_dir: Path, display: str, description: str) -> str:
+        orig_push(src_dir, display, description)
+        num_name = "projects/657382588801/locations/us/apps/live-app-uuid/versions/v-new"
+        backend.versions[num_name] = backend.versions[f"{APP}/versions/v-new"]
+        return num_name
+
+    backend.set_deployment_version = _set_normalize_to_project_id  # type: ignore[method-assign]
+    backend.push = _push_returns_project_number  # type: ignore[method-assign]
+    code, record = _run(backend, repo, tmp_path / "out")
+    assert code == 0
+    assert record["ok"] is True and record["status"] == "SUCCESS"
+    assert record["phone_deployments"][0]["verified"] is True
+    assert record["phone_deployments"][0]["new_version"] == "versions/v-new"
+
+
 def test_identical_push_reports_identical_diff(tmp_path: Path) -> None:
     repo = _write_app(tmp_path / "repo_app", "same\n")
     code, record = _run(FakeBackend(repo, []), repo, tmp_path / "out")

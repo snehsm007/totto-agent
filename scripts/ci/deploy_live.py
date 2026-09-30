@@ -245,10 +245,10 @@ def repoint_telephony(backend: Backend, version_name: str, out: list[dict]) -> l
             "verified": False,
         }
         out.append(entry)
-        if dep.get("app_version") != version_name:
+        if rel(dep.get("app_version")) != rel(version_name):
             backend.set_deployment_version(dep["name"], version_name)
         got = backend.get_deployment(dep["name"])
-        if got.get("app_version") != version_name:
+        if rel(got.get("app_version")) != rel(version_name):
             raise DeployError(
                 "repoint",
                 f"{entry['deployment']} still points at {rel(got.get('app_version'))}, "
