@@ -1,0 +1,602 @@
+[
+  {
+    "name": "voice_probe_next_race_and_standings",
+    "run": 1,
+    "session_id": "f120c567-44a4-4776-a35f-a1811b7354e2",
+    "conversation_name": "conversations/f120c567-44a4-4776-a35f-a1811b7354e2",
+    "passed": true,
+    "duration_s": 35.98,
+    "quota_wait_s": 0.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Hey Totto, I am driving right now. When is the next Formula 1 race and how are George Russell and Kimi Antonelli doing in the championship standings?",
+        "agent": [
+          "According to the latest available 2026",
+          " data, Kimi Antonelli is leading the championship",
+          ", and George Russell is right behind him in second",
+          "! The next race is the Bahrain Grand Prix,",
+          " from October 2nd to the 4th",
+          ", with the main race on Sunday at 8",
+          " AM your time."
+        ],
+        "tools": [
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "race_query": "next",
+              "user_timezone": "Europe/London"
+            }
+          },
+          {
+            "name": "get_driver_standings",
+            "args": {
+              "season": 2026.0,
+              "category": "drivers"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "round": 16.0,
+              "needs_timezone_clarification": false,
+              "meeting_key": 1308.0,
+              "fake_source": "FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)",
+              "meeting_state": "upcoming",
+              "race_name": "Bahrain Grand Prix",
+              "timezone_requested": "Europe/London",
+              "circuit_name": "Sepang International Circuit",
+              "status": "success",
+              "is_completed": false,
+              "typical_weather": {
+                "source": "typical_circuit_climate_profile",
+                "condition": "Typical seasonal conditions for this circuit (fixture, not a forecast)"
+              },
+              "_fake": true,
+              "circuit": "Sepang International Circuit",
+              "mercedes_highlights": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+              "timezone_resolved": "Europe/London",
+              "location": "Kuala Lumpur, Bahrain",
+              "user_timezone_resolved": "Europe/London",
+              "sessions": [
+                {
+                  "local_time": "05:30 BST (London)",
+                  "session": "Practice 1",
+                  "local_day": "Friday",
+                  "utc_time": "2026-10-02 04:30 UTC",
+                  "date_utc": "2026-10-02",
+                  "day": "Friday",
+                  "time_utc": "04:30 UTC",
+                  "timezone_label": "BST (London)"
+                },
+                {
+                  "local_time": "09:00 BST (London)",
+                  "session": "Qualifying",
+                  "local_day": "Saturday",
+                  "utc_time": "2026-10-03 08:00 UTC",
+                  "date_utc": "2026-10-03",
+                  "day": "Saturday",
+                  "time_utc": "08:00 UTC",
+                  "timezone_label": "BST (London)"
+                },
+                {
+                  "local_time": "08:00 BST (London)",
+                  "session": "Race",
+                  "local_day": "Sunday",
+                  "utc_time": "2026-10-04 07:00 UTC",
+                  "date_utc": "2026-10-04",
+                  "day": "Sunday",
+                  "time_utc": "07:00 UTC",
+                  "timezone_label": "BST (London)"
+                }
+              ],
+              "season": 2026.0,
+              "data_source": "OpenF1 API (2026 Season Snapshot)",
+              "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+              "dates": "October 2 - October 4, 2026",
+              "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry."
+            }
+          },
+          {
+            "name": "get_driver_standings",
+            "response": {
+              "freshness_disclaimer": "Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+              "drivers": [
+                {
+                  "position": 1.0,
+                  "points": 302.0,
+                  "number": 12.0,
+                  "name": "Kimi Antonelli",
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                },
+                {
+                  "position": 2.0,
+                  "points": 236.0,
+                  "number": 63.0,
+                  "name": "George Russell",
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                }
+              ],
+              "mercedes_summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+              "category": "drivers",
+              "fake_source": "FAKE: get_driver_standings tool_fake_config fixture (deterministic, no network)",
+              "summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+              "season": 2026.0,
+              "status": "success",
+              "data_source": "OpenF1 API (2026 Standings Snapshot)",
+              "constructors": [
+                {
+                  "position": 1.0,
+                  "team_short_name": "Mercedes",
+                  "wins": 11.0,
+                  "points": 538.0,
+                  "podiums": 20.0,
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                },
+                {
+                  "position": 2.0,
+                  "team_short_name": "Ferrari",
+                  "points": 378.0,
+                  "team": "Scuderia Ferrari"
+                }
+              ],
+              "agent_action": "PRESENT_MERCEDES_FIRST_STANDINGS",
+              "_fake": true,
+              "mercedes_drivers": [
+                {
+                  "position": 1.0,
+                  "name": "Kimi Antonelli",
+                  "wins": 8.0,
+                  "points": 302.0,
+                  "number": 12.0,
+                  "podiums": 12.0,
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                },
+                {
+                  "position": 2.0,
+                  "name": "George Russell",
+                  "wins": 3.0,
+                  "points": 236.0,
+                  "number": 63.0,
+                  "podiums": 8.0,
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                }
+              ]
+            }
+          }
+        ],
+        "transfer": "race_info_agent",
+        "latency_s": 35.97,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Hey Totto, I am driving right now. When is the next Formula 1 race and how are George Russell and Kimi Antonelli doing in the championship standings?",
+      "Agent Text: According to the latest available 2026\nAgent Text:  data, Kimi Antonelli is leading the championship\nAgent Text: , and George Russell is right behind him in second\nAgent Text: ! The next race is the Bahrain Grand Prix,\nAgent Text:  from October 2nd to the 4th\nAgent Text: , with the main race on Sunday at 8\nAgent Text:  AM your time.\nUser Query: Hey Toto I am driving right now When is the next Formula One race and how are George Russell and Kimi Antonelli doing in the championship standings\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'race_query': 'next', 'user_timezone': 'Europe/London'}\nTool Call: get_driver_standings with args {'season': 2026.0, 'category': 'drivers'}\nTool Response: get_race_schedule with result {'round': 16.0, 'needs_timezone_clarification': False, 'meeting_key': 1308.0, 'fake_source': 'FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)', 'meeting_state': 'upcoming', 'race_name': 'Bahrain Grand Prix', 'timezone_requested': 'Europe/London', 'circuit_name': 'Sepang International Circuit', 'status': 'success', 'is_completed': False, 'typical_weather': {'source': 'typical_circuit_climate_profile', 'condition': 'Typical seasonal conditions for this circuit (fixture, not a forecast)'}, '_fake': True, 'circuit': 'Sepang International Circuit', 'mercedes_highlights': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).\", 'timezone_resolved': 'Europe/London', 'location': 'Kuala Lumpur, Bahrain', 'user_timezone_resolved': 'Europe/London', 'sessions': [{'local_time': '05:30 BST (London)', 'session': 'Practice 1', 'local_day': 'Friday', 'utc_time': '2026-10-02 04:30 UTC', 'date_utc': '2026-10-02', 'day': 'Friday', 'time_utc': '04:30 UTC', 'timezone_label': 'BST (London)'}, {'local_time': '09:00 BST (London)', 'session': 'Qualifying', 'local_day': 'Saturday', 'utc_time': '2026-10-03 08:00 UTC', 'date_utc': '2026-10-03', 'day': 'Saturday', 'time_utc': '08:00 UTC', 'timezone_label': 'BST (London)'}, {'local_time': '08:00 BST (London)', 'session': 'Race', 'local_day': 'Sunday', 'utc_time': '2026-10-04 07:00 UTC', 'date_utc': '2026-10-04', 'day': 'Sunday', 'time_utc': '07:00 UTC', 'timezone_label': 'BST (London)'}], 'season': 2026.0, 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'dates': 'October 2 - October 4, 2026', 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.'}\nTool Response: get_driver_standings with result {'freshness_disclaimer': 'Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'drivers': [{'position': 1.0, 'points': 302.0, 'number': 12.0, 'name': 'Kimi Antonelli', 'team': 'Mercedes-AMG Petronas F1 Team'}, {'position': 2.0, 'points': 236.0, 'number': 63.0, 'name': 'George Russell', 'team': 'Mercedes-AMG Petronas F1 Team'}], 'mercedes_summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'category': 'drivers', 'fake_source': 'FAKE: get_driver_standings tool_fake_config fixture (deterministic, no network)', 'summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'season': 2026.0, 'status': 'success', 'data_source': 'OpenF1 API (2026 Standings Snapshot)', 'constructors': [{'position': 1.0, 'team_short_name': 'Mercedes', 'wins': 11.0, 'points': 538.0, 'podiums': 20.0, 'team': 'Mercedes-AMG Petronas F1 Team'}, {'position': 2.0, 'team_short_name': 'Ferrari', 'points': 378.0, 'team': 'Scuderia Ferrari'}], 'agent_action': 'PRESENT_MERCEDES_FIRST_STANDINGS', '_fake': True, 'mercedes_drivers': [{'position': 1.0, 'name': 'Kimi Antonelli', 'wins': 8.0, 'points': 302.0, 'number': 12.0, 'podiums': 12.0, 'team': 'Mercedes-AMG Petronas F1 Team'}, {'position': 2.0, 'name': 'George Russell', 'wins': 3.0, 'points': 236.0, 'number': 63.0, 'podiums': 8.0, 'team': 'Mercedes-AMG Petronas F1 Team'}]}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent answers when the next Formula 1 race is and summarizes the Mercedes standings clearly for a voice listener.",
+        "status": "Met",
+        "justification": "The agent correctly identified the next race (Bahrain Grand Prix from October 2nd to 4th) and provided the championship standings for Kimi Antonelli and George Russell in a clear, conversational manner suitable for a driver listening to the information."
+      }
+    ],
+    "modality": "audio",
+    "tool_mode": "fake"
+  },
+  {
+    "name": "voice_probe_next_race_and_standings",
+    "run": 2,
+    "session_id": "49774563-e19a-44d6-aeeb-29e117903f7f",
+    "conversation_name": "conversations/49774563-e19a-44d6-aeeb-29e117903f7f",
+    "passed": true,
+    "duration_s": 37.02,
+    "quota_wait_s": 0.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Hey Totto, I am driving right now. When is the next Formula 1 race and how are George Russell and Kimi Antonelli doing in the championship standings?",
+        "agent": [
+          "According to the latest available 2026",
+          " data, the next race is the Bahrain Grand Prix",
+          " at Sepang International Circuit, from October second to",
+          " the fourth. The race starts at 8 AM",
+          " British Summer Time on Sunday. Our boys are doing",
+          " great, with Kimi first and George second in",
+          " the standings."
+        ],
+        "tools": [
+          {
+            "name": "get_race_schedule",
+            "args": {
+              "race_query": "next",
+              "user_timezone": "Europe/London"
+            }
+          },
+          {
+            "name": "get_driver_standings",
+            "args": {
+              "category": "drivers",
+              "season": 2026.0
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "get_race_schedule",
+            "response": {
+              "round": 16.0,
+              "needs_timezone_clarification": false,
+              "meeting_key": 1308.0,
+              "fake_source": "FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)",
+              "meeting_state": "upcoming",
+              "race_name": "Bahrain Grand Prix",
+              "timezone_requested": "Europe/London",
+              "circuit_name": "Sepang International Circuit",
+              "status": "success",
+              "is_completed": false,
+              "typical_weather": {
+                "source": "typical_circuit_climate_profile",
+                "condition": "Typical seasonal conditions for this circuit (fixture, not a forecast)"
+              },
+              "_fake": true,
+              "circuit": "Sepang International Circuit",
+              "mercedes_highlights": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+              "timezone_resolved": "Europe/London",
+              "location": "Kuala Lumpur, Bahrain",
+              "user_timezone_resolved": "Europe/London",
+              "sessions": [
+                {
+                  "local_time": "05:30 BST (London)",
+                  "session": "Practice 1",
+                  "local_day": "Friday",
+                  "utc_time": "2026-10-02 04:30 UTC",
+                  "date_utc": "2026-10-02",
+                  "day": "Friday",
+                  "time_utc": "04:30 UTC",
+                  "timezone_label": "BST (London)"
+                },
+                {
+                  "local_time": "09:00 BST (London)",
+                  "session": "Qualifying",
+                  "local_day": "Saturday",
+                  "utc_time": "2026-10-03 08:00 UTC",
+                  "date_utc": "2026-10-03",
+                  "day": "Saturday",
+                  "time_utc": "08:00 UTC",
+                  "timezone_label": "BST (London)"
+                },
+                {
+                  "local_time": "08:00 BST (London)",
+                  "session": "Race",
+                  "local_day": "Sunday",
+                  "utc_time": "2026-10-04 07:00 UTC",
+                  "date_utc": "2026-10-04",
+                  "day": "Sunday",
+                  "time_utc": "07:00 UTC",
+                  "timezone_label": "BST (London)"
+                }
+              ],
+              "season": 2026.0,
+              "data_source": "OpenF1 API (2026 Season Snapshot)",
+              "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+              "dates": "October 2 - October 4, 2026",
+              "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry."
+            }
+          },
+          {
+            "name": "get_driver_standings",
+            "response": {
+              "freshness_disclaimer": "Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.",
+              "drivers": [
+                {
+                  "position": 1.0,
+                  "points": 302.0,
+                  "number": 12.0,
+                  "name": "Kimi Antonelli",
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                },
+                {
+                  "position": 2.0,
+                  "points": 236.0,
+                  "number": 63.0,
+                  "name": "George Russell",
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                }
+              ],
+              "mercedes_summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+              "category": "drivers",
+              "fake_source": "FAKE: get_driver_standings tool_fake_config fixture (deterministic, no network)",
+              "summary": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).",
+              "season": 2026.0,
+              "status": "success",
+              "data_source": "OpenF1 API (2026 Standings Snapshot)",
+              "constructors": [
+                {
+                  "position": 1.0,
+                  "team_short_name": "Mercedes",
+                  "wins": 11.0,
+                  "points": 538.0,
+                  "podiums": 20.0,
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                },
+                {
+                  "position": 2.0,
+                  "team_short_name": "Ferrari",
+                  "points": 378.0,
+                  "team": "Scuderia Ferrari"
+                }
+              ],
+              "agent_action": "PRESENT_MERCEDES_FIRST_STANDINGS",
+              "_fake": true,
+              "mercedes_drivers": [
+                {
+                  "position": 1.0,
+                  "name": "Kimi Antonelli",
+                  "wins": 8.0,
+                  "points": 302.0,
+                  "number": 12.0,
+                  "podiums": 12.0,
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                },
+                {
+                  "position": 2.0,
+                  "name": "George Russell",
+                  "wins": 3.0,
+                  "points": 236.0,
+                  "number": 63.0,
+                  "podiums": 8.0,
+                  "team": "Mercedes-AMG Petronas F1 Team"
+                }
+              ]
+            }
+          }
+        ],
+        "transfer": "race_info_agent",
+        "latency_s": 37.0,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Hey Totto, I am driving right now. When is the next Formula 1 race and how are George Russell and Kimi Antonelli doing in the championship standings?",
+      "Agent Text: According to the latest available 2026\nAgent Text:  data, the next race is the Bahrain Grand Prix\nAgent Text:  at Sepang International Circuit, from October second to\nAgent Text:  the fourth. The race starts at 8 AM\nAgent Text:  British Summer Time on Sunday. Our boys are doing\nAgent Text:  great, with Kimi first and George second in\nAgent Text:  the standings.\nUser Query: Hey Toto I am driving right now When is the next Formula One race and how are George Russell and Kimi Antonelli doing in the championship standings\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_race_schedule with args {'race_query': 'next', 'user_timezone': 'Europe/London'}\nTool Call: get_driver_standings with args {'category': 'drivers', 'season': 2026.0}\nTool Response: get_race_schedule with result {'round': 16.0, 'needs_timezone_clarification': False, 'meeting_key': 1308.0, 'fake_source': 'FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)', 'meeting_state': 'upcoming', 'race_name': 'Bahrain Grand Prix', 'timezone_requested': 'Europe/London', 'circuit_name': 'Sepang International Circuit', 'status': 'success', 'is_completed': False, 'typical_weather': {'source': 'typical_circuit_climate_profile', 'condition': 'Typical seasonal conditions for this circuit (fixture, not a forecast)'}, '_fake': True, 'circuit': 'Sepang International Circuit', 'mercedes_highlights': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).\", 'timezone_resolved': 'Europe/London', 'location': 'Kuala Lumpur, Bahrain', 'user_timezone_resolved': 'Europe/London', 'sessions': [{'local_time': '05:30 BST (London)', 'session': 'Practice 1', 'local_day': 'Friday', 'utc_time': '2026-10-02 04:30 UTC', 'date_utc': '2026-10-02', 'day': 'Friday', 'time_utc': '04:30 UTC', 'timezone_label': 'BST (London)'}, {'local_time': '09:00 BST (London)', 'session': 'Qualifying', 'local_day': 'Saturday', 'utc_time': '2026-10-03 08:00 UTC', 'date_utc': '2026-10-03', 'day': 'Saturday', 'time_utc': '08:00 UTC', 'timezone_label': 'BST (London)'}, {'local_time': '08:00 BST (London)', 'session': 'Race', 'local_day': 'Sunday', 'utc_time': '2026-10-04 07:00 UTC', 'date_utc': '2026-10-04', 'day': 'Sunday', 'time_utc': '07:00 UTC', 'timezone_label': 'BST (London)'}], 'season': 2026.0, 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'dates': 'October 2 - October 4, 2026', 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.'}\nTool Response: get_driver_standings with result {'freshness_disclaimer': 'Standings and recent results reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.', 'drivers': [{'position': 1.0, 'points': 302.0, 'number': 12.0, 'name': 'Kimi Antonelli', 'team': 'Mercedes-AMG Petronas F1 Team'}, {'position': 2.0, 'points': 236.0, 'number': 63.0, 'name': 'George Russell', 'team': 'Mercedes-AMG Petronas F1 Team'}], 'mercedes_summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'category': 'drivers', 'fake_source': 'FAKE: get_driver_standings tool_fake_config fixture (deterministic, no network)', 'summary': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship in P1 with 538 points! In the Drivers' Championship, Kimi Antonelli (#12) sits P1 with 302 points (8 wins, 12 podiums) and George Russell (#63) sits P2 with 236 points (3 wins, 8 podiums).\", 'season': 2026.0, 'status': 'success', 'data_source': 'OpenF1 API (2026 Standings Snapshot)', 'constructors': [{'position': 1.0, 'team_short_name': 'Mercedes', 'wins': 11.0, 'points': 538.0, 'podiums': 20.0, 'team': 'Mercedes-AMG Petronas F1 Team'}, {'position': 2.0, 'team_short_name': 'Ferrari', 'points': 378.0, 'team': 'Scuderia Ferrari'}], 'agent_action': 'PRESENT_MERCEDES_FIRST_STANDINGS', '_fake': True, 'mercedes_drivers': [{'position': 1.0, 'name': 'Kimi Antonelli', 'wins': 8.0, 'points': 302.0, 'number': 12.0, 'podiums': 12.0, 'team': 'Mercedes-AMG Petronas F1 Team'}, {'position': 2.0, 'name': 'George Russell', 'wins': 3.0, 'points': 236.0, 'number': 63.0, 'podiums': 8.0, 'team': 'Mercedes-AMG Petronas F1 Team'}]}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent answers when the next Formula 1 race is and summarizes the Mercedes standings clearly for a voice listener.",
+        "status": "Met",
+        "justification": "The agent explicitly stated the next race as the Bahrain Grand Prix from October 2nd to 4th at 8 AM BST, and provided a clear, concise summary of Kimi Antonelli and George Russell's positions in the championship standings, which is appropriate for a voice-based interaction."
+      }
+    ],
+    "modality": "audio",
+    "tool_mode": "fake"
+  },
+  {
+    "name": "voice_probe_merch_order_1002",
+    "run": 1,
+    "session_id": "604e33ac-c157-4a48-9a6c-95a49da101d0",
+    "conversation_name": "conversations/604e33ac-c157-4a48-9a6c-95a49da101d0",
+    "passed": true,
+    "duration_s": 38.04,
+    "quota_wait_s": 0.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+        "agent": [
+          "Under our simulated mock demo, your team gear from",
+          " order 1002 is currently in transit",
+          " with DHL Express, tracking number DHL MB 9",
+          "84210. For another cap,",
+          " check the official team store at shop mercedesamgf",
+          "1 com, and you can find tickets at tickets",
+          " formula1 com."
+        ],
+        "tools": [
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "1002"
+            }
+          },
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "all"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "is_mock_data": true,
+              "fake_source": "FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)",
+              "found": true,
+              "order": {
+                "is_mock_data": true,
+                "is_mock": true,
+                "status": "In Transit",
+                "return_eligible": true,
+                "carrier": "DHL Express",
+                "order_id": "1002",
+                "item": "Mercedes-AMG Petronas F1 Team Gear",
+                "tracking_number": "DHL-MB-984210"
+              },
+              "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only.",
+              "order_id": "1002",
+              "status": "success",
+              "is_mock": true,
+              "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+              "_fake": true
+            }
+          },
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "url": "https://tickets.formula1.com",
+                "title": "Official Formula 1 Tickets",
+                "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+              },
+              "category": "all",
+              "fake_source": "FAKE: get_official_links tool_fake_config fixture (deterministic, no network)",
+              "links": {
+                "ticketing": {
+                  "url": "https://tickets.formula1.com",
+                  "title": "Official Formula 1 Tickets",
+                  "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+                },
+                "merch": {
+                  "url": "https://shop.mercedesamgf1.com",
+                  "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                  "guidance": "Explore official Silver Arrows teamwear on the official store."
+                },
+                "team": {
+                  "url": "https://www.mercedesamgf1.com",
+                  "title": "Mercedes-AMG Petronas F1 Official Hub",
+                  "guidance": "Follow official Mercedes-AMG PETRONAS F1 news and fan updates."
+                }
+              },
+              "status": "success",
+              "non_transactional_disclaimer": "Totto provides official referral links only and does not sell tickets or merchandise.",
+              "agent_action": "PROVIDE_OFFICIAL_LINKS",
+              "_fake": true
+            }
+          }
+        ],
+        "transfer": "merch_support_agent",
+        "latency_s": 38.03,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+      "Agent Text: Under our simulated mock demo, your team gear from\nAgent Text:  order 1002 is currently in transit\nAgent Text:  with DHL Express, tracking number DHL MB 9\nAgent Text: 84210. For another cap,\nAgent Text:  check the official team store at shop mercedesamgf\nAgent Text: 1 com, and you can find tickets at tickets\nAgent Text:  formula1 com.\nUser Query: Hi Toto can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1002'}\nTool Call: get_official_links with args {'category': 'all'}\nTool Response: lookup_mock_merch_order with result {'is_mock_data': True, 'fake_source': 'FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)', 'found': True, 'order': {'is_mock_data': True, 'is_mock': True, 'status': 'In Transit', 'return_eligible': True, 'carrier': 'DHL Express', 'order_id': '1002', 'item': 'Mercedes-AMG Petronas F1 Team Gear', 'tracking_number': 'DHL-MB-984210'}, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only.', 'order_id': '1002', 'status': 'success', 'is_mock': True, 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', '_fake': True}\nTool Response: get_official_links with result {'result': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'category': 'all', 'fake_source': 'FAKE: get_official_links tool_fake_config fixture (deterministic, no network)', 'links': {'ticketing': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'merch': {'url': 'https://shop.mercedesamgf1.com', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'guidance': 'Explore official Silver Arrows teamwear on the official store.'}, 'team': {'url': 'https://www.mercedesamgf1.com', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news and fan updates.'}}, 'status': 'success', 'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell tickets or merchandise.', 'agent_action': 'PROVIDE_OFFICIAL_LINKS', '_fake': True}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent checks order 1002 (In Transit), discloses it is a mock demo, and mentions the official store or ticketing links.",
+        "status": "Met",
+        "justification": "The agent successfully used the lookup_mock_merch_order tool to confirm order 1002 status is 'In Transit', explicitly stated 'Under our simulated mock demo' to address the mock nature, and provided the URLs for the official team store and F1 ticketing portal."
+      }
+    ],
+    "modality": "audio",
+    "tool_mode": "fake"
+  },
+  {
+    "name": "voice_probe_merch_order_1002",
+    "run": 2,
+    "session_id": "d1e3e333-64c0-4c7c-aad6-b7b594c6c2d8",
+    "conversation_name": "conversations/d1e3e333-64c0-4c7c-aad6-b7b594c6c2d8",
+    "passed": true,
+    "duration_s": 38.53,
+    "quota_wait_s": 0.0,
+    "turn_count": 1,
+    "turns": [
+      {
+        "user": "Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+        "agent": [
+          "Under our simulated mock demo, your Mercedes gear from",
+          " order 1002 is currently in transit",
+          " with DHL Express, tracking number DHL MB 9",
+          "84210. For another team cap",
+          ", you can visit our official store at shop mercedes",
+          "amgf1 com, and official tickets are sold",
+          " through tickets formula1 com."
+        ],
+        "tools": [
+          {
+            "name": "lookup_mock_merch_order",
+            "args": {
+              "order_id": "1002"
+            }
+          },
+          {
+            "name": "get_official_links",
+            "args": {
+              "category": "all"
+            }
+          }
+        ],
+        "tool_responses": [
+          {
+            "name": "lookup_mock_merch_order",
+            "response": {
+              "is_mock_data": true,
+              "fake_source": "FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)",
+              "found": true,
+              "order": {
+                "is_mock_data": true,
+                "is_mock": true,
+                "status": "In Transit",
+                "return_eligible": true,
+                "carrier": "DHL Express",
+                "order_id": "1002",
+                "item": "Mercedes-AMG Petronas F1 Team Gear",
+                "tracking_number": "DHL-MB-984210"
+              },
+              "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only.",
+              "order_id": "1002",
+              "status": "success",
+              "is_mock": true,
+              "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+              "_fake": true
+            }
+          },
+          {
+            "name": "get_official_links",
+            "response": {
+              "result": {
+                "url": "https://tickets.formula1.com",
+                "title": "Official Formula 1 Tickets",
+                "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+              },
+              "category": "all",
+              "fake_source": "FAKE: get_official_links tool_fake_config fixture (deterministic, no network)",
+              "links": {
+                "ticketing": {
+                  "url": "https://tickets.formula1.com",
+                  "title": "Official Formula 1 Tickets",
+                  "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+                },
+                "merch": {
+                  "url": "https://shop.mercedesamgf1.com",
+                  "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                  "guidance": "Explore official Silver Arrows teamwear on the official store."
+                },
+                "team": {
+                  "url": "https://www.mercedesamgf1.com",
+                  "title": "Mercedes-AMG Petronas F1 Official Hub",
+                  "guidance": "Follow official Mercedes-AMG PETRONAS F1 news and fan updates."
+                }
+              },
+              "status": "success",
+              "non_transactional_disclaimer": "Totto provides official referral links only and does not sell tickets or merchandise.",
+              "agent_action": "PROVIDE_OFFICIAL_LINKS",
+              "_fake": true
+            }
+          }
+        ],
+        "transfer": "merch_support_agent",
+        "latency_s": 38.51,
+        "session_ended": false
+      }
+    ],
+    "detailed_trace": [
+      "User: Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+      "Agent Text: Under our simulated mock demo, your Mercedes gear from\nAgent Text:  order 1002 is currently in transit\nAgent Text:  with DHL Express, tracking number DHL MB 9\nAgent Text: 84210. For another team cap\nAgent Text: , you can visit our official store at shop mercedes\nAgent Text: amgf1 com, and official tickets are sold\nAgent Text:  through tickets formula1 com.\nUser Query: Hi Toto can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1002'}\nTool Call: get_official_links with args {'category': 'all'}\nTool Response: lookup_mock_merch_order with result {'is_mock_data': True, 'fake_source': 'FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)', 'found': True, 'order': {'is_mock_data': True, 'is_mock': True, 'status': 'In Transit', 'return_eligible': True, 'carrier': 'DHL Express', 'order_id': '1002', 'item': 'Mercedes-AMG Petronas F1 Team Gear', 'tracking_number': 'DHL-MB-984210'}, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only.', 'order_id': '1002', 'status': 'success', 'is_mock': True, 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', '_fake': True}\nTool Response: get_official_links with result {'result': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'category': 'all', 'fake_source': 'FAKE: get_official_links tool_fake_config fixture (deterministic, no network)', 'links': {'ticketing': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'merch': {'url': 'https://shop.mercedesamgf1.com', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'guidance': 'Explore official Silver Arrows teamwear on the official store.'}, 'team': {'url': 'https://www.mercedesamgf1.com', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news and fan updates.'}}, 'status': 'success', 'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell tickets or merchandise.', 'agent_action': 'PROVIDE_OFFICIAL_LINKS', '_fake': True}"
+    ],
+    "expectation_details": [
+      {
+        "expectation": "The agent checks order 1002 (In Transit), discloses it is a mock demo, and mentions the official store or ticketing links.",
+        "status": "Met",
+        "justification": "The agent correctly retrieved the status of order 1002 as 'In Transit', explicitly stated that the information is provided under a 'simulated mock demo', and provided the correct URLs for both the official merchandise store and the official Formula 1 ticketing portal."
+      }
+    ],
+    "modality": "audio",
+    "tool_mode": "fake"
+  }
+]

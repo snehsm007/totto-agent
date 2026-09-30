@@ -1565,6 +1565,76 @@
       "infra_errors": 0,
       "results_digest": "4d68972ecc58d0a663a7c6cce188e562f797e60749428b088f0c4c8674e36ec5",
       "path": "runs/ci-staging-demo2-openf1-down-real.json"
+    },
+    {
+      "run_id": "ab-voice-gemini-3-0-flash-001-20260930T134710Z",
+      "mode": "ci",
+      "point_time": "2026-09-30T13:47:13Z",
+      "started_at": "2026-09-30T13:47:13Z",
+      "imported": false,
+      "agent_commit": "608edfb47da2173351547b8485ae1ce3d12893af",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.0-flash-001",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "M3b staging voice A/B evaluation for model gemini-3.0-flash-001",
+      "layers": {
+        "live_goldens": {
+          "pass": 10,
+          "fail": 0,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 1.0
+        },
+        "live_voice": {
+          "pass": 0,
+          "fail": 4,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.0
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "ea4a98be6be6d6c72507edaabf32da87782d8ec355ad75461638064b93f3cc2d",
+      "path": "runs/ab-voice-gemini-3-0-flash-001-20260930T134710Z.json"
+    },
+    {
+      "run_id": "ab-voice-gemini-3-1-flash-live-20260930T135317Z",
+      "mode": "ci",
+      "point_time": "2026-09-30T13:53:20Z",
+      "started_at": "2026-09-30T13:53:20Z",
+      "imported": false,
+      "agent_commit": "608edfb47da2173351547b8485ae1ce3d12893af",
+      "agent_path": "cxas_app",
+      "agent_dirty": true,
+      "version_id": "",
+      "version_status": "draft",
+      "model": "gemini-3.1-flash-live",
+      "app_ref": "staging",
+      "tool_mode": "fake",
+      "rationale": "M3b staging voice A/B evaluation for model gemini-3.1-flash-live",
+      "layers": {
+        "live_goldens": {
+          "pass": 5,
+          "fail": 5,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.5
+        },
+        "live_voice": {
+          "pass": 0,
+          "fail": 4,
+          "infra_error": 0,
+          "skipped": 0,
+          "score": 0.0
+        }
+      },
+      "infra_errors": 0,
+      "results_digest": "385adf6dd8ee6422ac2154aab5e0f4b0a3746e7089dd85538b1fcfee10eac02f",
+      "path": "runs/ab-voice-gemini-3-1-flash-live-20260930T135317Z.json"
     }
   ]
 }

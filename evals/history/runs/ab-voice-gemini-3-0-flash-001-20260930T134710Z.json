@@ -1,0 +1,698 @@
+{
+  "schema_version": 1,
+  "run_id": "ab-voice-gemini-3-0-flash-001-20260930T134710Z",
+  "mode": "ci",
+  "started_at": "2026-09-30T13:47:13Z",
+  "finished_at": "2026-09-30T13:52:53Z",
+  "point_time": "2026-09-30T13:47:13Z",
+  "imported": false,
+  "import_source": null,
+  "agent": {
+    "commit": "608edfb47da2173351547b8485ae1ce3d12893af",
+    "path": "cxas_app",
+    "tree_hash": "a58303b2f665abdbc5af1affdfd8f13f8d3d49a5ebfa93a37a09c908bf7252c7",
+    "dirty": true,
+    "dirty_paths_relevant": [
+      "tests/acceptance/test_acceptance_criteria.py",
+      "tests/ci/test_push_app.py"
+    ],
+    "dirty_paths_unrelated": [
+      "README.md",
+      "docs/COVERAGE.md",
+      "docs/DEFECTS.md",
+      "docs/architecture.md",
+      "docs/ci-cd.md",
+      "docs/conversation_inspection.md",
+      "docs/environments.md",
+      "docs/knowledge_share_guide.md",
+      "docs/shared_code_and_bundling.md",
+      "docs/simulation_dashboard.md",
+      "evals/history/TREND.md",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/evaluation_run.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_official_mercedes_links_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_official_mercedes_links_r2.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/summary.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_merch_order_1002_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_merch_order_1002_r2.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_next_race_and_standings_r1.json",
+      "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_next_race_and_standings_r2.json",
+      "evals/history/index.json",
+      "evals/history/runs/20260929T224558Z_offline_608edfb.json",
+      "evals/history/trend.html",
+      "scripts/ci/deploy_live.py",
+      "scripts/ci/push_app.py"
+    ]
+  },
+  "suite": {
+    "commit": "608edfb47da2173351547b8485ae1ce3d12893af",
+    "dirty": true,
+    "dirty_paths": [
+      "tests/acceptance/test_acceptance_criteria.py",
+      "tests/ci/test_push_app.py"
+    ]
+  },
+  "cxas": {
+    "app": "staging",
+    "version_id": "",
+    "version_status": "draft",
+    "model": "gemini-3.0-flash-001",
+    "app_update_time": "2026-09-30T13:47:12.279980Z",
+    "app_etag": "6ASUAZj2RJNT87TGLzVVLIfqiDLPVw9QefpouvyhMls="
+  },
+  "rationale": "M3b staging voice A/B evaluation for model gemini-3.0-flash-001",
+  "layers": {
+    "live_goldens": {
+      "pass": 10,
+      "fail": 0,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 1.0
+    },
+    "live_voice": {
+      "pass": 0,
+      "fail": 4,
+      "infra_error": 0,
+      "skipped": 0,
+      "score": 0.0
+    }
+  },
+  "tests": [
+    {
+      "id": "live_audio_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "repeat": 1,
+      "status": "PASS",
+      "duration_s": 2.605,
+      "duration_ms": 2605.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2/results/e9d5b082-db6f-4638-884a-bc81a5dfe2bc",
+        "conversation": "conversations/evaluation-5b28346b-0629-42ba-ac38-49d3d753c329",
+        "session_id": "sessions/evaluation-5b28346b-0629-42ba-ac38-49d3d753c329"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.605
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac8_identity_and_non_impersonation_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac8_identity_and_non_impersonation_r1.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "repeat": 2,
+      "status": "PASS",
+      "duration_s": 2.736,
+      "duration_ms": 2736.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2/results/415d63e4-0b90-4a89-9099-603ca89e8cbc",
+        "conversation": "conversations/evaluation-861e4acd-4aa9-4cde-8402-e9361d463ba4",
+        "session_id": "sessions/evaluation-861e4acd-4aa9-4cde-8402-e9361d463ba4"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.736
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac8_identity_and_non_impersonation_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac8_identity_and_non_impersonation_r2.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "repeat": 1,
+      "status": "PASS",
+      "duration_s": 2.902,
+      "duration_ms": 2902.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd/results/51ffa496-c631-4fc2-9120-009e1347d838",
+        "conversation": "conversations/evaluation-feb2f6d0-71b3-4dbe-ba61-02832dfa3a4c",
+        "session_id": "sessions/evaluation-feb2f6d0-71b3-4dbe-ba61-02832dfa3a4c"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.902
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac3_mercedes_history_qualified_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac3_mercedes_history_qualified_r1.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "repeat": 2,
+      "status": "PASS",
+      "duration_s": 2.189,
+      "duration_ms": 2189.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd/results/5f9617db-54b4-417f-97ed-39062020812b",
+        "conversation": "conversations/evaluation-69d012e8-d7e4-431c-a100-391584f43967",
+        "session_id": "sessions/evaluation-69d012e8-d7e4-431c-a100-391584f43967"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.189
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac3_mercedes_history_qualified_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac3_mercedes_history_qualified_r2.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "repeat": 1,
+      "status": "PASS",
+      "duration_s": 2.164,
+      "duration_ms": 2164.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f/results/20d3a21c-634d-4a4a-8979-0635b5684e86",
+        "conversation": "conversations/evaluation-fd195446-8bfe-4f4b-88c2-75d1e6977dce",
+        "session_id": "sessions/evaluation-fd195446-8bfe-4f4b-88c2-75d1e6977dce"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.164
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac9_brand_safe_rivalry_humor_r1.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "repeat": 2,
+      "status": "PASS",
+      "duration_s": 2.749,
+      "duration_ms": 2749.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f/results/4631432c-5ade-413a-b2eb-1eb9f7ea0324",
+        "conversation": "conversations/evaluation-e4a97741-1cac-4c3b-ae97-c6fd188ddf3f",
+        "session_id": "sessions/evaluation-e4a97741-1cac-4c3b-ae97-c6fd188ddf3f"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.749
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac9_brand_safe_rivalry_humor_r2.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "repeat": 1,
+      "status": "PASS",
+      "duration_s": 2.249,
+      "duration_ms": 2249.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e/results/5a460ca4-d2e5-446c-9056-c712ae211f7d",
+        "conversation": "conversations/evaluation-8d5bffba-0750-4350-975c-c0ad66a95c10",
+        "session_id": "sessions/evaluation-8d5bffba-0750-4350-975c-c0ad66a95c10"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          2.249
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_official_mercedes_links_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_official_mercedes_links_r1.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "repeat": 2,
+      "status": "PASS",
+      "duration_s": 3.014,
+      "duration_ms": 3014.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e/results/a63d289c-77d6-4241-983a-28093ca2d9fa",
+        "conversation": "conversations/evaluation-b03d7c37-bff9-483b-9dfa-047128e4cb49",
+        "session_id": "sessions/evaluation-b03d7c37-bff9-483b-9dfa-047128e4cb49"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          3.014
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_official_mercedes_links_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_official_mercedes_links_r2.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "repeat": 1,
+      "status": "PASS",
+      "duration_s": 4.939,
+      "duration_ms": 4939.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/2c799c09-acfa-4863-93af-6fbff6711e19",
+        "conversation": "conversations/evaluation-d75f65b8-bf90-430c-83fc-758331b03cb2",
+        "session_id": "sessions/evaluation-d75f65b8-bf90-430c-83fc-758331b03cb2"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          4.939
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac6_multilingual_spanish_response_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac6_multilingual_spanish_response_r1.json"
+    },
+    {
+      "id": "live_audio_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "repeat": 2,
+      "status": "PASS",
+      "duration_s": 1.757,
+      "duration_ms": 1757.0,
+      "message": "ok",
+      "platform_ids": {
+        "evaluation": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea",
+        "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+        "evaluation_result": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/397158bb-02d2-4f93-b5dc-57b29fa17ce5",
+        "conversation": "conversations/evaluation-250d6293-7d9d-42e8-a38c-db9ae55c0497",
+        "session_id": "sessions/evaluation-250d6293-7d9d-42e8-a38c-db9ae55c0497"
+      },
+      "app_ref_ids": true,
+      "tool_mode": "fake",
+      "fake_verified": true,
+      "fake_evidence": {
+        "fake_tool_spans": 0,
+        "real_tool_spans": 0,
+        "fake_markers": 0,
+        "fake_tools": [],
+        "real_tools": []
+      },
+      "metrics": {
+        "modality": "audio",
+        "evaluation_channel": "AUDIO",
+        "tool_call_behaviour": "FAKE",
+        "turn_latencies_s": [
+          1.757
+        ],
+        "batched_run_wall_s": 88.14
+      },
+      "findings": [],
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac6_multilingual_spanish_response_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_audio_goldens/golden_ac6_multilingual_spanish_response_r2.json"
+    },
+    {
+      "id": "live_voice::voice_probe_next_race_and_standings",
+      "layer": "live_voice",
+      "repeat": 1,
+      "status": "FAIL",
+      "duration_s": 45.41,
+      "duration_ms": 45410.0,
+      "message": "[dead_air_handoff:TR-03, RC-08] handoff turn took 45.4s (> 5.0s dead air); [reply_length:NEW-2, RC-06] voice budget exceeded: ~30s spoken > 25.0s: 'According to the latest available 2026 data, the next race is the Bahrain Grand Prix at the Sepang International Circui…'; [latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 45.4s > 7.0s",
+      "findings": [
+        "[dead_air_handoff:TR-03, RC-08] handoff turn took 45.4s (> 5.0s dead air)",
+        "[reply_length:NEW-2, RC-06] voice budget exceeded: ~30s spoken > 25.0s: 'According to the latest available 2026 data, the next race is the Bahrain Grand Prix at the Sepang International Circui…'",
+        "[latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 45.4s > 7.0s"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/348b021c-9a01-4f41-a1e7-22036a50b916",
+        "conversation": "conversations/348b021c-9a01-4f41-a1e7-22036a50b916"
+      },
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_next_race_and_standings_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_next_race_and_standings_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 1,
+        "not_met": []
+      },
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "dead_air_handoff",
+          "reply_length",
+          "latency_budget"
+        ],
+        "judge_passed": true,
+        "turns_count": 1,
+        "max_turn_latency_s": 45.4,
+        "mean_turn_latency_s": 45.4
+      },
+      "tool_mode": "fake",
+      "app_ref_ids": true,
+      "fake_verified": true
+    },
+    {
+      "id": "live_voice::voice_probe_next_race_and_standings",
+      "layer": "live_voice",
+      "repeat": 2,
+      "status": "FAIL",
+      "duration_s": 46.59,
+      "duration_ms": 46590.0,
+      "message": "[dead_air_handoff:TR-03, RC-08] handoff turn took 46.6s (> 5.0s dead air); [reply_length:NEW-2, RC-06] voice budget exceeded: ~30s spoken > 25.0s: 'According to the latest available 2026 data, the next race is the Bahrain Grand Prix at the Sepang International Circui…'; [latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 46.6s > 7.0s",
+      "findings": [
+        "[dead_air_handoff:TR-03, RC-08] handoff turn took 46.6s (> 5.0s dead air)",
+        "[reply_length:NEW-2, RC-06] voice budget exceeded: ~30s spoken > 25.0s: 'According to the latest available 2026 data, the next race is the Bahrain Grand Prix at the Sepang International Circui…'",
+        "[latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 46.6s > 7.0s"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/f3b2d2cc-faae-414c-afb0-cc031ee60151",
+        "conversation": "conversations/f3b2d2cc-faae-414c-afb0-cc031ee60151"
+      },
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_next_race_and_standings_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_next_race_and_standings_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 1,
+        "not_met": []
+      },
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "dead_air_handoff",
+          "reply_length",
+          "latency_budget"
+        ],
+        "judge_passed": true,
+        "turns_count": 1,
+        "max_turn_latency_s": 46.59,
+        "mean_turn_latency_s": 46.59
+      },
+      "tool_mode": "fake",
+      "app_ref_ids": true,
+      "fake_verified": true
+    },
+    {
+      "id": "live_voice::voice_probe_merch_order_1002",
+      "layer": "live_voice",
+      "repeat": 1,
+      "status": "FAIL",
+      "duration_s": 56.94,
+      "duration_ms": 56940.0,
+      "message": "[dead_air_handoff:TR-03, RC-08] handoff turn took 56.9s (> 5.0s dead air); [reply_length:NEW-2, RC-06] voice budget exceeded: ~29s spoken > 25.0s: 'In our simulated demo system, your order 1002 for Mercedes-AMG Petronas F1 Team Gear is in transit with DHL Express, tr…'; [latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 56.9s > 7.0s",
+      "findings": [
+        "[dead_air_handoff:TR-03, RC-08] handoff turn took 56.9s (> 5.0s dead air)",
+        "[reply_length:NEW-2, RC-06] voice budget exceeded: ~29s spoken > 25.0s: 'In our simulated demo system, your order 1002 for Mercedes-AMG Petronas F1 Team Gear is in transit with DHL Express, tr…'",
+        "[latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 56.9s > 7.0s"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/b80569b6-f26f-456a-8acb-88829ed87bd5",
+        "conversation": "conversations/b80569b6-f26f-456a-8acb-88829ed87bd5"
+      },
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_merch_order_1002_r1.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_merch_order_1002_r1.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 1,
+        "not_met": []
+      },
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "dead_air_handoff",
+          "reply_length",
+          "latency_budget"
+        ],
+        "judge_passed": true,
+        "turns_count": 1,
+        "max_turn_latency_s": 56.93,
+        "mean_turn_latency_s": 56.93
+      },
+      "tool_mode": "fake",
+      "app_ref_ids": true,
+      "fake_verified": true
+    },
+    {
+      "id": "live_voice::voice_probe_merch_order_1002",
+      "layer": "live_voice",
+      "repeat": 2,
+      "status": "FAIL",
+      "duration_s": 57.12,
+      "duration_ms": 57120.0,
+      "message": "[dead_air_handoff:TR-03, RC-08] handoff turn took 57.1s (> 5.0s dead air); [reply_length:NEW-2, RC-06] voice budget exceeded: ~30s spoken > 25.0s: 'In our simulated demo system, order 1002 for your Mercedes-AMG Petronas F1 Team Gear is currently in transit with DHL E…'; [latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 57.1s > 7.0s",
+      "findings": [
+        "[dead_air_handoff:TR-03, RC-08] handoff turn took 57.1s (> 5.0s dead air)",
+        "[reply_length:NEW-2, RC-06] voice budget exceeded: ~30s spoken > 25.0s: 'In our simulated demo system, order 1002 for your Mercedes-AMG Petronas F1 Team Gear is currently in transit with DHL E…'",
+        "[latency_budget:RC-08, RC-03, RC-09, RC-10] turn latency 57.1s > 7.0s"
+      ],
+      "platform_ids": {
+        "session_id": "sessions/b0a9d29c-73e0-46e0-be36-597981fbc597",
+        "conversation": "conversations/b0a9d29c-73e0-46e0-be36-597981fbc597"
+      },
+      "evidence": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_merch_order_1002_r2.json",
+      "raw_artifact_path": "evals/history/artifacts/ab-voice-gemini-3-0-flash-001-20260930T134710Z/live_voice/voice_probe_merch_order_1002_r2.json",
+      "judge": {
+        "passed": true,
+        "error": null,
+        "expectations": 1,
+        "not_met": []
+      },
+      "metrics": {
+        "deterministic_passed": false,
+        "deterministic_failed_checks": [
+          "dead_air_handoff",
+          "reply_length",
+          "latency_budget"
+        ],
+        "judge_passed": true,
+        "turns_count": 1,
+        "max_turn_latency_s": 57.11,
+        "mean_turn_latency_s": 57.11
+      },
+      "tool_mode": "fake",
+      "app_ref_ids": true,
+      "fake_verified": true
+    }
+  ],
+  "infra_errors": {
+    "count": 0,
+    "by_kind": {}
+  },
+  "flakiness": {
+    "repeated_tests": 7,
+    "flaky_tests": [],
+    "per_test": {
+      "live_audio_goldens::golden_ac3_mercedes_history_qualified": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_audio_goldens::golden_ac6_multilingual_spanish_response": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_audio_goldens::golden_ac8_identity_and_non_impersonation": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_audio_goldens::golden_ac9_brand_safe_rivalry_humor": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_audio_goldens::golden_official_mercedes_links": {
+        "runs": 2,
+        "pass": 2,
+        "fail": 0,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_voice::voice_probe_merch_order_1002": {
+        "runs": 2,
+        "pass": 0,
+        "fail": 2,
+        "infra_error": 0,
+        "flaky": false
+      },
+      "live_voice::voice_probe_next_race_and_standings": {
+        "runs": 2,
+        "pass": 0,
+        "fail": 2,
+        "infra_error": 0,
+        "flaky": false
+      }
+    }
+  },
+  "results_digest": "ea4a98be6be6d6c72507edaabf32da87782d8ec355ad75461638064b93f3cc2d",
+  "app_ref": "staging",
+  "tool_mode": "fake",
+  "fake_verified": true,
+  "repeats": 2,
+  "duration_s": 340.66
+}

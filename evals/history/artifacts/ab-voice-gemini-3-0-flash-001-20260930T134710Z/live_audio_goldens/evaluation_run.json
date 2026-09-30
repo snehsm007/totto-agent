@@ -1,0 +1,141 @@
+{
+  "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+  "model": "gemini-3.0-flash-001",
+  "state": "COMPLETED",
+  "evaluation_channel": "AUDIO",
+  "tool_call_behaviour": "FAKE",
+  "wall_s": 88.14,
+  "error": null,
+  "raw_run": {
+    "name": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+    "display_name": "voice-ab-gemini-3.0-flash-001-ab-voice-gemini-3-0-flash-001-",
+    "evaluation_results": [
+      "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2/results/e9d5b082-db6f-4638-884a-bc81a5dfe2bc",
+      "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2/results/415d63e4-0b90-4a89-9099-603ca89e8cbc",
+      "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd/results/51ffa496-c631-4fc2-9120-009e1347d838",
+      "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd/results/5f9617db-54b4-417f-97ed-39062020812b",
+      "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f/results/20d3a21c-634d-4a4a-8979-0635b5684e86",
+      "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f/results/4631432c-5ade-413a-b2eb-1eb9f7ea0324",
+      "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e/results/5a460ca4-d2e5-446c-9056-c712ae211f7d",
+      "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e/results/a63d289c-77d6-4241-983a-28093ca2d9fa",
+      "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/2c799c09-acfa-4863-93af-6fbff6711e19",
+      "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/397158bb-02d2-4f93-b5dc-57b29fa17ce5"
+    ],
+    "create_time": "2026-09-30T13:47:34.535388Z",
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "evaluations": [
+      "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2",
+      "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd",
+      "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f",
+      "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e",
+      "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea"
+    ],
+    "evaluation_type": 1,
+    "state": 2,
+    "progress": {
+      "total_count": 10,
+      "completed_count": 10,
+      "passed_count": 10,
+      "failed_count": 0,
+      "error_count": 0,
+      "cancelled_count": 0
+    },
+    "config": {
+      "input_audio_config": {
+        "audio_encoding": 1,
+        "sample_rate_hertz": 16000,
+        "noise_suppression_level": ""
+      },
+      "output_audio_config": {
+        "audio_encoding": 1,
+        "sample_rate_hertz": 16000
+      },
+      "evaluation_channel": 2,
+      "tool_call_behaviour": 2
+    },
+    "evaluation_run_summaries": {
+      "evaluations/ff877a60-bdb6-411e-8844-8aef905a364e": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/b2c78916-6538-48c5-ae64-f65415a2acd2": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/502c5ea1-2548-4ccd-b10e-863741d0aa9f": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      },
+      "evaluations/21827777-fb13-448c-92d4-c6d4f8972cdd": {
+        "passed_count": 2,
+        "failed_count": 0,
+        "error_count": 0
+      }
+    },
+    "run_count": 2,
+    "golden_run_method": 2,
+    "changelog": "changelogs/69af4827-3644-4043-9beb-442d514cce1d",
+    "changelog_create_time": "2026-09-30T13:47:33.069704Z",
+    "latency_report": {
+      "callback_latencies": [
+        {
+          "stage": "BeforeAgent - totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)",
+          "latency_metrics": {
+            "p50_latency": "0.022837500s",
+            "p90_latency": "0.032606700s",
+            "p99_latency": "0.035844270s",
+            "call_count": 10
+          }
+        },
+        {
+          "stage": "AfterModel - totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )",
+          "latency_metrics": {
+            "p50_latency": "0.014832500s",
+            "p90_latency": "0.016729100s",
+            "p99_latency": "0.026866530s",
+            "call_count": 12
+          }
+        }
+      ],
+      "guardrail_latencies": [
+        {
+          "guardrail": "Sensitive Word Filter",
+          "latency_metrics": {
+            "p50_latency": "0.000079s",
+            "p90_latency": "0.000106400s",
+            "p99_latency": "0.000109640s",
+            "call_count": 10
+          },
+          "guardrail_display_name": ""
+        }
+      ],
+      "llm_call_latencies": [
+        {
+          "model": "gemini-3.0-flash-001",
+          "latency_metrics": {
+            "p50_latency": "1.775336500s",
+            "p90_latency": "2.549195s",
+            "p99_latency": "4.505537790s",
+            "call_count": 12
+          }
+        }
+      ],
+      "session_count": 10,
+      "tool_latencies": []
+    },
+    "operation": "projects/<project>/locations/<location>/operations/operation-1790776053220-65cb38a8644e6-ae570ac4-af4117e7",
+    "app_version": "",
+    "app_version_display_name": "",
+    "evaluation_dataset": "",
+    "persona_run_configs": [],
+    "scheduled_evaluation_run": ""
+  }
+}

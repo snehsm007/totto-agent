@@ -1,0 +1,107 @@
+{
+  "name": "voice_probe_merch_order_1002",
+  "run": 1,
+  "session_id": "b80569b6-f26f-456a-8acb-88829ed87bd5",
+  "conversation_name": "conversations/b80569b6-f26f-456a-8acb-88829ed87bd5",
+  "passed": true,
+  "duration_s": 56.94,
+  "quota_wait_s": 0.0,
+  "turn_count": 1,
+  "turns": [
+    {
+      "user": "Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+      "agent": [
+        "In our simulated demo system, your order 1002 for Mercedes-AMG Petronas F1 Team Gear is in transit with DHL Express, tracking number DHL-MB-984210. You can find official team caps at the team store at shop.mercedesamgf1.com and British Grand Prix tickets at the official Formula 1 ticket site at tickets.formula1.com. According to the latest-available 2026 data, these are the best places to get your official gear and race access."
+      ],
+      "tools": [
+        {
+          "name": "lookup_mock_merch_order",
+          "args": {
+            "order_id": "1002"
+          }
+        },
+        {
+          "name": "get_official_links",
+          "args": {
+            "category": "all"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "lookup_mock_merch_order",
+          "response": {
+            "is_mock_data": true,
+            "fake_source": "FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)",
+            "found": true,
+            "order": {
+              "is_mock_data": true,
+              "is_mock": true,
+              "status": "In Transit",
+              "return_eligible": true,
+              "carrier": "DHL Express",
+              "order_id": "1002",
+              "item": "Mercedes-AMG Petronas F1 Team Gear",
+              "tracking_number": "DHL-MB-984210"
+            },
+            "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only.",
+            "order_id": "1002",
+            "status": "success",
+            "is_mock": true,
+            "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+            "_fake": true
+          }
+        },
+        {
+          "name": "get_official_links",
+          "response": {
+            "result": {
+              "url": "https://tickets.formula1.com",
+              "title": "Official Formula 1 Tickets",
+              "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+            },
+            "category": "all",
+            "fake_source": "FAKE: get_official_links tool_fake_config fixture (deterministic, no network)",
+            "links": {
+              "ticketing": {
+                "url": "https://tickets.formula1.com",
+                "title": "Official Formula 1 Tickets",
+                "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+              },
+              "merch": {
+                "url": "https://shop.mercedesamgf1.com",
+                "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                "guidance": "Explore official Silver Arrows teamwear on the official store."
+              },
+              "team": {
+                "url": "https://www.mercedesamgf1.com",
+                "title": "Mercedes-AMG Petronas F1 Official Hub",
+                "guidance": "Follow official Mercedes-AMG PETRONAS F1 news and fan updates."
+              }
+            },
+            "status": "success",
+            "non_transactional_disclaimer": "Totto provides official referral links only and does not sell tickets or merchandise.",
+            "agent_action": "PROVIDE_OFFICIAL_LINKS",
+            "_fake": true
+          }
+        }
+      ],
+      "transfer": "merch_support_agent",
+      "latency_s": 56.93,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+    "Agent Text: In our simulated demo system, your order 1002 for Mercedes-AMG Petronas F1 Team Gear is in transit with DHL Express, tracking number DHL-MB-984210. You can find official team caps at the team store at shop.mercedesamgf1.com and British Grand Prix tickets at the official Formula 1 ticket site at tickets.formula1.com. According to the latest-available 2026 data, these are the best places to get your official gear and race access.\nUser Query: Hi Toto Can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1002'}\nTool Call: get_official_links with args {'category': 'all'}\nTool Response: lookup_mock_merch_order with result {'is_mock_data': True, 'fake_source': 'FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)', 'found': True, 'order': {'is_mock_data': True, 'is_mock': True, 'status': 'In Transit', 'return_eligible': True, 'carrier': 'DHL Express', 'order_id': '1002', 'item': 'Mercedes-AMG Petronas F1 Team Gear', 'tracking_number': 'DHL-MB-984210'}, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only.', 'order_id': '1002', 'status': 'success', 'is_mock': True, 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', '_fake': True}\nTool Response: get_official_links with result {'result': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'category': 'all', 'fake_source': 'FAKE: get_official_links tool_fake_config fixture (deterministic, no network)', 'links': {'ticketing': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'merch': {'url': 'https://shop.mercedesamgf1.com', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'guidance': 'Explore official Silver Arrows teamwear on the official store.'}, 'team': {'url': 'https://www.mercedesamgf1.com', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news and fan updates.'}}, 'status': 'success', 'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell tickets or merchandise.', 'agent_action': 'PROVIDE_OFFICIAL_LINKS', '_fake': True}"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "The agent checks order 1002 (In Transit), discloses it is a mock demo, and mentions the official store or ticketing links.",
+      "status": "Met",
+      "justification": "The agent successfully used the lookup_mock_merch_order tool to confirm order 1002 is 'In Transit', clearly stated in the agent text that this is a 'simulated demo system' and that the order data is 'mocked', and provided the specific official URLs for both the team store and the F1 ticket site."
+    }
+  ],
+  "modality": "audio",
+  "tool_mode": "fake"
+}

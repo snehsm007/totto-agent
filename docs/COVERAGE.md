@@ -3,12 +3,17 @@
 - **App Resource**: `projects/your-gcp-project/locations/us/apps/00000000-0000-0000-0000-000000000000`
 - **Live Snapshot Version (Before)**: `b11332a0-b304-41e1-baac-57cd0ced05da` (`r3-live_before-20260928T215748Z`, `in_version_list`, `gemini-3.0-flash-001`)
 - **Live Snapshot Version (After)**: `40170087-a913-495f-b3fb-644dbfdbebd7` (`r3-live_after-20260929T010751Z`, `in_version_list`, `gemini-3.0-flash-001`)
-- **Offline Baseline Run ID**: `20260928T230029Z_offline_6a4d0d2` (`evals/history/runs/20260928T230029Z_offline_6a4d0d2.json`)
-- **Live Suite Run ID**: `20260929T001319Z_live_fd9be8b` (`evals/history/runs/20260929T001319Z_live_fd9be8b.json`, `repeats=3`, `parallel=1`)
-- **Mutation Proof Artifact**: `evals/history/mutants/mutants_report.json` (`11/11` mutants killed, `100.0%` kill rate)
+- **Offline Baseline Run ID**: `20260928T230029Z_offline_6a4d0d2` (`evals/history/runs/20260928T230029Z_offline_6a4d0d2/summary.json`)
+- **Live Suite Baseline Run ID**: `20260929T001319Z_live_fd9be8b` (`evals/history/runs/20260929T001319Z_live_fd9be8b/summary.json`, `repeats=3`, `parallel=1`)
+- **Mutation Proof Artifact**: `evals/history/mutants/mutants_report.json` (`15/15` mutants killed at `HEAD`, `100.0%` kill rate; `11/11` at baseline capture time)
 - **Recorded Transcript Regrade Artifact**: `evals/history/regrade/regrade_report.md` (`evals/history/regrade/regrade_results.json`)
 
-This document maps every finding from `totto_test_report.md` (`TR-01`..`TR-10`), the 5 tool bugs (`TB-1`..`TB-5`), the 13 Agent Report Card findings in `report_card.txt` (`RC-01`..`RC-13`), the 5 newly discovered findings (`NEW-1`..`NEW-5`), and the 9 PRD Acceptance Criteria (`PRD-AC1`..`PRD-AC9`) to exact offline test IDs, live test IDs, deterministic grader checks (`totto_suite/grader/checks.py`), local mutants (`totto_suite/mutants.py`), and current baseline statuses.
+> [!NOTE]
+> **How to Read This Traceability Matrix (Baseline Audit vs. Current `HEAD`)**:
+> 1. **Self-Contained Catalog of External Audit Inputs**: The references to `totto_test_report.md` (`TR-01`..`TR-10`) and `report_card.txt` (`RC-01`..`RC-13`) refer to the external bootcamp assessment handouts that motivated our test suite. Those external files are not stored separately in the repo because **every single finding (`TR-01`..`TR-10`, `TB-1`..`TB-5`, `RC-01`..`RC-13`, `NEW-1`..`NEW-5`, `PRD-AC1`..`PRD-AC9`) is quoted and mapped in full right here in this document and in [`docs/DEFECTS.md`](DEFECTS.md)**.
+> 2. **Historical Pre-Fix Baseline Column vs. Remediated `HEAD`**: The *"Current Baseline Status"* column in the tables below preserves the exact pre-remediation audit snapshot (`20260929T001319Z_live_fd9be8b`, when the broken baseline agent still had failing checks) as historical evidence. At current `HEAD`, all **410/410 offline checks (`100.0%`)**, **15/15 fault-injection mutants (`100.0%`)**, and the **cloud staging evaluation gate (`96.2%` overall)** pass.
+
+This document maps every finding from `totto_test_report.md` (`TR-01`..`TR-10`), the 5 tool bugs (`TB-1`..`TB-5`), the 13 Agent Report Card findings in `report_card.txt` (`RC-01`..`RC-13`), the 5 newly discovered findings (`NEW-1`..`NEW-5`), and the 9 PRD Acceptance Criteria (`PRD-AC1`..`PRD-AC9`) to exact offline test IDs, live test IDs, deterministic grader checks (`totto_suite/grader/checks.py`), local mutants (`totto_suite/mutants.py`), and baseline audit statuses.
 
 ---
 

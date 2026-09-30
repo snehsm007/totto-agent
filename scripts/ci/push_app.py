@@ -47,6 +47,7 @@ LOCAL_CONFIG = REPO_ROOT / "gecx-config.json"
 STAGING_DISPLAY_NAME = "totto-mercedes-f1-fan-agent-staging"
 STAGING_SUFFIX = "-staging"
 MAIN_REF = "refs/heads/main"
+DEFAULT_AUDIO_PATH_PREFIX = "ces-eval-audio/$session"
 
 # Files that are local configuration and must never be uploaded.
 _SKIP_NAMES = {"__pycache__", "gecx-config.json", "environment.json", ".DS_Store"}
@@ -76,6 +77,40 @@ def load_local_config(path: Path = LOCAL_CONFIG) -> dict[str, str]:
     if not isinstance(data, dict):
         return {}
     return {str(k): str(v) for k, v in data.items() if v is not None}
+
+
+def normalize_audio_bucket(bucket: str | None) -> str | None:
+    """Normalizes an eval audio bucket to ``gs://<bucket>`` (CES AppValidator rule)."""
+    raw = (bucket or "").strip().rstrip("/")
+    if not raw:
+        return None
+    if not raw.startswith("gs://"):
+        raw = f"gs://{raw}"
+    without_scheme = raw.removeprefix("gs://")
+    if not without_scheme or "/" in without_scheme:
+        raise PushError(
+            f"invalid audio bucket {bucket!r}: expected 'gs://<bucket>' or '<bucket>' without '/'"
+        )
+    return raw
+
+
+def resolve_audio_bucket(
+    env: Mapping[str, str] | None = None,
+    local_cfg: Mapping[str, str] | None = None,
+) -> str | None:
+    """Returns normalized ``gs://<bucket>`` from env, local config, or ``<project>-ces-eval-audio``."""
+    env = os.environ if env is None else env
+    cfg = load_local_config() if local_cfg is None else local_cfg
+    raw = env.get("CXAS_EVAL_AUDIO_BUCKET", "").strip() or cfg.get("eval_audio_bucket", "").strip()
+    if not raw:
+        project = (
+            env.get("GCP_PROJECT_ID", "").strip()
+            or env.get("GOOGLE_CLOUD_PROJECT", "").strip()
+            or cfg.get("gcp_project_id", "").strip()
+        )
+        if project:
+            raw = f"{project}-ces-eval-audio"
+    return normalize_audio_bucket(raw)
 
 
 def resolve_app_name(
@@ -159,6 +194,7 @@ def prepare_app_copy(
     *,
     display_name: str | None = None,
     audio_bucket: str | None = None,
+    audio_path_prefix: str | None = None,
 ) -> Path:
     """Copies ``src_dir`` to ``dest_root/cxas_app`` and patches ``app.json``.
 
@@ -167,16 +203,23 @@ def prepare_app_copy(
     src_dir = Path(src_dir)
     if not (src_dir / "app.json").is_file():
         raise PushError(f"{src_dir} has no app.json")
+    norm_bucket = normalize_audio_bucket(audio_bucket)
     dest = Path(dest_root) / "cxas_app"
     shutil.copytree(src_dir, dest, ignore=_ignore)
     app_json = dest / "app.json"
     data = json.loads(app_json.read_text(encoding="utf-8"))
     if display_name:
         data["displayName"] = display_name
-    if audio_bucket:
+    if norm_bucket:
         logging_settings = data.setdefault("loggingSettings", {})
         audio_cfg = logging_settings.setdefault("evaluationAudioRecordingConfig", {})
-        audio_cfg["gcsBucket"] = audio_bucket
+        audio_cfg["gcsBucket"] = norm_bucket
+        prefix = (audio_path_prefix or audio_cfg.get("gcsPathPrefix") or DEFAULT_AUDIO_PATH_PREFIX).strip()
+        if "$session" not in prefix:
+            raise PushError(
+                f"invalid evaluationAudioRecordingConfig.gcsPathPrefix {prefix!r}: must contain '$session'"
+            )
+        audio_cfg["gcsPathPrefix"] = prefix
     app_json.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return dest
 
@@ -270,10 +313,11 @@ def push_app(
     requested and none was reported.
     """
     parse_app_name(app_name)
+    norm_bucket = normalize_audio_bucket(audio_bucket)
     terms = redaction_terms() if terms is None else terms
     with tempfile.TemporaryDirectory(prefix="totto-push-") as tmp:
         copy = prepare_app_copy(
-            Path(src_dir), Path(tmp), display_name=display_name, audio_bucket=audio_bucket
+            Path(src_dir), Path(tmp), display_name=display_name, audio_bucket=norm_bucket
         )
         cmd = build_push_command(
             cxas_bin or cxas_binary(),
@@ -298,7 +342,7 @@ def push_app(
         "version_name": version_name_full,
         "version": app_relative(version_name_full) if version_name_full else None,
         "display_name_patch": display_name,
-        "audio_bucket_templated": bool(audio_bucket),
+        "audio_bucket_templated": bool(norm_bucket),
     }
 
 
@@ -333,6 +377,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         app_name = resolve_app_name(args.target)
+        audio_bucket = resolve_audio_bucket()
         terms = redaction_terms()
         if args.target == "live":
             check_live_allowed()
@@ -350,7 +395,7 @@ def main(argv: list[str] | None = None) -> int:
             app_name=app_name,
             src_dir=args.app_dir,
             display_name=display_name,
-            audio_bucket=os.environ.get("CXAS_EVAL_AUDIO_BUCKET", "").strip() or None,
+            audio_bucket=audio_bucket,
             create_version=args.create_version,
             version_name=args.version_name,
             version_description=args.version_description,

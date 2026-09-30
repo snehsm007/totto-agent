@@ -1,69 +1,138 @@
-# CI/CD, Pre-Commit Regression Gate & CXAS Version Snapshot Pipeline
+# Continuous Integration, Staging Gate & Live Deployment (`docs/ci-cd.md`)
 
-## 1. End-to-End Verification & Deployment Pipeline
+This guide explains how every code change in the **Totto Agent** repository is automatically tested, verified against a real cloud staging environment, deployed to the live production agent (including the `+1 218-288-9381` phone line), and published to the public evaluation dashboard.
 
-`totto_suite` provides a two-track quality and version-tracking pipeline:
-1. **Track 1 — Fast Hermetic Offline Gate (`< 15s`, zero cloud calls)**: Runs on every `git commit` via [`hooks/pre-commit`](../hooks/pre-commit) (`totto_suite gate`) and `make ci`.
-2. **Track 2 — Version-Linked Live CXAS Evaluation & Snapshot Tracking**: Links every `git commit` to an immutable CXAS `Version` (`totto_suite snapshot` / `totto_suite deploy`) and records 7-layer live evaluations (`repeats=3`, `parallel=1`) with automatic `INFRA_ERROR` separation.
+---
+
+## 1. Plain-English Overview of the 4-Job Pipeline
+
+Every push to `main` and every pull request runs the 4-stage GitHub Actions workflow defined in [`.github/workflows/ci.yml`](../.github/workflows/ci.yml):
 
 ```mermaid
-sequenceDiagram
-    autonumber
-    actor Dev as Developer
-    participant Git as Git Hook (hooks/pre-commit)
-    participant Gate as totto_suite gate / mutants
-    participant CXAS as Google Cloud CXAS (Live App)
-    participant Hist as evals/history/ (TREND.md & trend.html)
+flowchart LR
+    Commit(["git push / Pull Request"]) --> Job1
 
-    Dev->>Git: git commit (edits in cxas_app/ or totto_suite/)
-    Git->>Gate: Run 8 offline layers (313 checks in ~12s)
-    Gate->>Gate: Check cxas lint, PIF XML, toolFakeConfig, callbacks, tools, dates, grader, regrade, selftest
-    alt Regression Detected (PASS -> FAIL or lint error)
-        Gate-->>Dev: BLOCK COMMIT (exit code 1) with culprit scenario & diff
-    else All 313 Offline Checks PASS (0 regressions)
-        Gate-->>Git: ALLOW COMMIT (exit code 0)
+    subgraph GHA["GitHub Actions (.github/workflows/ci.yml)"]
+        Job1["Job 1: offline<br/>• 410 offline checks (~14s)<br/>• 15/15 fault-injection mutants<br/>• 526+ pytest unit/CI tests"]
+        Job2["Job 2: staging-gate<br/>• Keyless WIF auth to GCP<br/>• push_app.py --target staging<br/>• Step: 'CXAS eval gate' (ci-gate)<br/>• verify-ids against staging"]
+        Job3["Job 3: deploy-live<br/>(main branch only)<br/>• Before snapshot<br/>• Push & cut version git-sha7<br/>• Repoint +1 218-288-9381 GTP<br/>• After snapshot + diff"]
+        Job4["Job 4: publish-dashboard<br/>(if: always() after gate)<br/>• Build static HTML dashboard<br/>• Run privacy scrubber<br/>• Push to orphan branch 'dashboard'"]
+
+        Job1 --> Job2
+        Job1 --> Job3
+        Job2 -->|"refs/heads/main only"| Job3
+        Job2 -->|"always()"| Job4
+        Job3 -->|"always()"| Job4
     end
-    Dev->>Gate: make mutants (11 fault-injection mutants in temp copies)
-    Gate-->>Dev: 11/11 (100%) mutants killed
-    Dev->>CXAS: cxas push --overwrite & totto_suite snapshot --label live_fixed --commit
-    CXAS-->>Hist: Create & verify CXAS Version (365b82de...) + export 26-file bundle
-    Dev->>Hist: totto_suite offline (x2) / totto_suite live --repeats 3
-    Hist-->>Dev: Update index.json, TREND.md, and trend.html (19 chronological points)
 ```
 
----
+### Summary of the 4 Jobs in `.github/workflows/ci.yml`
 
-## 2. Track 1: Pre-Commit Ratchet Gate (`totto_suite gate`)
-
-Implemented in [`totto_suite/gate.py`](../totto_suite/gate.py) and wired into Git via [`hooks/pre-commit`](../hooks/pre-commit), the gate compares candidate verdicts across all **8 offline layers** (`313` checks) against the baseline commit (`HEAD:cxas_app`):
-
-| Blocking Condition | Exit Code | Behavior |
-|---|---:|---|
-| **`lint` Failure** | `1` (Blocked) | Blocks if `cxas lint` or `bundle_shared_imports.py --check` reports any error. |
-| **`PASS -> FAIL` Regression** | `1` (Blocked) | Blocks if any offline test that passed on the baseline commit flips to `FAIL`. |
-| **`selftest` / `grader` / `regrade` Failure** | `1` (Blocked) | Blocks if any deterministic transcript grader or suite self-test fails. |
-| **Suite Crash** | `2` (Blocked) | Blocks if any layer crashes or raises an unhandled exception. |
-| **Clean (`313/313 PASS`)** | `0` (Passed) | Allows the commit to proceed (~12 seconds total wall time). |
-
-See [`evals/history/gate/gate_demo.log`](../evals/history/gate/gate_demo.log) for a recorded end-to-end transcript of `git commit` blocking a deliberately broken change (`exit 1`) and allowing a clean change (`exit 0`).
+| Job ID | Runs When | What It Executes | Why It Exists |
+| :--- | :--- | :--- | :--- |
+| **`offline`** | Every push & PR | 1. `python scripts/bundle_shared_imports.py --check`<br/>2. `cxas lint --app-dir cxas_app`<br/>3. `pytest -q` (**526+** unit, CI, dashboard, and acceptance tests)<br/>4. `python -m totto_suite offline --no-record` (8 layers, **410 checks**)<br/>5. `python -m totto_suite mutants` (**15/15** fault-injection mutants killed) | Catches syntax errors, schema drift, broken callbacks, timezone bugs, prompt anti-patterns, and grader regressions in ~15 seconds before spending cloud quota. |
+| **`staging-gate`** | Every push & PR | 1. Authenticates via keyless Workload Identity Federation (`google-github-actions/auth@v2`)<br/>2. Runs [`python scripts/ci/push_app.py --target staging`](../scripts/ci/push_app.py) to push `cxas_app/` to `$CXAS_STAGING_APP_ID` (injecting `$CXAS_EVAL_AUDIO_BUCKET` into a temp directory if set)<br/>3. Runs step **`"CXAS eval gate"`**: `python -m totto_suite ci-gate --target staging --run-id "$RUN_ID" --tool-mode fake --out /tmp/gate_summary.json`<br/>4. Runs `python -m totto_suite verify-ids --target staging --run-id "$RUN_ID"`<br/>5. Uploads `gate-artifacts` (`gate_summary.json`, `verify_ids.json`, and run record) | Verifies that the real Google Cloud CX Agent Studio runtime executes every tool, golden conversation, and multi-turn user simulation above strict pass-rate floors, and confirms every recorded evaluation/conversation ID resolves on the server. |
+| **`deploy-live`** | Only on `push` to `refs/heads/main` after **both** `offline` and `staging-gate` pass | 1. Downloads the verified `gate-artifacts`<br/>2. Runs [`python scripts/ci/deploy_live.py`](../scripts/ci/deploy_live.py) against `$CXAS_LIVE_APP_ID`<br/>3. Captures a pre-deploy snapshot, pushes `cxas_app/`, cuts immutable version `git-<sha7>` (`--create-version`), repoints the live `GOOGLE_TELEPHONY_PLATFORM` deployment (`+1 218-288-9381`), and captures a post-deploy snapshot + diff | Ensures the live production app and telephone line are **only** updated by automated CI after `staging-gate` passes, with an immutable version tag and before/after audit trail. |
+| **`publish-dashboard`** | `if: always()` on `main` after `staging-gate` (and `deploy-live`) | 1. Downloads `gate-artifacts` and `deploy-live-artifacts`<br/>2. Runs `python -m totto_suite dashboard build --out /tmp/dashboard_site`<br/>3. Runs [`scripts/publish_dashboard.sh`](../scripts/publish_dashboard.sh) to publish the scrubbed static site to the orphan `dashboard` branch (serving GitHub Pages at [`https://snehsm007.github.io/totto-agent/`](https://snehsm007.github.io/totto-agent/)) | Publishes updated pass/fail run history, turn-by-turn transcripts, and live version metadata to the public dashboard even when a gate fails (so engineers can inspect failure traces immediately in their browser). |
 
 ---
 
-## 3. Fault-Injection Mutation Testing (`totto_suite mutants`)
+## 2. Keyless Cloud Authentication (Workload Identity Federation)
 
-To prove the offline gate catches real agent bugs rather than vacuous assertions, [`totto_suite/mutants.py`](../totto_suite/mutants.py) injects **11 realistic defects** into isolated temporary copies of `cxas_app/` (never touching the working tree):
+We never store long-lived service account JSON keys in GitHub or git. Instead, GitHub Actions authenticates to Google Cloud using **Workload Identity Federation (WIF)**:
+1. GitHub's OpenID Connect (OIDC) provider issues a short-lived cryptographic token scoped to `repo:snehsm007/totto-agent`.
+2. `google-github-actions/auth@v2` exchanges that OIDC token with Google Cloud IAM (`GCP_WIF_PROVIDER`) to impersonate the CI service account (`GCP_CI_SERVICE_ACCOUNT`) for the duration of the job.
 
-- **5 Tool Mutants**: `mutant_tr08_standings_both_alias`, `mutant_tb03_unknown_race_fallback`, `mutant_tr10_broken_timezone_dst`, `mutant_rc01_missing_merch_store_link`, `mutant_tr09_missing_freshness_disclaimer`.
-- **2 Callback Mutants**: `mutant_cb_order_id_regex`, `mutant_cb_sync_race_state_noop`.
-- **4 Config & Prompt Mutants**: `mutant_tr01_prompt_stuffed_example`, `mutant_tr02_speak_phrase_in_tool_desc`, `mutant_rc02_toto_impersonation_and_drop`, `mutant_rc11_invalid_app_schema`.
+### Required GitHub Actions Repository Variables
+All environment identifiers are stored as GitHub Actions **Repository Variables** (`Settings -> Secrets and variables -> Actions -> Variables`) and validated by [`scripts/ci/check_repo_vars.sh`](../scripts/ci/check_repo_vars.sh):
 
-All **11/11 (`100.0%`)** mutants are killed against the `0 FAIL` baseline (full report in [`evals/history/mutants/mutants_report.md`](../evals/history/mutants/mutants_report.md)).
+| GitHub Repository Variable | Required? | Purpose |
+| :--- | :--- | :--- |
+| **`GCP_WIF_PROVIDER`** | Required | Full Workload Identity Provider resource path (`projects/<PROJECT_NUMBER>/locations/global/workloadIdentityPools/<POOL>/providers/<PROVIDER>`). |
+| **`GCP_CI_SERVICE_ACCOUNT`** | Required | Email of the least-privilege CI service account (`<sa-name>@<project-id>.iam.gserviceaccount.com`). |
+| **`CXAS_STAGING_APP_ID`** | Required | Full CXAS resource name (or UUID) of the permanent non-production **Staging App** used by `staging-gate` (`projects/<PROJECT_ID>/locations/us/apps/<STAGING_APP_UUID>`). |
+| **`CXAS_LIVE_APP_ID`** | Required | Full CXAS resource name (or UUID) of the production **Live App** updated by `deploy-live` (`projects/<PROJECT_ID>/locations/us/apps/<LIVE_APP_UUID>`). |
+| **`CXAS_EVAL_AUDIO_BUCKET`** | Optional | GCS bucket name (without `gs://`) where [`scripts/ci/push_app.py`](../scripts/ci/push_app.py) templates `loggingSettings.evaluationAudioRecordingConfig.gcsBucket` for voice evaluations. |
 
 ---
 
-## 4. Track 2: CXAS Version Snapshots & Quota-Safe Live Evaluation
+## 3. Staging Evaluation Gate (`totto_suite ci-gate`) & Thresholds
 
-Every evaluation run record in [`evals/history/runs/`](../evals/history/runs) conforms to schema v1 ([`totto_suite/records.py`](../totto_suite/records.py)) and links:
-- **`agent.commit` & `agent.tree_hash`**: Exact Git SHA and SHA-256 content digest of `cxas_app/`.
-- **`cxas.version_id` & `cxas.version_status`**: Immutable CXAS `Version` UUID (`in_version_list`, `hidden_fetchable`, or `not_deployed`).
-- **`infra_errors` Separation**: HTTP `429 RESOURCE_EXHAUSTED`, `503 Service Unavailable`, `504 Deadline Exceeded`, and network timeouts are classified as `INFRA_ERROR` and excluded from `PASS / (PASS + FAIL)` layer scores so model quota spikes never look like agent regressions.
+The cloud staging gate is implemented in [`totto_suite/ci_gate.py`](../totto_suite/ci_gate.py) and thresholds are configured in [`totto_suite/gate_thresholds.json`](../totto_suite/gate_thresholds.json).
+
+### 3.1 Dual-Mode Execution (`--tool-mode fake` vs. `--tool-mode real`)
+`python -m totto_suite ci-gate` supports two tool execution modes:
+- **`--tool-mode fake` (Default CI Staging Gate)**: Runs `live_tools` (`use_tool_fakes=True`), `live_goldens` (`toolCallBehaviour=FAKE`), and `live_sims` (`toolCallBehaviour=FAKE`) with `repeats=2`. Because `toolFakeConfig.enableFakeMode` is enabled on all 4 tools, CXAS executes `fake_tool_call` inside `tool_fake_config/code_block/python_code.py` and emits `"Fake Tool"` spans in the execution trace (`fake_verified=True`).
+- **`--tool-mode real` (Live Integration Mode)**: Runs `live_tools`, `live_goldens`, and `live_sims` with `toolCallBehaviour=REAL`, exercising the production `python_function/python_code.py` code paths.
+
+### 3.2 Pass-Rate Floors (`totto_suite/gate_thresholds.json`)
+
+| Suite Layer | `--tool-mode fake` Minimum Floor | `--tool-mode real` Minimum Floor | What It Tests in Cloud CXAS |
+| :--- | :---: | :---: | :--- |
+| **Overall Aggregate (`overall`)** | **85.0%** (`0.85`) | **80.0%** (`0.80`) | Combined pass rate (`PASS / (PASS + FAIL)`) across all gated cloud checks. |
+| **`live_tools`** | **95.0%** (`0.95`) | **90.0%** (`0.90`) | Direct cloud tool execution (`tools:executeTool`) across all 30 tool test probes. |
+| **`live_goldens`** | **80.0%** (`0.80`) | **80.0%** (`0.80`) | Replay of golden multi-turn conversations (`run_evaluation`) combined with our deterministic transcript grader. |
+| **`live_sims`** | **70.0%** (`0.70`) | **65.0%** (`0.65`) | Multi-turn persona user simulations (`run_simulation`) graded by our 17-check deterministic transcript grader + platform expectations. |
+| **Max Drop vs. Baseline (`max_drop`)** | **5.0%** (`0.05`) | **5.0%** (`0.05`) | Maximum permitted pass-rate drop relative to `baseline.json` before flagging a regression. |
+
+### 3.3 Exit Codes of `totto_suite ci-gate`
+- **Exit `0` (`PASS`)**: Every layer met or exceeded its floor in `gate_thresholds.json` with zero regressions.
+- **Exit `1` (`FAIL`)**: One or more layers fell below its positive floor (or regressed beyond `max_drop` or failed `fake_verified`). Blocks merge and blocks `deploy-live`.
+- **Exit `3` (`INCONCLUSIVE`)**: Too many scenarios failed due to transient cloud infrastructure errors (`429 RESOURCE_EXHAUSTED`, `503`, `504`) to have statistical confidence (`PASS + FAIL < min_valid_fraction * total`). Still fails the CI step (non-zero exit code) so unverified code never deploys to live.
+
+---
+
+## 4. Server ID Verification (`totto_suite verify-ids`)
+
+Right after `ci-gate` finishes in `staging-gate`, the workflow runs:
+```bash
+python -m totto_suite verify-ids --target staging --run-id "$RUN_ID"
+```
+- **What it checks**: [`totto_suite/verify_ids.py`](../totto_suite/verify_ids.py) loads the run record (`evals/history/runs/$RUN_ID.json`), rehydrates every app-relative `evaluationRuns/<uuid>`, `conversations/<uuid>`, and `versions/<uuid>` against the target CXAS app resource, and queries the live CXAS API (`get_evaluation_run`, `get_conversation`, `get_app_version`) to prove every resource ID genuinely exists on the server.
+- **Why it runs immediately after `ci-gate`**: Pushing a new app bundle (`cxas push --overwrite`) to the staging app replaces staging resources. Running `verify-ids` immediately after `ci-gate` in the same job guarantees 100% of resource IDs from that run are verified live and written to `evals/history/artifacts/$RUN_ID/verify_ids.json`.
+
+---
+
+## 5. Automated Live Deployment (`scripts/ci/deploy_live.py`)
+
+When a commit merges to `main` and passes both `offline` and `staging-gate`, the `deploy-live` job runs [`scripts/ci/deploy_live.py`](../scripts/ci/deploy_live.py):
+1. **Pre-Deploy Snapshot**: Exports the live app's current state and version inventory into `--out-dir/before/`.
+2. **Push & Cut Immutable Version (`git-<sha7>`)**: Pushes `cxas_app/` to `$CXAS_LIVE_APP_ID` and creates an immutable CXAS `Version` resource named `git-<sha7>` (recording the commit SHA and staging gate run ID in its description).
+3. **Repoint Live Telephone Deployment (`+1 218-288-9381`)**: Queries `GET .../apps/<LIVE_APP_ID>/deployments`, locates the `GOOGLE_TELEPHONY_PLATFORM` deployment (`deployments/0ba8f03a-11db-4539-93f2-7e4a1893ea85`), and sends a `PATCH` (`updateMask=appVersion`) so live phone callers immediately reach the new `git-<sha7>` version.
+4. **Post-Deploy Snapshot & Diff**: Exports `--out-dir/after/` and writes `deploy_manifest.json` and `before_after_diff.md`.
+
+### Why Manual Local Push/Deploy Targets Were Removed
+To prevent unreviewed local code from overwriting the shared live app:
+- `Makefile` does **not** include `make push`, `make pull`, or `make deploy` (only `make push-staging`, which verifies the target app's `displayName` ends with `-staging` and refuses to touch live).
+- Running `python -m totto_suite deploy --push` locally refuses to push and exits with code **`2`**, instructing the developer to push a branch/PR so GitHub Actions deploys through `staging-gate` $\rightarrow$ `deploy-live`.
+
+---
+
+## 6. Proving Gate Efficacy: 15 Offline Mutants + 1 Live Staging Mutant
+
+How do we know our tests and CI gates actually catch bugs instead of rubber-stamping every commit? We test the test suite itself using **fault-injection mutants**:
+
+### 6.1 The 15 Offline Fault-Injection Mutants (`make mutants`)
+Running `.venv/bin/python -m totto_suite mutants` (or `make mutants`) injects **15 distinct defects** across `tools` (6), `callbacks` (3), and `config` (6), confirming **15/15 (100.0%)** are killed by the offline suite ([`evals/history/mutants/mutants_report.md`](../evals/history/mutants/mutants_report.md)):
+- **6 `tools` mutants**: `mutant_tr08_standings_both_alias`, `mutant_tb03_unknown_race_fallback`, `mutant_tr10_broken_timezone_dst`, `mutant_rc01_missing_merch_store_link`, `mutant_tr09_missing_freshness_disclaimer`, `mutant_bundle_openf1_helper_drift`.
+- **3 `callbacks` mutants**: `mutant_cb_order_id_regex`, `mutant_cb_sync_race_state_noop`, `mutant_voice_sanitizer_noop`.
+- **6 `config` mutants**: `mutant_tr01_prompt_stuffed_example`, `mutant_tr02_speak_phrase_in_tool_desc`, `mutant_rc02_toto_impersonation_and_drop`, `mutant_rc11_invalid_app_schema`, `mutant_bundle_persona_drift`, `mutant_voice_guidelines_dropped`.
+
+### 6.2 The Live-Only Cloud Mutant (`scripts/ci/apply_live_mutant.sh`)
+What if someone introduces a semantic prompt regression that passes all 410 offline static checks—for example, instructing `race_info_agent` in plain prose to refuse all 2026 calendar lookups while keeping every PIF XML tag, tool link, and callback intact?
+- [`evals/mutants/live/race_schedule_blackout.patch`](../evals/mutants/live/race_schedule_blackout.patch) (applied via [`scripts/ci/apply_live_mutant.sh`](../scripts/ci/apply_live_mutant.sh)) injects that exact semantic bug.
+- All 410 offline checks pass (`0` failures), so the `offline` job turns green—and then the cloud `staging-gate` job (**`"CXAS eval gate"`**) catches the regression (`live_goldens` drops to `0.50 < 0.80`, `live_sims` drops to `0.571 < 0.70`), exits with code `1`, and blocks `deploy-live` from ever touching production.
+
+---
+
+## 7. Local Developer Setup & Git Pre-Commit Hook (`make setup`, `make hooks`)
+
+Run these commands once after cloning the repository:
+```bash
+# 1. Create .venv, install dependencies, and activate hooks/pre-commit
+make setup
+
+# 2. Run the 8-layer (410-check) offline verification suite (~14 seconds)
+make offline
+```
+- [`make hooks`](../Makefile) sets `git config core.hooksPath hooks`, enabling [`hooks/pre-commit`](../hooks/pre-commit), which runs `python -m totto_suite gate` before every commit (`evals/history/gate/gate_demo.log`).

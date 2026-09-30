@@ -1,41 +1,71 @@
-# Bootcamp Presentation & Live Demo Guide — Totto, Mercedes F1 Fan Agent
+# Knowledge Share & Handover Guide (`docs/knowledge_share_guide.md`)
 
-## 1. 5-Minute Executive Pitch (Why This Architecture Matters)
-
-**Totto, Mercedes F1 Fan Agent** (`totto-mercedes-f1-fan-agent`) is a production-grade 4-agent conversational assistant built on **Google Cloud CX Agent Studio (CES / GECX)** for the Mercedes-AMG Petronas Formula One Team, paired with **`totto_suite`**—an automated offline + live evaluation, mutation-testing, and version-tracking pipeline.
-
-### Key Engineering Highlights to Share
-1. **4-Agent Seamless Persona (`totto_root_agent` + 3 Specialists)**:
-   - Handles 2026 F1 race schedules with `zoneinfo` seasonal DST conversion (`get_race_schedule`), Mercedes-first WDC/WCC standings (`get_driver_standings`), mock merchandise order support (`lookup_mock_merch_order`), and non-transactional ticket referrals (`get_official_links`).
-   - All 4tools include native **`toolFakeConfig` mock tool fakes** (`fake_tool_call`) for deterministic offline testing.
-2. **Fast Hermetic Offline Gate (`313/313 PASS` in `< 12s`)**:
-   - Runs 8 offline layers (`lint`, `config`, `callbacks`, `tools`, `dates`, `grader`, `regrade`, `selftest`) with zero network calls and a runtime date oracle ([`totto_suite/oracle.py`](../totto_suite/oracle.py)) that tests `"next race"` across 5 different dates in the 2026 season.
-3. **Proof the Tests Catch Real Bugs (`11/11` Mutants Killed + 17 Deterministic Checks)**:
-   - `totto_suite mutants` injects 11 realistic defects into temporary copies of `cxas_app/` and verifies a **100% kill rate** ([`evals/history/mutants/mutants_report.md`](../evals/history/mutants/mutants_report.md)).
-   - A 17-check deterministic transcript grader overrides lenient LLM judge passes whenever an agent leaks raw code, drops a supervisor escalation call, or invents ungrounded facts ([`evals/history/regrade/regrade_report.md`](../evals/history/regrade/regrade_report.md)).
-4. **Git Commit ↔ CXAS Version Traceability (`TREND.md` & `trend.html`)**:
-   - Every run record ties `agent.commit` (`34b0af4`) to the exact deployed CXAS `Version` (`365b82de-16af-4acf-bfb0-8298f1c1c01e`), separates `INFRA_ERROR` (`HTTP 429` quota) from agent pass rates, and flags regressions automatically across 19 chronological points.
+This guide provides a structured walkthrough for engineers, reviewers, or stakeholders picking up the **Totto Agent** project. It summarizes what was broken in the original baseline agent, how each engineering pillar solved those defects, and how to demo or extend the system in minutes.
 
 ---
 
-## 2. Step-by-Step Live Demo Script (10 Minutes)
+## 1. Executive Summary: From Broken Baseline to Production-Grade Agent
 
-### Step 1: Show the Fast Offline Suite & Pre-Commit Gate (`~12s`)
+**Totto, Mercedes F1 Fan Agent** is a multi-agent voice and chat assistant for **Mercedes-AMG PETRONAS Formula One Team** fans built on Google Cloud Customer Engagement Suite / Conversational Agent Studio (**CXAS**).
+
+When we inherited the initial prototype, a comprehensive audit (cataloged in [`docs/COVERAGE.md`](COVERAGE.md) and [`docs/DEFECTS.md`](DEFECTS.md) across findings `TR-01..TR-10`, `TB-1..TB-5`, `RC-01..RC-13`, and `NEW-1..NEW-5`) uncovered major reliability, accuracy, and operations gaps. Here is how the system compares before and after our engineering remediation:
+
+| Dimension | Initial Prototype Baseline | Current Production State (`HEAD`) |
+| :--- | :--- | :--- |
+| **Offline Verification (`make offline`)** | Ad-hoc manual testing; no automated prompt, callback, or timezone checks | **8-layer offline suite (`410/410` checks passing in ~14s)** + **526+ pytest tests** |
+| **Fault-Injection Mutation Score (`make mutants`)** | 0 mutants; no proof that tests catch regressions | **15/15 (100.0%) offline mutants killed** + **1 live cloud staging mutant** (`race_schedule_blackout.patch`) proven to block CI |
+| **Cloud Staging Gate & CI/CD** | Manual `cxas push` from developer laptops; no staging gate | **4-job GitHub Actions pipeline** ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) with keyless WIF auth, `"CXAS eval gate"` on Staging, `verify-ids`, and automated Live deploy (`git-<sha7>`) |
+| **Tool Reliability & `toolFakeConfig`** | Tools failed when OpenF1 was blocked in sandbox (`TB-1`), silently returned Round 1 Australia for unknown races (`TB-3`), failed on `category="both"` (`TR-08`), used hardcoded UTC offsets (`TR-10`), and had no `toolFakeConfig` | All 4 tools have resilient fallbacks, ~600 `zoneinfo` IANA DST timezones, verified official links (`get_official_links`), and dual-mode **`toolFakeConfig`** (`enableFakeMode: true`) |
+| **Voice & Live Telephone Channel** | Prompts emitted markdown (`**bold**`, bullets, `#63`) that broke Text-to-Speech; no phone channel | Plain-prose voice prompts + **`voice_sanitizer`** `after_model_callback` on all 4 agents + live PSTN phone line **`+1 218-288-9381`** (`GOOGLE_TELEPHONY_PLATFORM`) + `evaluationAudioRecordingConfig` |
+| **Public Observability** | Raw JSON files on disk | Live scrubbed dashboard at **[`https://snehsm007.github.io/totto-agent/`](https://snehsm007.github.io/totto-agent/)** across **30 recorded runs** |
+
+---
+
+## 2. 5-Minute Live Demo & Walkthrough Script
+
+If you are presenting or reviewing this project, follow these 5 steps in order:
+
+### Step 1: Open the Live Public Dashboard (30 seconds)
+- Open **[`https://snehsm007.github.io/totto-agent/`](https://snehsm007.github.io/totto-agent/)** (or the mirror at [`https://raw.githack.com/snehsm007/totto-agent/dashboard/index.html`](https://raw.githack.com/snehsm007/totto-agent/dashboard/index.html)).
+- Point out the **Live Production Banner** showing the active immutable version (`git-<sha7>`), the live phone number **`+1 218-288-9381`**, the **pass-rate trend chart** across all recorded runs (including the intentional red `FAIL` run where the staging gate caught the injected live mutant), and the per-layer breakdown.
+
+### Step 2: Call the Live Agent on `+1 218-288-9381` (1 minute)
+- Dial **`+1 218-288-9381`** from any phone.
+- Ask:
+  1. *"Who is leading the 2026 drivers' championship right now?"* (Routes silently to `race_info_agent` $\rightarrow$ calls `get_driver_standings` $\rightarrow$ speaks Kimi Antonelli in car 12 with 302 points and George Russell in car 63 with 236 points in clean, natural sentences without markdown artifacts.)
+  2. *"When is the next race, and what time is it in London?"* (`race_info_agent` calls `get_race_schedule(race_name="next", user_timezone="London")` and speaks the converted local session times.)
+  3. *"Can you check on my merch order 1001?"* (Transfers silently to `merch_support_agent` $\rightarrow$ calls `lookup_mock_merch_order` $\rightarrow$ reports the simulated George Russell cap order was delivered via DHL Express.)
+
+### Step 3: Run the 410-Check Offline Suite Locally (30 seconds)
 ```bash
-.venv/bin/python -m totto_suite gate
+make offline
 ```
-- **Talking Point**: *"In 12 seconds with zero cloud calls, `totto_suite gate` runs `cxas lint`, verifies PIF XML contracts and `toolFakeConfig` across all 4 tools, tests callbacks in 4 languages, tests timezone/DST math across 5 frozen 2026 dates, and runs 313 checks (`100% PASS`)."*
+- Show the terminal table completing all **8 layers (`lint`, `config`, `callbacks`, `tools`, `dates`, `grader`, `regrade`, `selftest`) — 410/410 PASS** in ~14 seconds without needing cloud credentials.
 
-### Step 2: Prove the Tests Catch Real Bugs (`make mutants`)
+### Step 4: Run the 15-Mutant Fault-Injection Harness (1 minute)
 ```bash
-.venv/bin/python -m totto_suite mutants
+make mutants
 ```
-- **Talking Point**: *"How do we know our tests aren't rubber-stamping the agent? `totto_suite mutants` creates 11 broken copies of `cxas_app/` in temp folders—breaking timezone DST, order-ID regex, unknown-race error handling, and Toto Wolff non-impersonation—and kills `11/11 (100%)` of them without touching the working tree."*
+- Show `totto_suite mutants` injecting 15 realistic bugs across tools, callbacks, and prompts—and killing **15/15 (100.0%)**.
 
-### Step 3: Show How We Disagreed with External Grader False Positives (`docs/COVERAGE.md`)
-- Open [`docs/COVERAGE.md`](COVERAGE.md) ("Where the Suite Disagrees with the Agent Report Card").
-- **Talking Point**: *"An external report card penalized Totto (`RC-04`, `RC-05`) for refusing political questions and direct ticket sales. Our suite proves with verbatim transcripts and PRD citations (`PRD-AC4`, `PRD-AC9`) that those refusals are required product guardrails—while fixing the real escalation bug (`RC-02`) where asking for a supervisor used to call `end_session`."*
+### Step 5: Walk Through the 4-Job GitHub Actions CI/CD Pipeline (1 minute)
+- Open [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) and [`docs/ci-cd.md`](ci-cd.md) to show how every commit flows through `offline` $\rightarrow$ `staging-gate` (step `"CXAS eval gate"` + `verify-ids`) $\rightarrow$ `deploy-live` (`git-<sha7>` + `+1 218-288-9381` repoint) $\rightarrow$ `publish-dashboard`.
 
-### Step 4: Show the Chronological Trend & Live CXAS Version Snapshot
-- Open [`evals/history/TREND.md`](../evals/history/TREND.md) (or [`evals/history/trend.html`](../evals/history/trend.html)) and the **Evaluations** tab in CX Agent Studio (`5/5 = 100% PASS` on `evaluationRuns/a7ba2b79-737d-40b8-ba89-2062702be834`).
-- **Talking Point**: *"Every point in `TREND.md` links a Git commit to a fetchable CXAS `Version` (`365b82de-16af-4acf-bfb0-8298f1c1c01e`), tracks `INFRA_ERROR` separately from agent failures, and shows the progression from `90.7%` (`283/312`) before fixes to `100.0%` (`313/313`) after fixes."*
+---
+
+## 3. Historical Context Note on Pre-Squash Commit SHAs
+
+When browsing [`docs/COVERAGE.md`](COVERAGE.md), [`docs/DEFECTS.md`](DEFECTS.md), [`evals/history/index.json`](../evals/history/index.json), or [`evals/history/snapshots/`](../evals/history/snapshots), you will see short commit SHAs from earlier development rounds (such as `bdb8f3b`, `1a17988`, `a7c3094`, `6a4d0d2`, `fd9be8b`, or `95d3ccf`) that were recorded at the moment those evaluation runs or cloud snapshots were captured. Those historical commit references are preserved as immutable audit evidence of how the agent progressed from its initial baseline to `100.0%` (`410/410` offline checks and `15/15` mutants killed).
+
+---
+
+## 4. Where to Go Next
+
+- **System Architecture & Voice/PSTN Design**: [`docs/architecture.md`](architecture.md)
+- **CI/CD Pipeline, Gate Thresholds & Live Mutant Proof**: [`docs/ci-cd.md`](ci-cd.md)
+- **Shared `lib/` Code & Marker-Region Bundler (`make bundle`)**: [`docs/shared_code_and_bundling.md`](shared_code_and_bundling.md)
+- **Cloud Environments & Secret Hygiene**: [`docs/environments.md`](environments.md)
+- **Public Dashboard & Trend Reports**: [`docs/simulation_dashboard.md`](simulation_dashboard.md)
+- **Transcript Grader & Server ID Verification**: [`docs/conversation_inspection.md`](conversation_inspection.md)
+- **23-Finding Traceability Matrix (`TR-01..TR-10`, `RC-01..RC-13`)**: [`docs/COVERAGE.md`](COVERAGE.md)
+- **Baseline Live Defect Log**: [`docs/DEFECTS.md`](DEFECTS.md)

@@ -4,12 +4,15 @@
 - **Live Snapshot Version (Before)**: `b11332a0-b304-41e1-baac-57cd0ced05da` (`r3-live_before-20260928T215748Z`, `in_version_list`, `gemini-3.0-flash-001`)
 - **Live Snapshot Version (After)**: `40170087-a913-495f-b3fb-644dbfdbebd7` (`r3-live_after-20260929T010751Z`, `in_version_list`, `gemini-3.0-flash-001`)
 - **Before/After Identity Proof**: `evals/history/snapshots/before_after_diff.md` (`evals/history/snapshots/before_after_diff.json`)
-- **Full Live Suite Run ID**: `20260929T001319Z_live_fd9be8b` (`repeats=3`, `parallel=1`)
-- **Run Record**: `evals/history/runs/20260929T001319Z_live_fd9be8b.json`
+- **Full Live Suite Baseline Run ID**: `20260929T001319Z_live_fd9be8b` (`repeats=3`, `parallel=1`)
+- **Run Record**: `evals/history/runs/20260929T001319Z_live_fd9be8b/summary.json`
 - **Platform ID Verification Artifact**: `evals/history/artifacts/20260929T001319Z_live_fd9be8b/verify_ids.json`
 - **Offline Baseline Run IDs**: `20260928T230029Z_offline_6a4d0d2`, `20260928T230043Z_offline_6a4d0d2`
 
-> **Integrity & R5 Policy**: Per R5 and anti-hardcoding rules, the deployed live CXAS application and local `cxas_app/` tree were **never modified or pushed**. Every genuine defect found by the offline and live evaluation layers remains **FAILING** in the test suite and is documented below with verbatim tool payloads, transcript excerpts, and fetchable CXAS platform resource IDs.
+> [!NOTE]
+> **Historical Baseline Defect Log vs. Remediated `HEAD`**:
+> - **Why This File Exists**: During the initial diagnostic audit phase (`20260929T001319Z_live_fd9be8b`), we evaluated the unmodified baseline agent before applying any code or prompt fixes so every original defect (`TR-01`..`TR-10`, `TB-1`..`TB-5`, `RC-01`..`RC-13`, `NEW-1`..`NEW-5`) could be captured with verbatim tool payloads, transcript excerpts, and server resource IDs.
+> - **Current Status at `HEAD`**: Every defect documented in this historical baseline report has since been remediated and verified in `cxas_app/`. At `HEAD`, the offline verification suite passes **410/410 checks (`100.0%`)**, kills **15/15 fault-injection mutants (`100.0%`)**, and passes the cloud staging evaluation gate (`96.2%` overall). See [`README.md`](../README.md) and [`docs/architecture.md`](architecture.md) for the current production state.
 
 ---
 

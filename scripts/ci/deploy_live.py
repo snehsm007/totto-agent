@@ -102,7 +102,7 @@ class CxasBackend:
         result = push_app.push_app(
             app_name=self.app_name,
             src_dir=src_dir,
-            audio_bucket=os.environ.get("CXAS_EVAL_AUDIO_BUCKET", "").strip() or None,
+            audio_bucket=push_app.resolve_audio_bucket(),
             create_version=True,
             version_name=version_display_name,
             version_description=description,

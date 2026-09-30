@@ -1,0 +1,176 @@
+{
+  "name": "voice_probe_merch_order_1002",
+  "run": 2,
+  "session_id": "b0a9d29c-73e0-46e0-be36-597981fbc597",
+  "conversation_name": "conversations/b0a9d29c-73e0-46e0-be36-597981fbc597",
+  "passed": true,
+  "duration_s": 57.12,
+  "quota_wait_s": 0.0,
+  "turn_count": 1,
+  "turns": [
+    {
+      "user": "Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+      "agent": [
+        "In our simulated demo system, order 1002 for your Mercedes-AMG Petronas F1 Team Gear is currently in transit with DHL Express, tracking number DHL-MB-984210. You can find official team caps at the team store at shop.mercedesamgf1.com and British Grand Prix tickets at the official Formula 1 site at tickets.formula1.com. According to the latest-available 2026 data, the British Grand Prix at Silverstone took place from July 3rd to July 5th."
+      ],
+      "tools": [
+        {
+          "name": "get_official_links",
+          "args": {
+            "category": "all"
+          }
+        },
+        {
+          "name": "get_race_schedule",
+          "args": {
+            "race_query": "British Grand Prix",
+            "user_timezone": "Europe/London"
+          }
+        },
+        {
+          "name": "lookup_mock_merch_order",
+          "args": {
+            "order_id": "1002"
+          }
+        }
+      ],
+      "tool_responses": [
+        {
+          "name": "get_official_links",
+          "response": {
+            "result": {
+              "url": "https://tickets.formula1.com",
+              "title": "Official Formula 1 Tickets",
+              "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+            },
+            "category": "all",
+            "fake_source": "FAKE: get_official_links tool_fake_config fixture (deterministic, no network)",
+            "links": {
+              "ticketing": {
+                "url": "https://tickets.formula1.com",
+                "title": "Official Formula 1 Tickets",
+                "guidance": "Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices."
+              },
+              "merch": {
+                "url": "https://shop.mercedesamgf1.com",
+                "title": "Official Mercedes-AMG Petronas F1 Team Store",
+                "guidance": "Explore official Silver Arrows teamwear on the official store."
+              },
+              "team": {
+                "url": "https://www.mercedesamgf1.com",
+                "title": "Mercedes-AMG Petronas F1 Official Hub",
+                "guidance": "Follow official Mercedes-AMG PETRONAS F1 news and fan updates."
+              }
+            },
+            "status": "success",
+            "non_transactional_disclaimer": "Totto provides official referral links only and does not sell tickets or merchandise.",
+            "agent_action": "PROVIDE_OFFICIAL_LINKS",
+            "_fake": true
+          }
+        },
+        {
+          "name": "get_race_schedule",
+          "response": {
+            "round": 9.0,
+            "needs_timezone_clarification": false,
+            "meeting_key": 1289.0,
+            "fake_source": "FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)",
+            "meeting_state": "completed",
+            "race_name": "British Grand Prix",
+            "timezone_requested": "Europe/London",
+            "circuit_name": "Silverstone Circuit",
+            "status": "success",
+            "is_completed": true,
+            "typical_weather": {
+              "source": "typical_circuit_climate_profile",
+              "condition": "Typical seasonal conditions for this circuit (fixture, not a forecast)"
+            },
+            "_fake": true,
+            "circuit": "Silverstone Circuit",
+            "mercedes_highlights": "Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).",
+            "timezone_resolved": "Europe/London",
+            "location": "Silverstone, United Kingdom",
+            "user_timezone_resolved": "Europe/London",
+            "sessions": [
+              {
+                "local_time": "12:30 BST (London)",
+                "session": "Practice 1",
+                "local_day": "Friday",
+                "utc_time": "2026-07-03 11:30 UTC",
+                "date_utc": "2026-07-03",
+                "day": "Friday",
+                "time_utc": "11:30 UTC",
+                "timezone_label": "BST (London)"
+              },
+              {
+                "local_time": "16:00 BST (London)",
+                "session": "Qualifying",
+                "local_day": "Saturday",
+                "utc_time": "2026-07-04 15:00 UTC",
+                "date_utc": "2026-07-04",
+                "day": "Saturday",
+                "time_utc": "15:00 UTC",
+                "timezone_label": "BST (London)"
+              },
+              {
+                "local_time": "15:00 BST (London)",
+                "session": "Race",
+                "local_day": "Sunday",
+                "utc_time": "2026-07-05 14:00 UTC",
+                "date_utc": "2026-07-05",
+                "day": "Sunday",
+                "time_utc": "14:00 UTC",
+                "timezone_label": "BST (London)"
+              }
+            ],
+            "season": 2026.0,
+            "data_source": "OpenF1 API (2026 Season Snapshot)",
+            "agent_action": "SHARE_LOCALIZED_RACE_SCHEDULE",
+            "dates": "July 3 - July 5, 2026",
+            "freshness_disclaimer": "Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry."
+          }
+        },
+        {
+          "name": "lookup_mock_merch_order",
+          "response": {
+            "is_mock_data": true,
+            "fake_source": "FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)",
+            "found": true,
+            "order": {
+              "is_mock_data": true,
+              "is_mock": true,
+              "status": "In Transit",
+              "return_eligible": true,
+              "carrier": "DHL Express",
+              "order_id": "1002",
+              "item": "Mercedes-AMG Petronas F1 Team Gear",
+              "tracking_number": "DHL-MB-984210"
+            },
+            "disclaimer": "Note: This order data is mocked and simulated for demonstration purposes only.",
+            "order_id": "1002",
+            "status": "success",
+            "is_mock": true,
+            "agent_action": "SHARE_MOCK_ORDER_DETAILS",
+            "_fake": true
+          }
+        }
+      ],
+      "transfer": "merch_support_agent",
+      "latency_s": 57.11,
+      "session_ended": false
+    }
+  ],
+  "detailed_trace": [
+    "User: Hi Totto, can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets?",
+    "Agent Text: In our simulated demo system, order 1002 for your Mercedes-AMG Petronas F1 Team Gear is currently in transit with DHL Express, tracking number DHL-MB-984210. You can find official team caps at the team store at shop.mercedesamgf1.com and British Grand Prix tickets at the official Formula 1 site at tickets.formula1.com. According to the latest-available 2026 data, the British Grand Prix at Silverstone took place from July 3rd to July 5th.\nUser Query: Hi Toto Can you check my merch order 1002 and tell me where I can buy another official team cap and British Grand Prix tickets\nAgent Transfer: Transferred to race_info_agent\nTool Call: get_official_links with args {'category': 'all'}\nTool Call: get_race_schedule with args {'race_query': 'British Grand Prix', 'user_timezone': 'Europe/London'}\nTool Response: get_official_links with result {'result': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'category': 'all', 'fake_source': 'FAKE: get_official_links tool_fake_config fixture (deterministic, no network)', 'links': {'ticketing': {'url': 'https://tickets.formula1.com', 'title': 'Official Formula 1 Tickets', 'guidance': 'Visit the official Formula 1 ticketing portal for live seat availability and pricing. Totto cannot check inventory or quote prices.'}, 'merch': {'url': 'https://shop.mercedesamgf1.com', 'title': 'Official Mercedes-AMG Petronas F1 Team Store', 'guidance': 'Explore official Silver Arrows teamwear on the official store.'}, 'team': {'url': 'https://www.mercedesamgf1.com', 'title': 'Mercedes-AMG Petronas F1 Official Hub', 'guidance': 'Follow official Mercedes-AMG PETRONAS F1 news and fan updates.'}}, 'status': 'success', 'non_transactional_disclaimer': 'Totto provides official referral links only and does not sell tickets or merchandise.', 'agent_action': 'PROVIDE_OFFICIAL_LINKS', '_fake': True}\nTool Response: get_race_schedule with result {'round': 9.0, 'needs_timezone_clarification': False, 'meeting_key': 1289.0, 'fake_source': 'FAKE: get_race_schedule tool_fake_config fixture (deterministic, no network)', 'meeting_state': 'completed', 'race_name': 'British Grand Prix', 'timezone_requested': 'Europe/London', 'circuit_name': 'Silverstone Circuit', 'status': 'success', 'is_completed': True, 'typical_weather': {'source': 'typical_circuit_climate_profile', 'condition': 'Typical seasonal conditions for this circuit (fixture, not a forecast)'}, '_fake': True, 'circuit': 'Silverstone Circuit', 'mercedes_highlights': \"Mercedes-AMG Petronas F1 Team leads the 2026 Constructors' Championship (538 pts) with Kimi Antonelli (#12, P1 with 302 pts) and George Russell (#63, P2 with 236 pts).\", 'timezone_resolved': 'Europe/London', 'location': 'Silverstone, United Kingdom', 'user_timezone_resolved': 'Europe/London', 'sessions': [{'local_time': '12:30 BST (London)', 'session': 'Practice 1', 'local_day': 'Friday', 'utc_time': '2026-07-03 11:30 UTC', 'date_utc': '2026-07-03', 'day': 'Friday', 'time_utc': '11:30 UTC', 'timezone_label': 'BST (London)'}, {'local_time': '16:00 BST (London)', 'session': 'Qualifying', 'local_day': 'Saturday', 'utc_time': '2026-07-04 15:00 UTC', 'date_utc': '2026-07-04', 'day': 'Saturday', 'time_utc': '15:00 UTC', 'timezone_label': 'BST (London)'}, {'local_time': '15:00 BST (London)', 'session': 'Race', 'local_day': 'Sunday', 'utc_time': '2026-07-05 14:00 UTC', 'date_utc': '2026-07-05', 'day': 'Sunday', 'time_utc': '14:00 UTC', 'timezone_label': 'BST (London)'}], 'season': 2026.0, 'data_source': 'OpenF1 API (2026 Season Snapshot)', 'agent_action': 'SHARE_LOCALIZED_RACE_SCHEDULE', 'dates': 'July 3 - July 5, 2026', 'freshness_disclaimer': 'Race schedule, session times, and weather reflect the latest available structured 2026 season data from OpenF1 rather than live lap-by-lap telemetry.'}\nAgent Transfer: Transferred to totto_root_agent\nAgent Transfer: Transferred to merch_support_agent\nTool Call: lookup_mock_merch_order with args {'order_id': '1002'}\nTool Response: lookup_mock_merch_order with result {'is_mock_data': True, 'fake_source': 'FAKE: lookup_mock_merch_order tool_fake_config fixture (deterministic, no network)', 'found': True, 'order': {'is_mock_data': True, 'is_mock': True, 'status': 'In Transit', 'return_eligible': True, 'carrier': 'DHL Express', 'order_id': '1002', 'item': 'Mercedes-AMG Petronas F1 Team Gear', 'tracking_number': 'DHL-MB-984210'}, 'disclaimer': 'Note: This order data is mocked and simulated for demonstration purposes only.', 'order_id': '1002', 'status': 'success', 'is_mock': True, 'agent_action': 'SHARE_MOCK_ORDER_DETAILS', '_fake': True}"
+  ],
+  "expectation_details": [
+    {
+      "expectation": "The agent checks order 1002 (In Transit), discloses it is a mock demo, and mentions the official store or ticketing links.",
+      "status": "Met",
+      "justification": "The agent successfully called the lookup_mock_merch_order tool for order 1002, retrieved the 'In Transit' status, included a disclaimer that the data is mocked/simulated, and provided the official URLs for the team store and ticketing portal via previous tool calls and agent responses."
+    }
+  ],
+  "modality": "audio",
+  "tool_mode": "fake"
+}

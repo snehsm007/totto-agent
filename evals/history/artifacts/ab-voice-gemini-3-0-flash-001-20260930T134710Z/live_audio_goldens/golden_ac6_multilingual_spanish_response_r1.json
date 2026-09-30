@@ -1,0 +1,162 @@
+{
+  "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+  "original_name": "golden_ac6_multilingual_spanish_response",
+  "repeat": 1,
+  "model": "gemini-3.0-flash-001",
+  "evaluation": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea",
+  "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+  "evaluation_result": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/2c799c09-acfa-4863-93af-6fbff6711e19",
+  "conversation": "conversations/evaluation-d75f65b8-bf90-430c-83fc-758331b03cb2",
+  "status": "PASS",
+  "turn_latencies_s": [
+    4.939
+  ],
+  "findings": [],
+  "evaluation_channel": "AUDIO",
+  "tool_call_behaviour": "FAKE",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/2c799c09-acfa-4863-93af-6fbff6711e19",
+    "display_name": "Result 1 - 2026-09-30-13-47-33 - 2c799c09-acfa-4863-93af-6fbff6711e19",
+    "evaluation_status": 1,
+    "create_time": "2026-09-30T13:47:35.289146Z",
+    "evaluation_run": "evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-d75f65b8-bf90-430c-83fc-758331b03cb2",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "Hola, soy Totto, el asistente fan de IA para Mercedes-AMG Petronas. Según los últimos datos disponibles de la temporada 2026, nuestros pilotos son George Russell en el coche 63 y Kimi Antonelli en el coche 12. Estamos muy emocionados de ver a George y Kimi representar a las Flechas de Plata en la pista."
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "4.939s",
+          "semantic_similarity_result": {
+            "score": 3,
+            "label": "Mostly Consistent",
+            "explanation": "The primary intent to provide the names of Mercedes F1 drivers is fully captured by both responses. Both include a greeting and identify the agent. The actual response adds more detail by specifying the \"2026 season\" and the \"car numbers\" for each driver, and changes the closing from an open-ended question to an enthusiastic statement. These additions slightly change the conversational flow and completeness compared to the reference, but the core intent of answering the user's question remains consistent. The additional details are not significant enough to warrant a score of 2 as they are highly relevant to the primary query.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-30T13:47:46.553469Z",
+              "end_time": "2026-09-30T13:47:46.585676Z",
+              "execution_latency": "0.032207s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-30T13:47:51.334057Z",
+              "end_time": "2026-09-30T13:47:51.349878Z",
+              "execution_latency": "0.015821s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.0-flash-001",
+              "start_time": "2026-09-30T13:47:46.586203Z",
+              "end_time": "2026-09-30T13:47:51.332510Z",
+              "execution_latency": "4.746307s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-30T13:47:51.333959Z",
+              "end_time": "2026-09-30T13:47:51.334018Z",
+              "execution_latency": "0.000059s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/60d1f04e-432b-4168-b083-3e01d7379181",
+          "prompt": "The agent responded fluently in Spanish matching the user's language",
+          "outcome": 1,
+          "explanation": "The user initiated the conversation in Spanish. The agent responded entirely in fluent Spanish, matching the user's language as expected. The response is grammatically correct and natural-sounding."
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/adc74988-7971-411c-ba9c-9061a32f6059",
+          "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+          "outcome": 1,
+          "explanation": "The agent explicitly stated, 'nuestros pilotos son George Russell en el coche 63 y Kimi Antonelli en el coche 12,' directly identifying George Russell and Kimi Antonelli as Mercedes drivers, which perfectly matches the custom expectation."
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "input_audio_config": {
+        "audio_encoding": 1,
+        "sample_rate_hertz": 16000,
+        "noise_suppression_level": ""
+      },
+      "output_audio_config": {
+        "audio_encoding": 1,
+        "sample_rate_hertz": 16000
+      },
+      "evaluation_channel": 2,
+      "tool_call_behaviour": 2
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/69af4827-3644-4043-9beb-442d514cce1d",
+    "changelog_create_time": "2026-09-30T13:47:33.069704Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "display_name": "r4-totto-golden_ac6_multilingual_spanish_response",
+  "original_name": "golden_ac6_multilingual_spanish_response",
+  "repeat": 1,
+  "model": "gemini-3.1-flash-live",
+  "evaluation": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea",
+  "evaluation_run": "evaluationRuns/7e7f1489-cc24-4a80-9ed5-7b1907dd28a3",
+  "evaluation_result": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/a0d8d617-adfd-4687-a813-3e9af943cb14",
+  "conversation": "conversations/evaluation-0fb3be93-3c96-4309-9827-eb99bc515db1",
+  "status": "FAIL",
+  "turn_latencies_s": [
+    0.768
+  ],
+  "findings": [
+    "[Expectation] expected=The agent responded fluently in Spanish matching the user's language | actual=(Not Met) The user initiated the conversation in Spanish. The agent started its response in Spanish ('Hola hola.') but then immediately switched to English for the rest of the message. Therefore, the agent did not respond fluently in Spanish matching the user's language. (score=nan)"
+  ],
+  "evaluation_channel": "AUDIO",
+  "tool_call_behaviour": "FAKE",
+  "fake_evidence": {
+    "fake_tool_spans": 0,
+    "real_tool_spans": 0,
+    "fake_markers": 0,
+    "fake_tools": [],
+    "real_tools": []
+  },
+  "raw_result": {
+    "name": "evaluations/855a1604-51ae-4d03-bef4-741de06c41ea/results/a0d8d617-adfd-4687-a813-3e9af943cb14",
+    "display_name": "Result 1 - 2026-09-30-13-53-38 - a0d8d617-adfd-4687-a813-3e9af943cb14",
+    "evaluation_status": 2,
+    "create_time": "2026-09-30T13:53:40.054748Z",
+    "evaluation_run": "evaluationRuns/7e7f1489-cc24-4a80-9ed5-7b1907dd28a3",
+    "golden_result": {
+      "turn_replay_results": [
+        {
+          "conversation": "conversations/evaluation-0fb3be93-3c96-4309-9827-eb99bc515db1",
+          "expectation_outcome": [
+            {
+              "expectation": {
+                "agent_response": {
+                  "role": "agent",
+                  "chunks": [
+                    {
+                      "text": "¡Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. ¿En qué más te puedo ayudar hoy?"
+                    }
+                  ]
+                },
+                "note": "",
+                "skip_evaluation": false,
+                "comparison_type": 0
+              },
+              "observed_agent_response": {
+                "role": "totto_root_agent",
+                "chunks": [
+                  {
+                    "text": "Hola hola. According to the latest available 2026 data, our Silver Arrows drivers are George Russell in car number 63 and Kimi Antonelli in car number 12. They're a fantastic duo!"
+                  }
+                ]
+              },
+              "outcome": 0
+            }
+          ],
+          "hallucination_result": {
+            "score": -1,
+            "label": "Unknown",
+            "explanation": "No tool call in prediction turn."
+          },
+          "tool_ordered_invocation_score": 0.0,
+          "turn_latency": "0.768s",
+          "semantic_similarity_result": {
+            "score": 3,
+            "label": "Mostly Consistent",
+            "explanation": "The primary intent to identify the Mercedes F1 drivers is captured by both responses. However, there are minor deviations. The actual response adds specific, unrequested details like \"according to the latest available 2026 data\" and car numbers (\"63\" and \"12\"), which are not present in the reference. Additionally, the reference ends with a \"courtesy check\" (\"¿En qué más te puedo ayudar hoy?\"), while the actual response does not, ending with a general positive comment instead. This difference in conversational flow (courtesy check vs. implicit hard close) constitutes a minor deviation, leading to a \"Mostly Consistent\" score.\n\nMetric Name:",
+            "outcome": 1
+          },
+          "span_latencies": [
+            {
+              "type_": 2,
+              "callback": "BeforeAgent",
+              "start_time": "2026-09-30T13:53:50.145302Z",
+              "end_time": "2026-09-30T13:53:50.167031Z",
+              "execution_latency": "0.021729s",
+              "display_name": "totto_root_agent(Initializes session state variables (is_mock_mode, user_timezone, user_location, order_id) and extra)"
+            },
+            {
+              "type_": 2,
+              "callback": "AfterModel",
+              "start_time": "2026-09-30T13:53:55.553641Z",
+              "end_time": "2026-09-30T13:53:55.575298Z",
+              "execution_latency": "0.021657s",
+              "display_name": "totto_root_agent(Voice safety net: strips markdown, emoji and https:// prefixes from spoken text parts (shared code, )"
+            },
+            {
+              "type_": 4,
+              "model": "gemini-3.1-flash-live",
+              "start_time": "2026-09-30T13:53:50.167669Z",
+              "end_time": "2026-09-30T13:53:55.551723Z",
+              "execution_latency": "5.384054s",
+              "display_name": ""
+            },
+            {
+              "type_": 3,
+              "resource": "Sensitive Word Filter",
+              "start_time": "2026-09-30T13:53:55.553544Z",
+              "end_time": "2026-09-30T13:53:55.553596Z",
+              "execution_latency": "0.000052s",
+              "display_name": ""
+            }
+          ],
+          "tool_invocation_score": 0.0,
+          "tool_call_latencies": []
+        }
+      ],
+      "evaluation_expectation_results": [
+        {
+          "evaluation_expectation": "evaluationExpectations/60d1f04e-432b-4168-b083-3e01d7379181",
+          "prompt": "The agent responded fluently in Spanish matching the user's language",
+          "outcome": 2,
+          "explanation": "The user initiated the conversation in Spanish. The agent started its response in Spanish ('Hola hola.') but then immediately switched to English for the rest of the message. Therefore, the agent did not respond fluently in Spanish matching the user's language."
+        },
+        {
+          "evaluation_expectation": "evaluationExpectations/adc74988-7971-411c-ba9c-9061a32f6059",
+          "prompt": "The agent identified George Russell and Kimi Antonelli as the Mercedes drivers",
+          "outcome": 1,
+          "explanation": "The agent explicitly identified George Russell and Kimi Antonelli as the 'Silver Arrows drivers', which is a common reference to Mercedes in Formula 1. This directly fulfills the custom expectation."
+        }
+      ]
+    },
+    "initiated_by": "admin@snehsm.altostrat.com",
+    "execution_state": 2,
+    "evaluation_metrics_thresholds": {
+      "golden_evaluation_metrics_thresholds": {
+        "turn_level_metrics_thresholds": {
+          "semantic_similarity_success_threshold": 3,
+          "overall_tool_invocation_correctness_threshold": 1.0,
+          "semantic_similarity_channel": 1
+        },
+        "expectation_level_metrics_thresholds": {
+          "tool_invocation_parameter_correctness_threshold": 1.0
+        }
+      },
+      "golden_hallucination_metric_behavior": 2,
+      "hallucination_metric_behavior": 0,
+      "scenario_hallucination_metric_behavior": 0
+    },
+    "config": {
+      "input_audio_config": {
+        "audio_encoding": 1,
+        "sample_rate_hertz": 16000,
+        "noise_suppression_level": ""
+      },
+      "output_audio_config": {
+        "audio_encoding": 1,
+        "sample_rate_hertz": 16000
+      },
+      "evaluation_channel": 2,
+      "tool_call_behaviour": 2
+    },
+    "golden_run_method": 2,
+    "changelog": "changelogs/75ed90d9-1e11-4f5f-bf94-699d5d48e317",
+    "changelog_create_time": "2026-09-30T13:53:37.901508Z",
+    "app_version": "",
+    "app_version_display_name": ""
+  }
+}

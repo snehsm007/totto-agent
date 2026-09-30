@@ -81,17 +81,39 @@ def test_prepare_app_copy_patches_display_name_and_audio_bucket_without_touching
 ) -> None:
     before = (src_app / "app.json").read_text(encoding="utf-8")
     copy = push_app.prepare_app_copy(
-        src_app, tmp_path / "out", display_name="x-staging", audio_bucket="gs://bucket-a"
+        src_app, tmp_path / "out", display_name="x-staging", audio_bucket="bucket-a"
     )
     data = json.loads((copy / "app.json").read_text(encoding="utf-8"))
     assert data["displayName"] == "x-staging"
-    assert data["loggingSettings"]["evaluationAudioRecordingConfig"]["gcsBucket"] == "gs://bucket-a"
+    audio_cfg = data["loggingSettings"]["evaluationAudioRecordingConfig"]
+    assert audio_cfg["gcsBucket"] == "gs://bucket-a"
+    assert audio_cfg["gcsPathPrefix"] == "ces-eval-audio/$session"
+    assert "$session" in audio_cfg["gcsPathPrefix"]
     assert data["rootAgent"] == "a"
     # Local-only config and caches are never uploaded.
     assert not (copy / "gecx-config.json").exists()
     assert not (copy / "agents" / "a" / "__pycache__").exists()
     assert (copy / "agents" / "a" / "instruction.txt").read_text(encoding="utf-8") == "hi\n"
     assert (src_app / "app.json").read_text(encoding="utf-8") == before
+
+
+def test_normalize_and_resolve_audio_bucket(src_app: Path, tmp_path: Path) -> None:
+    assert push_app.normalize_audio_bucket(None) is None
+    assert push_app.normalize_audio_bucket("  ") is None
+    assert push_app.normalize_audio_bucket("my-bucket") == "gs://my-bucket"
+    assert push_app.normalize_audio_bucket("gs://my-bucket/") == "gs://my-bucket"
+    with pytest.raises(push_app.PushError, match="invalid audio bucket"):
+        push_app.normalize_audio_bucket("gs://my-bucket/subpath")
+    with pytest.raises(push_app.PushError, match="must contain '\\$session'"):
+        push_app.prepare_app_copy(
+            src_app, tmp_path / "bad_prefix", audio_bucket="my-bucket", audio_path_prefix="no-session-var"
+        )
+    assert push_app.resolve_audio_bucket({"CXAS_EVAL_AUDIO_BUCKET": "env-bkt"}, {"eval_audio_bucket": "cfg-bkt"}) == (
+        "gs://env-bkt"
+    )
+    assert push_app.resolve_audio_bucket({}, {"eval_audio_bucket": "cfg-bkt"}) == "gs://cfg-bkt"
+    assert push_app.resolve_audio_bucket({"GCP_PROJECT_ID": "proj-ci"}, {}) == "gs://proj-ci-ces-eval-audio"
+    assert push_app.resolve_audio_bucket({}, {}) is None
 
 
 def test_prepare_app_copy_without_bucket_adds_no_logging_settings(src_app: Path, tmp_path: Path) -> None:

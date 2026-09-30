@@ -1,33 +1,68 @@
-# Simulation & Evaluation Trend Dashboard (`TREND.md` & `trend.html`)
+# Public CI Dashboard & Local Trend Views (`docs/simulation_dashboard.md`)
 
-## 1. Overview
-
-Every run of `totto_suite` (`reproduced`, `imported`, `snapshot`, `offline`, `deploy`, `live`) writes a schema-v1 JSON record into [`evals/history/runs/`](../evals/history/runs) and regenerates three synchronized views:
-
-1. **[`evals/history/index.json`](../evals/history/index.json)**: Machine-readable index of all 19 chronological points (`point_time`-ordered) and all detected `[REGRESSION]` flags.
-2. **[`evals/history/TREND.md`](../evals/history/TREND.md)**: Markdown timeline showing per-layer pass rates (`P/(P+F)`), `INFRA_ERROR` counts, flakiness (`k/N`), git commits, CXAS version IDs, and regression deltas.
-3. **[`evals/history/trend.html`](../evals/history/trend.html)**: Self-contained HTML dashboard with interactive tables and visual pass-rate badges.
+This guide explains how to view and build the **Totto Agent** evaluation dashboards. There are two complementary ways to inspect test results and multi-turn conversation transcripts:
+1. **The Public CI Dashboard** (hosted online via GitHub Pages on the orphan `dashboard` branch and updated automatically on every `main` CI run).
+2. **The Local Trend & Run Reports** (generated in [`evals/history/`](../evals/history) by `totto_suite trend`).
 
 ---
 
-## 2. Regenerating & Viewing the Dashboard
+## 1. Live Public CI Dashboard (No Login Required)
 
+Every time the GitHub Actions pipeline ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) finishes running `staging-gate` (and `deploy-live` on `main`), the `publish-dashboard` job builds a self-contained static HTML dashboard and publishes it to the orphan `dashboard` branch:
+
+- **Primary URL (GitHub Pages)**: **[`https://snehsm007.github.io/totto-agent/`](https://snehsm007.github.io/totto-agent/)**
+- **Mirror URL (Raw GitHack CDN)**: **[`https://raw.githack.com/snehsm007/totto-agent/dashboard/index.html`](https://raw.githack.com/snehsm007/totto-agent/dashboard/index.html)**
+- **Machine-Readable Latest Gate JSON**: **[`https://snehsm007.github.io/totto-agent/data/latest.json`](https://snehsm007.github.io/totto-agent/data/latest.json)**
+- **Live Voice Phone Line Banner**: Displays **`+1 218-288-9381`** (`GOOGLE_TELEPHONY_PLATFORM`, deployment `0ba8f03a-11db-4539-93f2-7e4a1893ea85`) alongside the currently deployed live app version (`git-<sha7>`).
+
+### What You Can Inspect on the Public Dashboard
+1. **Live Production Banner & Environment Cards**: Shows the active `git-<sha7>` immutable version on the Live App, the `+1 218-288-9381` PSTN phone number, and the latest Staging Gate verdict (`PASS`, `FAIL`, or `INCONCLUSIVE`).
+2. **Pass-Rate Trend Chart across All Recorded Runs**: Interactive SVG chart tracking overall pass rates and individual layer pass rates across all recorded runs in [`evals/history/index.json`](../evals/history/index.json) (including pre-CI local runs and cloud staging `ci` runs, such as the intentional `FAIL` run that caught the live `race_schedule_blackout` mutant).
+3. **Layer Breakdown & Gate Threshold Badges**: Shows `live_tools`, `live_goldens`, `live_sims`, and the 8 offline layers against the floors in [`totto_suite/gate_thresholds.json`](../totto_suite/gate_thresholds.json), plus server ID verification badges (`verified` vs. `legacy_unverifiable`).
+4. **Scenario & Regression Inspector**: Shows per-scenario pass counts (`k/N` repeats), `"Fake Tool"` execution badges (`fake_verified`), latency metrics, and deterministic grader findings.
+5. **15/15 Fault-Injection Mutation Matrix**: Displays the latest mutation testing report from [`evals/history/mutants/mutants_report.json`](../evals/history/mutants/mutants_report.json).
+
+---
+
+## 2. How the Public Dashboard Is Built & Scrubbed
+
+The dashboard generator lives in [`totto_suite/dashboard/`](../totto_suite/dashboard):
+- [`totto_suite/dashboard/command.py`](../totto_suite/dashboard/command.py), [`totto_suite/dashboard/model.py`](../totto_suite/dashboard/model.py), and [`totto_suite/dashboard/render.py`](../totto_suite/dashboard/render.py): Read [`evals/history/index.json`](../evals/history/index.json), [`evals/history/runs/`](../evals/history/runs), [`evals/history/mutants/mutants_report.json`](../evals/history/mutants/mutants_report.json), and [`evals/history/snapshots/`](../evals/history/snapshots) to render a self-contained static `index.html` and `data/latest.json`.
+- [`totto_suite/dashboard/scrub.py`](../totto_suite/dashboard/scrub.py): Automatically scrubs any Google Cloud project IDs, project numbers, full `projects/.../apps/...` paths, email addresses, or local file paths before writing output, and raises an error if any forbidden token remains.
+
+### Building and Previewing the Public Dashboard Locally
 ```bash
-# Regenerate index.json, TREND.md, and trend.html from evals/history/runs/
-.venv/bin/python -m totto_suite trend
+# Build the scrubbed static site into ./_site (and verify zero leaked identifiers)
+.venv/bin/python -m totto_suite dashboard build --out _site
 
-# Or via Makefile:
-make trend
+# Serve locally on http://localhost:8080 to preview in your browser
+.venv/bin/python -m http.server 8080 --directory _site
 ```
 
+### Publishing to the `dashboard` Orphan Branch (`scripts/publish_dashboard.sh`)
+In CI (or manually when authorized), [`scripts/publish_dashboard.sh`](../scripts/publish_dashboard.sh) builds the static bundle, verifies that no forbidden strings exist in the output directory, commits `index.html`, `data/latest.json`, and `.nojekyll` to a temporary worktree on the orphan `dashboard` branch, and pushes `origin dashboard`.
+
 ---
 
-## 3. How Scoring & Regression Detection Work
+## 3. Local Trend Views (`evals/history/TREND.md`, `trend.html` & `evals/results/dashboard.html`)
 
-- **Quota-Safe Layer Score Formula**:
-  $$\text{Layer Score} = \frac{\text{PASS}}{\text{PASS} + \text{FAIL}}$$
-  Platform/infrastructure errors (`HTTP 429 RESOURCE_EXHAUSTED`, `503`, `504`, socket timeouts) are recorded in `infra_errors` and excluded from the denominator so quota exhaustion never distorts agent quality trends.
-- **Hard Deterministic Gate over LLM Judge**:
-  In [`totto_suite/grader/`](../totto_suite/grader/__init__.py), 17 deterministic transcript checks (`code_leak`, `dead_air_handoff`, `race_facts_without_tool`, `merch_facts_without_tool`, `agent_name_leak`, `toto_impersonation`, `tts_hostile_formatting`, `abrupt_escalation_drop`, `credit_card_echo`, etc.) run on every conversation transcript. Any deterministic failure forces `status="FAIL"` even if the LLM judge returned `passed=True` (verified in [`evals/history/regrade/regrade_report.md`](../evals/history/regrade/regrade_report.md)).
-- **Automatic `[REGRESSION]` Flagging**:
-  [`totto_suite/trend.py`](../totto_suite/trend.py) compares each run against the previous comparable run and flags any layer score drop, `PASS -> FAIL` scenario flip, or newly flaky (`0 < pass_count < repeats`) scenario.
+In addition to the public CI dashboard (`totto_suite dashboard build`), `totto_suite` maintains local trend and simulation artifacts inside the repository:
+
+| File Path | Generated By | What It Contains |
+| :--- | :--- | :--- |
+| [`evals/history/index.json`](../evals/history/index.json) | `totto_suite trend` (`make trend`) | Machine-readable index of all recorded evaluation runs, ordered chronologically with commit SHA, mode (`reproduced`, `imported`, `snapshot`, `offline`, `deploy`, `live`, `ci`), and per-layer pass/total counts. |
+| [`evals/history/TREND.md`](../evals/history/TREND.md) | `python -m totto_suite trend` (`make trend`) | Markdown table summarizing the pass-rate progression, flakiness (`k/N` mixed repeats), and `[REGRESSION]` flags across all runs right in your editor. |
+| [`evals/history/trend.html`](../evals/history/trend.html) | `python -m totto_suite trend` (`make trend`) | Self-contained static HTML + inline SVG chart of the run history for quick offline viewing without a web server. |
+| [`evals/results/dashboard.html`](../evals/results/dashboard.html) | [`scripts/generate_reports.py`](../scripts/generate_reports.py) | Interactive local transcript viewer for the 6 historical transcript files (`101` conversations) stored in [`evals/results/`](../evals/results). |
+
+---
+
+## 4. Why We Host on GitHub Pages Instead of Public GCS / Cloud Run (`allUsers`)
+
+In managed Google Cloud organizations (such as Argolis / enterprise orgs), the organization policy **`constraints/iam.allowedPolicyMemberDomains`** blocks granting `allUsers` or `allAuthenticatedUsers` IAM roles on Cloud Storage buckets (`roles/storage.objectViewer`) and Cloud Run services (`roles/run.invoker`).
+
+Publishing the scrubbed static HTML bundle to the `dashboard` branch on GitHub Pages ([`https://snehsm007.github.io/totto-agent/`](https://snehsm007.github.io/totto-agent/)) provides:
+- Instant, zero-authentication public access from any browser without weakening GCP organization security policies.
+- Automatic privacy enforcement via [`totto_suite/dashboard/scrub.py`](../totto_suite/dashboard/scrub.py) before any file is committed to the `dashboard` branch.
+
+*(Optional: If an organization administrator explicitly wishes to allow public `allUsers` bucket/Cloud Run hosting inside a specific sandbox GCP project, they can override the domain restriction policy at the project level via `gcloud resource-manager org-policies disable-enforce constraints/iam.allowedPolicyMemberDomains --project=<PROJECT_ID>`, though GitHub Pages requires no org-policy exceptions.)*
