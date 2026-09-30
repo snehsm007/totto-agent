@@ -1,31 +1,1720 @@
 {
   "app_version": null,
   "baseline_pass_rate": null,
-  "commit": "8447bcb26f3de69d32bb690af3acbcbb71da7f92",
+  "commit": "4556d1f4b0336b7be504d93af115242df60a5881",
   "deploy": null,
-  "detail_page": null,
-  "duration_s": null,
-  "fake_verified": null,
-  "finished_at": null,
+  "detail_page": "runs/ci-36728220692-1.html",
+  "duration_s": 83.24,
+  "fake_verified": false,
+  "finished_at": "2026-09-30T14:21:39Z",
   "gate_error": null,
-  "gate_present": false,
-  "gate_summary": null,
-  "generated_at": "2026-09-29T21:36:19Z",
-  "key": "nogate-8447bcb26f3d",
-  "layers": {},
-  "pass_rate": null,
-  "reasons": [],
+  "gate_present": true,
+  "gate_summary": {
+    "app_version": null,
+    "baseline_pass_rate": null,
+    "commit": "4556d1f4b0336b7be504d93af115242df60a5881",
+    "counts": {
+      "FAIL": 2,
+      "INFRA_ERROR": 0,
+      "PASS": 33,
+      "SKIPPED": 1
+    },
+    "duration_s": 83.24,
+    "fake_verified": false,
+    "finished_at": "2026-09-30T14:21:39Z",
+    "infra_ratio": 0.0,
+    "layer_durations_s": {
+      "live_goldens": 58.75,
+      "live_sims": 2.25,
+      "live_tools": 18.69
+    },
+    "layers": {
+      "live_goldens": {
+        "fail": 1,
+        "infra_error": 0,
+        "pass": 4,
+        "pass_rate": 0.8,
+        "skipped": 0
+      },
+      "live_sims": {
+        "fail": 1,
+        "infra_error": 0,
+        "pass": 0,
+        "pass_rate": 0.0,
+        "skipped": 0
+      },
+      "live_tools": {
+        "fail": 0,
+        "infra_error": 0,
+        "pass": 29,
+        "pass_rate": 1.0,
+        "skipped": 1
+      }
+    },
+    "model": "gemini-3.0-flash-001",
+    "new_failures_vs_baseline": [],
+    "pass_rate": 0.9429,
+    "reasons": [
+      "no baseline: absolute floors only",
+      "overall pass rate 94.3% < floor 95.0%",
+      "live_sims pass rate 0.0% < floor 70.0%"
+    ],
+    "repeats": 2,
+    "run_id": "ci-36728220692-1",
+    "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36728220692",
+    "schema": "totto-gate-summary/v1",
+    "started_at": "2026-09-30T14:20:16Z",
+    "target": "staging",
+    "tests": [
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_merch_order_1001",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.398,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_merch_order_1002",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.363,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_merch_order_1003",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.405,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_merch_order_123456",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.45,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_merch_order_9999",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.436,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_rc01_official_merch_store_link",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555554"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.382,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555554"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "SKIPPED"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.0,
+            "fake_verified": false,
+            "message": "SKIPPED in tool_mode=fake: this probe checks that the real OpenF1 API is reachable from the CXAS sandbox, which a fake-mode gate must not depend on",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "SKIPPED",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "SKIPPED",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb1_tr09_schedule_data_source_label",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.583,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.465,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb3_spain_substring_collision_with_spa",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.718,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb3_unknown_race_moon_gp",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.539,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb4_future_weather_not_labelled_forecast",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.501,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.553,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tr10_unseen_city_auckland",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.639,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tr10_unseen_city_edinburgh",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.545,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tr10_unseen_city_mumbai",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.462,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tr10_unseen_city_s\u00e3o_paulo",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.871,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tr10_unseen_city_toronto",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.717,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::probe_tr10_unseen_city_vienna",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.626,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_driver_standings_category_both",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555552"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.464,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555552"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_driver_standings_invalid_season",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555552"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.424,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555552"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_driver_standings_mercedes_lead",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555552"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.627,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555552"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_official_links_ticketing",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555554"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.579,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555554"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_race_schedule_default_utc",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 1.264,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_race_schedule_localized_est",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.59,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_race_schedule_sydney_aedt",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.823,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_get_race_schedule_unseen_city_toronto",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555551"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.818,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555551"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_lookup_mock_merch_order_delivered_1001",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.56,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_lookup_mock_merch_order_in_transit_1002",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.489,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": false,
+        "id": "live_tools::test_lookup_mock_merch_order_not_found_9999",
+        "layer": "live_tools",
+        "platform_ids": {
+          "tool": "tools/d1111111-2222-3333-4444-555555555553"
+        },
+        "repeat_statuses": [
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 0.418,
+            "fake_verified": false,
+            "message": "ok",
+            "platform_ids": {
+              "tool": "tools/d1111111-2222-3333-4444-555555555553"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "real"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "real"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-206571c0-24e7-4b88-b2ba-8870c67be524",
+          "evaluation": "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7",
+          "evaluation_result": "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7/results/a70f156d-96f7-496a-aa0d-f10edf5a0a0e",
+          "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+          "session_id": "sessions/evaluation-206571c0-24e7-4b88-b2ba-8870c67be524"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-206571c0-24e7-4b88-b2ba-8870c67be524",
+              "evaluation": "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7",
+              "evaluation_result": "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7/results/a70f156d-96f7-496a-aa0d-f10edf5a0a0e",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-206571c0-24e7-4b88-b2ba-8870c67be524"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-076ede69-03c1-473e-aff7-4a99ce9a18b3",
+              "evaluation": "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7",
+              "evaluation_result": "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7/results/182e103f-7296-4ed1-8c21-47828133d0d1",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-076ede69-03c1-473e-aff7-4a99ce9a18b3"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-0d9ba395-a34a-4dd1-9099-2aeedfa819ea",
+          "evaluation": "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28",
+          "evaluation_result": "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28/results/4eb3ddc4-fd33-4a8a-ba23-d364a90462ba",
+          "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+          "session_id": "sessions/evaluation-0d9ba395-a34a-4dd1-9099-2aeedfa819ea"
+        },
+        "repeat_statuses": [
+          "FAIL",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "[Semantic Similarity] expected=\u00a1Hola! Soy Totto, tu agente de fans de Mercedes F1. Nuestros pilotos de las Flechas Plateadas son George Russell y Kimi Antonelli. \u00bfEn qu\u00e9 m\u00e1s te puedo ayudar hoy? | actual=Hola, soy Totto, Mercedes F1 Fan Agent, el asistente virtual para los aficionados de Mercedes-AM",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-0d9ba395-a34a-4dd1-9099-2aeedfa819ea",
+              "evaluation": "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28",
+              "evaluation_result": "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28/results/4eb3ddc4-fd33-4a8a-ba23-d364a90462ba",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-0d9ba395-a34a-4dd1-9099-2aeedfa819ea"
+            },
+            "repeat": 1,
+            "status": "FAIL",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-93b1d2fb-cb9a-48b2-8840-593277dbd594",
+              "evaluation": "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28",
+              "evaluation_result": "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28/results/b0065dad-fd8a-4e82-8ec3-71247575f431",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-93b1d2fb-cb9a-48b2-8840-593277dbd594"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "FAIL",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-28a0206f-0459-4ade-81cd-41456df76fe0",
+          "evaluation": "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4",
+          "evaluation_result": "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4/results/74ea3266-876f-4987-b80d-baeec83a0b85",
+          "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+          "session_id": "sessions/evaluation-28a0206f-0459-4ade-81cd-41456df76fe0"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-28a0206f-0459-4ade-81cd-41456df76fe0",
+              "evaluation": "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4",
+              "evaluation_result": "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4/results/74ea3266-876f-4987-b80d-baeec83a0b85",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-28a0206f-0459-4ade-81cd-41456df76fe0"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-97de3547-ec94-4e89-a5a0-4b8fbb94ad5e",
+              "evaluation": "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4",
+              "evaluation_result": "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4/results/a8c9eaa2-bf29-484f-a656-73b334326a45",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-97de3547-ec94-4e89-a5a0-4b8fbb94ad5e"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-1602d8f6-64d8-4fd3-b2b3-c947dcff3b57",
+          "evaluation": "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca",
+          "evaluation_result": "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca/results/f5848c15-d1e4-46f8-b4d3-e8a022679569",
+          "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+          "session_id": "sessions/evaluation-1602d8f6-64d8-4fd3-b2b3-c947dcff3b57"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-1602d8f6-64d8-4fd3-b2b3-c947dcff3b57",
+              "evaluation": "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca",
+              "evaluation_result": "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca/results/f5848c15-d1e4-46f8-b4d3-e8a022679569",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-1602d8f6-64d8-4fd3-b2b3-c947dcff3b57"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-c129eb23-53b5-48c9-989e-ce06abdd0134",
+              "evaluation": "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca",
+              "evaluation_result": "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca/results/ebd012c1-3eb2-40c9-9679-8f3677e61ba6",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-c129eb23-53b5-48c9-989e-ce06abdd0134"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_goldens::golden_official_mercedes_links",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-b92d141b-0869-47d6-b571-876574bc3feb",
+          "evaluation": "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee",
+          "evaluation_result": "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee/results/f5945916-9782-4c69-9f40-55f6bc4d0b89",
+          "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+          "session_id": "sessions/evaluation-b92d141b-0869-47d6-b571-876574bc3feb"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-b92d141b-0869-47d6-b571-876574bc3feb",
+              "evaluation": "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee",
+              "evaluation_result": "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee/results/f5945916-9782-4c69-9f40-55f6bc4d0b89",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-b92d141b-0869-47d6-b571-876574bc3feb"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 50.52,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-c1f7123e-db25-414f-bf6c-e59947117349",
+              "evaluation": "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee",
+              "evaluation_result": "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee/results/122d16bb-440e-4698-b5f4-c89a09c744d5",
+              "evaluation_run": "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+              "session_id": "sessions/evaluation-c1f7123e-db25-414f-bf6c-e59947117349"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_sims::__layer_crash__",
+        "layer": "live_sims",
+        "platform_ids": {},
+        "repeat_statuses": [
+          "FAIL"
+        ],
+        "repeats": [
+          {
+            "duration_s": null,
+            "fake_verified": null,
+            "message": "layer crashed: TypeError: Common.__init__() got an unexpected keyword argument 'transport'",
+            "platform_ids": {},
+            "repeat": 1,
+            "status": "FAIL",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "FAIL",
+        "tool_mode": "fake"
+      }
+    ],
+    "thresholds": {
+      "aggregation": "strict majority of decided repeats (ties FAIL; INFRA_ERROR/SKIPPED repeats ignored)",
+      "baseline_tolerance_pp": 10.0,
+      "layer_floors": {
+        "live_goldens": 0.8,
+        "live_sims": 0.7,
+        "live_tools": 0.95
+      },
+      "max_infra_ratio": 0.25,
+      "max_new_failures": 1,
+      "overall_floor": 0.95
+    },
+    "tool_mode": "fake",
+    "verdict": "FAIL"
+  },
+  "generated_at": "2026-09-30T14:21:59Z",
+  "key": "ci-36728220692-1",
+  "layers": {
+    "live_goldens": {
+      "fail": 1,
+      "infra_error": 0,
+      "pass": 4,
+      "pass_rate": 0.8,
+      "skipped": 0
+    },
+    "live_sims": {
+      "fail": 1,
+      "infra_error": 0,
+      "pass": 0,
+      "pass_rate": 0.0,
+      "skipped": 0
+    },
+    "live_tools": {
+      "fail": 0,
+      "infra_error": 0,
+      "pass": 29,
+      "pass_rate": 1.0,
+      "skipped": 1
+    }
+  },
+  "pass_rate": 0.9429,
+  "reasons": [
+    "no baseline: absolute floors only",
+    "overall pass rate 94.3% < floor 95.0%",
+    "live_sims pass rate 0.0% < floor 70.0%"
+  ],
   "repo_url": "https://github.com/snehsm007/totto-agent",
-  "run_id": null,
-  "run_url": null,
+  "run_id": "ci-36728220692-1",
+  "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36728220692",
   "schema": "totto-dashboard/v1",
-  "source": "no-gate",
-  "started_at": null,
-  "target": null,
-  "tests": [],
-  "tests_passed": 0,
-  "tests_total": 0,
-  "thresholds": {},
-  "tool_mode": null,
-  "verdict": "NO GATED RUN YET"
+  "source": "ci-gate",
+  "started_at": "2026-09-30T14:20:16Z",
+  "target": "staging",
+  "tests": [
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_1001",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_1002",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_1003",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_123456",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_9999",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_rc01_official_merch_store_link",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555554"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "SKIPPED"
+      ],
+      "status": "SKIPPED",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb1_tr09_schedule_data_source_label",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb3_spain_substring_collision_with_spa",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb3_unknown_race_moon_gp",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb4_future_weather_not_labelled_forecast",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_auckland",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_edinburgh",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_mumbai",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_s\u00e3o_paulo",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_toronto",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_vienna",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_driver_standings_category_both",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555552"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_driver_standings_invalid_season",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555552"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_driver_standings_mercedes_lead",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555552"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_official_links_ticketing",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555554"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_default_utc",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_localized_est",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_sydney_aedt",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_unseen_city_toronto",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555551"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_lookup_mock_merch_order_delivered_1001",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_lookup_mock_merch_order_in_transit_1002",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_lookup_mock_merch_order_not_found_9999",
+      "layer": "live_tools",
+      "message": null,
+      "platform_ids": [
+        "tools/d1111111-2222-3333-4444-555555555553"
+      ],
+      "repeats": [
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "message": null,
+      "platform_ids": [
+        "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7",
+        "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+        "evaluations/7153a743-92d6-4c80-bddd-cb7f18662aa7/results/a70f156d-96f7-496a-aa0d-f10edf5a0a0e",
+        "conversations/evaluation-206571c0-24e7-4b88-b2ba-8870c67be524",
+        "sessions/evaluation-206571c0-24e7-4b88-b2ba-8870c67be524"
+      ],
+      "repeats": [
+        "PASS",
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "message": null,
+      "platform_ids": [
+        "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28",
+        "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+        "evaluations/7a2e4898-2d00-4530-9841-6a339a6e2b28/results/4eb3ddc4-fd33-4a8a-ba23-d364a90462ba",
+        "conversations/evaluation-0d9ba395-a34a-4dd1-9099-2aeedfa819ea",
+        "sessions/evaluation-0d9ba395-a34a-4dd1-9099-2aeedfa819ea"
+      ],
+      "repeats": [
+        "FAIL",
+        "PASS"
+      ],
+      "status": "FAIL",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "message": null,
+      "platform_ids": [
+        "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4",
+        "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+        "evaluations/4d337c29-ddfb-4979-a72d-f12b282f50d4/results/74ea3266-876f-4987-b80d-baeec83a0b85",
+        "conversations/evaluation-28a0206f-0459-4ade-81cd-41456df76fe0",
+        "sessions/evaluation-28a0206f-0459-4ade-81cd-41456df76fe0"
+      ],
+      "repeats": [
+        "PASS",
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "message": null,
+      "platform_ids": [
+        "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca",
+        "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+        "evaluations/4aeb96d0-b925-4b11-a38f-a39d39b1e2ca/results/f5848c15-d1e4-46f8-b4d3-e8a022679569",
+        "conversations/evaluation-1602d8f6-64d8-4fd3-b2b3-c947dcff3b57",
+        "sessions/evaluation-1602d8f6-64d8-4fd3-b2b3-c947dcff3b57"
+      ],
+      "repeats": [
+        "PASS",
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "message": null,
+      "platform_ids": [
+        "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee",
+        "evaluationRuns/c0998661-d96d-4d94-b825-7980d716da51",
+        "evaluations/f43c6fdd-4a37-4dd2-a582-7ec1ded26bee/results/f5945916-9782-4c69-9f40-55f6bc4d0b89",
+        "conversations/evaluation-b92d141b-0869-47d6-b571-876574bc3feb",
+        "sessions/evaluation-b92d141b-0869-47d6-b571-876574bc3feb"
+      ],
+      "repeats": [
+        "PASS",
+        "PASS"
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_sims::__layer_crash__",
+      "layer": "live_sims",
+      "message": null,
+      "platform_ids": [],
+      "repeats": [
+        "FAIL"
+      ],
+      "status": "FAIL",
+      "tool_mode": "fake"
+    }
+  ],
+  "tests_passed": 33,
+  "tests_total": 36,
+  "thresholds": {
+    "aggregation": "strict majority of decided repeats (ties FAIL; INFRA_ERROR/SKIPPED repeats ignored)",
+    "baseline_tolerance_pp": 10.0,
+    "layer_floors": {
+      "live_goldens": 0.8,
+      "live_sims": 0.7,
+      "live_tools": 0.95
+    },
+    "max_infra_ratio": 0.25,
+    "max_new_failures": 1,
+    "overall_floor": 0.95
+  },
+  "tool_mode": "fake",
+  "verdict": "FAIL"
 }
