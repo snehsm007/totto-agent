@@ -1,39 +1,39 @@
 {
   "app_version": null,
   "baseline_pass_rate": 0.9512,
-  "commit": "93dd1bbb2b16a71a056d005c5735426ade8438b3",
+  "commit": "2b4a78f2fcbadf1ad50546def0e07e79cc2aa8af",
   "deploy": null,
-  "detail_page": "runs/ci-36757855588-1.html",
-  "duration_s": 503.05,
+  "detail_page": "runs/ci-36760187587-1.html",
+  "duration_s": 722.54,
   "fake_verified": true,
-  "finished_at": "2026-09-30T18:29:39Z",
+  "finished_at": "2026-09-30T18:52:40Z",
   "gate_error": null,
   "gate_present": true,
   "gate_summary": {
     "app_version": null,
     "baseline_pass_rate": 0.9512,
-    "commit": "93dd1bbb2b16a71a056d005c5735426ade8438b3",
+    "commit": "2b4a78f2fcbadf1ad50546def0e07e79cc2aa8af",
     "counts": {
-      "FAIL": 7,
+      "FAIL": 3,
       "INFRA_ERROR": 0,
-      "PASS": 34,
+      "PASS": 38,
       "SKIPPED": 1
     },
-    "duration_s": 503.05,
+    "duration_s": 722.54,
     "fake_verified": true,
-    "finished_at": "2026-09-30T18:29:39Z",
+    "finished_at": "2026-09-30T18:52:40Z",
     "infra_ratio": 0.0,
     "layer_durations_s": {
-      "live_goldens": 18.96,
-      "live_sims": 454.82,
-      "live_tools": 18.38
+      "live_goldens": 216.37,
+      "live_sims": 464.84,
+      "live_tools": 27.99
     },
     "layers": {
       "live_goldens": {
-        "fail": 5,
+        "fail": 1,
         "infra_error": 0,
-        "pass": 0,
-        "pass_rate": 0.0,
+        "pass": 4,
+        "pass_rate": 0.8,
         "skipped": 0
       },
       "live_sims": {
@@ -53,25 +53,19 @@
     },
     "model": "gemini-3.1-flash-live",
     "new_failures_vs_baseline": [
-      "live_goldens::golden_ac3_mercedes_history_qualified",
-      "live_goldens::golden_ac6_multilingual_spanish_response",
-      "live_goldens::golden_ac8_identity_and_non_impersonation",
-      "live_goldens::golden_ac9_brand_safe_rivalry_humor",
-      "live_goldens::golden_official_mercedes_links"
+      "live_goldens::golden_ac6_multilingual_spanish_response"
     ],
-    "pass_rate": 0.8293,
+    "pass_rate": 0.9268,
     "reasons": [
       "baseline run ci-36752635788-1 (f340a2a49c17dca85658a5acca5c207d86a2ab73)",
-      "5 test(s) passed in baseline but fail now (max 1): live_goldens::golden_ac3_mercedes_history_qualified, live_goldens::golden_ac6_multilingual_spanish_response, live_goldens::golden_ac8_identity_and_non_impersonation, live_goldens::golden_ac9_brand_safe_rivalry_humor, live_goldens::golden_official_mercedes_links",
-      "overall pass rate 82.9% < floor 95.0%",
-      "live_goldens pass rate 0.0% < floor 80.0%",
-      "overall pass rate 82.9% < baseline 95.1% - 10pp"
+      "overall pass rate 92.7% < floor 95.0%",
+      "tolerated new failures vs baseline: live_goldens::golden_ac6_multilingual_spanish_response"
     ],
     "repeats": 2,
-    "run_id": "ci-36757855588-1",
-    "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36757855588",
+    "run_id": "ci-36760187587-1",
+    "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36760187587",
     "schema": "totto-gate-summary/v1",
-    "started_at": "2026-09-30T18:21:16Z",
+    "started_at": "2026-09-30T18:40:38Z",
     "target": "staging",
     "tests": [
       {
@@ -86,7 +80,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.435,
+            "duration_s": 0.693,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -112,7 +106,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.401,
+            "duration_s": 0.686,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -138,7 +132,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.465,
+            "duration_s": 0.71,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -164,7 +158,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.403,
+            "duration_s": 0.747,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -190,7 +184,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.477,
+            "duration_s": 0.686,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -216,7 +210,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.376,
+            "duration_s": 0.674,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -268,7 +262,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.455,
+            "duration_s": 1.104,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -294,7 +288,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.615,
+            "duration_s": 1.06,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -320,7 +314,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.675,
+            "duration_s": 1.078,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -346,7 +340,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.49,
+            "duration_s": 0.8,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -372,7 +366,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.638,
+            "duration_s": 0.705,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -398,7 +392,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.486,
+            "duration_s": 0.783,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -424,7 +418,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.674,
+            "duration_s": 0.932,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -450,7 +444,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.554,
+            "duration_s": 0.706,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -476,7 +470,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.481,
+            "duration_s": 0.626,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -502,7 +496,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.636,
+            "duration_s": 1.219,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -528,7 +522,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.621,
+            "duration_s": 1.421,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -554,7 +548,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.676,
+            "duration_s": 0.801,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -580,7 +574,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.503,
+            "duration_s": 0.969,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -606,7 +600,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.446,
+            "duration_s": 1.026,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -632,7 +626,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.805,
+            "duration_s": 1.164,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -658,7 +652,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.42,
+            "duration_s": 0.67,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -684,7 +678,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 1.077,
+            "duration_s": 1.401,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -710,7 +704,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.541,
+            "duration_s": 0.947,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -736,7 +730,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.744,
+            "duration_s": 1.041,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -762,7 +756,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.747,
+            "duration_s": 1.112,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -788,7 +782,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.471,
+            "duration_s": 0.9,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -814,7 +808,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.494,
+            "duration_s": 0.881,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -840,7 +834,7 @@
         ],
         "repeats": [
           {
-            "duration_s": 0.674,
+            "duration_s": 0.824,
             "fake_verified": false,
             "message": "ok",
             "platform_ids": {
@@ -859,37 +853,49 @@
         "id": "live_goldens::golden_ac3_mercedes_history_qualified",
         "layer": "live_goldens",
         "platform_ids": {
-          "evaluation": "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
+          "conversation": "conversations/evaluation-afa6d746-0f17-4994-b993-d72865cfffbf",
+          "evaluation": "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b",
+          "evaluation_result": "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b/results/4fd7f56f-5657-4df7-ad65-3081e8ed2201",
+          "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+          "session_id": "sessions/evaluation-afa6d746-0f17-4994-b993-d72865cfffbf"
         },
         "repeat_statuses": [
-          "FAIL",
-          "FAIL"
+          "PASS",
+          "PASS"
         ],
         "repeats": [
           {
-            "duration_s": 12.27,
+            "duration_s": 211.47,
             "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
+            "message": "ok",
             "platform_ids": {
-              "evaluation": "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
+              "conversation": "conversations/evaluation-afa6d746-0f17-4994-b993-d72865cfffbf",
+              "evaluation": "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b",
+              "evaluation_result": "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b/results/4fd7f56f-5657-4df7-ad65-3081e8ed2201",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-afa6d746-0f17-4994-b993-d72865cfffbf"
             },
             "repeat": 1,
-            "status": "FAIL",
+            "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 12.27,
+            "duration_s": 211.47,
             "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
+            "message": "ok",
             "platform_ids": {
-              "evaluation": "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
+              "conversation": "conversations/evaluation-d6571928-1a41-43b0-8dd6-979f4f745f3d",
+              "evaluation": "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b",
+              "evaluation_result": "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b/results/650f563f-71a5-42bc-a322-9bd4ad880b4a",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-d6571928-1a41-43b0-8dd6-979f4f745f3d"
             },
             "repeat": 2,
-            "status": "FAIL",
+            "status": "PASS",
             "tool_mode": "fake"
           }
         ],
-        "status": "FAIL",
+        "status": "PASS",
         "tool_mode": "fake"
       },
       {
@@ -897,30 +903,42 @@
         "id": "live_goldens::golden_ac6_multilingual_spanish_response",
         "layer": "live_goldens",
         "platform_ids": {
-          "evaluation": "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
+          "conversation": "conversations/evaluation-5b4aad0c-d9e0-47ca-93de-e5e65ce8e5e9",
+          "evaluation": "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52",
+          "evaluation_result": "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52/results/01783947-dba3-4329-b86a-cf311c25599e",
+          "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+          "session_id": "sessions/evaluation-5b4aad0c-d9e0-47ca-93de-e5e65ce8e5e9"
         },
         "repeat_statuses": [
-          "FAIL",
+          "PASS",
           "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 12.27,
+            "duration_s": 211.47,
             "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
+            "message": "ok",
             "platform_ids": {
-              "evaluation": "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
+              "conversation": "conversations/evaluation-5b4aad0c-d9e0-47ca-93de-e5e65ce8e5e9",
+              "evaluation": "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52",
+              "evaluation_result": "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52/results/01783947-dba3-4329-b86a-cf311c25599e",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-5b4aad0c-d9e0-47ca-93de-e5e65ce8e5e9"
             },
             "repeat": 1,
-            "status": "FAIL",
+            "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 12.27,
+            "duration_s": 211.47,
             "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
+            "message": "[Semantic Similarity] expected=\u00a1Hola! En la temporada 2026 de F\u00f3rmula 1, nuestros pilotos de las Flechas de Plata en Mercedes-AMG Petronas son George Russell en el coche 63 y Kimi Antonelli en el coche 12. | actual=Mis pilotos son George Russell en el coche 63 y Kimi Antonelli en el 12. \u00bfQu\u00e9 m\u00e1s te ",
             "platform_ids": {
-              "evaluation": "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
+              "conversation": "conversations/evaluation-5ff77a76-402d-445c-9b87-25b538228f3c",
+              "evaluation": "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52",
+              "evaluation_result": "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52/results/861ec442-4f5f-4724-8ae0-2411ac663a94",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-5ff77a76-402d-445c-9b87-25b538228f3c"
             },
             "repeat": 2,
             "status": "FAIL",
@@ -935,122 +953,11 @@
         "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
         "layer": "live_goldens",
         "platform_ids": {
-          "evaluation": "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
-        },
-        "repeat_statuses": [
-          "FAIL",
-          "FAIL"
-        ],
-        "repeats": [
-          {
-            "duration_s": 12.27,
-            "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
-            "platform_ids": {
-              "evaluation": "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
-            },
-            "repeat": 1,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          },
-          {
-            "duration_s": 12.27,
-            "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
-            "platform_ids": {
-              "evaluation": "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
-            },
-            "repeat": 2,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          }
-        ],
-        "status": "FAIL",
-        "tool_mode": "fake"
-      },
-      {
-        "fake_verified": null,
-        "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
-        "layer": "live_goldens",
-        "platform_ids": {
-          "evaluation": "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
-        },
-        "repeat_statuses": [
-          "FAIL",
-          "FAIL"
-        ],
-        "repeats": [
-          {
-            "duration_s": 12.27,
-            "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
-            "platform_ids": {
-              "evaluation": "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
-            },
-            "repeat": 1,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          },
-          {
-            "duration_s": 12.27,
-            "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
-            "platform_ids": {
-              "evaluation": "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
-            },
-            "repeat": 2,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          }
-        ],
-        "status": "FAIL",
-        "tool_mode": "fake"
-      },
-      {
-        "fake_verified": null,
-        "id": "live_goldens::golden_official_mercedes_links",
-        "layer": "live_goldens",
-        "platform_ids": {
-          "evaluation": "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
-        },
-        "repeat_statuses": [
-          "FAIL",
-          "FAIL"
-        ],
-        "repeats": [
-          {
-            "duration_s": 12.27,
-            "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
-            "platform_ids": {
-              "evaluation": "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
-            },
-            "repeat": 1,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          },
-          {
-            "duration_s": 12.27,
-            "fake_verified": null,
-            "message": "RuntimeError: runEvaluation returned no evaluation_run name",
-            "platform_ids": {
-              "evaluation": "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
-            },
-            "repeat": 2,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          }
-        ],
-        "status": "FAIL",
-        "tool_mode": "fake"
-      },
-      {
-        "fake_verified": true,
-        "id": "live_sims::probe_french_across_handoff",
-        "layer": "live_sims",
-        "platform_ids": {
-          "conversation": "conversations/d371473d-9fd4-4208-958c-a660ff0afe7c",
-          "session_id": "sessions/d371473d-9fd4-4208-958c-a660ff0afe7c"
+          "conversation": "conversations/evaluation-e6854876-db09-419f-848a-288a434c0880",
+          "evaluation": "evaluations/a9e09bff-087c-4502-9483-c64021e66017",
+          "evaluation_result": "evaluations/a9e09bff-087c-4502-9483-c64021e66017/results/ba86bc3c-510c-402b-8950-b10f5eaf89f9",
+          "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+          "session_id": "sessions/evaluation-e6854876-db09-419f-848a-288a434c0880"
         },
         "repeat_statuses": [
           "PASS",
@@ -1058,24 +965,171 @@
         ],
         "repeats": [
           {
-            "duration_s": 6.25,
-            "fake_verified": true,
+            "duration_s": 211.47,
+            "fake_verified": null,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/d371473d-9fd4-4208-958c-a660ff0afe7c",
-              "session_id": "sessions/d371473d-9fd4-4208-958c-a660ff0afe7c"
+              "conversation": "conversations/evaluation-e6854876-db09-419f-848a-288a434c0880",
+              "evaluation": "evaluations/a9e09bff-087c-4502-9483-c64021e66017",
+              "evaluation_result": "evaluations/a9e09bff-087c-4502-9483-c64021e66017/results/ba86bc3c-510c-402b-8950-b10f5eaf89f9",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-e6854876-db09-419f-848a-288a434c0880"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 5.73,
+            "duration_s": 211.47,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-02c67797-1b4a-4218-b621-ea0c3c0d9fa2",
+              "evaluation": "evaluations/a9e09bff-087c-4502-9483-c64021e66017",
+              "evaluation_result": "evaluations/a9e09bff-087c-4502-9483-c64021e66017/results/3b2000e9-7f3c-4a6c-94ba-d8462345db52",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-02c67797-1b4a-4218-b621-ea0c3c0d9fa2"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": null,
+        "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-5e881400-3a4a-4127-a59d-8f1c52082d22",
+          "evaluation": "evaluations/e6ae0100-b912-49e0-b197-218241e87a32",
+          "evaluation_result": "evaluations/e6ae0100-b912-49e0-b197-218241e87a32/results/3a9aa55b-e213-4124-a81e-6b0344dd7255",
+          "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+          "session_id": "sessions/evaluation-5e881400-3a4a-4127-a59d-8f1c52082d22"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 211.47,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-5e881400-3a4a-4127-a59d-8f1c52082d22",
+              "evaluation": "evaluations/e6ae0100-b912-49e0-b197-218241e87a32",
+              "evaluation_result": "evaluations/e6ae0100-b912-49e0-b197-218241e87a32/results/3a9aa55b-e213-4124-a81e-6b0344dd7255",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-5e881400-3a4a-4127-a59d-8f1c52082d22"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 211.47,
+            "fake_verified": null,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-f7b3aa96-6291-41f1-88d8-d3ddf7c3bb53",
+              "evaluation": "evaluations/e6ae0100-b912-49e0-b197-218241e87a32",
+              "evaluation_result": "evaluations/e6ae0100-b912-49e0-b197-218241e87a32/results/b1e38fb2-f1bb-48ed-8887-803884c22182",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-f7b3aa96-6291-41f1-88d8-d3ddf7c3bb53"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": true,
+        "id": "live_goldens::golden_official_mercedes_links",
+        "layer": "live_goldens",
+        "platform_ids": {
+          "conversation": "conversations/evaluation-c25e2074-4fd9-4c10-9057-d0a267753ab9",
+          "evaluation": "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91",
+          "evaluation_result": "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91/results/aad766b7-f4ca-4b20-860a-8ae4c47dbe7e",
+          "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+          "session_id": "sessions/evaluation-c25e2074-4fd9-4c10-9057-d0a267753ab9"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 211.47,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/d855719d-e67a-4b94-8fbd-04cbcfaea043",
-              "session_id": "sessions/d855719d-e67a-4b94-8fbd-04cbcfaea043"
+              "conversation": "conversations/evaluation-c25e2074-4fd9-4c10-9057-d0a267753ab9",
+              "evaluation": "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91",
+              "evaluation_result": "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91/results/aad766b7-f4ca-4b20-860a-8ae4c47dbe7e",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-c25e2074-4fd9-4c10-9057-d0a267753ab9"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 211.47,
+            "fake_verified": true,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/evaluation-422d1502-f466-4810-9f6a-e27d7d8a237d",
+              "evaluation": "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91",
+              "evaluation_result": "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91/results/503166e8-2738-487f-a611-69c953543f60",
+              "evaluation_run": "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+              "session_id": "sessions/evaluation-422d1502-f466-4810-9f6a-e27d7d8a237d"
+            },
+            "repeat": 2,
+            "status": "PASS",
+            "tool_mode": "fake"
+          }
+        ],
+        "status": "PASS",
+        "tool_mode": "fake"
+      },
+      {
+        "fake_verified": true,
+        "id": "live_sims::probe_french_across_handoff",
+        "layer": "live_sims",
+        "platform_ids": {
+          "conversation": "conversations/6555d4c3-1479-440d-b85b-f9489014d61d",
+          "session_id": "sessions/6555d4c3-1479-440d-b85b-f9489014d61d"
+        },
+        "repeat_statuses": [
+          "PASS",
+          "PASS"
+        ],
+        "repeats": [
+          {
+            "duration_s": 6.26,
+            "fake_verified": true,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/6555d4c3-1479-440d-b85b-f9489014d61d",
+              "session_id": "sessions/6555d4c3-1479-440d-b85b-f9489014d61d"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 6.77,
+            "fake_verified": true,
+            "message": "ok",
+            "platform_ids": {
+              "conversation": "conversations/d34f4335-8840-4b0f-8048-631ba43287df",
+              "session_id": "sessions/d34f4335-8840-4b0f-8048-631ba43287df"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1090,8 +1144,8 @@
         "id": "live_sims::probe_handoff_memory_tokyo",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/7caf22a3-0a4b-4420-8093-16b531c6cac9",
-          "session_id": "sessions/7caf22a3-0a4b-4420-8093-16b531c6cac9"
+          "conversation": "conversations/041ef958-f8af-4bf6-a0e0-52471cadefa3",
+          "session_id": "sessions/041ef958-f8af-4bf6-a0e0-52471cadefa3"
         },
         "repeat_statuses": [
           "PASS",
@@ -1099,24 +1153,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 10.69,
+            "duration_s": 16.06,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/7caf22a3-0a4b-4420-8093-16b531c6cac9",
-              "session_id": "sessions/7caf22a3-0a4b-4420-8093-16b531c6cac9"
+              "conversation": "conversations/041ef958-f8af-4bf6-a0e0-52471cadefa3",
+              "session_id": "sessions/041ef958-f8af-4bf6-a0e0-52471cadefa3"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 10.37,
+            "duration_s": 13.7,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/ccc1d73c-2533-4845-9ede-6c6e6ac25fbf",
-              "session_id": "sessions/ccc1d73c-2533-4845-9ede-6c6e6ac25fbf"
+              "conversation": "conversations/2dc809e2-e39e-48a1-9bd7-f0d7f0928932",
+              "session_id": "sessions/2dc809e2-e39e-48a1-9bd7-f0d7f0928932"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1131,8 +1185,8 @@
         "id": "live_sims::probe_timezone_gate_sydney",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/fdf513dd-06d7-4a29-b4c0-817149e6075b",
-          "session_id": "sessions/fdf513dd-06d7-4a29-b4c0-817149e6075b"
+          "conversation": "conversations/e78e4a21-8118-4a14-a36f-aa15866f5c9b",
+          "session_id": "sessions/e78e4a21-8118-4a14-a36f-aa15866f5c9b"
         },
         "repeat_statuses": [
           "PASS",
@@ -1140,24 +1194,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 5.91,
+            "duration_s": 7.03,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/fdf513dd-06d7-4a29-b4c0-817149e6075b",
-              "session_id": "sessions/fdf513dd-06d7-4a29-b4c0-817149e6075b"
+              "conversation": "conversations/e78e4a21-8118-4a14-a36f-aa15866f5c9b",
+              "session_id": "sessions/e78e4a21-8118-4a14-a36f-aa15866f5c9b"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 6.22,
+            "duration_s": 7.39,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/73c9a88a-7231-4f3e-8d41-73f58ad52788",
-              "session_id": "sessions/73c9a88a-7231-4f3e-8d41-73f58ad52788"
+              "conversation": "conversations/f822305b-d6a4-444e-b4a5-a9bf4d31e4c5",
+              "session_id": "sessions/f822305b-d6a4-444e-b4a5-a9bf4d31e4c5"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1172,36 +1226,36 @@
         "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/c0583a48-9ba2-4d30-ad4d-6c32341655ee",
-          "session_id": "sessions/c0583a48-9ba2-4d30-ad4d-6c32341655ee"
+          "conversation": "conversations/ee28261c-0ff6-41ce-be6f-6128c68c0c3c",
+          "session_id": "sessions/ee28261c-0ff6-41ce-be6f-6128c68c0c3c"
         },
         "repeat_statuses": [
-          "FAIL",
-          "PASS"
+          "PASS",
+          "FAIL"
         ],
         "repeats": [
           {
-            "duration_s": 4.16,
-            "fake_verified": true,
-            "message": "[race_fact_value_mismatch:TR-10, TR-01] time '10 AM' is in no tool response (tool times: 02:00, 03:00, 04:30, 07:00, 08:00, 23:30): 'For the Bahrain Grand Prix, qualifying starts on Saturday at 10 AM Vienna time.'",
-            "platform_ids": {
-              "conversation": "conversations/c0583a48-9ba2-4d30-ad4d-6c32341655ee",
-              "session_id": "sessions/c0583a48-9ba2-4d30-ad4d-6c32341655ee"
-            },
-            "repeat": 1,
-            "status": "FAIL",
-            "tool_mode": "fake"
-          },
-          {
-            "duration_s": 4.28,
+            "duration_s": 4.85,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/3f168e35-cda3-47fe-999b-d8ac801c7033",
-              "session_id": "sessions/3f168e35-cda3-47fe-999b-d8ac801c7033"
+              "conversation": "conversations/ee28261c-0ff6-41ce-be6f-6128c68c0c3c",
+              "session_id": "sessions/ee28261c-0ff6-41ce-be6f-6128c68c0c3c"
+            },
+            "repeat": 1,
+            "status": "PASS",
+            "tool_mode": "fake"
+          },
+          {
+            "duration_s": 5.42,
+            "fake_verified": true,
+            "message": "[race_fact_value_mismatch:TR-10, TR-01] time '10 AM' is in no tool response (tool times: 02:00, 03:00, 04:30, 07:00, 08:00, 23:30): 'For the Bahrain Grand Prix, qualifying starts on Saturday at 10 AM Vienna time.'",
+            "platform_ids": {
+              "conversation": "conversations/c5de02a3-3869-4d9d-8b9d-05b8d1feb3cb",
+              "session_id": "sessions/c5de02a3-3869-4d9d-8b9d-05b8d1feb3cb"
             },
             "repeat": 2,
-            "status": "PASS",
+            "status": "FAIL",
             "tool_mode": "fake"
           }
         ],
@@ -1213,8 +1267,8 @@
         "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/baab042f-2ed7-41a6-b893-1862fb824013",
-          "session_id": "sessions/baab042f-2ed7-41a6-b893-1862fb824013"
+          "conversation": "conversations/355efab0-1114-4e5f-8608-b1273d3c4a3f",
+          "session_id": "sessions/355efab0-1114-4e5f-8608-b1273d3c4a3f"
         },
         "repeat_statuses": [
           "FAIL",
@@ -1222,24 +1276,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 56.6,
+            "duration_s": 49.6,
             "fake_verified": true,
-            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the agent did not leak internal agent names or raw code, it also did not explicitly disclose to the user that the race schedule i",
+            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the agent did not leak internal agent names or raw code in its conversational output, it failed to disclose that 'race schedule i",
             "platform_ids": {
-              "conversation": "conversations/baab042f-2ed7-41a6-b893-1862fb824013",
-              "session_id": "sessions/baab042f-2ed7-41a6-b893-1862fb824013"
+              "conversation": "conversations/355efab0-1114-4e5f-8608-b1273d3c4a3f",
+              "session_id": "sessions/355efab0-1114-4e5f-8608-b1273d3c4a3f"
             },
             "repeat": 1,
             "status": "FAIL",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 59.5,
+            "duration_s": 75.6,
             "fake_verified": true,
-            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the tool response contained a `freshness_disclaimer` stating 'Race schedule, session times, and weather reflect the latest availa",
+            "message": "[judge] NOT MET: The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code \u2014 While the agent did not leak internal agent names or raw code, it did not explicitly disclose that the race schedule information is bas",
             "platform_ids": {
-              "conversation": "conversations/3bc65640-dc00-4b56-a39c-d3be8f7d3c1b",
-              "session_id": "sessions/3bc65640-dc00-4b56-a39c-d3be8f7d3c1b"
+              "conversation": "conversations/3649dbd0-372a-4144-8253-cf6631fd0742",
+              "session_id": "sessions/3649dbd0-372a-4144-8253-cf6631fd0742"
             },
             "repeat": 2,
             "status": "FAIL",
@@ -1254,8 +1308,8 @@
         "id": "live_sims::sim_ac2_mercedes_standings_priority",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/79c7b1cd-779b-4c32-ba94-301b7795524b",
-          "session_id": "sessions/79c7b1cd-779b-4c32-ba94-301b7795524b"
+          "conversation": "conversations/d008e88e-14f9-496e-8c7b-c0ff93065e70",
+          "session_id": "sessions/d008e88e-14f9-496e-8c7b-c0ff93065e70"
         },
         "repeat_statuses": [
           "PASS",
@@ -1263,24 +1317,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 62.9,
+            "duration_s": 40.6,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/79c7b1cd-779b-4c32-ba94-301b7795524b",
-              "session_id": "sessions/79c7b1cd-779b-4c32-ba94-301b7795524b"
+              "conversation": "conversations/d008e88e-14f9-496e-8c7b-c0ff93065e70",
+              "session_id": "sessions/d008e88e-14f9-496e-8c7b-c0ff93065e70"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 28.9,
+            "duration_s": 52.4,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/dccb03ee-0363-41ab-8f97-f119303c81b5",
-              "session_id": "sessions/dccb03ee-0363-41ab-8f97-f119303c81b5"
+              "conversation": "conversations/b4832e1b-f605-4d5f-9d92-2bc2f01d029b",
+              "session_id": "sessions/b4832e1b-f605-4d5f-9d92-2bc2f01d029b"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1295,8 +1349,8 @@
         "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
         "layer": "live_sims",
         "platform_ids": {
-          "conversation": "conversations/a88f561b-d22b-4614-8802-dd8a4c5d3d49",
-          "session_id": "sessions/a88f561b-d22b-4614-8802-dd8a4c5d3d49"
+          "conversation": "conversations/2d25d47f-feda-41af-8a34-ef405763b0ad",
+          "session_id": "sessions/2d25d47f-feda-41af-8a34-ef405763b0ad"
         },
         "repeat_statuses": [
           "PASS",
@@ -1304,24 +1358,24 @@
         ],
         "repeats": [
           {
-            "duration_s": 38.7,
+            "duration_s": 41.7,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/a88f561b-d22b-4614-8802-dd8a4c5d3d49",
-              "session_id": "sessions/a88f561b-d22b-4614-8802-dd8a4c5d3d49"
+              "conversation": "conversations/2d25d47f-feda-41af-8a34-ef405763b0ad",
+              "session_id": "sessions/2d25d47f-feda-41af-8a34-ef405763b0ad"
             },
             "repeat": 1,
             "status": "PASS",
             "tool_mode": "fake"
           },
           {
-            "duration_s": 32.7,
+            "duration_s": 44.4,
             "fake_verified": true,
             "message": "ok",
             "platform_ids": {
-              "conversation": "conversations/11400de9-6b65-4e0a-a7b0-725e36cafdee",
-              "session_id": "sessions/11400de9-6b65-4e0a-a7b0-725e36cafdee"
+              "conversation": "conversations/f79c6b27-a25b-49f8-8135-f632e934fcb8",
+              "session_id": "sessions/f79c6b27-a25b-49f8-8135-f632e934fcb8"
             },
             "repeat": 2,
             "status": "PASS",
@@ -1347,14 +1401,14 @@
     "tool_mode": "fake",
     "verdict": "FAIL"
   },
-  "generated_at": "2026-09-30T18:30:30Z",
-  "key": "ci-36757855588-1",
+  "generated_at": "2026-09-30T18:53:19Z",
+  "key": "ci-36760187587-1",
   "layers": {
     "live_goldens": {
-      "fail": 5,
+      "fail": 1,
       "infra_error": 0,
-      "pass": 0,
-      "pass_rate": 0.0,
+      "pass": 4,
+      "pass_rate": 0.8,
       "skipped": 0
     },
     "live_sims": {
@@ -1372,20 +1426,18 @@
       "skipped": 1
     }
   },
-  "pass_rate": 0.8293,
+  "pass_rate": 0.9268,
   "reasons": [
     "baseline run ci-36752635788-1 (f340a2a49c17dca85658a5acca5c207d86a2ab73)",
-    "5 test(s) passed in baseline but fail now (max 1): live_goldens::golden_ac3_mercedes_history_qualified, live_goldens::golden_ac6_multilingual_spanish_response, live_goldens::golden_ac8_identity_and_non_impersonation, live_goldens::golden_ac9_brand_safe_rivalry_humor, live_goldens::golden_official_mercedes_links",
-    "overall pass rate 82.9% < floor 95.0%",
-    "live_goldens pass rate 0.0% < floor 80.0%",
-    "overall pass rate 82.9% < baseline 95.1% - 10pp"
+    "overall pass rate 92.7% < floor 95.0%",
+    "tolerated new failures vs baseline: live_goldens::golden_ac6_multilingual_spanish_response"
   ],
   "repo_url": "https://github.com/snehsm007/totto-agent",
-  "run_id": "ci-36757855588-1",
-  "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36757855588",
+  "run_id": "ci-36760187587-1",
+  "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36760187587",
   "schema": "totto-dashboard/v1",
   "source": "ci-gate",
-  "started_at": "2026-09-30T18:21:16Z",
+  "started_at": "2026-09-30T18:40:38Z",
   "target": "staging",
   "tests": [
     {
@@ -1814,13 +1866,17 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/fb7f5595-257d-477b-90a7-493e2490e419"
+        "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b",
+        "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+        "evaluations/9f89bf21-4158-4aad-be36-c97fafb6440b/results/4fd7f56f-5657-4df7-ad65-3081e8ed2201",
+        "conversations/evaluation-afa6d746-0f17-4994-b993-d72865cfffbf",
+        "sessions/evaluation-afa6d746-0f17-4994-b993-d72865cfffbf"
       ],
       "repeats": [
-        "FAIL",
-        "FAIL"
+        "PASS",
+        "PASS"
       ],
-      "status": "FAIL",
+      "status": "PASS",
       "tool_mode": "fake"
     },
     {
@@ -1829,10 +1885,14 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/efc31a46-6b46-4aa9-936e-f42b69706a59"
+        "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52",
+        "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+        "evaluations/de02e8b3-6d39-4dd6-9160-e0c5d8501d52/results/01783947-dba3-4329-b86a-cf311c25599e",
+        "conversations/evaluation-5b4aad0c-d9e0-47ca-93de-e5e65ce8e5e9",
+        "sessions/evaluation-5b4aad0c-d9e0-47ca-93de-e5e65ce8e5e9"
       ],
       "repeats": [
-        "FAIL",
+        "PASS",
         "FAIL"
       ],
       "status": "FAIL",
@@ -1844,13 +1904,17 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/8816bdfa-f6a0-46fd-aac3-3626f91b0dc8"
+        "evaluations/a9e09bff-087c-4502-9483-c64021e66017",
+        "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+        "evaluations/a9e09bff-087c-4502-9483-c64021e66017/results/ba86bc3c-510c-402b-8950-b10f5eaf89f9",
+        "conversations/evaluation-e6854876-db09-419f-848a-288a434c0880",
+        "sessions/evaluation-e6854876-db09-419f-848a-288a434c0880"
       ],
       "repeats": [
-        "FAIL",
-        "FAIL"
+        "PASS",
+        "PASS"
       ],
-      "status": "FAIL",
+      "status": "PASS",
       "tool_mode": "fake"
     },
     {
@@ -1859,28 +1923,36 @@
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/dac5c889-d789-4ac9-be61-de0e59492e19"
+        "evaluations/e6ae0100-b912-49e0-b197-218241e87a32",
+        "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+        "evaluations/e6ae0100-b912-49e0-b197-218241e87a32/results/3a9aa55b-e213-4124-a81e-6b0344dd7255",
+        "conversations/evaluation-5e881400-3a4a-4127-a59d-8f1c52082d22",
+        "sessions/evaluation-5e881400-3a4a-4127-a59d-8f1c52082d22"
       ],
       "repeats": [
-        "FAIL",
-        "FAIL"
+        "PASS",
+        "PASS"
       ],
-      "status": "FAIL",
+      "status": "PASS",
       "tool_mode": "fake"
     },
     {
-      "fake_verified": null,
+      "fake_verified": true,
       "id": "live_goldens::golden_official_mercedes_links",
       "layer": "live_goldens",
       "message": null,
       "platform_ids": [
-        "evaluations/3b57e7f7-3a71-4c78-ad4d-81786cd361d7"
+        "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91",
+        "evaluationRuns/55033da1-5c17-4687-9389-b51145ea0245",
+        "evaluations/7dabd0eb-59e0-4af4-8c27-c8baa1f1ee91/results/aad766b7-f4ca-4b20-860a-8ae4c47dbe7e",
+        "conversations/evaluation-c25e2074-4fd9-4c10-9057-d0a267753ab9",
+        "sessions/evaluation-c25e2074-4fd9-4c10-9057-d0a267753ab9"
       ],
       "repeats": [
-        "FAIL",
-        "FAIL"
+        "PASS",
+        "PASS"
       ],
-      "status": "FAIL",
+      "status": "PASS",
       "tool_mode": "fake"
     },
     {
@@ -1889,8 +1961,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/d371473d-9fd4-4208-958c-a660ff0afe7c",
-        "conversations/d371473d-9fd4-4208-958c-a660ff0afe7c"
+        "sessions/6555d4c3-1479-440d-b85b-f9489014d61d",
+        "conversations/6555d4c3-1479-440d-b85b-f9489014d61d"
       ],
       "repeats": [
         "PASS",
@@ -1905,8 +1977,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/7caf22a3-0a4b-4420-8093-16b531c6cac9",
-        "conversations/7caf22a3-0a4b-4420-8093-16b531c6cac9"
+        "sessions/041ef958-f8af-4bf6-a0e0-52471cadefa3",
+        "conversations/041ef958-f8af-4bf6-a0e0-52471cadefa3"
       ],
       "repeats": [
         "PASS",
@@ -1921,8 +1993,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/fdf513dd-06d7-4a29-b4c0-817149e6075b",
-        "conversations/fdf513dd-06d7-4a29-b4c0-817149e6075b"
+        "sessions/e78e4a21-8118-4a14-a36f-aa15866f5c9b",
+        "conversations/e78e4a21-8118-4a14-a36f-aa15866f5c9b"
       ],
       "repeats": [
         "PASS",
@@ -1937,12 +2009,12 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/c0583a48-9ba2-4d30-ad4d-6c32341655ee",
-        "conversations/c0583a48-9ba2-4d30-ad4d-6c32341655ee"
+        "sessions/ee28261c-0ff6-41ce-be6f-6128c68c0c3c",
+        "conversations/ee28261c-0ff6-41ce-be6f-6128c68c0c3c"
       ],
       "repeats": [
-        "FAIL",
-        "PASS"
+        "PASS",
+        "FAIL"
       ],
       "status": "FAIL",
       "tool_mode": "fake"
@@ -1953,8 +2025,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/baab042f-2ed7-41a6-b893-1862fb824013",
-        "conversations/baab042f-2ed7-41a6-b893-1862fb824013"
+        "sessions/355efab0-1114-4e5f-8608-b1273d3c4a3f",
+        "conversations/355efab0-1114-4e5f-8608-b1273d3c4a3f"
       ],
       "repeats": [
         "FAIL",
@@ -1969,8 +2041,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/79c7b1cd-779b-4c32-ba94-301b7795524b",
-        "conversations/79c7b1cd-779b-4c32-ba94-301b7795524b"
+        "sessions/d008e88e-14f9-496e-8c7b-c0ff93065e70",
+        "conversations/d008e88e-14f9-496e-8c7b-c0ff93065e70"
       ],
       "repeats": [
         "PASS",
@@ -1985,8 +2057,8 @@
       "layer": "live_sims",
       "message": null,
       "platform_ids": [
-        "sessions/a88f561b-d22b-4614-8802-dd8a4c5d3d49",
-        "conversations/a88f561b-d22b-4614-8802-dd8a4c5d3d49"
+        "sessions/2d25d47f-feda-41af-8a34-ef405763b0ad",
+        "conversations/2d25d47f-feda-41af-8a34-ef405763b0ad"
       ],
       "repeats": [
         "PASS",
@@ -1996,7 +2068,7 @@
       "tool_mode": "fake"
     }
   ],
-  "tests_passed": 34,
+  "tests_passed": 38,
   "tests_total": 42,
   "thresholds": {
     "aggregation": "strict majority of decided repeats (ties FAIL; INFRA_ERROR/SKIPPED repeats ignored)",
