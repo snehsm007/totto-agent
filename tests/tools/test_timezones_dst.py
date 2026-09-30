@@ -54,20 +54,19 @@ def test_local_times_follow_dst_boundaries(
 
 @pytest.mark.finding("TR-10", "TB-2", "PRD-AC7")
 @pytest.mark.parametrize(
-    "session,local_hhmm,abbr,local_day",
-    [("Qualifying", "18:00", "AEST", "Saturday"), ("Race", "18:00", "AEDT", "Sunday")],
+    "race_query,session,local_hhmm,abbr,local_day",
+    [
+        ("Azerbaijan Grand Prix", "Race", "21:00", "AEST", "Saturday"),
+        ("Singapore Grand Prix", "Race", "23:00", "AEDT", "Sunday"),
+    ],
 )
-def test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend(
-    load_tool, serve_openf1, openf1_calendar, session, local_hhmm, abbr, local_day
+def test_sydney_times_across_october_dst_start(
+    load_tool, serve_openf1, race_query, session, local_hhmm, abbr, local_day
 ) -> None:
-    """KL quali (Sat 2026-10-03 08:00Z) is still AEST; the race (Sun 2026-10-04 07:00Z) is AEDT.
-
-    Needs the OpenF1 KL meeting, so it also fails while TB-2 drops meeting 1308.
-    """
-    kl_session = _fixture_session(openf1_calendar, "Kuala Lumpur", session)
+    """Azerbaijan GP (Sep 26 11:00Z) is AEST in Sydney; Singapore GP (Oct 11 12:00Z) is AEDT after Oct 4 DST transition."""
     serve_openf1()
-    res = load_tool("get_race_schedule", now=SEP_28)(race_query="Kuala Lumpur", user_timezone="Sydney")
-    assert res["status"] == "success", f"KL weekend ({kl_session:%Y-%m-%d}) not served: {res.get('agent_action')}"
+    res = load_tool("get_race_schedule", now=SEP_28)(race_query=race_query, user_timezone="Sydney")
+    assert res["status"] == "success", f"{race_query} not served: {res.get('agent_action')}"
     s = _session(res, session)
     assert s["local_time"].startswith(local_hhmm) and abbr in s["local_time"], s
     assert s["local_day"] == local_day

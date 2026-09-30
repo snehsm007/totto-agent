@@ -309,6 +309,7 @@ def get_driver_standings(
             "1-2 finish at the Italian Grand Prix in Monza where Kimi Antonelli won P1 and George Russell "
             "took P2—extending Mercedes-AMG Petronas F1 Team's Constructors' lead to 538 points."
         ),
+        "source": "live" if is_live_api else "fallback",
         "data_source": data_source,
         "freshness_disclaimer": (
             "Standings and recent results reflect the latest available structured 2026 season data "

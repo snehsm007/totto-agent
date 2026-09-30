@@ -50,6 +50,7 @@ class TestCatalogueCompleteness:
             "disclosure_mock",
             "disclosure_freshness",
             "session_end_without_answer",
+            "repetitive_boilerplate",
         }
         assert set(grader.CATALOGUE.keys()) == expected
         for name, spec in grader.CATALOGUE.items():
@@ -494,6 +495,94 @@ class TestPastRaceAndDisclosuresAndEscalation:
         res = grader.grade(conv, _ctx())
         assert "fail" in _statuses(res, "session_end_without_answer")
         assert "RC-02" in _findings_for(res, "session_end_without_answer")
+
+    def test_live_provenance_schedule_needs_no_snapshot_disclaimer(self):
+        resp_live = {
+            "status": "success",
+            "source": "live",
+            "data_source": "OpenF1 API (https://api.openf1.org/v1 - Live 2026 Season)",
+            "race_name": "Singapore Grand Prix",
+            "dates": "October 9 - October 11, 2026",
+            "sessions": [{"session": "Race", "utc_time": "2026-10-11 12:00 UTC"}],
+            "typical_weather": {"source": "typical_circuit_climate_profile"},
+            "freshness_disclaimer": "Race schedule reflects the latest available structured 2026 season data.",
+        }
+        conv = model.conversation(
+            "live_sched",
+            [
+                model.user_turn("When is the next race?"),
+                model.agent_turn(
+                    ["The Singapore Grand Prix runs from October 9 to October 11, with the race at 12:00 UTC."],
+                    tool_calls=[
+                        model.tool_call("get_race_schedule", {"race_query": "next"}, resp_live, repr(resp_live))
+                    ],
+                ),
+            ],
+        )
+        res = grader.grade(conv, _ctx())
+        assert "fail" not in _statuses(res, "disclosure_freshness")
+
+
+class TestRepetitiveBoilerplate:
+    def test_repeated_self_intro_across_turns_fails(self):
+        conv = model.conversation(
+            "rep_intro",
+            [
+                model.user_turn("<welcome>"),
+                model.agent_turn(["Hello! I am Totto, Mercedes F1 Fan Agent. How can I help you?"], greeting=True),
+                model.user_turn("Hello Totto"),
+                model.agent_turn(["Hello! I am Totto, Mercedes F1 Fan Agent, the AI assistant for Mercedes fans."]),
+            ],
+        )
+        res = grader.grade(conv, _ctx())
+        assert "fail" in _statuses(res, "repetitive_boilerplate")
+
+    def test_self_intro_on_explicit_identity_question_passes(self):
+        conv = model.conversation(
+            "explicit_id",
+            [
+                model.user_turn("<welcome>"),
+                model.agent_turn(["Hello! I am Totto, Mercedes F1 Fan Agent."], greeting=True),
+                model.user_turn("Wait, who are you? Are you Toto Wolff?"),
+                model.agent_turn(["I am Totto, the fictional AI Mercedes F1 Fan Agent, not the real Toto Wolff."]),
+            ],
+        )
+        res = grader.grade(conv, _ctx())
+        assert _statuses(res, "repetitive_boilerplate") == ["pass"]
+
+    def test_repeated_according_to_latest_available_mantra_fails(self):
+        conv = model.conversation(
+            "rep_mantra",
+            [
+                model.user_turn("When is the next race?"),
+                model.agent_turn(["According to the latest-available 2026 data, the Singapore Grand Prix is next."]),
+                model.user_turn("I am in New York."),
+                model.agent_turn(["According to the latest-available 2026 data, the race starts at 8 AM EDT."]),
+            ],
+        )
+        res = grader.grade(conv, _ctx())
+        assert "fail" in _statuses(res, "repetitive_boilerplate")
+
+    def test_natural_six_turn_conversation_passes_repetitive_boilerplate(self):
+        conv = model.conversation(
+            "natural_call",
+            [
+                model.user_turn("<welcome>"),
+                model.agent_turn(["Hello and welcome to the Silver Arrows paddock! I am Totto, your Mercedes F1 Fan Agent."], greeting=True),
+                model.user_turn("Hello Totto"),
+                model.agent_turn(["Great to have you with us! What is on your mind for the Silver Arrows?"]),
+                model.user_turn("When is the next race?"),
+                model.agent_turn(["Next up on the 2026 calendar is the Singapore Grand Prix from October 9 to October 11. Which city or timezone are you watching from?"]),
+                model.user_turn("I'm in New York"),
+                model.agent_turn(["For New York, qualifying is on Saturday at 9 AM EDT and Sunday's race starts at 8 AM EDT."]),
+                model.user_turn("How has your day been so far?"),
+                model.agent_turn(["Busy as ever in Brackley reviewing W17 simulator data with George and Kimi, and my headset is still in one piece!"]),
+                model.user_turn("What is your favorite breakfast?"),
+                model.agent_turn(["Nothing beats a crisp slice of pumpernickel toast—toasted until it snaps like a carbon-fiber front wing—with a strong espresso!"]),
+            ],
+        )
+        res = grader.grade(conv, _ctx())
+        assert _statuses(res, "repetitive_boilerplate") == ["pass"]
 
 
 class TestAdaptersAndCombine:

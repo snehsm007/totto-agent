@@ -12,7 +12,7 @@
 > [!NOTE]
 > **Historical Baseline Defect Log vs. Remediated `HEAD`**:
 > - **Why This File Exists**: During the initial diagnostic audit phase (`20260929T001319Z_live_fd9be8b`), we evaluated the unmodified baseline agent before applying any code or prompt fixes so every original defect (`TR-01`..`TR-10`, `TB-1`..`TB-5`, `RC-01`..`RC-13`, `NEW-1`..`NEW-5`) could be captured with verbatim tool payloads, transcript excerpts, and server resource IDs.
-> - **Current Status at `HEAD`**: Every defect documented in this historical baseline report has since been remediated and verified in `cxas_app/`. At `HEAD`, the offline verification suite passes **410/410 checks (`100.0%`)**, kills **15/15 fault-injection mutants (`100.0%`)**, and passes the cloud staging evaluation gate (`96.2%` overall). See [`README.md`](../README.md) and [`docs/architecture.md`](architecture.md) for the current production state.
+> - **Current Status at `HEAD`**: Every defect documented in this historical baseline report has since been remediated and verified in `cxas_app/`. At `HEAD`, the offline verification suite passes **421/421 checks (`100.0%`)**, kills **16/16 fault-injection mutants (`100.0%`)**, runs on **`gemini-3.1-flash-live`** with expressive **`*-Chirp3-HD-Charon`** voices (`audioProcessingConfig`), filters out the mislabeled OpenF1 placeholder `meeting_key=1308` (`Bahrain Grand Prix` at `Sepang`/`Kuala Lumpur`) so the 2026 calendar has 22 clean rounds (`Singapore Grand Prix` `1296` next on `2026-09-28`/`2026-09-30`), and passes the cloud staging evaluation gate. See [`README.md`](../README.md) and [`docs/architecture.md`](architecture.md) for the current production state.
 
 ---
 
@@ -66,12 +66,12 @@
 
 ---
 
-### `TB-2` — Hardcoded `1279..1302` Meeting Key Filter Drops OpenF1 Meeting `1308` (`Kuala Lumpur`)
-- **Severity**: High (Wrong "Next Race" After 2026-09-28)
+### `TB-2` — Mislabeled OpenF1 Meeting `1308` (`Bahrain Grand Prix` at `Kuala Lumpur` / `Sepang`, Oct 2–4, 2026)
+- **Severity**: High (Corrupted Upstream OpenF1 Placeholder Entry)
 - **Failing Tests**:
   - Live: `live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308`
-  - Offline: `tools::test_race_schedule_defects.py::test_next_race_includes_kuala_lumpur_when_openf1_payload_contains_it`
-  - Offline: `tools::test_race_schedule_defects.py::test_kuala_lumpur_query_resolves_to_openf1_meeting`
+  - Offline: `tools::test_race_schedule_defects.py::test_next_race_excludes_mislabeled_kuala_lumpur_1308_placeholder`
+  - Offline: `tools::test_race_schedule_defects.py::test_kuala_lumpur_query_returns_error_not_mislabeled_bahrain`
   - Offline: `dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-payload]`
   - Offline: `dates::test_next_race_vs_oracle.py::test_next_race_matches_oracle[2026-09-28-snapshot]`
 - **Platform ID**:
@@ -85,7 +85,7 @@
     "agent_action": "CLARIFY_RACE_NAME"
   }
   ```
-- **Root Cause**: `cxas_app/tools/get_race_schedule/python_function/python_code.py` filters OpenF1 `/v1/meetings?year=2026` with `1279 <= mk <= 1302`, silently discarding `meeting_key=1308` (Kuala Lumpur, Oct 2–4, 2026) and jumping straight to `meeting_key=1296` (Singapore Grand Prix, Oct 9–11, 2026).
+- **Root Cause & Resolution**: OpenF1 `/v1/meetings?year=2026` contains a corrupted placeholder record `meeting_key=1308` labeled `meeting_name="Bahrain Grand Prix"` with `location="Kuala Lumpur"`, `country_name="Malaysia"`, and `circuit_short_name="Sepang"` for Oct 2–4, 2026 (while the real 2026 Bahrain GP `1282` was cancelled and Malaysia is not on the 2026 F1 calendar). Including `1308` caused the agent to tell fans on `2026-09-28`–`2026-10-04` that the next race was *"the Bahrain Grand Prix at Sepang International Circuit in Kuala Lumpur"*. At `HEAD`, both `get_race_schedule` (real + fake) and `totto_suite/oracle.py` (`is_mislabeled_placeholder`) explicitly filter out `meeting_key == 1308` (and any `"Bahrain"` meeting located at `"Sepang"`/`"Kuala Lumpur"`), yielding a clean 22-round 2026 calendar where the next race after Round 15 Azerbaijan GP (`1295`, Sep 24–26) is Round 16 **`Singapore Grand Prix`** (`1296`, Oct 9–11, 2026).
 
 ---
 

@@ -1,6 +1,6 @@
 # Inspecting Conversations, Transcripts & Cloud Snapshots (`docs/conversation_inspection.md`)
 
-This guide explains how to inspect multi-turn conversations, understand how our **17-check deterministic transcript grader** scores agent responses, verify cloud resource IDs (`evaluationRuns/<uuid>`, `conversations/<uuid>`, and `versions/<uuid>`), and compare before/after deployment snapshots.
+This guide explains how to inspect multi-turn conversations, understand how our **18-check deterministic transcript grader** scores agent responses, verify cloud resource IDs (`evaluationRuns/<uuid>`, `conversations/<uuid>`, and `versions/<uuid>`), and compare before/after deployment snapshots.
 
 ---
 
@@ -13,7 +13,7 @@ All evaluation history and captured transcripts are stored in [`evals/history/`]
 | [`evals/history/index.json`](../evals/history/index.json) | Master chronological index of all recorded runs (pre-CI local runs + cloud staging `ci` runs), with commit SHAs, timestamps, overall pass rates, and per-layer counts. |
 | [`evals/history/runs/`](../evals/history/runs) | Schema-v1 JSON run records (`<run_id>.json`), including per-layer pass rates, gate status (`PASS`/`FAIL`/`INCONCLUSIVE`), individual check results, latencies, and scrubbed app-relative resource IDs. |
 | [`evals/history/artifacts/`](../evals/history/artifacts) | Per-run detailed cloud artifacts (`evals/history/artifacts/<run_id>/`), including `verify_ids.json` and raw per-scenario evaluation outputs. |
-| [`evals/history/regrade/regrade_report.md`](../evals/history/regrade/regrade_report.md) | Side-by-side re-grade report across all **6 recorded transcript files** (**101 conversations** total in [`evals/results/`](../evals/results)), comparing `scripts/analyze_transcripts.py` against our 17-check deterministic grader (`evals/history/regrade/regrade_results.json`). |
+| [`evals/history/regrade/regrade_report.md`](../evals/history/regrade/regrade_report.md) | Side-by-side re-grade report across all **6 recorded transcript files** (**101 conversations** total in [`evals/results/`](../evals/results)), comparing `scripts/analyze_transcripts.py` against our 18-check deterministic grader (`evals/history/regrade/regrade_results.json`). |
 | [`evals/results/`](../evals/results) | The 6 historical multi-turn transcript JSON archives (`probes_text_20260928_183505.json`, `sims_repo_text_20260928_184131.json`, `sims_audiocheck_audio_20260928_184320.json`, `sims_baseline1831_on3flash_text_20260928_191853.json`, `goldens_3flash_text_20260928_205030.json`, and `probes_text_20260928_202346.json` in `scripts/results/`). |
 
 ---
@@ -44,18 +44,18 @@ When you (or the `staging-gate` CI job) run:
 
 ---
 
-## 3. Regrading Captured Transcripts Offline (17 Deterministic Checks)
+## 3. Regrading Captured Transcripts Offline (18 Deterministic Checks)
 
-Every conversation turn is graded by [`totto_suite/grader/checks.py`](../totto_suite/grader/checks.py) and [`totto_suite/grader/regrade.py`](../totto_suite/grader/regrade.py) across **17 deterministic checks** (covering code leaks `TR-02`, dead-air handoffs `TR-03`, ungrounded race/order facts `TR-01`, internal agent name leaks `TR-05`, language drift `TR-04`, Toto Wolff impersonation `AC-8`, rival insults `AC-9`, PCI credit card echoes `NEW-3`, past-race tense `TB-5`, data freshness disclosures `TR-09`, and official ticketing/merch links `AC-4`/`RC-01`).
+Every conversation turn is graded by [`totto_suite/grader/checks.py`](../totto_suite/grader/checks.py) and [`totto_suite/grader/regrade.py`](../totto_suite/grader/regrade.py) across **18 deterministic checks** (covering code leaks `TR-02`, dead-air handoffs `TR-03`, ungrounded race/order facts `TR-01`, internal agent name leaks `TR-05`, language drift `TR-04`, Toto Wolff impersonation `AC-8`, rival insults `AC-9`, PCI credit card echoes `NEW-3`, past-race tense `TB-5`, data freshness disclosures `TR-09`, repetitive boilerplate mantras/self-introductions `NEW-2`/`RC-06`, and official ticketing/merch links `AC-4`/`RC-01`).
 
 In [`totto_suite/grader/combine.py`](../totto_suite/grader/combine.py), these deterministic checks act as a **hard gate over the LLM judge**: even if the platform's LLM judge marks an expectation as `PASS`, any deterministic failure overrides the turn status to `FAIL`.
 
 ### Commands to Run the Offline Grader & Transcript Analyzer
 ```bash
-# 1. Run all 8 offline verification layers (410 checks, including 'grader' and 'regrade' across all 101 transcripts)
+# 1. Run all 8 offline verification layers (421 checks, including 'grader' and 'regrade' across all 101 transcripts)
 .venv/bin/python -m totto_suite offline --no-record
 
-# 2. Run ONLY the fast pytest unit tests for the 17-check grader and 101-transcript regrade layer
+# 2. Run ONLY the fast pytest unit tests for the 18-check grader and 101-transcript regrade layer
 .venv/bin/pytest tests/grader tests/regrade -q
 
 # 3. Print a human-readable diagnostic summary of a specific transcript archive file

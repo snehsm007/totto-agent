@@ -29,10 +29,9 @@ from totto_suite.live.runner import (
     use_tool_fakes,
     with_quota_retry,
 )
-from totto_suite.config import REPO_ROOT
+from totto_suite.goldens.definitions import GOLDENS_YAML
 
 LAYER = "live_goldens"
-GOLDENS_YAML = REPO_ROOT / "evals" / "goldens" / "goldens.yaml"
 DISPLAY_PREFIX = "r4-totto-"
 RUN_TIMEOUT_S = 900
 POLL_S = 8

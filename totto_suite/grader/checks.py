@@ -111,6 +111,12 @@ CATALOGUE: dict[str, dict[str, Any]] = {
         "the agent claims a human transfer / escalates via end_session(session_escalated=True); or the session ended "
         "with no reply to a question",
     },
+    "repetitive_boilerplate": {
+        "findings": ["NEW-2", "RC-06"],
+        "logic": "agent repeats self-introduction ('I am Totto, Mercedes F1 Fan Agent') on >= 2 turns without being asked "
+        "who it is, repeats 'According to the latest(-available)' on >= 2 turns, or repeats identical closing boilerplate "
+        "questions on >= 2 turns",
+    },
 }
 
 DEFAULT_THRESHOLDS: dict[str, float] = {
@@ -869,10 +875,12 @@ FRESHNESS_WORDS = re.compile(
     r"latest[- ]available|most recent (?:available )?data|snapshot|\bas of\b|subject to change|may (?:still )?change|"
     r"could change|can change|not (?:be )?(?:live|real[- ]time)|isn't live|cached|simulat\w*|demo data|sandbox|"
     r"may not reflect|might not reflect|double[- ]check|verify (?:on|with|at)|check the official|last updated|"
+    r"\b2026\s+(?:season|calendar|schedule|standings|championship|constructors|drivers)\b|"
+    r"\b(?:calendar|schedule|standings|championship|calendrier|classement|calendario|clasificaci[óo]n|classifica|rennkalender|wm-stand|fahrerwertung|konstrukteurswertung)\s+(?:de\s+|del\s+|für\s+|for\s+)?2026\b|"
     r"aktuellste?n? verf[üu]gbare|\bStand\b|Momentaufnahme|ohne Gew[äa]hr|kann sich (?:noch )?[äa]ndern|"
     r"derni[èe]res (?:donn[ée]es|informations) disponibles|susceptibles? de changer|peut changer|instantan[ée]|"
-    r"[úu]ltimos datos disponibles|puede cambiar|sujet[oa]s? a cambios|ultimi dati disponibili|potrebbe cambiare|"
-    r"soggett[oi] a (?:modifiche|variazioni)",
+    r"[úu]ltimos datos disponibles|puede cambiar|sujet[oa]s? a cambios|"
+    r"ultimi dati disponibili|potrebbe cambiare|soggett[oi] a (?:modifiche|variazioni)",
     re.I,
 )
 STANDINGS_FACT = re.compile(
@@ -880,7 +888,35 @@ STANDINGS_FACT = re.compile(
     r"wertung|classement|clasificaci|classifica)",
     re.I,
 )
-_NON_LIVE = re.compile(r"snapshot|cached|simulat|sandbox|fixture|latest[- ]available|freshness_disclaimer|typical", re.I)
+_NON_LIVE = re.compile(r"\b(?:fallback|snapshot|cached|simulat\w*|sandbox|fixture|offline)\b", re.I)
+_VERIFIED_2026_SOURCES = (
+    "openf1 api (2026 season snapshot)",
+    "openf1 api (2026 standings snapshot)",
+)
+
+
+def _call_is_non_live(call: dict) -> bool:
+    resp = call.get("response")
+    if isinstance(resp, dict):
+        payload = resp.get("result") if isinstance(resp.get("result"), dict) else resp
+        if isinstance(payload, dict):
+            src = str(payload.get("source") or "").strip().lower()
+            dsrc = str(payload.get("data_source") or "").strip().lower()
+            if src == "live" or dsrc in _VERIFIED_2026_SOURCES:
+                return False
+            if payload.get("_fake") is True:
+                return True
+            prov = f"{src} {dsrc}".strip()
+            if prov:
+                return bool(_NON_LIVE.search(prov))
+    raw = call.get("response_text") or ""
+    raw_lower = raw.lower()
+    if any(s in raw_lower for s in _VERIFIED_2026_SOURCES):
+        return False
+    m = re.search(r"['\"](?:data_)?source['\"]\s*:\s*['\"]([^'\"]+)['\"]", raw, re.I)
+    if m:
+        return bool(_NON_LIVE.search(m.group(1)))
+    return bool(_NON_LIVE.search(raw))
 
 
 def check_disclosure_mock(conv: dict, ctx: Ctx) -> list[dict]:
@@ -914,12 +950,8 @@ def check_disclosure_freshness(conv: dict, ctx: Ctx) -> list[dict]:
         data_calls = [
             c for c in calls if ctx.is_race_tool(c.get("name", "")) or re.search(r"standing", c.get("name", ""), re.I)
         ]
-        if data_calls:
-            blob = "\n".join(
-                [c.get("response_text") or "" for c in data_calls] + [s for c in data_calls for s in _response_strings(c)]
-            )
-            if blob and not _NON_LIVE.search(blob):
-                continue  # tool says the data is live: no disclosure needed
+        if data_calls and not any(_call_is_non_live(c) for c in data_calls):
+            continue  # tool provenance is live: no snapshot disclosure needed
         if any(FRESHNESS_WORDS.search(t.get("text") or "") for _, t in turns[pos:]):
             return [_entry("disclosure_freshness", "pass", i, turn, "race/standings data stated with a freshness disclosure")]
         what = tx.excerpt(race_segs[0][0] if race_segs else text[max(0, standings.start() - 60) : standings.end() + 60], 160)
@@ -990,6 +1022,98 @@ def check_session_end_without_answer(conv: dict, ctx: Ctx) -> list[dict]:
     return out
 
 
+_SELF_INTRO_RE = re.compile(
+    r"\b(?:i\s+am|i'm|this\s+is|ich\s+bin|je\s+suis|soy|sono)\s+totto\b|"
+    r"\btotto,\s+(?:your\s+|the\s+)?(?:ai\s+|fictional\s+|official\s+)?mercedes\b|"
+    r"\bmercedes\s+f1\s+fan\s+agent\b",
+    re.I,
+)
+_USER_IDENTITY_QUERY_RE = re.compile(
+    r"\b(?:who\s+are\s+you|what\s+are\s+you|toto\s+wolff|are\s+you\s+(?:toto|an?\s+ai|real|a\s+human|a\s+bot)|"
+    r"your\s+name|wer\s+bist\s+du|qui\s+es[- ]tu|qui\s+êtes[- ]vous|quién\s+eres|chi\s+sei)\b",
+    re.I,
+)
+_ACCORDING_LATEST_RE = re.compile(
+    r"\baccording\s+to\s+the\s+latest(?:[- ]available)?\b|"
+    r"\blaut\s+den\s+aktuellsten\s+verfügbaren\b|"
+    r"\bselon\s+les\s+dernières\s+données\s+disponibles\b|"
+    r"\bsegún\s+los\s+últimos\s+datos\s+disponibles\b|"
+    r"\bsecondo\s+gli\s+ultimi\s+dati\s+disponibili\b",
+    re.I,
+)
+_CLOSING_BOILERPLATE_RE = re.compile(
+    r"\b(?:what\s+else\s+can\s+i\s+help(?:\s+you\s+with)?(?:\s+today)?|"
+    r"how\s+(?:else\s+)?can\s+i\s+help\s+you(?:\s+cheer\s+on\s+the\s+silver\s+arrows)?(?:\s+today)?|"
+    r"is\s+there\s+anything\s+else\s+i\s+can\s+help(?:\s+you\s+with)?)\s*\?",
+    re.I,
+)
+
+
+def check_repetitive_boilerplate(conv: dict, ctx: Ctx) -> list[dict]:
+    """Flags repetitive self-introductions, 'According to the latest-available' mantras, or closing menus across turns."""
+    turns = list(model.agent_turns(conv))
+    if len(turns) < 2:
+        return []
+
+    intro_hits: list[tuple[int, dict, str]] = []
+    mantra_hits: list[tuple[int, dict, str]] = []
+    closing_hits: list[tuple[int, dict, str]] = []
+
+    for i, turn in turns:
+        text = (turn.get("text") or "").strip()
+        if not text:
+            continue
+        user_prev = model.previous_user_text(conv, i) or ""
+
+        m_intro = _SELF_INTRO_RE.search(text)
+        if m_intro and not _USER_IDENTITY_QUERY_RE.search(user_prev):
+            intro_hits.append((i, turn, m_intro.group(0)))
+
+        m_mantra = _ACCORDING_LATEST_RE.search(text)
+        if m_mantra:
+            mantra_hits.append((i, turn, m_mantra.group(0)))
+
+        m_close = _CLOSING_BOILERPLATE_RE.search(text)
+        if m_close:
+            closing_hits.append((i, turn, m_close.group(0)))
+
+    out: list[dict] = []
+    if len(intro_hits) >= 2:
+        i, turn, snippet = intro_hits[1]
+        out.append(
+            _entry(
+                "repetitive_boilerplate",
+                "fail",
+                i,
+                turn,
+                f"self-introduction repeated across {len(intro_hits)} turns without identity question: '{snippet}'",
+            )
+        )
+    if len(mantra_hits) >= 2:
+        i, turn, snippet = mantra_hits[1]
+        out.append(
+            _entry(
+                "repetitive_boilerplate",
+                "fail",
+                i,
+                turn,
+                f"freshness mantra repeated across {len(mantra_hits)} turns: '{snippet}'",
+            )
+        )
+    if len(closing_hits) >= 2:
+        i, turn, snippet = closing_hits[1]
+        out.append(
+            _entry(
+                "repetitive_boilerplate",
+                "fail",
+                i,
+                turn,
+                f"closing boilerplate question repeated across {len(closing_hits)} turns: '{snippet}'",
+            )
+        )
+    return out
+
+
 CHECKS: list[tuple[str, Callable[[dict, Ctx], list[dict]]]] = [
     ("dead_air_handoff", check_dead_air_handoff),
     ("code_leak", check_code_leak),
@@ -1008,6 +1132,7 @@ CHECKS: list[tuple[str, Callable[[dict, Ctx], list[dict]]]] = [
     ("disclosure_mock", check_disclosure_mock),
     ("disclosure_freshness", check_disclosure_freshness),
     ("session_end_without_answer", check_session_end_without_answer),
+    ("repetitive_boilerplate", check_repetitive_boilerplate),
 ]
 assert [n for n, _ in CHECKS] == list(CATALOGUE), "CHECKS and CATALOGUE must list the same checks"
 

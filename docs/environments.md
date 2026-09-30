@@ -10,7 +10,7 @@ We maintain two separate Customer Engagement Suite / Conversational Agent Studio
 
 | Environment | GitHub Actions Variable | Who Pushes to It | Purpose |
 | :--- | :--- | :--- | :--- |
-| **Staging App** | `CXAS_STAGING_APP_ID` | GitHub Actions `staging-gate` job (on every PR and every push to `main`) | Scratchpad cloud environment where `scripts/ci/push_app.py --target staging` pushes a displayName-patched temporary copy of `cxas_app/`, `totto_suite ci-gate` runs cloud tool/golden/simulation gates, and `totto_suite verify-ids` verifies server resource IDs. |
+| **Staging App** | `CXAS_STAGING_APP_ID` | GitHub Actions `staging-gate` job (on every PR and every push to `main`) | Scratchpad cloud environment where `scripts/ci/push_app.py --target staging` pushes a displayName-patched temporary copy of `cxas_app/` (and ensures `modelSettings.model = "gemini-3.1-flash-live"` and `audioProcessingConfig` are persisted via `UpdateApp` if needed), `totto_suite ci-gate` runs cloud tool/golden/simulation gates, and `totto_suite verify-ids` verifies server resource IDs. |
 | **Live Production App** | `CXAS_LIVE_APP_ID` | GitHub Actions `deploy-live` job (**only** on `refs/heads/main` after both `offline` and `staging-gate` pass) | Production environment backing the live agent and the **Google Telephony Platform (`+1 218-288-9381`)** phone line. Every deployment creates an immutable version named `git-<sha7>` (`--create-version`) and records a before/after snapshot diff (`deploy_out/deploy.json`, `deploy_out/diff.md`). |
 
 ---
@@ -21,7 +21,7 @@ No file tracked in git contains a hardcoded Google Cloud Project ID, project num
 
 ### Priority 1: Explicit CLI Flags & Environment Variables (Used in CI)
 In GitHub Actions ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) or shell scripts, you can pass explicit flags or environment variables without creating any config file on disk:
-- `--app-name` CLI flag (accepted by `totto_suite ci-gate`, `totto_suite verify-ids`, and `totto_suite live`), while [`scripts/ci/push_app.py`](../scripts/ci/push_app.py) takes `--target {staging,live}` (and optional `--app-name`)
+- `--app-name` CLI flag (accepted by `totto_suite ci-gate`, `totto_suite verify-ids`, and `totto_suite live`), while [`scripts/ci/push_app.py`](../scripts/ci/push_app.py) takes `--target {staging,live}` (and optional `--app-name` and `--json-out`/`--out`)
 - `TOTTO_APP_NAME`: Full CXAS resource path (`projects/<PROJECT_ID>/locations/<LOCATION>/apps/<APP_UUID>`)
 - `GCP_PROJECT_ID` (or `GOOGLE_CLOUD_PROJECT`): Overrides target GCP project ID
 - `CXAS_LOCATION`: Overrides CXAS location (defaults to `us`)
@@ -52,7 +52,7 @@ Example `gecx-config.json` structure (this file is listed in [`.gitignore`](../.
 ```
 
 > [!TIP]
-> **Running Offline Checks Requires Zero Cloud Config**: You do **not** need `gecx-config.json` or Google Cloud credentials to run `make offline` (`totto_suite offline`), `make mutants` (`totto_suite mutants`), or `make test` (`pytest`). All 410 offline checks and 15 fault-injection mutants run 100% locally in ~15 seconds.
+> **Running Offline Checks Requires Zero Cloud Config**: You do **not** need `gecx-config.json` or Google Cloud credentials to run `make offline` (`totto_suite offline`), `make mutants` (`totto_suite mutants`), or `make test` (`pytest`). All 421 offline checks and 16 fault-injection mutants run 100% locally in ~15 seconds.
 
 ---
 

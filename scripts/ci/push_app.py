@@ -292,6 +292,69 @@ def get_app_display_name(app_name: str) -> str:
     return app.display_name
 
 
+def ensure_app_settings_persisted(app_name: str, src_dir: Path = DEFAULT_APP_DIR) -> bool:
+    """Ensures model_settings, language_settings, and audio_processing_config from app.json are persisted on the remote CES app."""
+    app_json = Path(src_dir) / "app.json"
+    if not app_json.is_file():
+        return False
+    data = json.loads(app_json.read_text(encoding="utf-8"))
+    model_cfg = data.get("modelSettings") or {}
+    audio_cfg = data.get("audioProcessingConfig") or {}
+    if not model_cfg and not audio_cfg:
+        return False
+
+    from google.cloud import ces_v1beta as ces  # pylint: disable=import-outside-toplevel
+    from google.protobuf import field_mask_pb2  # pylint: disable=import-outside-toplevel
+    from cxas_scrapi.core.apps import Apps  # pylint: disable=import-outside-toplevel
+
+    parts = parse_app_name(app_name)
+    apps_client = Apps(project_id=parts["project"], location=parts["location"])
+    remote_app = apps_client.get_app(app_name)
+
+    update_paths: list[str] = []
+    patch_kwargs: dict[str, Any] = {"name": app_name}
+    expected_model = str(model_cfg.get("model") or "").strip()
+    if expected_model and getattr(getattr(remote_app, "model_settings", None), "model", "") != expected_model:
+        patch_kwargs["model_settings"] = ces.ModelSettings(model=expected_model)
+        update_paths.append("model_settings")
+
+    if audio_cfg:
+        barge_in_cfg = audio_cfg.get("bargeInConfig") or {}
+        synth_map = audio_cfg.get("synthesizeSpeechConfigs") or {}
+        remote_audio = getattr(remote_app, "audio_processing_config", None)
+        remote_barge = bool(
+            getattr(getattr(remote_audio, "barge_in_config", None), "barge_in_awareness", False)
+        )
+        remote_synth = getattr(remote_audio, "synthesize_speech_configs", None) or {}
+        needs_audio_patch = remote_barge != bool(barge_in_cfg.get("bargeInAwareness", False))
+        for loc, cfg in synth_map.items():
+            voice_expected = str((cfg or {}).get("voice") or "")
+            voice_actual = str(getattr(remote_synth.get(loc), "voice", "") if loc in remote_synth else "")
+            if voice_expected and voice_actual != voice_expected:
+                needs_audio_patch = True
+                break
+        if needs_audio_patch:
+            patch_kwargs["audio_processing_config"] = ces.AudioProcessingConfig(
+                synthesize_speech_configs={
+                    loc: ces.SynthesizeSpeechConfig(voice=str((cfg or {}).get("voice") or ""))
+                    for loc, cfg in synth_map.items()
+                },
+                barge_in_config=ces.BargeInConfig(
+                    barge_in_awareness=bool(barge_in_cfg.get("bargeInAwareness", False))
+                ),
+            )
+            update_paths.append("audio_processing_config")
+
+    if update_paths:
+        req = ces.UpdateAppRequest(
+            app=ces.App(**patch_kwargs),
+            update_mask=field_mask_pb2.FieldMask(paths=update_paths),
+        )
+        apps_client.client.update_app(request=req)
+        return True
+    return False
+
+
 def push_app(
     *,
     app_name: str,
@@ -338,6 +401,18 @@ def push_app(
     version_name_full = parse_created_version(output) if create_version else None
     if create_version and not version_name_full:
         raise PushError("cxas push --create-version did not report a created version")
+    if runner is run_streaming:
+        patched = ensure_app_settings_persisted(app_name, src_dir=Path(src_dir))
+        if patched and create_version and version_name_full:
+            from cxas_scrapi.core.versions import Versions  # pylint: disable=import-outside-toplevel
+
+            v_client = Versions(app_name=app_name)
+            v_client.delete_version(version_name_full.rsplit("/", 1)[-1])
+            refreshed = v_client.create_version(
+                display_name=version_name or "",
+                description=version_description or "",
+            )
+            version_name_full = refreshed.name
     return {
         "version_name": version_name_full,
         "version": app_relative(version_name_full) if version_name_full else None,
@@ -372,7 +447,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--create-version", action="store_true")
     parser.add_argument("--version-name", default=None)
     parser.add_argument("--version-description", default=None)
-    parser.add_argument("--json-out", type=Path, default=None, help="write the result as JSON")
+    parser.add_argument("--json-out", "--out", dest="json_out", type=Path, default=None, help="write the result as JSON")
     args = parser.parse_args(argv)
 
     try:

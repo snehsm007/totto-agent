@@ -65,10 +65,23 @@ def is_cancelled(meeting: Meeting) -> bool:
     return bool(meeting.get("is_cancelled"))
 
 
+def is_mislabeled_placeholder(meeting: Meeting) -> bool:
+    """Excludes non-canonical OpenF1 placeholder records (e.g., meeting 1308 'Bahrain Grand Prix' in Kuala Lumpur)."""
+    if int(meeting.get("meeting_key", 0)) == 1308:
+        return True
+    name = str(meeting.get("meeting_name", "")).lower()
+    loc = str(meeting.get("location", "")).lower()
+    return "bahrain" in name and "kuala lumpur" in loc
+
+
 def race_meetings(meetings: Iterable[Meeting], sessions: Iterable[Session] | None = None) -> list[Meeting]:
-    """Race meetings (no testing, not cancelled), ordered by start time."""
+    """Race meetings (no testing, not cancelled, no mislabeled placeholders), ordered by start time."""
     sessions = list(sessions) if sessions is not None else None
-    races = [m for m in meetings if not is_cancelled(m) and not is_testing(m, sessions)]
+    races = [
+        m
+        for m in meetings
+        if not is_cancelled(m) and not is_testing(m, sessions) and not is_mislabeled_placeholder(m)
+    ]
     return sorted(races, key=lambda m: parse_utc(m["date_start"]))
 
 

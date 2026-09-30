@@ -6,7 +6,7 @@ calendar (tests/fixtures/openf1/meetings_2026.json, captured 2026-09-28):
   1280 Chinese GP Mar 13-15 | 1281 Japanese GP Mar 27-29
   1282 Bahrain GP (Sakhir, Apr 10-12) and 1283 Saudi Arabian GP: is_cancelled
   1284 Miami GP May 1-3 | ... | 1289 British GP Jul 3-5 | 1295 Azerbaijan GP Sep 24-26
-  1308 "Bahrain Grand Prix" in Kuala Lumpur Oct 2-4 (ends 2026-10-04T09:00Z)
+  1308 "Bahrain Grand Prix" in Kuala Lumpur Oct 2-4: mislabeled placeholder (excluded)
   1296 Singapore GP Oct 9-11 | ... | 1302 Abu Dhabi GP Dec 4-6 (ends 2026-12-06T15:00Z)
 """
 
@@ -30,9 +30,9 @@ def _utc(*args) -> dt.datetime:
         (_utc(2026, 3, 8, 6, 0, 1), 1280),  # just after it ended
         (_utc(2026, 4, 1), 1284),  # Bahrain (Sakhir) and Saudi Arabia are cancelled -> Miami
         (_utc(2026, 7, 1, 12), 1289),  # British GP
-        (_utc(2026, 9, 28, 12), 1308),  # Kuala Lumpur, not Singapore
-        (_utc(2026, 10, 4, 8, 59, 59), 1308),  # KL race under way
-        (_utc(2026, 10, 4, 9, 0, 1), 1296),  # KL over -> Singapore
+        (_utc(2026, 9, 28, 12), 1296),  # Singapore GP (mislabeled 1308 KL excluded)
+        (_utc(2026, 10, 4, 8, 59, 59), 1296),  # Singapore GP is next canonical race
+        (_utc(2026, 10, 4, 9, 0, 1), 1296),  # Singapore GP
         (_utc(2026, 10, 5, 12), 1296),
         (_utc(2026, 12, 6, 14, 59, 59), 1302),  # Abu Dhabi still running
         (_utc(2026, 12, 6, 15, 0, 1), None),  # season over

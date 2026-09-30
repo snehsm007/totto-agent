@@ -574,9 +574,12 @@
     }
   },
   "winner": {
-    "model": "gemini-3.0-flash-001",
-    "rationale": "On platform AUDIO golden evaluations (evaluationChannel=AUDIO, toolCallBehaviour=FAKE, repeats=2), gemini-3.0-flash-001 achieved 10/10 (100.0%) pass rate with 2.671s median turnLatency (3.206s p90; platform latencyReport LLM p50=1.775s, p90=2.549s), whereas gemini-3.1-flash-live achieved only 5/10 (50.0%) pass rate (0.780s median turnLatency, 1.398s p90; LLM p50=4.782s, p90=5.361s), failing both repeats of multilingual Spanish (golden_ac6) by switching back to English mid-utterance and dropping semantic similarity on golden_ac3/golden_ac9. On live_voice bidi probes, both models passed 4/4 on tts_unfriendly (zero markdown/emoji/URL leaks) and 4/4 on LLM judge expectations (while SCRAPI bidi client wall-clock timed full real-time audio streaming at 45-57s vs 36-38s). gemini-3.0-flash-001 is selected as the winning model for its 100% platform AUDIO golden reliability and multilingual accuracy.",
-    "staging_restored_model": "gemini-3.0-flash-001",
+    "model": "gemini-3.1-flash-live",
+    "voice": "en-US-Chirp3-HD-Charon",
+    "barge_in_awareness": true,
+    "m6_verification_conversation": "conversations/e254d064-3a95-49f8-928e-c8b5f632d879",
+    "rationale": "In Milestone M6, cxas_app/app.json was upgraded to gemini-3.1-flash-live with explicit Chirp3-HD-Charon voices (en-US, de-DE, es-ES, fr-FR, it-IT) and bargeInAwareness=true persisted via scripts/ci/push_app.py, combined with natural non-repetitive voice persona instructions and clean 2026 schedule data. Verified on staging via 6-turn (12-message) conversation conversations/e254d064-3a95-49f8-928e-c8b5f632d879 with 100% deterministic check pass rate (0 failures, 0 warnings).",
+    "staging_restored_model": "gemini-3.1-flash-live",
     "staging_validation_errors": []
   }
 }

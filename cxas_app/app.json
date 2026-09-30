@@ -5,7 +5,39 @@
   "rootAgent": "totto_root_agent",
   "globalInstruction": "global_instruction.txt",
   "modelSettings": {
-    "model": "gemini-3.0-flash-001"
+    "model": "gemini-3.1-flash-live"
+  },
+  "languageSettings": {
+    "defaultLanguageCode": "en-US",
+    "supportedLanguageCodes": [
+      "de-DE",
+      "fr-FR",
+      "es-ES",
+      "it-IT"
+    ],
+    "enableMultilingualSupport": true
+  },
+  "audioProcessingConfig": {
+    "synthesizeSpeechConfigs": {
+      "en-US": {
+        "voice": "en-US-Chirp3-HD-Charon"
+      },
+      "de-DE": {
+        "voice": "de-DE-Chirp3-HD-Charon"
+      },
+      "fr-FR": {
+        "voice": "fr-FR-Chirp3-HD-Charon"
+      },
+      "es-ES": {
+        "voice": "es-ES-Chirp3-HD-Charon"
+      },
+      "it-IT": {
+        "voice": "it-IT-Chirp3-HD-Charon"
+      }
+    },
+    "bargeInConfig": {
+      "bargeInAwareness": true
+    }
   },
   "variableDeclarations": [
     {

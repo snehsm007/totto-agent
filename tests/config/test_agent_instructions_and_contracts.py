@@ -44,6 +44,19 @@ def test_app_json_and_global_instruction_configuration(agent_dir: Path) -> None:
     declared_vars = {v["name"] for v in app_data.get("variableDeclarations", [])}
     assert {"user_timezone", "user_location", "order_id", "is_mock_mode"}.issubset(declared_vars)
 
+    model_cfg = app_data.get("modelSettings") or {}
+    assert model_cfg.get("model") == "gemini-3.1-flash-live", (
+        f"Expected native audio model 'gemini-3.1-flash-live' in app.json, got {model_cfg!r}"
+    )
+
+    audio_cfg = app_data.get("audioProcessingConfig") or {}
+    assert (audio_cfg.get("bargeInConfig") or {}).get("bargeInAwareness") is True
+    synth_cfgs = audio_cfg.get("synthesizeSpeechConfigs") or {}
+    for locale in ("en-US", "de-DE", "fr-FR", "es-ES", "it-IT"):
+        assert locale in synth_cfgs, f"Missing synthesizeSpeechConfigs for {locale}"
+        voice_name = str((synth_cfgs[locale] or {}).get("voice") or "")
+        assert "Chirp3-HD" in voice_name, f"Expected Chirp3-HD voice for {locale}, got {voice_name!r}"
+
 
 @pytest.mark.finding("TR-01", "TR-02", "TR-05")
 def test_all_agents_use_pif_xml_and_no_hallucination_or_leak_traps(agent_dir: Path) -> None:
@@ -334,4 +347,36 @@ def test_all_tools_configure_and_execute_mock_tool_fakes_offline(agent_dir: Path
         assert isinstance(res, dict) and res.get("status") == "success", (
             f"fake_tool_call for {tool_name} failed on {sample_input}: {res}"
         )
+
+
+@pytest.mark.finding("NEW-2", "RC-06")
+def test_instructions_forbid_repetitive_boilerplate_and_examples_pass_grader(agent_dir: Path) -> None:
+    """Verify instructions forbid repeating 'According to the latest-available 2026 data' and <examples> pass repetitive_boilerplate."""
+    from totto_suite import grader
+    from totto_suite.grader import model as gmodel
+
+    global_inst = (agent_dir / "global_instruction.txt").read_text(encoding="utf-8")
+    race_inst = (agent_dir / "agents" / "race_info_agent" / "instruction.txt").read_text(encoding="utf-8")
+
+    for label, text in (("global_instruction.txt", global_inst), ("race_info_agent/instruction.txt", race_inst)):
+        assert "keep saying it in follow-up replies" not in text.lower(), (
+            f"{label} still instructs the agent to keep repeating the freshness mantra on follow-up replies"
+        )
+
+    ex_block = race_inst.split("<examples>", 1)[1].split("</examples>", 1)[0] if "<examples>" in race_inst else ""
+    agent_lines = [
+        line.split("Agent:", 1)[1].strip().strip('"')
+        for line in ex_block.splitlines()
+        if line.strip().startswith("Agent:")
+    ]
+    assert len(agent_lines) >= 2, "race_info_agent <examples> must illustrate at least 2 turns"
+    turns = []
+    for idx, aline in enumerate(agent_lines):
+        turns.append(gmodel.user_turn(f"User turn {idx + 1}"))
+        turns.append(gmodel.agent_turn([aline]))
+    conv = gmodel.conversation("race_info_examples", turns)
+    res = grader.grade(conv)
+    rep_statuses = [c["status"] for c in res["checks"] if c["name"] == "repetitive_boilerplate"]
+    assert "fail" not in rep_statuses, f"race_info_agent <examples> failed repetitive_boilerplate: {res['checks']}"
+
 

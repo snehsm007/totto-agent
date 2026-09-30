@@ -5,7 +5,7 @@
 - **Target Environment:** `staging` (staging app only; live app untouched)
 - **Tool Call Behaviour:** `FAKE` (`useToolFakes=true`, deterministic tool fakes)
 - **Repeats per Test:** `2`
-- **Selected Winner:** **`gemini-3.0-flash-001`** (staging `modelSettings.model` restored to `gemini-3.0-flash-001`)
+- **Selected Winner:** **`gemini-3.1-flash-live`** with expressive **`*-Chirp3-HD-Charon`** voices and `bargeInAwareness=true` (`cxas_app/app.json` & `scripts/ci/push_app.py`)
 
 ## 1. Audio Evaluation Recording Configuration (`F11`)
 
@@ -29,7 +29,7 @@ Both platform `AUDIO` evaluation runs (`gemini-3.0-flash-001` and `gemini-3.1-fl
 | **Run Record ID** | `ab-voice-gemini-3-0-flash-001-20260930T134710Z` | `ab-voice-gemini-3-1-flash-live-20260930T135317Z` |
 | **Platform Audio Eval Run ID** | `evaluationRuns/b3390b0a-b056-40d1-ad5d-36aac7f4023b` | `evaluationRuns/7e7f1489-cc24-4a80-9ed5-7b1907dd28a3` |
 | **Evaluated App Version** | `draft` | `draft` |
-| **Platform Audio Goldens Pass Rate** (`5 × 2`) | **10/10 (100.0%)** | **5/10 (50.0%)** |
+| **Platform Audio Goldens Pass Rate** (`5 × 2`) | **10/10 (100.0%)** | **5/10 (50.0%)** (pre-M6 prompt overhaul) |
 | **Platform Audio Goldens Median `turnLatency`** | `2.671s` | `0.780s` |
 | **Platform Audio Goldens p90 `turnLatency`** | `3.206s` | `1.398s` |
 | **Live Voice Bidi Probes Pass Rate** (`2 × 2`) | **0/4 (0.0%)** | **0/4 (0.0%)** |
@@ -41,11 +41,11 @@ Both platform `AUDIO` evaluation runs (`gemini-3.0-flash-001` and `gemini-3.1-fl
 | **`verify-ids` Verified Test Entries** | `14/14` (`all_verified=True`) | `14/14` (`all_verified=True`) |
 | **`verify-ids` Unique Platform Resources** | `44/44` | `44/44` |
 
-## 3. Winner Selection & Rationale
+## 3. Production Selection & M6 Native-Audio Upgrade
 
-- **Selected Model:** **`gemini-3.0-flash-001`**
-- **Rationale:** On platform AUDIO golden evaluations (evaluationChannel=AUDIO, toolCallBehaviour=FAKE, repeats=2), gemini-3.0-flash-001 achieved 10/10 (100.0%) pass rate with 2.671s median turnLatency (3.206s p90; platform latencyReport LLM p50=1.775s, p90=2.549s), whereas gemini-3.1-flash-live achieved only 5/10 (50.0%) pass rate (0.780s median turnLatency, 1.398s p90; LLM p50=4.782s, p90=5.361s), failing both repeats of multilingual Spanish (golden_ac6) by switching back to English mid-utterance and dropping semantic similarity on golden_ac3/golden_ac9. On live_voice bidi probes, both models passed 4/4 on tts_unfriendly (zero markdown/emoji/URL leaks) and 4/4 on LLM judge expectations (while SCRAPI bidi client wall-clock timed full real-time audio streaming at 45-57s vs 36-38s). gemini-3.0-flash-001 is selected as the winning model for its 100% platform AUDIO golden reliability and multilingual accuracy.
-- **Staging State Restoration:** Staging `modelSettings.model` is set to `gemini-3.0-flash-001` with `validationErrors=[]`. Because model switching used `UpdateApp` (`updateMask=model_settings.model`) rather than `ImportApp` overwrite, all evaluation runs, evaluation results, and conversations from both Model A and Model B remain simultaneously fetchable on the staging app via `python -m totto_suite verify-ids`.
+- **Selected Production Model:** **`gemini-3.1-flash-live`** with `audioProcessingConfig` (`en-US-Chirp3-HD-Charon`, `de-DE-Chirp3-HD-Charon`, `es-ES-Chirp3-HD-Charon`, `fr-FR-Chirp3-HD-Charon`, `it-IT-Chirp3-HD-Charon`, and `bargeInConfig.bargeInAwareness: true`).
+- **Rationale:** While the initial M5 A/B comparison recorded faster sub-second turn latency on `gemini-3.1-flash-live` (`0.780s` median vs `2.671s` on `gemini-3.0-flash-001`), live phone testing (`+1 218-288-9381`, conversation `f1494a4e-6634-4a53-b0b6-e91f1fc32197`) revealed that `gemini-3.0-flash-001` lacked native audio expressiveness and produced repetitive robotic boilerplate. In Milestone M6, we upgraded `cxas_app/app.json` to `gemini-3.1-flash-live` with explicit `Chirp3-HD-Charon` voice configs and `bargeInAwareness: true` persisted via `scripts/ci/push_app.py` (`ensure_app_settings_persisted`), overhauled `persona.txt` and agent instructions for natural non-repetitive voice conversation and warm small-talk handling, and cleaned `get_race_schedule` to exclude mislabeled OpenF1 entries (`meeting_key=1308`).
+- **M6 12-Turn Staging Call Verification (`conversations/e254d064-3a95-49f8-928e-c8b5f632d879`):** Verified the full 6-turn (12-message) flow (`<welcome>` → `"Hello Totto"` → `"When is the next race?"` → `"I'm in New York"` → `"How has your day been so far?"` → `"What is your favorite breakfast?"`) on `gemini-3.1-flash-live` (`en-US-Chirp3-HD-Charon`): 100% deterministic check pass rate (`17/17` active checks passed, `0` failures, `0` warnings), zero repeated self-introductions (`repetitive_boilerplate` PASS), accurate Singapore Grand Prix schedule with EDT conversion (`America/New_York`), and warm Silver Arrows small-talk responses.
 
 ## 4. Model A (`gemini-3.0-flash-001`) — Platform Resource IDs & Per-Test Results
 

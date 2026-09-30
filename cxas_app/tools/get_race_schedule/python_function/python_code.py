@@ -200,7 +200,6 @@ CIRCUIT_FULL_NAMES: dict[int, str] = {
     1300: "Las Vegas Strip Circuit",
     1301: "Lusail International Circuit",
     1302: "Yas Marina Circuit",
-    1308: "Sepang International Circuit (Kuala Lumpur)",
 }
 
 RACE_QUERY_KEYWORDS: list[tuple[tuple[str, ...], int]] = [
@@ -224,14 +223,13 @@ RACE_QUERY_KEYWORDS: list[tuple[tuple[str, ...], int]] = [
     (("belgium", "belgian", "spa", "spa francorchamps", "francorchamps"), 1290),
     (("austria", "austrian", "spielberg", "red bull ring"), 1288),
     (("canada", "canadian", "montreal"), 1285),
-    (("kuala lumpur", "sepang", "malaysia", "bahrain"), 1308),
     (("saudi", "saudi arabia", "saudi arabian", "jeddah"), 1283),
-    (("sakhir",), 1282),
+    (("bahrain", "sakhir"), 1282),
     (("china", "chinese", "shanghai"), 1280),
     (("australia", "australian", "melbourne", "albert park"), 1279),
 ]
 
-# Complete 23-round active 2026 OpenF1 snapshot (synced with OpenF1 2026 meetings & sessions)
+# Complete 22-round active 2026 OpenF1 snapshot (synced with OpenF1 2026 meetings & sessions)
 FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple[tuple[str, str], ...]]] = [
     (
         1279,
@@ -489,25 +487,8 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
         ),
     ),
     (
-        1308,
-        16,
-        "Bahrain Grand Prix",
-        "Kuala Lumpur",
-        "Bahrain",
-        "Kuala Lumpur",
-        "2026-10-02T04:30:00+00:00",
-        "2026-10-04T09:00:00+00:00",
-        (
-            ("Practice 1", "2026-10-02T04:30:00+00:00"),
-            ("Practice 2", "2026-10-02T08:00:00+00:00"),
-            ("Practice 3", "2026-10-03T04:30:00+00:00"),
-            ("Qualifying", "2026-10-03T08:00:00+00:00"),
-            ("Race", "2026-10-04T07:00:00+00:00"),
-        ),
-    ),
-    (
         1296,
-        17,
+        16,
         "Singapore Grand Prix",
         "Marina Bay",
         "Singapore",
@@ -524,7 +505,7 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
     ),
     (
         1297,
-        18,
+        17,
         "United States Grand Prix",
         "Austin",
         "United States",
@@ -541,7 +522,7 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
     ),
     (
         1298,
-        19,
+        18,
         "Mexico City Grand Prix",
         "Mexico City",
         "Mexico",
@@ -558,7 +539,7 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
     ),
     (
         1299,
-        20,
+        19,
         "São Paulo Grand Prix",
         "São Paulo",
         "Brazil",
@@ -575,7 +556,7 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
     ),
     (
         1300,
-        21,
+        20,
         "Las Vegas Grand Prix",
         "Las Vegas",
         "United States",
@@ -592,7 +573,7 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
     ),
     (
         1301,
-        22,
+        21,
         "Qatar Grand Prix",
         "Lusail",
         "Qatar",
@@ -609,7 +590,7 @@ FALLBACK_2026_CALENDAR: list[tuple[int, int, str, str, str, str, str, str, tuple
     ),
     (
         1302,
-        23,
+        22,
         "Abu Dhabi Grand Prix",
         "Yas Marina",
         "United Arab Emirates",
@@ -769,6 +750,7 @@ def get_race_schedule(
         "sessions": formatted_sessions,
         "typical_weather": weather_info,
         "mercedes_highlights": highlights,
+        "source": "live" if is_live_api else "fallback",
         "data_source": data_source,
         "freshness_disclaimer": (
             "Race schedule, session times, and weather reflect the latest available structured "
@@ -864,7 +846,7 @@ def _load_2026_calendar() -> tuple[list[dict[str, Any]], dict[int, list[dict[str
         grouped_sessions: dict[int, list[dict[str, Any]]] = {}
         for s in api_sessions:
             mk = s.get("meeting_key")
-            if isinstance(mk, int) and (1279 <= mk <= 1302 or mk == 1308):
+            if isinstance(mk, int) and (1279 <= mk <= 1302):
                 grouped_sessions.setdefault(mk, []).append(
                     {
                         "session_name": str(s.get("session_name", "Session")),
@@ -875,7 +857,7 @@ def _load_2026_calendar() -> tuple[list[dict[str, Any]], dict[int, list[dict[str
             m
             for m in api_meetings
             if isinstance(m.get("meeting_key"), int)
-            and (1279 <= int(m["meeting_key"]) <= 1302 or int(m["meeting_key"]) == 1308)
+            and (1279 <= int(m["meeting_key"]) <= 1302)
             and not m.get("is_cancelled")
             and int(m["meeting_key"]) in grouped_sessions
         ]

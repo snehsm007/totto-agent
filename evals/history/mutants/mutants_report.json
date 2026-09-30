@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-29T21:31:33Z",
+  "generated_at": "2026-09-30T17:31:07Z",
   "source_app_dir": "cxas_app",
   "baseline_summary": {
     "layers": [
@@ -9,14 +9,14 @@
       "config",
       "lint"
     ],
-    "total_scenarios": 201,
-    "passed": 201,
+    "total_scenarios": 220,
+    "passed": 220,
     "failed": 0,
-    "duration_sec": 10.81
+    "duration_sec": 9.517
   },
   "summary": {
-    "total_mutants": 15,
-    "killed": 15,
+    "total_mutants": 16,
+    "killed": 16,
     "survived": 0,
     "kill_rate": 1.0,
     "by_category": {
@@ -31,8 +31,8 @@
         "survived": 0
       },
       "config": {
-        "total": 6,
-        "killed": 6,
+        "total": 7,
+        "killed": 7,
         "survived": 0
       }
     }
@@ -69,7 +69,7 @@
           ]
         }
       ],
-      "duration_sec": 2.398
+      "duration_sec": 1.995
     },
     {
       "mutant_id": "mutant_tb03_unknown_race_fallback",
@@ -167,7 +167,7 @@
           ]
         }
       ],
-      "duration_sec": 2.018
+      "duration_sec": 1.819
     },
     {
       "mutant_id": "mutant_tr10_broken_timezone_dst",
@@ -194,8 +194,8 @@
         "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Honolulu-Pacific/Honolulu-03:00]",
         "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Kathmandu-Asia/Kathmandu-18:45]",
         "tools::test_timezones_dst.py::test_more_unseen_cities_resolve_via_zoneinfo[Nairobi-Africa/Nairobi-16:00]",
-        "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
-        "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
+        "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Azerbaijan Grand Prix-Race-21:00-AEST-Saturday]",
+        "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Singapore Grand Prix-Race-23:00-AEDT-Sunday]",
         "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[America/New_York-09:00 EDT (New York)-False]",
         "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Australia/Sydney-00:00 AEDT (Sydney)-False]",
         "tools::test_tools.py::test_get_race_schedule_singapore_zoneinfo_dst_and_sydney_conversion[Berlin, Germany-15:00 CEST (Berlin)-False]",
@@ -311,11 +311,11 @@
           ]
         },
         {
-          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Qualifying-18:00-AEST-Saturday]",
+          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Azerbaijan Grand Prix-Race-21:00-AEST-Saturday]",
           "layer": "tools",
           "baseline_verdict": "PASS",
           "mutant_verdict": "FAIL",
-          "failure_reason": "AssertionError: {'session': 'Qualifying', 'day': 'Saturday', 'local_day': 'Saturday', 'date_utc': '2026-10-03', ...}",
+          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Saturday', 'local_day': 'Saturday', 'date_utc': '2026-09-26', ...}",
           "findings": [
             "TR-10",
             "TB-2",
@@ -323,11 +323,11 @@
           ]
         },
         {
-          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_2026_10_03_04_dst_start_on_kuala_lumpur_weekend[Race-18:00-AEDT-Sunday]",
+          "scenario_id": "tools::test_timezones_dst.py::test_sydney_times_across_october_dst_start[Singapore Grand Prix-Race-23:00-AEDT-Sunday]",
           "layer": "tools",
           "baseline_verdict": "PASS",
           "mutant_verdict": "FAIL",
-          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Sunday', 'local_day': 'Sunday', 'date_utc': '2026-10-04', ...}",
+          "failure_reason": "AssertionError: {'session': 'Race', 'day': 'Sunday', 'local_day': 'Sunday', 'date_utc': '2026-10-11', ...}",
           "findings": [
             "TR-10",
             "TB-2",
@@ -505,7 +505,7 @@
           ]
         }
       ],
-      "duration_sec": 2.149
+      "duration_sec": 1.939
     },
     {
       "mutant_id": "mutant_rc01_missing_merch_store_link",
@@ -678,7 +678,7 @@
           ]
         }
       ],
-      "duration_sec": 1.866
+      "duration_sec": 1.958
     },
     {
       "mutant_id": "mutant_tr09_missing_freshness_disclaimer",
@@ -841,7 +841,7 @@
           ]
         }
       ],
-      "duration_sec": 1.79
+      "duration_sec": 2.055
     },
     {
       "mutant_id": "mutant_cb_order_id_regex",
@@ -972,7 +972,7 @@
           "findings": []
         }
       ],
-      "duration_sec": 1.569
+      "duration_sec": 1.689
     },
     {
       "mutant_id": "mutant_cb_sync_race_state_noop",
@@ -1059,7 +1059,7 @@
           "findings": []
         }
       ],
-      "duration_sec": 0.606
+      "duration_sec": 0.779
     },
     {
       "mutant_id": "mutant_tr02_speak_phrase_in_tool_desc",
@@ -1112,7 +1112,7 @@
           ]
         }
       ],
-      "duration_sec": 2.314
+      "duration_sec": 2.577
     },
     {
       "mutant_id": "mutant_rc02_toto_impersonation_and_drop",
@@ -1204,7 +1204,7 @@
           ]
         }
       ],
-      "duration_sec": 0.634
+      "duration_sec": 0.809
     },
     {
       "mutant_id": "mutant_rc11_invalid_app_schema",
@@ -1269,7 +1269,7 @@
           ]
         }
       ],
-      "duration_sec": 3.539
+      "duration_sec": 4.021
     },
     {
       "mutant_id": "mutant_bundle_persona_drift",
@@ -1315,7 +1315,7 @@
           ]
         }
       ],
-      "duration_sec": 0.658
+      "duration_sec": 0.812
     },
     {
       "mutant_id": "mutant_bundle_openf1_helper_drift",
@@ -1378,7 +1378,7 @@
           ]
         }
       ],
-      "duration_sec": 2.436
+      "duration_sec": 2.555
     },
     {
       "mutant_id": "mutant_voice_guidelines_dropped",
@@ -1415,7 +1415,7 @@
           ]
         }
       ],
-      "duration_sec": 0.593
+      "duration_sec": 0.787
     },
     {
       "mutant_id": "mutant_voice_sanitizer_noop",
@@ -1473,7 +1473,41 @@
           ]
         }
       ],
-      "duration_sec": 2.118
+      "duration_sec": 2.43
+    },
+    {
+      "mutant_id": "mutant_repetitive_boilerplate_mantra",
+      "category": "config",
+      "taxonomy_ids": [
+        "NEW-2",
+        "RC-06"
+      ],
+      "target_files": [
+        "agents/race_info_agent/instruction.txt"
+      ],
+      "layers_checked": [
+        "config"
+      ],
+      "description": "Re-introduce repetitive 'According to the latest-available 2026 data' and self-introduction across consecutive turns in race_info_agent <examples>.",
+      "killed": true,
+      "killed_by_count": 1,
+      "killed_by_scenarios": [
+        "config::test_agent_instructions_and_contracts.py::test_instructions_forbid_repetitive_boilerplate_and_examples_pass_grader"
+      ],
+      "failure_details": [
+        {
+          "scenario_id": "config::test_agent_instructions_and_contracts.py::test_instructions_forbid_repetitive_boilerplate_and_examples_pass_grader",
+          "layer": "config",
+          "baseline_verdict": "PASS",
+          "mutant_verdict": "FAIL",
+          "failure_reason": "AssertionError: race_info_agent <examples> failed repetitive_boilerplate: [{'name': 'dead_air_handoff', 'passed': True, 'status': 'pass', 'turn_index': None, 'trace_index': None, 'evidence': '', 'findings': ['TR-03', 'RC-08']}, {'name': 'code_leak', 'passed': True, 'status': 'pass', 'turn_index': None, 'trace_index': None, 'evidence': '', 'findings': ['TR-02']}, {'name': 'race_facts_without_tool', 'passed': True, 'status': 'pass', 'turn_index': None, 'trace_index': None, 'evidence': '', 'findings': ['TR-01', 'TR-10', 'RC-13']}, {'name': 'race_fact_value_mismatch', 'passed': True, 'status': 'pa",
+          "findings": [
+            "NEW-2",
+            "RC-06"
+          ]
+        }
+      ],
+      "duration_sec": 0.843
     }
   ]
 }

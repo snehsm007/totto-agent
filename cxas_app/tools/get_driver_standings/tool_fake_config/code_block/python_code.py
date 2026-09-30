@@ -111,6 +111,7 @@ def _fake_payload(input: Any) -> dict[str, Any]:
                 "points": 236,
             },
         ],
+        "source": "fallback",
         "data_source": "OpenF1 API (2026 Standings Snapshot)",
         "freshness_disclaimer": (
             "Standings and recent results reflect the latest available structured 2026 season data "

@@ -188,9 +188,9 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
             "args": {"race_query": "Azerbaijan Grand Prix", "user_timezone": "UTC"},
             "check": lambda r: (
                 "live" in str(r.get("data_source", "")).lower()
-                and str((r.get("weather_forecast") or {}).get("source", "")).startswith("openf1"),
+                and str((r.get("typical_weather") or r.get("weather_forecast") or {}).get("source", "")).startswith("openf1"),
                 f"[TB-1] CXAS sandbox fell back to static snapshot instead of live OpenF1 API: "
-                f"data_source={r.get('data_source')!r}, weather_source={(r.get('weather_forecast') or {}).get('source')!r}",
+                f"data_source={r.get('data_source')!r}, weather_source={(r.get('typical_weather') or r.get('weather_forecast') or {}).get('source')!r}",
             ),
         },
         {
@@ -198,10 +198,12 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
             "tool": "get_race_schedule",
             "args": {"race_query": "Kuala Lumpur", "user_timezone": "UTC"},
             "check": lambda r: (
-                r.get("status") == "success" and r.get("meeting_key") == 1308,
+                r.get("status") == "error"
+                and r.get("agent_action") == "CLARIFY_RACE_NAME"
+                and r.get("meeting_key") != 1308,
                 f"[TB-2] 'Kuala Lumpur' query returned status={r.get('status')!r}, "
-                f"agent_action={r.get('agent_action')!r} instead of OpenF1 meeting 1308 "
-                "(hardcoded 1279..1302 filter drops meeting 1308)",
+                f"meeting_key={r.get('meeting_key')!r} instead of CLARIFY_RACE_NAME "
+                "(mislabeled OpenF1 meeting 1308 'Bahrain Grand Prix' at Kuala Lumpur must be excluded)",
             ),
         },
         {

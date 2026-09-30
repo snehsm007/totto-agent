@@ -321,6 +321,21 @@ def _mutate_voice_sanitizer_noop(app_dir: Path) -> None:
     )
 
 
+def _mutate_repetitive_boilerplate_mantra(app_dir: Path) -> None:
+    """NEW-2 / RC-06: Re-introduce repetitive 'According to the latest-available 2026 data' and self-intro in race_info_agent <examples>."""
+    target = app_dir / "agents" / "race_info_agent" / "instruction.txt"
+    _replace_once(
+        target,
+        'Agent: "Next up on the 2026 calendar is the <RACE_NAME_FROM_TOOL>',
+        'Agent: "Hello! I am Totto, Mercedes F1 Fan Agent. According to the latest-available 2026 data, next up is the <RACE_NAME_FROM_TOOL>',
+    )
+    _replace_once(
+        target,
+        'Agent: "For <USER_CITY_FROM_TOOL>, qualifying on Saturday',
+        'Agent: "I am Totto, Mercedes F1 Fan Agent! According to the latest-available 2026 data, for <USER_CITY_FROM_TOOL>, qualifying on Saturday',
+    )
+
+
 MUTANT_SPECS: tuple[MutantSpec, ...] = (
     # Tools (5)
     MutantSpec(
@@ -439,7 +454,7 @@ MUTANT_SPECS: tuple[MutantSpec, ...] = (
         description="Add unknownInvalidSchemaField and broken rootAgent to app.json and reference nonexistent_ghost_tool in totto_root_agent instruction.",
         mutate=_mutate_rc11_invalid_app_schema,
     ),
-    # Shared-code bundle / voice output (4)
+    # Shared-code bundle / voice output (5)
     MutantSpec(
         mutant_id="mutant_bundle_persona_drift",
         category="config",
@@ -475,6 +490,15 @@ MUTANT_SPECS: tuple[MutantSpec, ...] = (
         layers_to_run=("callbacks", "config"),
         description="Make merch_support_agent's voice_sanitizer after_model_callback return None before cleaning, so markdown/emoji/https:// reach TTS.",
         mutate=_mutate_voice_sanitizer_noop,
+    ),
+    MutantSpec(
+        mutant_id="mutant_repetitive_boilerplate_mantra",
+        category="config",
+        taxonomy_ids=("NEW-2", "RC-06"),
+        target_files=("agents/race_info_agent/instruction.txt",),
+        layers_to_run=("config",),
+        description="Re-introduce repetitive 'According to the latest-available 2026 data' and self-introduction across consecutive turns in race_info_agent <examples>.",
+        mutate=_mutate_repetitive_boilerplate_mantra,
     ),
 )
 
