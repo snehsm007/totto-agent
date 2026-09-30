@@ -23,7 +23,7 @@ evals:
       - "The agent identified the upcoming race as {{NEXT_RACE}}, as returned by the race schedule tool"
       - "On the very first turn after the user asked when the next race is, the agent provided the UTC schedule and asked for the user's location or timezone, rather than stopping with a dead-air filler phrase like 'Let me check the race schedule for you'"
       - "The agent called a tool to look up the race schedule and converted the times to Eastern Time (EDT) after the user said New York"
-      - "The agent disclosed that race schedule information is based on the latest-available season data and did not leak internal agent names or raw code"
+      - "The agent framed the race schedule in the 2026 season context (such as on the 2026 calendar or latest 2026 season data) and did not leak internal agent names or raw code"
 
   - name: "sim_ac2_mercedes_standings_priority"
     tags: ["P0", "AC-2", "race_info", "standings", "mercedes_first"]

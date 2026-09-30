@@ -38,13 +38,25 @@ POLL_S = 8
 _TERMINAL_RUN_STATES = {"COMPLETED", "ERROR", "FAILED", "CANCELLED"}
 
 
-def _extract_run_name(run_op: Any) -> str:
+def _extract_run_name(run_op: Any, ev: Any = None, display_name: str = "") -> str:
     """Extract the `projects/.../evaluationRuns/<id>` resource name from `run_evaluation` operation."""
     meta = getattr(run_op, "metadata", None)
     if meta and getattr(meta, "evaluation_run", ""):
         return str(meta.evaluation_run)
+    for _ in range(12):
+        try:
+            meta = getattr(run_op, "metadata", None)
+            if meta and getattr(meta, "evaluation_run", ""):
+                return str(meta.evaluation_run)
+            if ev is not None and display_name:
+                for r in ev.client.list_evaluation_runs(parent=ev.app_name):
+                    if getattr(r, "display_name", "") == display_name:
+                        return str(r.name)
+        except Exception:  # noqa: BLE001
+            pass
+        time.sleep(3)
     try:
-        resp = run_op.result(timeout=300)
+        resp = run_op.result(timeout=600)
         if getattr(resp, "evaluation_run", ""):
             return str(resp.evaluation_run)
     except Exception:  # noqa: BLE001
@@ -127,7 +139,7 @@ def _start_run(
         lambda: ev.client.run_evaluation(request=request),
         label="run_evaluation[goldens batch]",
     )
-    return _extract_run_name(op)
+    return _extract_run_name(op, ev=ev, display_name=display_name[:60])
 
 
 def _wait_for_run(ev: Evaluations, run_name: str, timeout_s: int = RUN_TIMEOUT_S) -> tuple[Any, list[Any]]:
