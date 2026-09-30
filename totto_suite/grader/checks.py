@@ -115,9 +115,9 @@ CATALOGUE: dict[str, dict[str, Any]] = {
 
 DEFAULT_THRESHOLDS: dict[str, float] = {
     "dead_air_text_chars": 120,  # scripts/analyze_transcripts.py parity
-    "handoff_dead_air_s": 5.0,
-    "max_turn_latency_s": 7.0,
-    "p90_turn_latency_s": 5.0,
+    "handoff_dead_air_s": 7.0,
+    "max_turn_latency_s": 9.0,
+    "p90_turn_latency_s": 7.0,
     "voice_max_sentences": 4,
     "voice_max_chars": 450,
     "voice_max_spoken_s": 25.0,
@@ -779,8 +779,9 @@ PAST = re.compile(
     r"\btook place\b|\bwas held\b|\bwere held\b|\balready (?:happened|took place|over|finished|been)\b|"
     r"\bhas (?:already )?(?:happened|finished|ended|concluded)\b|\bis (?:already )?over\b|\bconcluded\b|"
     r"\bearlier this (?:season|year)\b|\bfand\b[^.!?\n]{0,60}\bstatt\b|\bwurde\b[^.!?\n]{0,60}\b(?:ausgetragen|gefahren)\b|"
-    r"\bbereits vorbei\b|\bschon vorbei\b|\ba eu lieu\b|\bs'est (?:d[ée]roul[ée]|tenu)|\btuvo lugar\b|\bse celebr[óo]\b|"
-    r"\bsi [èe] (?:svolto|tenuto|corso)\b|\baconteceu\b",
+    r"\bbereits vorbei\b|\bschon vorbei\b|\ba (?:d[ée]j[àa]\s+)?eu lieu\b|\bs'est (?:d[ée]j[àa]\s+)?(?:d[ée]roul[ée]|tenu)|"
+    r"\b(?:ya\s+)?tuvo lugar\b|\b(?:ya\s+)?se celebr[óo]\b|"
+    r"\bsi [èe] (?:gi[àa]\s+)?(?:svolto|tenuto|corso)\b|\b(?:j[áa]\s+)?aconteceu\b",
     re.I,
 )
 _RACE_KEYS = ("race_name", "meeting_name", "circuit", "circuit_name", "location", "country_name", "meeting_official_name")

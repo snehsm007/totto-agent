@@ -425,6 +425,32 @@ class TestPastRaceAndDisclosuresAndEscalation:
         assert "fail" in _statuses(res, "past_race_as_upcoming")
         assert "TB-5" in _findings_for(res, "past_race_as_upcoming")
 
+    def test_french_a_deja_eu_lieu_with_courses_a_venir_passes(self):
+        resp = {
+            "status": "success",
+            "race_name": "British Grand Prix",
+            "dates": "July 3 - July 5, 2026",
+            "data_source": "OpenF1 API (Cached/Simulated for Sandbox)",
+        }
+        conv = model.conversation(
+            "past_race_fr",
+            [
+                model.user_turn("Quand a lieu le Grand Prix de Silverstone ?"),
+                model.agent_turn(
+                    [
+                        "Selon les dernières données disponibles, le Grand Prix de Grande-Bretagne à Silverstone "
+                        "a déjà eu lieu du 3 au 5 juillet 2026. Pour les courses à venir, vous pouvez acheter "
+                        "vos billets sur le site officiel."
+                    ],
+                    tool_calls=[
+                        model.tool_call("get_race_schedule", {"race_query": "Silverstone"}, resp, repr(resp))
+                    ],
+                ),
+            ],
+        )
+        res = grader.grade(conv, _ctx(now="2026-09-30T15:00:00Z", expected_language="fr"))
+        assert _statuses(res, "past_race_as_upcoming") == ["pass"]
+
     def test_missing_mock_and_freshness_disclosures_fail(self):
         resp_order = {"status": "success", "order": {"order_id": "1001"}}
         resp_standings = {
