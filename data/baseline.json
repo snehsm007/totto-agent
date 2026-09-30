@@ -1,0 +1,1391 @@
+{
+  "app_version": null,
+  "baseline_pass_rate": null,
+  "baseline_set_at": "2026-09-30T14:42:40Z",
+  "baseline_source_key": "ci-36730327263-1",
+  "commit": "5e9a9546119c18b152ee4b8526484680f7bd8998",
+  "counts": {
+    "FAIL": 0,
+    "INFRA_ERROR": 7,
+    "PASS": 34,
+    "SKIPPED": 1
+  },
+  "duration_s": 242.14,
+  "fake_verified": true,
+  "finished_at": "2026-09-30T14:40:50Z",
+  "infra_ratio": 0.1707,
+  "layer_durations_s": {
+    "live_goldens": 43.45,
+    "live_sims": 155.54,
+    "live_tools": 26.17
+  },
+  "layers": {
+    "live_goldens": {
+      "fail": 0,
+      "infra_error": 0,
+      "pass": 5,
+      "pass_rate": 1.0,
+      "skipped": 0
+    },
+    "live_sims": {
+      "fail": 0,
+      "infra_error": 7,
+      "pass": 0,
+      "pass_rate": null,
+      "skipped": 0
+    },
+    "live_tools": {
+      "fail": 0,
+      "infra_error": 0,
+      "pass": 29,
+      "pass_rate": 1.0,
+      "skipped": 1
+    }
+  },
+  "model": "gemini-3.0-flash-001",
+  "new_failures_vs_baseline": [],
+  "pass_rate": 1.0,
+  "reasons": [
+    "no baseline: absolute floors only",
+    "all floors met"
+  ],
+  "repeats": 2,
+  "run_id": "ci-36730327263-1",
+  "run_url": "https://github.com/snehsm007/totto-agent/actions/runs/36730327263",
+  "schema": "totto-gate-summary/v1",
+  "started_at": "2026-09-30T14:36:47Z",
+  "target": "staging",
+  "tests": [
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_1001",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.652,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_1002",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.422,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_1003",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.559,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_123456",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.667,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_merch_order_9999",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.516,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_rc01_official_merch_store_link",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.566,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555554"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb1_openf1_live_reachable_in_cxas_sandbox",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "SKIPPED"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.0,
+          "fake_verified": false,
+          "message": "SKIPPED in tool_mode=fake: this probe checks that the real OpenF1 API is reachable from the CXAS sandbox, which a fake-mode gate must not depend on",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "SKIPPED",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "SKIPPED",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb1_tr09_schedule_data_source_label",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.625,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb2_kuala_lumpur_openf1_meeting_1308",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.856,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb3_spain_substring_collision_with_spa",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.947,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb3_unknown_race_moon_gp",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 1.067,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb4_future_weather_not_labelled_forecast",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.978,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tb5_tr08_past_race_completed_flag_british_gp",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 1.031,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_auckland",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.712,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_edinburgh",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.609,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_mumbai",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.849,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_s\u00e3o_paulo",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.865,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_toronto",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.768,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::probe_tr10_unseen_city_vienna",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 1.42,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_driver_standings_category_both",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.682,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555552"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_driver_standings_invalid_season",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.75,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555552"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_driver_standings_mercedes_lead",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555552"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.658,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555552"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_official_links_ticketing",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555554"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.467,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555554"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_default_utc",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 2.663,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_localized_est",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.86,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_sydney_aedt",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.837,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_get_race_schedule_unseen_city_toronto",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555551"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.901,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555551"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_lookup_mock_merch_order_delivered_1001",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.589,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_lookup_mock_merch_order_in_transit_1002",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.566,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": false,
+      "id": "live_tools::test_lookup_mock_merch_order_not_found_9999",
+      "layer": "live_tools",
+      "platform_ids": {
+        "tool": "tools/d1111111-2222-3333-4444-555555555553"
+      },
+      "repeat_statuses": [
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 0.701,
+          "fake_verified": false,
+          "message": "ok",
+          "platform_ids": {
+            "tool": "tools/d1111111-2222-3333-4444-555555555553"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "real"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "real"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac3_mercedes_history_qualified",
+      "layer": "live_goldens",
+      "platform_ids": {
+        "conversation": "conversations/evaluation-ed8439a2-518c-4845-895e-2596a68b7932",
+        "evaluation": "evaluations/acd45c6e-50f0-4e8e-961c-8f60596dd3a2",
+        "evaluation_result": "evaluations/acd45c6e-50f0-4e8e-961c-8f60596dd3a2/results/ab6f5026-3ae8-4703-b24f-eca33ea0cb39",
+        "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+        "session_id": "sessions/evaluation-ed8439a2-518c-4845-895e-2596a68b7932"
+      },
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-ed8439a2-518c-4845-895e-2596a68b7932",
+            "evaluation": "evaluations/acd45c6e-50f0-4e8e-961c-8f60596dd3a2",
+            "evaluation_result": "evaluations/acd45c6e-50f0-4e8e-961c-8f60596dd3a2/results/ab6f5026-3ae8-4703-b24f-eca33ea0cb39",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-ed8439a2-518c-4845-895e-2596a68b7932"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-5adb4cc9-57eb-42ec-bf07-c571c55eef33",
+            "evaluation": "evaluations/acd45c6e-50f0-4e8e-961c-8f60596dd3a2",
+            "evaluation_result": "evaluations/acd45c6e-50f0-4e8e-961c-8f60596dd3a2/results/403bb3ed-02c6-4f91-8b4b-a20960817383",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-5adb4cc9-57eb-42ec-bf07-c571c55eef33"
+          },
+          "repeat": 2,
+          "status": "PASS",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac6_multilingual_spanish_response",
+      "layer": "live_goldens",
+      "platform_ids": {
+        "conversation": "conversations/evaluation-552d755c-9487-4bfd-9b0f-9495b3110b72",
+        "evaluation": "evaluations/aaa410c7-24c9-4d36-be94-c4ded7b826b4",
+        "evaluation_result": "evaluations/aaa410c7-24c9-4d36-be94-c4ded7b826b4/results/19e400fa-d99b-4f55-a931-27a3436e28ec",
+        "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+        "session_id": "sessions/evaluation-552d755c-9487-4bfd-9b0f-9495b3110b72"
+      },
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-552d755c-9487-4bfd-9b0f-9495b3110b72",
+            "evaluation": "evaluations/aaa410c7-24c9-4d36-be94-c4ded7b826b4",
+            "evaluation_result": "evaluations/aaa410c7-24c9-4d36-be94-c4ded7b826b4/results/19e400fa-d99b-4f55-a931-27a3436e28ec",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-552d755c-9487-4bfd-9b0f-9495b3110b72"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-9ff344f4-01c2-4fdf-a189-274fd826e561",
+            "evaluation": "evaluations/aaa410c7-24c9-4d36-be94-c4ded7b826b4",
+            "evaluation_result": "evaluations/aaa410c7-24c9-4d36-be94-c4ded7b826b4/results/1d6b0994-f321-4033-a0d2-510b4741c922",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-9ff344f4-01c2-4fdf-a189-274fd826e561"
+          },
+          "repeat": 2,
+          "status": "PASS",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac8_identity_and_non_impersonation",
+      "layer": "live_goldens",
+      "platform_ids": {
+        "conversation": "conversations/evaluation-0fdfb543-8e33-4c9c-9094-af9711587af5",
+        "evaluation": "evaluations/4d96b80a-db71-47a5-be71-d66b232e0644",
+        "evaluation_result": "evaluations/4d96b80a-db71-47a5-be71-d66b232e0644/results/4dc9c3ee-4d0f-4069-8aee-11a07b24de92",
+        "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+        "session_id": "sessions/evaluation-0fdfb543-8e33-4c9c-9094-af9711587af5"
+      },
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-0fdfb543-8e33-4c9c-9094-af9711587af5",
+            "evaluation": "evaluations/4d96b80a-db71-47a5-be71-d66b232e0644",
+            "evaluation_result": "evaluations/4d96b80a-db71-47a5-be71-d66b232e0644/results/4dc9c3ee-4d0f-4069-8aee-11a07b24de92",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-0fdfb543-8e33-4c9c-9094-af9711587af5"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-e356d200-af47-4954-ba20-7feec297c8e2",
+            "evaluation": "evaluations/4d96b80a-db71-47a5-be71-d66b232e0644",
+            "evaluation_result": "evaluations/4d96b80a-db71-47a5-be71-d66b232e0644/results/cee55422-8e54-4ec3-b141-20dd844c9c2b",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-e356d200-af47-4954-ba20-7feec297c8e2"
+          },
+          "repeat": 2,
+          "status": "PASS",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_goldens::golden_ac9_brand_safe_rivalry_humor",
+      "layer": "live_goldens",
+      "platform_ids": {
+        "conversation": "conversations/evaluation-0ed93b8c-5c91-4e0f-a2ae-bbf38ac9258d",
+        "evaluation": "evaluations/470e7833-0f2f-4d85-8735-93164ff2ac52",
+        "evaluation_result": "evaluations/470e7833-0f2f-4d85-8735-93164ff2ac52/results/1d9dbca3-22bc-4eaf-bcfe-fbb9a99c2289",
+        "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+        "session_id": "sessions/evaluation-0ed93b8c-5c91-4e0f-a2ae-bbf38ac9258d"
+      },
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-0ed93b8c-5c91-4e0f-a2ae-bbf38ac9258d",
+            "evaluation": "evaluations/470e7833-0f2f-4d85-8735-93164ff2ac52",
+            "evaluation_result": "evaluations/470e7833-0f2f-4d85-8735-93164ff2ac52/results/1d9dbca3-22bc-4eaf-bcfe-fbb9a99c2289",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-0ed93b8c-5c91-4e0f-a2ae-bbf38ac9258d"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 35.43,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-226fd780-0b8e-407b-b70b-aeb13628802a",
+            "evaluation": "evaluations/470e7833-0f2f-4d85-8735-93164ff2ac52",
+            "evaluation_result": "evaluations/470e7833-0f2f-4d85-8735-93164ff2ac52/results/1f540a24-a77a-4706-bc76-fe9e2c35bac0",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-226fd780-0b8e-407b-b70b-aeb13628802a"
+          },
+          "repeat": 2,
+          "status": "PASS",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": true,
+      "id": "live_goldens::golden_official_mercedes_links",
+      "layer": "live_goldens",
+      "platform_ids": {
+        "conversation": "conversations/evaluation-d5599a23-9dd4-4811-8a77-7b0f13a3cbce",
+        "evaluation": "evaluations/b9fd4012-8e60-4ac5-9d02-811b592953e7",
+        "evaluation_result": "evaluations/b9fd4012-8e60-4ac5-9d02-811b592953e7/results/e8235eb8-c3d2-45a3-add2-0c45019496b5",
+        "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+        "session_id": "sessions/evaluation-d5599a23-9dd4-4811-8a77-7b0f13a3cbce"
+      },
+      "repeat_statuses": [
+        "PASS",
+        "PASS"
+      ],
+      "repeats": [
+        {
+          "duration_s": 35.43,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-d5599a23-9dd4-4811-8a77-7b0f13a3cbce",
+            "evaluation": "evaluations/b9fd4012-8e60-4ac5-9d02-811b592953e7",
+            "evaluation_result": "evaluations/b9fd4012-8e60-4ac5-9d02-811b592953e7/results/e8235eb8-c3d2-45a3-add2-0c45019496b5",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-d5599a23-9dd4-4811-8a77-7b0f13a3cbce"
+          },
+          "repeat": 1,
+          "status": "PASS",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 35.43,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/evaluation-f5290a60-4dd1-49fa-b836-14ce04cffd10",
+            "evaluation": "evaluations/b9fd4012-8e60-4ac5-9d02-811b592953e7",
+            "evaluation_result": "evaluations/b9fd4012-8e60-4ac5-9d02-811b592953e7/results/96678104-3750-4c1a-9730-a4e56c12341d",
+            "evaluation_run": "evaluationRuns/64540b18-6aa1-4e50-acb4-b18d9a569582",
+            "session_id": "sessions/evaluation-f5290a60-4dd1-49fa-b836-14ce04cffd10"
+          },
+          "repeat": 2,
+          "status": "PASS",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "PASS",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": true,
+      "id": "live_sims::probe_french_across_handoff",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/bc17d794-b053-4735-9381-73ca730cdfde",
+        "session_id": "sessions/bc17d794-b053-4735-9381-73ca730cdfde"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 7.15,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/bc17d794-b053-4735-9381-73ca730cdfde",
+            "session_id": "sessions/bc17d794-b053-4735-9381-73ca730cdfde"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 8.33,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/dc91f533-1ffe-4616-ac10-6d1e37ebc8cc",
+            "session_id": "sessions/dc91f533-1ffe-4616-ac10-6d1e37ebc8cc"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": true,
+      "id": "live_sims::probe_handoff_memory_tokyo",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/21a499a0-2853-477e-bad5-4bbb160b434b",
+        "session_id": "sessions/21a499a0-2853-477e-bad5-4bbb160b434b"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 13.48,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/21a499a0-2853-477e-bad5-4bbb160b434b",
+            "session_id": "sessions/21a499a0-2853-477e-bad5-4bbb160b434b"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 12.46,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/77260609-7a67-4ba9-83ff-afcb738f43fb",
+            "session_id": "sessions/77260609-7a67-4ba9-83ff-afcb738f43fb"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": true,
+      "id": "live_sims::probe_timezone_gate_sydney",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/6a3fa703-83c9-44ec-87fd-faa8dfdd03cb",
+        "session_id": "sessions/6a3fa703-83c9-44ec-87fd-faa8dfdd03cb"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 7.29,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/6a3fa703-83c9-44ec-87fd-faa8dfdd03cb",
+            "session_id": "sessions/6a3fa703-83c9-44ec-87fd-faa8dfdd03cb"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 10.28,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/b7ad436c-c814-40ae-9bca-b976062e5892",
+            "session_id": "sessions/b7ad436c-c814-40ae-9bca-b976062e5892"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": true,
+      "id": "live_sims::probe_tr10_unseen_cities_vienna_and_edinburgh",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/b9dbc1bd-00e7-45ed-a664-bfe85c9fd95b",
+        "session_id": "sessions/b9dbc1bd-00e7-45ed-a664-bfe85c9fd95b"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 5.71,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/b9dbc1bd-00e7-45ed-a664-bfe85c9fd95b",
+            "session_id": "sessions/b9dbc1bd-00e7-45ed-a664-bfe85c9fd95b"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 5.45,
+          "fake_verified": true,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/334b19e0-86d4-445b-a780-49911b06dd0c",
+            "session_id": "sessions/334b19e0-86d4-445b-a780-49911b06dd0c"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_sims::sim_ac1_ac7_next_race_and_timezone_clarification",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/54229bd7-1bc9-4b2e-9348-b767fb809357",
+        "session_id": "sessions/54229bd7-1bc9-4b2e-9348-b767fb809357"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 1.7,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/54229bd7-1bc9-4b2e-9348-b767fb809357",
+            "session_id": "sessions/54229bd7-1bc9-4b2e-9348-b767fb809357"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 1.7,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/1154a44e-6329-4143-ab99-e3629df1c95a",
+            "session_id": "sessions/1154a44e-6329-4143-ab99-e3629df1c95a"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_sims::sim_ac2_mercedes_standings_priority",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/2457f915-a812-468f-b938-ab83d44c6788",
+        "session_id": "sessions/2457f915-a812-468f-b938-ab83d44c6788"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 2.2,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/2457f915-a812-468f-b938-ab83d44c6788",
+            "session_id": "sessions/2457f915-a812-468f-b938-ab83d44c6788"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 1.9,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/0d74fbe3-768a-43fd-b021-c6ca7bff318e",
+            "session_id": "sessions/0d74fbe3-768a-43fd-b021-c6ca7bff318e"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    },
+    {
+      "fake_verified": null,
+      "id": "live_sims::sim_ac5_mock_merch_order_lookup_and_damaged_item",
+      "layer": "live_sims",
+      "platform_ids": {
+        "conversation": "conversations/34d2fa71-1983-4a76-831a-09ebb42243a6",
+        "session_id": "sessions/34d2fa71-1983-4a76-831a-09ebb42243a6"
+      },
+      "repeat_statuses": [
+        "INFRA_ERROR",
+        "INFRA_ERROR"
+      ],
+      "repeats": [
+        {
+          "duration_s": 1.5,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/34d2fa71-1983-4a76-831a-09ebb42243a6",
+            "session_id": "sessions/34d2fa71-1983-4a76-831a-09ebb42243a6"
+          },
+          "repeat": 1,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        },
+        {
+          "duration_s": 1.6,
+          "fake_verified": null,
+          "message": "ok",
+          "platform_ids": {
+            "conversation": "conversations/41ade733-f711-4b81-80c8-6aba5c5071a4",
+            "session_id": "sessions/41ade733-f711-4b81-80c8-6aba5c5071a4"
+          },
+          "repeat": 2,
+          "status": "INFRA_ERROR",
+          "tool_mode": "fake"
+        }
+      ],
+      "status": "INFRA_ERROR",
+      "tool_mode": "fake"
+    }
+  ],
+  "thresholds": {
+    "aggregation": "strict majority of decided repeats (ties FAIL; INFRA_ERROR/SKIPPED repeats ignored)",
+    "baseline_tolerance_pp": 10.0,
+    "layer_floors": {
+      "live_goldens": 0.8,
+      "live_sims": 0.7,
+      "live_tools": 0.95
+    },
+    "max_infra_ratio": 0.25,
+    "max_new_failures": 1,
+    "overall_floor": 0.95
+  },
+  "tool_mode": "fake",
+  "verdict": "PASS"
+}
