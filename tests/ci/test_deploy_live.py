@@ -325,3 +325,26 @@ def test_cli_refuses_off_main_before_resolving_app(monkeypatch, capsys) -> None:
     )
     assert deploy_live.main(["--gate-run-id", "ci-1", "--gate-verdict", "PASS"]) == deploy_live.EXIT_REFUSED
     assert "REFUSED" in capsys.readouterr().err
+
+
+def test_agent_content_matches_repo_ignores_exported_evaluations(tmp_path: Path) -> None:
+    repo = _write_app(tmp_path / "repo_app", "same\n")
+    live_with_evals = _write_app(tmp_path / "live_with_evals", "same\n")
+    (live_with_evals / "evaluations" / "sim_1").mkdir(parents=True)
+    (live_with_evals / "evaluations" / "sim_1" / "sim_1.json").write_text('{"displayName": "sim_1"}\n')
+    (live_with_evals / "evaluationExpectations" / "exp_1").mkdir(parents=True)
+    (live_with_evals / "evaluationExpectations" / "exp_1" / "exp_1.json").write_text('{"displayName": "exp_1"}\n')
+
+    backend = FakeBackend(live_with_evals, [])
+    orig_push = backend.push
+
+    def push_preserving_evals(src_dir: Path, display: str, description: str) -> str:
+        res = orig_push(src_dir, display, description)
+        backend.live_dir = live_with_evals
+        return res
+
+    backend.push = push_preserving_evals  # type: ignore[method-assign]
+    code, record = _run(backend, repo, tmp_path / "out")
+    assert code == 0
+    assert record["agent_content_matches_repo"] is True
+

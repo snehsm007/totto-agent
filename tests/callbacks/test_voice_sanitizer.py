@@ -153,8 +153,17 @@ def test_unexpected_errors_fail_open(agent_dir: Path, capsys: pytest.CaptureFixt
         ("Use `get_race_schedule` ```python", "Use get_race_schedule"),
         ("London -> Tokyo => Sydney", "London - Tokyo - Sydney"),
         ("Order #1003 is __delivered__ * thanks", "Order 1003 is delivered thanks"),
+        ("calling tool end_session...", ""),
     ],
-    ids=["heading_numbered_list", "link_with_domain_label", "www_trailing_slash", "code", "arrows", "hash_bold_stray"],
+    ids=[
+        "heading_numbered_list",
+        "link_with_domain_label",
+        "www_trailing_slash",
+        "code",
+        "arrows",
+        "hash_bold_stray",
+        "calling_tool_narration",
+    ],
 )
 def test_clean_spoken_text_examples(agent_dir: Path, raw: str, spoken: str) -> None:
     ns = _load(agent_dir, "totto_root_agent")

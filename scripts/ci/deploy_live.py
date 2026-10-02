@@ -363,9 +363,16 @@ def run_deploy_live(
             set(repo_vs_after["differing_files"] + repo_vs_after["only_left"] + repo_vs_after["only_right"])
         )
         record["after_vs_repo_changed_files"] = changed
-        # app.json carries server-side identity (name, displayName), so the
-        # agent content check ignores it; every other file must match.
-        record["agent_content_matches_repo"] = not [p for p in changed if p != "app.json"]
+        # app.json carries server-side identity (name, displayName), and
+        # evaluations/ + evaluationExpectations/ are platform-synced from
+        # evals/*.yaml, so the agent content check ignores them; every other
+        # file must match.
+        record["agent_content_matches_repo"] = not [
+            p
+            for p in changed
+            if p != "app.json"
+            and not p.startswith(("evaluations/", "evaluationExpectations/", "evaluationDatasets/"))
+        ]
 
         # (d) phone deployments (entries are appended as they are processed,
         # so a partial failure is still visible in the record)

@@ -46,10 +46,9 @@ def _load_simulations(now_dt: Any) -> list[dict[str, Any]]:
         raw_exps = list(ev.get("expectations", [])) + list(common)
         exps = resolve_dynamic_expectations(raw_exps, now_dt)
         steps = []
-        cap = 2 if "ac1" in name else 1
         for st in ev.get("steps", []):
             st_copy = dict(st)
-            st_copy["max_turns"] = min(int(st_copy.get("max_turns", cap)), cap)
+            st_copy["max_turns"] = int(st_copy.get("max_turns") or 6)
             steps.append(st_copy)
         cases.append(
             {

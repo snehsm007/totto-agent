@@ -223,6 +223,7 @@ def _fake_payload(input: Any, now_utc: datetime) -> dict[str, Any]:
                 "day": dt_utc.strftime("%A"),
                 "local_day": dt_local.strftime("%A"),
                 "date_utc": dt_utc.strftime("%Y-%m-%d"),
+                "local_date": dt_local.strftime("%Y-%m-%d"),
                 "utc_time": dt_utc.strftime("%Y-%m-%d %H:%M UTC"),
                 "time_utc": dt_utc.strftime("%H:%M UTC"),
                 "local_time": f"{dt_local.strftime('%H:%M')} {tz_label}",

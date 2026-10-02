@@ -27,6 +27,7 @@ _BULLET = re.compile(r"(?m)^[ \t]*[*\-\u2022][ \t]+")
 _NUMBERED = re.compile(r"(?m)^[ \t]*\d{1,2}[.)][ \t]+")
 _HASH_NUMBER = re.compile(r"#(?=\d)")
 _ARROW = re.compile(r"[ \t]*(?:->|=>|\u2192)[ \t]*")
+_TOOL_NARRATION = re.compile(r"(?i)\bcalling\s+tool\s+[a-z0-9_]+\s*\.{0,3}")
 _MULTI_SPACE = re.compile(r"[ \t]{2,}")
 
 
@@ -56,6 +57,7 @@ def clean_spoken_text(text: str) -> str:
     out = out.replace("*", "")
     out = _HASH_NUMBER.sub("", out)
     out = _ARROW.sub(" - ", out)
+    out = _TOOL_NARRATION.sub("", out)
     out = _EMOJI.sub("", out)
     out = _MULTI_SPACE.sub(" ", out)
     lines = [line.strip() for line in out.split("\n")]

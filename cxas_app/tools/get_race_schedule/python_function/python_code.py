@@ -732,6 +732,7 @@ def get_race_schedule(
                 "day": dt_utc.strftime("%A"),
                 "local_day": dt_local.strftime("%A"),
                 "date_utc": utc_ymd,
+                "local_date": dt_local.strftime("%Y-%m-%d"),
                 "utc_time": f"{utc_ymd} {utc_hhmm} UTC",
                 "time_utc": f"{utc_hhmm} UTC",
                 "local_time": local_time_str,

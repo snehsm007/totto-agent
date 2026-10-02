@@ -275,3 +275,125 @@ def test_tool_test_yaml_next_race_expectation_follows_the_oracle() -> None:
         assert values["$.result.location"] == expected["location"]
     over = resolve_tool_test_yaml(raw, datetime(2027, 1, 1, tzinfo=timezone.utc))
     assert "{{NEXT_RACE_" not in over and "none remaining in 2026" in over
+
+
+def test_source_tag_ignores_volatile_adk_tool_call_ids() -> None:
+    from totto_suite.layers.live_goldens import source_tag
+
+    g1 = {
+        "displayName": "r4-totto-golden_official_mercedes_links",
+        "tags": ["src-old"],
+        "golden": {
+            "turns": [{"steps": [{"expectation": {"toolCall": {"id": "adk-1111", "tool": "t1"}}}]}]
+        },
+    }
+    g2 = {
+        "displayName": "r4-totto-golden_official_mercedes_links",
+        "tags": ["src-other"],
+        "name": "projects/p/locations/us/apps/a/evaluations/e1",
+        "golden": {
+            "turns": [{"steps": [{"expectation": {"toolCall": {"id": "adk-9999", "tool": "t1"}}}]}]
+        },
+    }
+    assert source_tag(g1) == source_tag(g2)
+
+
+def test_sync_scenario_evaluations_creates_and_is_idempotent() -> None:
+    from totto_suite.layers.live_goldens import _sync_scenario_evaluations
+
+    created_exps: list[dict[str, Any]] = []
+    created_evals: list[Any] = []
+    updated_evals: list[Any] = []
+
+    class FakeEv:
+        def list_evaluations(self):
+            return list(created_evals)
+
+        def list_evaluation_expectations(self, app_name=None):
+            return [
+                SimpleNamespace(
+                    name=x["name"],
+                    display_name=x["display_name"],
+                    llm_criteria=SimpleNamespace(prompt=x["prompt"]),
+                )
+                for x in created_exps
+            ]
+
+        def create_evaluation_expectation(self, exp_dict, app_name=None):
+            name = f"{app_name}/evaluationExpectations/exp-{len(created_exps) + 1}"
+            created_exps.append(
+                {
+                    "name": name,
+                    "display_name": exp_dict["display_name"],
+                    "prompt": exp_dict["llm_criteria"]["prompt"],
+                }
+            )
+            return SimpleNamespace(name=name, display_name=exp_dict["display_name"])
+
+        def create_evaluation(self, evaluation, app_name=None):
+            evaluation.name = f"{app_name}/evaluations/sc-{len(created_evals) + 1}"
+            created_evals.append(evaluation)
+            return evaluation
+
+        def update_evaluation(self, evaluation, app_name=None):
+            updated_evals.append(evaluation)
+            return evaluation
+
+    fake_ev = FakeEv()
+    now_dt = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
+    synced1, changed1 = _sync_scenario_evaluations(
+        fake_ev, "projects/p/locations/us/apps/a", now_dt=now_dt
+    )
+    assert changed1 is True
+    assert len(synced1) == 10
+    assert len(created_evals) == 10
+    assert len(updated_evals) == 0
+    # Verify {{NEXT_RACE}} was resolved in expectation prompts
+    assert not any("{{NEXT_RACE}}" in x["prompt"] for x in created_exps)
+    from google.cloud import ces_v1beta as ces
+    import yaml
+    from totto_suite.layers.live_goldens import SIMS_YAML
+
+    raw_sims = {
+        s["name"]: s["steps"][0]
+        for s in (yaml.safe_load(SIMS_YAML.read_text(encoding="utf-8")) or {}).get("evals", [])
+    }
+
+    for ev_obj in created_evals:
+        assert (
+            ev_obj.scenario.user_goal_behavior
+            == ces.Evaluation.Scenario.UserGoalBehavior.USER_GOAL_SATISFIED
+        )
+        assert ev_obj.scenario.max_turns >= 4
+        raw_step = raw_sims[ev_obj.display_name]
+        expected_goal = str(raw_step["goal"]).strip()
+        expected_criteria = str(raw_step["success_criteria"]).strip()
+        expected_guide = str(raw_step["response_guide"]).strip()
+        assert ev_obj.scenario.task == (
+            f"{expected_goal}\n\n"
+            f"Success Criteria: {expected_criteria}\n\n"
+            f"User Guide: {expected_guide}"
+        )
+        fact_map = {f.name: f.value for f in ev_obj.scenario.user_facts}
+        assert fact_map["customer_persona_and_instructions"] == expected_guide
+        assert fact_map["success_criteria"] == expected_criteria
+
+    # Second call with same now_dt must be a no-op (changed=False)
+    synced2, changed2 = _sync_scenario_evaluations(
+        fake_ev, "projects/p/locations/us/apps/a", now_dt=now_dt
+    )
+    assert changed2 is False
+    assert len(synced2) == 10
+    assert len(updated_evals) == 0
+
+
+def test_live_sims_preserves_multi_turn_max_turns() -> None:
+    from totto_suite.layers.live_sims import _load_simulations
+
+    now_dt = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
+    cases = _load_simulations(now_dt)
+    assert len(cases) >= 3
+    for case in cases:
+        for step in case["steps"]:
+            assert int(step["max_turns"]) >= 4
+

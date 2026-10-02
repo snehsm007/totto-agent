@@ -11,19 +11,24 @@ with ``google.cloud.ces_v1beta`` directly. The platform schedules the runs.
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
 import hashlib
 import json
 import time
 from typing import Any
 
 from google.cloud import ces_v1beta as ces
+from google.protobuf import struct_pb2
+import yaml
 
 from cxas_scrapi.core.evaluations import Evaluations
 from cxas_scrapi.utils.eval_utils import EvalUtils
-from totto_suite import fakes
+from totto_suite import config, fakes
 from totto_suite.live.runner import (
     DEFAULT_APP_NAME,
     is_quota_or_infra_error,
+    resolve_dynamic_expectations,
+    resolve_now,
     save_layer_artifact,
     slugify,
     use_tool_fakes,
@@ -33,6 +38,7 @@ from totto_suite.goldens.definitions import GOLDENS_YAML
 
 LAYER = "live_goldens"
 DISPLAY_PREFIX = "r4-totto-"
+SIMS_YAML = config.REPO_ROOT / "evals" / "simulations" / "simulations.yaml"
 RUN_TIMEOUT_S = 900
 POLL_S = 8
 _TERMINAL_RUN_STATES = {"COMPLETED", "ERROR", "FAILED", "CANCELLED"}
@@ -68,19 +74,181 @@ def _enum_name(value: Any) -> str:
     return str(getattr(value, "name", "") or value or "")
 
 
+def _strip_volatile_ids(obj: Any) -> Any:
+    if isinstance(obj, dict):
+        return {
+            k: _strip_volatile_ids(v)
+            for k, v in obj.items()
+            if not (k == "id" and isinstance(v, str) and v.startswith("adk-"))
+        }
+    if isinstance(obj, list):
+        return [_strip_volatile_ids(x) for x in obj]
+    return obj
+
+
 def source_tag(golden: dict[str, Any]) -> str:
-    """Content hash tag of a golden definition (excluding its tags)."""
-    body = {k: v for k, v in golden.items() if k != "tags"}
+    """Content hash tag of a golden or scenario definition (excluding its tags and random adk- IDs)."""
+    body = _strip_volatile_ids({k: v for k, v in golden.items() if k not in ("tags", "name")})
     digest = hashlib.sha256(
         json.dumps(body, sort_keys=True, ensure_ascii=False, default=str).encode("utf-8")
     ).hexdigest()
     return f"src-{digest[:10]}"
 
 
+def _sync_scenario_evaluations(
+    ev: Evaluations,
+    app_name: str,
+    *,
+    now_dt: datetime | None = None,
+    existing_by_display: dict[str, Any] | None = None,
+) -> tuple[list[tuple[str, str, str]], bool]:
+    """Syncs all simulations from evals/simulations/simulations.yaml as CES Scenario evaluations.
+
+    Returns ([(orig_name, display_name, evaluation_resource_name)], changed).
+    """
+    if not SIMS_YAML.is_file():
+        return [], False
+    now_dt = now_dt or datetime.now(timezone.utc)
+    sims_data = yaml.safe_load(SIMS_YAML.read_text(encoding="utf-8")) or {}
+    sim_defs = sims_data.get("evals") or []
+    if not sim_defs:
+        return [], False
+
+    if existing_by_display is None:
+        existing_by_display = {str(e_obj.display_name): e_obj for e_obj in ev.list_evaluations()}
+
+    existing_exps = ev.list_evaluation_expectations(app_name=app_name)
+    exp_by_prompt: dict[str, str] = {}
+    exp_by_display: dict[str, Any] = {}
+    for exp_obj in existing_exps:
+        prompt_txt = getattr(getattr(exp_obj, "llm_criteria", None), "prompt", "") or ""
+        if prompt_txt:
+            exp_by_prompt[prompt_txt] = str(exp_obj.name)
+        if getattr(exp_obj, "display_name", ""):
+            exp_by_display[str(exp_obj.display_name)] = exp_obj
+
+    synced: list[tuple[str, str, str]] = []
+    changed = False
+    for sim in sim_defs:
+        orig_name = str(sim.get("name") or "sim")
+        display_name = orig_name
+        steps = sim.get("steps") or [{}]
+        step = steps[0] if steps else {}
+        goal = str(step.get("goal") or orig_name).strip()
+        response_guide = str(step.get("response_guide") or "").strip()
+        success_criteria = str(step.get("success_criteria") or "").strip()
+        max_turns = int(step.get("max_turns") or 6)
+        raw_exps = [str(x) for x in (sim.get("expectations") or [])]
+        resolved_exps = resolve_dynamic_expectations(raw_exps, now_dt)
+
+        task_parts = [goal]
+        if success_criteria:
+            task_parts.append(f"Success Criteria: {success_criteria}")
+        if response_guide:
+            task_parts.append(f"User Guide: {response_guide}")
+        task = "\n\n".join(task_parts)
+
+        exp_names: list[str] = []
+        for exp_prompt in resolved_exps:
+            if exp_prompt in exp_by_prompt:
+                exp_names.append(exp_by_prompt[exp_prompt])
+                continue
+            prompt_hash = hashlib.md5(exp_prompt.encode("utf-8")).hexdigest()[:8]
+            exp_display = f"eval_exp_{prompt_hash}"
+            if exp_display in exp_by_display:
+                prompt_hash = hashlib.sha256(exp_prompt.encode("utf-8")).hexdigest()[:10]
+                exp_display = f"eval_exp_{prompt_hash}"
+            created_exp, _ = with_quota_retry(
+                lambda p=exp_prompt, d=exp_display: ev.create_evaluation_expectation(
+                    {"display_name": d, "llm_criteria": {"prompt": p}},
+                    app_name=app_name,
+                ),
+                label=f"create_evaluation_expectation[{exp_display}]",
+            )
+            exp_by_prompt[exp_prompt] = str(created_exp.name)
+            exp_by_display[exp_display] = created_exp
+            exp_names.append(str(created_exp.name))
+            changed = True
+
+        user_facts = []
+        if response_guide:
+            user_facts.append(
+                ces.Evaluation.Scenario.UserFact(
+                    name="customer_persona_and_instructions",
+                    value=response_guide,
+                )
+            )
+        if success_criteria:
+            user_facts.append(
+                ces.Evaluation.Scenario.UserFact(
+                    name="success_criteria",
+                    value=success_criteria,
+                )
+            )
+
+        session_params = dict(sim.get("session_parameters") or {})
+        var_overrides = struct_pb2.Struct()
+        if session_params:
+            var_overrides.update(session_params)
+
+        tag_spec = {
+            "displayName": display_name,
+            "task": task,
+            "maxTurns": max_turns,
+            "expectations": resolved_exps,
+            "sessionParameters": session_params,
+            "userGoalBehavior": "USER_GOAL_SATISFIED",
+        }
+        tag = source_tag(tag_spec)
+        tags = [str(t) for t in (sim.get("tags") or []) if not str(t).startswith("src-")]
+        for extra_tag in ("simulations", "r4-totto", tag):
+            if extra_tag not in tags:
+                tags.append(extra_tag)
+
+        scenario_proto = ces.Evaluation.Scenario(
+            task=task,
+            user_facts=user_facts,
+            max_turns=max_turns,
+            evaluation_expectations=exp_names,
+            variable_overrides=var_overrides,
+            user_goal_behavior=ces.Evaluation.Scenario.UserGoalBehavior.USER_GOAL_SATISFIED,
+        )
+        eval_proto = ces.Evaluation(
+            display_name=display_name,
+            tags=tags,
+            scenario=scenario_proto,
+        )
+
+        existing = existing_by_display.get(display_name)
+        if existing is None:
+            eval_obj, _ = with_quota_retry(
+                lambda ep=eval_proto: ev.create_evaluation(evaluation=ep, app_name=app_name),
+                label=f"create_evaluation[{display_name}]",
+            )
+            changed = True
+        elif tag not in list(getattr(existing, "tags", []) or []):
+            eval_proto.name = str(existing.name)
+            eval_obj, _ = with_quota_retry(
+                lambda ep=eval_proto: ev.update_evaluation(evaluation=ep, app_name=app_name),
+                label=f"update_evaluation[{display_name}]",
+            )
+            changed = True
+        else:
+            eval_obj = existing
+        synced.append((orig_name, display_name, str(eval_obj.name)))
+    return synced, changed
+
+
 def _sync_evaluations(
-    ev: Evaluations, eu: EvalUtils, app_name: str
+    ev: Evaluations,
+    eu: EvalUtils,
+    app_name: str,
+    *,
+    now_dt: datetime | None = None,
 ) -> list[tuple[str, str, str]]:
-    """Returns [(original_name, display_name, evaluation resource name)]."""
+    """Returns [(original_name, display_name, evaluation resource name)] for goldens,
+    while also ensuring Scenario evaluations from simulations.yaml are synced on the app.
+    """
     golden_dicts = eu.load_golden_evals_from_yaml(str(GOLDENS_YAML), auto_sideload=False)
     existing_by_display: dict[str, Any] = {}
     for e_obj in ev.list_evaluations():
@@ -110,7 +278,64 @@ def _sync_evaluations(
         else:
             eval_obj = existing
         synced.append((orig_name, prefixed, str(eval_obj.name)))
+
+    _sync_scenario_evaluations(
+        ev, app_name, now_dt=now_dt, existing_by_display=existing_by_display
+    )
     return synced
+
+
+def sync_all_evaluations(
+    app_name: str,
+    *,
+    now_dt: datetime | None = None,
+) -> dict[str, Any]:
+    """Syncs both Golden evaluations (goldens.yaml) and Scenario evaluations (simulations.yaml)
+    to ``app_name`` on CES. Returns summary dict with ``goldens``, ``scenarios``, and ``changed``.
+    """
+    eu = EvalUtils(app_name=app_name)
+    ev = Evaluations(app_name=app_name)
+    golden_dicts = eu.load_golden_evals_from_yaml(str(GOLDENS_YAML), auto_sideload=False)
+    existing_by_display: dict[str, Any] = {
+        str(e_obj.display_name): e_obj for e_obj in ev.list_evaluations()
+    }
+    changed = False
+    goldens_synced: list[tuple[str, str, str]] = []
+    for g_dict in golden_dicts:
+        orig_name = str(g_dict.get("displayName") or "golden")
+        prefixed = orig_name if orig_name.startswith(DISPLAY_PREFIX) else f"{DISPLAY_PREFIX}{orig_name}"
+        g_dict["displayName"] = prefixed
+        tag = source_tag(g_dict)
+        tags = [t for t in (g_dict.get("tags") or []) if not str(t).startswith("src-")]
+        g_dict["tags"] = tags + ["r4-totto", tag]
+
+        existing = existing_by_display.get(prefixed)
+        if existing is None:
+            eval_obj, _ = with_quota_retry(
+                lambda gd=g_dict: ev.create_evaluation(evaluation=gd, app_name=app_name),
+                label=f"create_evaluation[{prefixed}]",
+            )
+            changed = True
+        elif tag not in list(getattr(existing, "tags", []) or []):
+            g_dict["name"] = str(existing.name)
+            eval_obj, _ = with_quota_retry(
+                lambda gd=g_dict: ev.update_evaluation(evaluation=gd, app_name=app_name),
+                label=f"update_evaluation[{prefixed}]",
+            )
+            changed = True
+        else:
+            eval_obj = existing
+        goldens_synced.append((orig_name, prefixed, str(eval_obj.name)))
+
+    scenarios_synced, scenarios_changed = _sync_scenario_evaluations(
+        ev, app_name, now_dt=now_dt, existing_by_display=existing_by_display
+    )
+    return {
+        "goldens": goldens_synced,
+        "scenarios": scenarios_synced,
+        "changed": changed or scenarios_changed,
+    }
+
 
 
 def _start_run(
@@ -198,7 +423,7 @@ def run(ctx: dict[str, Any]) -> list[dict[str, Any]]:
 
     eu = EvalUtils(app_name=app_name)
     ev = Evaluations(app_name=app_name)
-    synced = _sync_evaluations(ev, eu, app_name)
+    synced = _sync_evaluations(ev, eu, app_name, now_dt=resolve_now(ctx))
     by_eval = {name: (orig, prefixed) for orig, prefixed, name in synced}
 
     t0 = time.monotonic()

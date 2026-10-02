@@ -355,6 +355,34 @@ def ensure_app_settings_persisted(app_name: str, src_dir: Path = DEFAULT_APP_DIR
     return False
 
 
+def preserve_remote_evaluations(app_name: str, copy_dir: Path) -> int:
+    """Syncs Golden + Scenario evaluations on ``app_name`` and copies exported
+    ``evaluations/``, ``evaluationExpectations/``, and ``evaluationDatasets/``
+    into ``copy_dir`` so ``cxas push --overwrite`` preserves existing evaluations
+    and their run history.
+    """
+    if str(REPO_ROOT) not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT))
+    from totto_suite import cxasapi  # pylint: disable=import-outside-toplevel
+    from totto_suite.layers.live_goldens import sync_all_evaluations  # pylint: disable=import-outside-toplevel
+
+    sync_all_evaluations(app_name)
+    with tempfile.TemporaryDirectory(prefix="totto-eval-export-") as exp_tmp:
+        exp_dir = Path(exp_tmp) / "exported"
+        zip_bytes = cxasapi.export_app_bytes(app_name)
+        cxasapi.extract_export(zip_bytes, exp_dir)
+        copied = 0
+        for subdir in ("evaluations", "evaluationExpectations", "evaluationDatasets"):
+            src_sub = exp_dir / subdir
+            dst_sub = Path(copy_dir) / subdir
+            if src_sub.is_dir():
+                if dst_sub.exists():
+                    shutil.rmtree(dst_sub)
+                shutil.copytree(src_sub, dst_sub)
+                copied += sum(1 for p in dst_sub.rglob("*") if p.is_file())
+        return copied
+
+
 def push_app(
     *,
     app_name: str,
@@ -382,6 +410,8 @@ def push_app(
         copy = prepare_app_copy(
             Path(src_dir), Path(tmp), display_name=display_name, audio_bucket=norm_bucket
         )
+        if runner is run_streaming:
+            preserve_remote_evaluations(app_name, copy)
         cmd = build_push_command(
             cxas_bin or cxas_binary(),
             copy,
@@ -402,8 +432,13 @@ def push_app(
     if create_version and not version_name_full:
         raise PushError("cxas push --create-version did not report a created version")
     if runner is run_streaming:
+        if str(REPO_ROOT) not in sys.path:
+            sys.path.insert(0, str(REPO_ROOT))
+        from totto_suite.layers.live_goldens import sync_all_evaluations  # pylint: disable=import-outside-toplevel
+
         patched = ensure_app_settings_persisted(app_name, src_dir=Path(src_dir))
-        if patched and create_version and version_name_full:
+        sync_res = sync_all_evaluations(app_name)
+        if (patched or sync_res.get("changed")) and create_version and version_name_full:
             from cxas_scrapi.core.versions import Versions  # pylint: disable=import-outside-toplevel
 
             v_client = Versions(app_name=app_name)

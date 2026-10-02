@@ -264,3 +264,33 @@ def test_cli_staging_push_writes_identifier_free_json(monkeypatch, tmp_path: Pat
     assert captured["audio_bucket"] == "gs://b"
     written = out.read_text(encoding="utf-8")
     assert "s-uuid" not in written and json.loads(written)["target"] == "staging"
+
+
+def test_preserve_remote_evaluations_copies_evals_into_app_copy(
+    monkeypatch, src_app: Path, tmp_path: Path
+) -> None:
+    import io
+    import zipfile
+    from totto_suite import cxasapi
+    from totto_suite.layers import live_goldens
+
+    synced_apps: list[str] = []
+    monkeypatch.setattr(
+        live_goldens,
+        "sync_all_evaluations",
+        lambda app_name, **kw: synced_apps.append(app_name) or {"changed": False},
+    )
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as z:
+        z.writestr("app/app.json", '{"displayName": "x"}')
+        z.writestr("app/evaluations/sim_1/sim_1.json", '{"displayName": "sim_1"}')
+        z.writestr("app/evaluationExpectations/exp_1/exp_1.json", '{"displayName": "exp_1"}')
+    monkeypatch.setattr(cxasapi, "export_app_bytes", lambda app_name, **kw: buf.getvalue())
+
+    copy = push_app.prepare_app_copy(src_app, tmp_path / "out")
+    copied = push_app.preserve_remote_evaluations(APP, copy)
+    assert synced_apps == [APP]
+    assert copied == 2
+    assert (copy / "evaluations" / "sim_1" / "sim_1.json").is_file()
+    assert (copy / "evaluationExpectations" / "exp_1" / "exp_1.json").is_file()
+
